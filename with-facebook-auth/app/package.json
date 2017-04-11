@@ -1,0 +1,13 @@
+{
+  "name": "with-facebook-auth",
+  "version": "0.0.0",
+  "description": "",
+  "author": "support@expo.io",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "expo": "~15.1.3",
+    "react": "~15.4.0",
+    "react-native": "https://github.com/exponent/react-native/archive/sdk-15.0.0.tar.gz"
+  }
+}
