@@ -1,0 +1,15 @@
+{
+  "name": "with-victory-native",
+  "version": "0.0.0",
+  "description": "Hello Expo!",
+  "author": null,
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "expo": "16.0.0",
+    "lodash": "^4.17.4",
+    "react": "16.0.0-alpha.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-16.0.0.tar.gz",
+    "victory-native": "0.8.0"
+  }
+}
