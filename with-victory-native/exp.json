@@ -1,6 +1,6 @@
 {
   "name": "victory-native-example",
-  "description": "Using victory-native in Expo, see the source: , see the source: https://github.com/expo/examples/blob/master/with-victory-native",
+  "description": "Using victory-native in Expo, see the source: https://github.com/expo/examples/blob/master/with-victory-native",
   "slug": "victory-native-example",
   "privacy": "public",
   "sdkVersion": "16.0.0",
