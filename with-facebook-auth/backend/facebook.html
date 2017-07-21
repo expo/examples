@@ -1,0 +1,10 @@
+<script>
+if (window.location.hash) {
+  var query = window.location.hash.replace(/^#/,'');
+  var url = window.location.origin + '/redirect' + '?' + query;
+  window.location = url;
+  document.write('Authenticating...');
+} else {
+  document.write('Uh oh something went wrong');
+}
+</script>
