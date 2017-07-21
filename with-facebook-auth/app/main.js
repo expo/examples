@@ -4,7 +4,7 @@ import { Alert, Button, Linking, StyleSheet, Text, View } from 'react-native';
 
 const AppID = '288424861584897';
 const RedirectURI = __DEV__
-  ? 'https://redirect-with-params-kwpsftqjdy.now.sh/facebook'
+? 'https://expo-test.ngrok.io/facebook'
   : 'https://redirect-with-params-vwlrmrqtzt.now.sh/facebook';
 const FacebookAuthURI = `https://www.facebook.com/v2.8/dialog/oauth?client_id=${AppID}&redirect_uri=${RedirectURI}`;
 
