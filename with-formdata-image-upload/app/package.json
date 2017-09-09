@@ -1,0 +1,13 @@
+{
+  "name": "image-upload-example-frontend",
+  "version": "0.0.0",
+  "description": "Hello Exponent!",
+  "author": "exponent.team@gmail.com",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "dependencies": {
+    "expo": "^20.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz"
+  }
+}
