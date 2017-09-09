@@ -1,0 +1,186 @@
+/* {card brand} ending in {last4} */
+"%@ Ending In %@" = "%1$@ — %2$@";
+
+/* Title for Add a Card view */
+"Add a Card" = "Ajouter une carte";
+
+/* Button to add a new credit card. */
+"Add New Card…" = "Ajouter une nouvelle carte...";
+
+/* Caption for Address field on address form */
+"Address" = "Adresse";
+
+/* Text for Apple Pay payment method */
+"Apple Pay" = "Apple Pay";
+
+/* Caption for Apartment/Address line 2 field on address form */
+"Apt." = "Numéro d'appartement";
+
+/* Text for back button */
+"Back" = "Retour";
+
+/* Title for billing address entry section */
+"Billing Address" = "Adresse de facturation";
+
+/* Title for credit card number entry field */
+"Card" = "Carte";
+
+/* accessibility label for text field */
+"card number" = "numéro de carte";
+
+/* Caption for City field on address form */
+"City" = "Ville";
+
+/* Title for contact info form */
+"Contact" = "Contact";
+
+/* Caption for Country field on address form */
+"Country" = "Pays";
+
+/* Caption for County field on address form (only countries that use county, like United Kingdom) */
+"County" = "Département";
+
+/* Title for delivery info form */
+"Delivery" = "Livraison";
+
+/* Title for delivery address entry section */
+"Delivery Address" = "Adresse de livraison";
+
+/* Button on SMS verification screen if the user did not receive the SMS code. */
+"Didn't receive the code?" = "Code non reçu ?";
+
+/* Caption for Email field on address form */
+"Email" = "E-mail";
+
+/* No comment provided by engineer. */
+"Enter card details manually" = "Saisissez les détails de la carte manuellement";
+
+/* No comment provided by engineer. */
+"Enter the verification code to use the payment info you stored with Stripe." = "Saisissez le code de vérification pour utiliser vos informations de paiement enregistrées avec Stripe.";
+
+/* accessibility label for text field */
+"expiration date" = "date d’expiration";
+
+/* Error message for checkout account api call */
+"Failed to parse account response" = "L'analyse de la réponse du compte a échoué";
+
+/* Cancel button for Remember Me SMS verification screen. */
+"Fill in your card details manually" = "Saisissez les informations de votre carte manuellement.";
+
+/* Label for free shipping method */
+"Free" = "Gratuit";
+
+/* Message shown when the user enters an incorrect SMS verification code. */
+"Invalid Code" = "Code non valide";
+
+/* Shipping form error message */
+"Invalid Shipping Address" = "Adresse d'expédition incorrecte";
+
+/* Title for screen when data is still loading from the network. */
+"Loading…" = "Chargement en cours...";
+
+/* Caption for Name field on address form */
+"Name" = "Nom";
+
+/* Button to move to the next text entry field */
+"Next" = "Suiv.";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* Button to paste a copied SMS code into the verification field. */
+"Paste copied code?" = "Coller le code copié ?";
+
+/* Title for Payment Method screen */
+"Payment Method" = "Moyen de paiement";
+
+/* Caption for Phone field on address form */
+"Phone" = "Téléphone";
+
+/* Caption for Postal Code field on address form (only shown in countries other than the United States) */
+"Postal Code" = "Code postal";
+
+/* Caption for Province field on address form (only countries that use province, like Canada) */
+"Province" = "Province";
+
+/* Label for the switch to enable Remember Me */
+"Save for use in other apps" = "Enregistrer pour une utilisation dans d’autres applications";
+
+/* Title for shipping info form */
+"Shipping" = "Expédition";
+
+/* Title for shipping address entry section */
+"Shipping Address" = "Adresse d'expédition";
+
+/* Label for shipping method form */
+"Shipping Method" = "Mode d'expédition";
+
+/* Error message for Remember Me network error. More detailed cause of the error will be filled into the substitution. */
+"Something went wrong with Remember Me: %@" = "Un problème est survenu avec \"Se souvenir de moi\" : %@";
+
+/* Caption for State field on address form (only countries that use state , like United States) */
+"State" = "État";
+
+/* Caption for generalized state/province/region field on address form (not tied to a specific country's format) */
+"State / Province / Region" = "Département/État/Province/Région";
+
+/* Footer shown when the user enables Remember Me that shows additional info. The html-style tags control which parts of the text link to the Stripe Privacy Policy, Terms of Service, and Remember Me More Info pages, and can be moved around as needed in the translation (although they CANNOT overlap). */
+"Stripe may store my payment info and phone number for use in this app and other apps, and use my number for verification, subject to Stripe's <pplink>Privacy Policy</pplink> and <termslink>Terms</termslink>. <infolink>More Info</infolink>" = "Stripe peut enregistrer mes informations de paiement et mon numéro de téléphone pour les utiliser dans cette application et dans d’autres applications, et utiliser mon numéro à des fins de vérification, conformément à la <pplink>politique de confidentialité</pplink> et aux <termslink>conditions générales</termslink> de Stripe. <infolink>En savoir plus</infolink>";
+
+/* Error message for network request being cancelled. */
+"The operation was cancelled" = "Opération annulée";
+
+/* Error when there is a problem processing the credit card */
+"There was an error processing your card -- try again in a few seconds" = "Une erreur est survenue lors du traitement de votre carte. Réessayez dans quelques secondes.";
+
+/* No comment provided by engineer. */
+"There was an error submitting your autofilled card details." = "Une erreur est survenue lors de l’envoi des détails de votre carte remplis automatiquement.";
+
+/* Unexpected error, such as a 500 from Stripe or a JSON parse error */
+"There was an unexpected error -- try again in a few seconds" = "Une erreur inattendue est survenue. Réessayez dans quelques secondes.";
+
+/* Error message when failing to type in SMS code for Remember me too many times. */
+"Too many incorrect attempts" = "Trop de tentatives incorrectes";
+
+/* Button to fill shipping address from billing address. */
+"Use Billing" = "Utiliser adr. facturation";
+
+/* Button to fill billing address from delivery address */
+"Use Delivery" = "Utiliser adr. livraison";
+
+/* Button to fill billing address from shipping address. */
+"Use Shipping" = "Utiliser adr. expédition";
+
+/* Title for SMS verification code screen */
+"Verification Code" = "Code de vérification";
+
+/* Message shown after sending SMS verification code. The substitution is a phone number. */
+"We just sent a text message to: %@" = "Nous avons envoyé un SMS au : %@";
+
+/* Placeholder text for non-Amex CVC field (3 digits) */
+"XXX" = "XXX";
+
+/* Placeholder text for Amex CVC field (4 digits) */
+"XXXX" = "XXXX";
+
+/* Error when the card has already expired */
+"Your card has expired" = "Votre carte est arrivée à expiration.";
+
+/* Error when the card was declined by the credit card networks */
+"Your card was declined" = "Votre carte a été refusée.";
+
+/* Error when the card's expiration month is not valid */
+"Your card's expiration month is invalid" = "Le mois d’expiration de votre carte n’est pas valide.";
+
+/* Error when the card's expiration year is not valid */
+"Your card's expiration year is invalid" = "L’année d’expiration de votre carte n’est pas valide.";
+
+/* Error when the card number is not valid */
+"Your card's number is invalid" = "Le numéro de carte n’est pas valide.";
+
+/* Error when the card's CVC is not valid */
+"Your card's security code is invalid" = "Le code de sécurité de votre carte n’est pas valide.";
+
+/* Caption for Zip Code field on address form (only shown when country is United States only) */
+"ZIP Code" = "Code postal";
+

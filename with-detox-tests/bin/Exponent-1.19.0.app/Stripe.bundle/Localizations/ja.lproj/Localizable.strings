@@ -1,0 +1,186 @@
+/* {card brand} ending in {last4} */
+"%@ Ending In %@" = "%1$@ — %2$@";
+
+/* Title for Add a Card view */
+"Add a Card" = "カードを追加";
+
+/* Button to add a new credit card. */
+"Add New Card…" = "新しいカードの追加...";
+
+/* Caption for Address field on address form */
+"Address" = "住所";
+
+/* Text for Apple Pay payment method */
+"Apple Pay" = "Apple Pay";
+
+/* Caption for Apartment/Address line 2 field on address form */
+"Apt." = "建物名";
+
+/* Text for back button */
+"Back" = "戻る";
+
+/* Title for billing address entry section */
+"Billing Address" = "請求先住所";
+
+/* Title for credit card number entry field */
+"Card" = "カード番号";
+
+/* accessibility label for text field */
+"card number" = "カード番号";
+
+/* Caption for City field on address form */
+"City" = "市";
+
+/* Title for contact info form */
+"Contact" = "連絡先";
+
+/* Caption for Country field on address form */
+"Country" = "国";
+
+/* Caption for County field on address form (only countries that use county, like United Kingdom) */
+"County" = "群";
+
+/* Title for delivery info form */
+"Delivery" = "配達先情報";
+
+/* Title for delivery address entry section */
+"Delivery Address" = "配達先住所";
+
+/* Button on SMS verification screen if the user did not receive the SMS code. */
+"Didn't receive the code?" = "確認コードを受けとっていませんか?";
+
+/* Caption for Email field on address form */
+"Email" = "メールアドレス";
+
+/* No comment provided by engineer. */
+"Enter card details manually" = "カード情報を手動で入力してください";
+
+/* No comment provided by engineer. */
+"Enter the verification code to use the payment info you stored with Stripe." = "Stripe に保存した支払情報を使用するには確認コードの入力が必要です。";
+
+/* accessibility label for text field */
+"expiration date" = "有効期限";
+
+/* Error message for checkout account api call */
+"Failed to parse account response" = "アカウントの応答を解析できませんでした";
+
+/* Cancel button for Remember Me SMS verification screen. */
+"Fill in your card details manually" = "カード情報を手動で入力してください";
+
+/* Label for free shipping method */
+"Free" = "無料";
+
+/* Message shown when the user enters an incorrect SMS verification code. */
+"Invalid Code" = "確認コードが無効です";
+
+/* Shipping form error message */
+"Invalid Shipping Address" = "配送先住所エラー";
+
+/* Title for screen when data is still loading from the network. */
+"Loading…" = "ロード中...";
+
+/* Caption for Name field on address form */
+"Name" = "名前";
+
+/* Button to move to the next text entry field */
+"Next" = "次へ";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* Button to paste a copied SMS code into the verification field. */
+"Paste copied code?" = "コピーした確認コードを貼り付けますか?";
+
+/* Title for Payment Method screen */
+"Payment Method" = "お支払い方法";
+
+/* Caption for Phone field on address form */
+"Phone" = "電話";
+
+/* Caption for Postal Code field on address form (only shown in countries other than the United States) */
+"Postal Code" = "郵便番号";
+
+/* Caption for Province field on address form (only countries that use province, like Canada) */
+"Province" = "省";
+
+/* Label for the switch to enable Remember Me */
+"Save for use in other apps" = "他のアプリで使用するために保存";
+
+/* Title for shipping info form */
+"Shipping" = "配送先情報";
+
+/* Title for shipping address entry section */
+"Shipping Address" = "配送先住所";
+
+/* Label for shipping method form */
+"Shipping Method" = "配送方法";
+
+/* Error message for Remember Me network error. More detailed cause of the error will be filled into the substitution. */
+"Something went wrong with Remember Me: %@" = "保存中にネットワークエラーが発生しました: %@";
+
+/* Caption for State field on address form (only countries that use state , like United States) */
+"State" = "州";
+
+/* Caption for generalized state/province/region field on address form (not tied to a specific country's format) */
+"State / Province / Region" = "都道府県";
+
+/* Footer shown when the user enables Remember Me that shows additional info. The html-style tags control which parts of the text link to the Stripe Privacy Policy, Terms of Service, and Remember Me More Info pages, and can be moved around as needed in the translation (although they CANNOT overlap). */
+"Stripe may store my payment info and phone number for use in this app and other apps, and use my number for verification, subject to Stripe's <pplink>Privacy Policy</pplink> and <termslink>Terms</termslink>. <infolink>More Info</infolink>" = "入力した支払い情報と電話番号は、Stripe の<pplink>プライバシーポリシー</pplink>と<termslink>利用規約</termslink>に基づき、このアプリおよび他のアプリで使用するために Stripe によって保管されます。Stripe はこの電話番号を確認のために使用することがあります。<infolink>詳しくはこちら</infolink>";
+
+/* Error message for network request being cancelled. */
+"The operation was cancelled" = "処理がキャンセルされました";
+
+/* Error when there is a problem processing the credit card */
+"There was an error processing your card -- try again in a few seconds" = "クレジットカード情報の処理中にエラーが発生しました。数秒後にもう一度お試しください";
+
+/* No comment provided by engineer. */
+"There was an error submitting your autofilled card details." = "自動入力されたクレジットカード情報の送信でエラーが発生しました。";
+
+/* Unexpected error, such as a 500 from Stripe or a JSON parse error */
+"There was an unexpected error -- try again in a few seconds" = "予期しないエラーが発生しました。数秒後にもう一度お試しください";
+
+/* Error message when failing to type in SMS code for Remember me too many times. */
+"Too many incorrect attempts" = "再試行の回数が上限を超えました";
+
+/* Button to fill shipping address from billing address. */
+"Use Billing" = "請求先を使用";
+
+/* Button to fill billing address from delivery address */
+"Use Delivery" = "配達先を使用";
+
+/* Button to fill billing address from shipping address. */
+"Use Shipping" = "配送先を使用";
+
+/* Title for SMS verification code screen */
+"Verification Code" = "確認コード";
+
+/* Message shown after sending SMS verification code. The substitution is a phone number. */
+"We just sent a text message to: %@" = "次の電話番号に確認コードを送信しました: %@";
+
+/* Placeholder text for non-Amex CVC field (3 digits) */
+"XXX" = "XXX";
+
+/* Placeholder text for Amex CVC field (4 digits) */
+"XXXX" = "XXXX";
+
+/* Error when the card has already expired */
+"Your card has expired" = "カードの有効期限が切れています";
+
+/* Error when the card was declined by the credit card networks */
+"Your card was declined" = "カードが拒否されました";
+
+/* Error when the card's expiration month is not valid */
+"Your card's expiration month is invalid" = "カードの有効期限として指定した月が無効です";
+
+/* Error when the card's expiration year is not valid */
+"Your card's expiration year is invalid" = "カードの有効期限として指定した年が無効です";
+
+/* Error when the card number is not valid */
+"Your card's number is invalid" = "カードの番号が無効です";
+
+/* Error when the card's CVC is not valid */
+"Your card's security code is invalid" = "指定したカードのセキュリティコードが無効です";
+
+/* Caption for Zip Code field on address form (only shown when country is United States only) */
+"ZIP Code" = "郵便番号";
+

@@ -1,0 +1,186 @@
+/* {card brand} ending in {last4} */
+"%@ Ending In %@" = "%1$@ — %2$@";
+
+/* Title for Add a Card view */
+"Add a Card" = "添加一张卡";
+
+/* Button to add a new credit card. */
+"Add New Card…" = "添加新卡……";
+
+/* Caption for Address field on address form */
+"Address" = "地址";
+
+/* Text for Apple Pay payment method */
+"Apple Pay" = "Apple Pay";
+
+/* Caption for Apartment/Address line 2 field on address form */
+"Apt." = "第二行地址";
+
+/* Text for back button */
+"Back" = "返回";
+
+/* Title for billing address entry section */
+"Billing Address" = "帐单地址";
+
+/* Title for credit card number entry field */
+"Card" = "卡号";
+
+/* accessibility label for text field */
+"card number" = "卡号";
+
+/* Caption for City field on address form */
+"City" = "城市";
+
+/* Title for contact info form */
+"Contact" = "联系信息";
+
+/* Caption for Country field on address form */
+"Country" = "国家";
+
+/* Caption for County field on address form (only countries that use county, like United Kingdom) */
+"County" = "县";
+
+/* Title for delivery info form */
+"Delivery" = "递送信息";
+
+/* Title for delivery address entry section */
+"Delivery Address" = "递送地址";
+
+/* Button on SMS verification screen if the user did not receive the SMS code. */
+"Didn't receive the code?" = "尚未收到验证码？";
+
+/* Caption for Email field on address form */
+"Email" = "电子邮件";
+
+/* No comment provided by engineer. */
+"Enter card details manually" = "手动输入银行卡详情";
+
+/* No comment provided by engineer. */
+"Enter the verification code to use the payment info you stored with Stripe." = "输入验证码以便使用您储存在 Stripe 中的支付信息。";
+
+/* accessibility label for text field */
+"expiration date" = "有效日期";
+
+/* Error message for checkout account api call */
+"Failed to parse account response" = "分析帐户响应失败";
+
+/* Cancel button for Remember Me SMS verification screen. */
+"Fill in your card details manually" = "手动填写您的银行卡详情";
+
+/* Label for free shipping method */
+"Free" = "免费";
+
+/* Message shown when the user enters an incorrect SMS verification code. */
+"Invalid Code" = "验证码无效";
+
+/* Shipping form error message */
+"Invalid Shipping Address" = "无效配送地址";
+
+/* Title for screen when data is still loading from the network. */
+"Loading…" = "正在加载……";
+
+/* Caption for Name field on address form */
+"Name" = "姓名";
+
+/* Button to move to the next text entry field */
+"Next" = "下一步";
+
+/* No comment provided by engineer. */
+"OK" = "确定";
+
+/* Button to paste a copied SMS code into the verification field. */
+"Paste copied code?" = "粘贴已复制的验证码？";
+
+/* Title for Payment Method screen */
+"Payment Method" = "支付方式";
+
+/* Caption for Phone field on address form */
+"Phone" = "电话";
+
+/* Caption for Postal Code field on address form (only shown in countries other than the United States) */
+"Postal Code" = "邮政编码";
+
+/* Caption for Province field on address form (only countries that use province, like Canada) */
+"Province" = "省";
+
+/* Label for the switch to enable Remember Me */
+"Save for use in other apps" = "保存供其它应用使用";
+
+/* Title for shipping info form */
+"Shipping" = "配送信息";
+
+/* Title for shipping address entry section */
+"Shipping Address" = "送货地址";
+
+/* Label for shipping method form */
+"Shipping Method" = "配送方式";
+
+/* Error message for Remember Me network error. More detailed cause of the error will be filled into the substitution. */
+"Something went wrong with Remember Me: %@" = "“保存我的信息”出错：%@";
+
+/* Caption for State field on address form (only countries that use state , like United States) */
+"State" = "州";
+
+/* Caption for generalized state/province/region field on address form (not tied to a specific country's format) */
+"State / Province / Region" = "州/省/地区";
+
+/* Footer shown when the user enables Remember Me that shows additional info. The html-style tags control which parts of the text link to the Stripe Privacy Policy, Terms of Service, and Remember Me More Info pages, and can be moved around as needed in the translation (although they CANNOT overlap). */
+"Stripe may store my payment info and phone number for use in this app and other apps, and use my number for verification, subject to Stripe's <pplink>Privacy Policy</pplink> and <termslink>Terms</termslink>. <infolink>More Info</infolink>" = "Stripe 可存储我的支付信息和电话号码，供此应用及其它应用所使用，并使用我的号码用于进行验证，受到 Stripe <pplink>隐私政策</pplink>和<termslink>条款</termslink>的制约。<infolink>更多信息</infolink>";
+
+/* Error message for network request being cancelled. */
+"The operation was cancelled" = "操作已取消";
+
+/* Error when there is a problem processing the credit card */
+"There was an error processing your card -- try again in a few seconds" = "处理您的银行卡时发生错误 —— 请过几秒钟再试";
+
+/* No comment provided by engineer. */
+"There was an error submitting your autofilled card details." = "提交您自动填充的银行卡详情时发生错误。";
+
+/* Unexpected error, such as a 500 from Stripe or a JSON parse error */
+"There was an unexpected error -- try again in a few seconds" = "发生意外错误 —— 请过几秒钟再试";
+
+/* Error message when failing to type in SMS code for Remember me too many times. */
+"Too many incorrect attempts" = "过多错误的尝试";
+
+/* Button to fill shipping address from billing address. */
+"Use Billing" = "使用帐单地址";
+
+/* Button to fill billing address from delivery address */
+"Use Delivery" = "使用递送地址";
+
+/* Button to fill billing address from shipping address. */
+"Use Shipping" = "使用送货地址";
+
+/* Title for SMS verification code screen */
+"Verification Code" = "验证码";
+
+/* Message shown after sending SMS verification code. The substitution is a phone number. */
+"We just sent a text message to: %@" = "我们刚发送了一条短信到：%@";
+
+/* Placeholder text for non-Amex CVC field (3 digits) */
+"XXX" = "XXX";
+
+/* Placeholder text for Amex CVC field (4 digits) */
+"XXXX" = "XXXX";
+
+/* Error when the card has already expired */
+"Your card has expired" = "您的银行卡已过期";
+
+/* Error when the card was declined by the credit card networks */
+"Your card was declined" = "您的银行卡已被拒绝";
+
+/* Error when the card's expiration month is not valid */
+"Your card's expiration month is invalid" = "您的银行卡有效日期的月份无效";
+
+/* Error when the card's expiration year is not valid */
+"Your card's expiration year is invalid" = "您的银行卡有效日期的年份无效";
+
+/* Error when the card number is not valid */
+"Your card's number is invalid" = "您的卡号无效";
+
+/* Error when the card's CVC is not valid */
+"Your card's security code is invalid" = "您的银行卡安全码无效";
+
+/* Caption for Zip Code field on address form (only shown when country is United States only) */
+"ZIP Code" = "邮政编码";
+
