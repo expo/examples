@@ -4,34 +4,30 @@ Try it at https://expo.io/@community/with-facebook-auth
 
 ## How to use
 
+### Running the app
+
+- `cd` into the `app` directory and run `yarn` or `npm install`
+- Open `app` with `exp` or XDE, try it out.
+- Press "Open FB Auth" in the app and then check your logs. Take the `redirectUrl` that was logged and enter it into the "Valid OAuth redirect URIs" in your Facebook app configuration step below.
+
 ### Setting up the Facebook app
 
 - Follow the steps [described in the Facebook for Developers documentation](https://developers.facebook.com/docs/apps/register)
 - Add the "Facebook Login" product and configure it ([screenshot](https://raw.githubusercontent.com/expo/examples/master/with-facebook-auth/_assets/add-facebook-login.png))
 - Make the app public ([screenshot](https://raw.githubusercontent.com/expo/examples/master/with-facebook-auth/_assets/make-public.png))
-
-### Running the app
-
-- `cd` into the `app` directory and run `yarn` or `npm install`
-- Open `app` with `exp` or XDE, try it out.
-
-### Running the server (optional)
-
-- `cd` into the `backend` directory and run `yarn` or `npm install`,
-then run `yarn start`
+- Swap out the `FB_APP_ID` in `App.js` with your Facebook app's id.
 
 ## The idea behind the example
 
 Expo provides a
-[WebBrowser](https://docs.expo.io/versions/v15.0.0/sdk/webbrowser.html)
+[WebBrowser](https://docs.expo.io/versions/latest/sdk/webbrowser.html)
 API that opens a SFSafariViewController or Chrome Custom Tab in a modal
 window. This provides a much better user experience than using a
 WebView, and it's more secure for your users because code cannot be
 injected into these browser windows. Additionally, they share cookies
 with the system browser, so there is no need to re-enter credentials if
-already authenticated. This example demonstrates how to use this API to
-sign in to Facebook. One quirk with Facebook authentication is that they
-do not allow you to specify a redirect URI with a custom scheme, so the
-backend piece of this example is a small express server that redirects
-to our `exp://` URI and passes along the query parameters from the
-original redirect.
+already authenticated. Expo also provides a wrapper around the `WebBrowser`
+API which is called [AuthSession](https://docs.expo.io/versions/latest/sdk/auth-session.html),
+which makes setting up an authentication flow using `WebBrowser` dead simple.
+This example demonstrates how to use the `AuthSession` API to sign in to
+Facebook.
