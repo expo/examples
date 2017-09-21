@@ -1418,9 +1418,9 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expo@21.0.0-rc.1:
-  version "21.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-21.0.0-rc.1.tgz#d7a2cc9c29d6f70e0bbd045f1e1dd05606231765"
+expo@^21.0.0:
+  version "21.0.0"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-21.0.0.tgz#c94a1a2fe9f78e5611c8efa4aa27cd1cbe35bff3"
   dependencies:
     "@expo/vector-icons" "^5.0.0"
     babel-preset-expo "^3.0.0"
@@ -1433,11 +1433,11 @@ expo@21.0.0-rc.1:
     prop-types "^15.5.10"
     qs "^6.5.0"
     react-native-branch "2.0.0-beta.3"
-    react-native-gesture-handler "1.0.0-alpha.21"
+    react-native-gesture-handler "1.0.0-alpha.22"
     react-native-maps "0.15.3"
     react-native-svg "5.3.0"
     uuid-js "^0.7.5"
-    websql expo/node-websql#18.0.0
+    websql "https://github.com/expo/node-websql/archive/18.0.0.tar.gz"
 
 express-session@~1.11.3:
   version "1.11.3"
@@ -2922,9 +2922,9 @@ react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
 
-react-native-gesture-handler@1.0.0-alpha.21:
-  version "1.0.0-alpha.21"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.0-alpha.21.tgz#143d5858228f7af890d5cd8f76aa1b6f857255b9"
+react-native-gesture-handler@1.0.0-alpha.22:
+  version "1.0.0-alpha.22"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.0-alpha.22.tgz#96e5ae08b26a9e99d115f6e16f63d7487ef995fc"
   dependencies:
     prop-types "^15.5.10"
 
@@ -2953,9 +2953,9 @@ react-native-vector-icons@4.1.1:
     prop-types "^15.5.8"
     yargs "^6.3.0"
 
-react-native@expo/react-native#sdk-21:
-  version "0.48.3"
-  resolved "https://codeload.github.com/expo/react-native/tar.gz/8aca15e02a211d9f2ac2ac17f145f571a1ff6631"
+"react-native@https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz":
+  version "0.48.4"
+  resolved "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz#a26ae48f77a0ac91acd19b1bb60d63737075f3ef"
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"
@@ -3767,9 +3767,9 @@ watch@~0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/watch/-/watch-0.10.0.tgz#77798b2da0f9910d595f1ace5b0c2258521f21dc"
 
-"websql@github:expo/node-websql#18.0.0":
+"websql@https://github.com/expo/node-websql/archive/18.0.0.tar.gz":
   version "0.4.4"
-  resolved "https://codeload.github.com/expo/node-websql/tar.gz/e364fa65146a9e2157a19e5c719e7702c2b6b87a"
+  resolved "https://github.com/expo/node-websql/archive/18.0.0.tar.gz#39b12a08b0180495de1412d8a64a529e21ad554e"
   dependencies:
     argsarray "^0.0.1"
     immediate "^3.2.2"

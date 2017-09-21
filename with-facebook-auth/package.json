@@ -6,8 +6,8 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "expo": "21.0.0-rc.1",
+    "expo": "^21.0.0",
     "react": "16.0.0-alpha.12",
-    "react-native": "expo/react-native#sdk-21"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz"
   }
 }
