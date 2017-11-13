@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "with-postpublish-hooks",
+    "slug": "with-postpublish-hooks",
+    "description": "Demo project with postPublish hooks. The actual app itself is empty, the interesting part is in the hooks configuration in exp.json",
+    "privacy": "unlisted",
+    "sdkVersion": "22.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "./hooks/echo",
+          "config": {
+            "message": "hello brent"
+          }
+        },
+        {
+          "file": "expo-postpublish-slack-notify",
+          "config": {
+            "webhookUrl": "https://hooks.slack.com/your-webhook-info-here"
+          }
+        }
+      ]
+    }
+  }
+}

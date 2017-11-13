@@ -5,9 +5,9 @@
 ## Configure it
 
 - Create an incoming webhook for your Slack server and replace
-`https://hooks.slack.com/put-your-stuff-here` in `exp.json` with your
+`https://hooks.slack.com/put-your-stuff-here` in `app.json` with your
 webhook url -- or remove the `expo-postpublish-slack-notify` hook
-entirely from `exp.json`.
+entirely from `app.json`.
 
 ## Running the app
 
