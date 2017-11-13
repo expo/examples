@@ -1,15 +1,14 @@
-import Expo from 'expo';
-import { random, range } from "lodash";
+import { random, range, round } from "lodash";
 import React, { Component } from "react";
 import {
   ScrollView,
   StyleSheet,
   Platform,
-  Text
+  Text,
+  Dimensions
 } from "react-native";
 import Svg from "react-native-svg";
 import {
-  VictoryVoronoiTooltip,
   VictoryAxis,
   VictoryChart,
   VictoryGroup,
@@ -25,9 +24,14 @@ import {
   VictoryVoronoiContainer,
   VictorySelectionContainer,
   VictoryBrushContainer,
+  VictoryCursorContainer,
   VictoryPie,
+  VictoryLabel,
+  VictoryLegend,
   createContainer
 } from "victory-native";
+
+import { VictoryTheme } from "victory-core";
 
 const styles = StyleSheet.create({
   container: {
@@ -48,15 +52,60 @@ const styles = StyleSheet.create({
 });
 
 const candleData = [
-  {x: 1, open: 9, close: 30, high: 56, low: 7},
-  {x: 2, open: 80, close: 40, high: 120, low: 10},
-  {x: 3, open: 50, close: 80, high: 90, low: 20},
-  {x: 4, open: 70, close: 22, high: 70, low: 5},
-  {x: 5, open: 20, close: 35, high: 50, low: 10},
-  {x: 6, open: 35, close: 30, high: 40, low: 3},
-  {x: 7, open: 30, close: 90, high: 95, low: 30},
-  {x: 8, open: 80, close: 81, high: 83, low: 75}
+  { x: 1, open: 9, close: 30, high: 56, low: 7 },
+  { x: 2, open: 80, close: 40, high: 120, low: 10 },
+  { x: 3, open: 50, close: 80, high: 90, low: 20 },
+  { x: 4, open: 70, close: 22, high: 70, low: 5 },
+  { x: 5, open: 20, close: 35, high: 50, low: 10 },
+  { x: 6, open: 35, close: 30, high: 40, low: 3 },
+  { x: 7, open: 30, close: 90, high: 95, low: 30 },
+  { x: 8, open: 80, close: 81, high: 83, low: 75 }
 ];
+
+const legendData = [{
+  name: "Series 1",
+  symbol: {
+    type: "circle",
+    fill: "green"
+  }
+}, {
+  name: "Long Series Name",
+  symbol: {
+    type: "triangleUp",
+    fill: "blue"
+  }
+}, {
+  name: "Series 3",
+  symbol: {
+    type: "diamond",
+    fill: "pink"
+  }
+}, {
+  name: "Series 4",
+  symbol: {
+    type: "plus"
+  }
+}, {
+  name: "Series 5",
+  symbol: {
+    type: "star",
+    fill: "red"
+  },
+  labels: {
+    fill: "purple"
+  }
+}, {
+  name: "Series 6",
+  symbol: {
+    type: "circle",
+    fill: "orange"
+  },
+  labels: {
+    fill: "blue"
+  }
+}];
+
+const legendStyle = { border: { stroke: "black" } };
 
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
 
@@ -73,17 +122,22 @@ export default class Demo extends Component {
       data: this.getData()
     };
   }
+
+  componentDidMount() {
+    setInterval(this.updateDemoData.bind(this), 3000);
+  }
+
   getYFunction() {
     const n = random(2, 7);
     return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
   }
 
   generateRandomData(points = 6) {
-    return range(1, points + 1).map((i) => ({x: i, y: i + random(-1, 2)}));
+    return range(1, points + 1).map((i) => ({ x: i, y: i + random(-1, 2) }));
   }
 
   getData() {
-    return range(1, 10).map((i) => ({x: i, y: random(1, 10)}));
+    return range(1, 10).map((i) => ({ x: i, y: random(1, 10) }));
   }
 
   getStyles() {
@@ -108,7 +162,7 @@ export default class Demo extends Component {
   }
 
   changeScroll(scrollEnabled) {
-    this.setState({scrollEnabled});
+    this.setState({ scrollEnabled });
   }
 
   updateDemoData() {
@@ -121,15 +175,67 @@ export default class Demo extends Component {
     });
   }
 
-  componentDidMount() {
-    setInterval(this.updateDemoData.bind(this), 3000);
-  }
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container} scrollEnabled={this.state.scrollEnabled}>
         <Text style={styles.text}>{"Victory"}</Text>
         <Text style={styles.text}>{"Native"}</Text>
         <Text style={styles.text}>{"Demo\n"}</Text>
+        <Svg width={Dimensions.get("window").width} height={300}>
+          <VictoryLegend
+            x={5} y={10}
+            standalone={false}
+            data={legendData}
+            style={legendStyle}
+          />
+          <VictoryLegend
+            x={5} y={200}
+            data={legendData}
+            standalone={false}
+            itemsPerRow={3}
+            style={legendStyle}
+          />
+        </Svg>
+
+        <VictoryChart polar theme={VictoryTheme.material}>
+          <VictoryBar
+            style={{ data: { fill: "tomato", opacity: 0.5 } }}
+            data={[
+              { x: 15, y: 20, label: 1, fill: "red" },
+              { x: 25, y: 30, label: 2, fill: "orange" },
+              { x: 35, y: 65, label: 3, fill: "gold" },
+              { x: 40, y: 50, label: 4, fill: "blue" },
+              { x: 45, y: 40, label: 5, fill: "cyan" },
+              { x: 50, y: 30, label: 6, fill: "green" }
+            ]}
+          />
+          <VictoryScatter
+            style={{ data: { fill: "black" } }}
+            data={[
+              { x: 15, y: 20 },
+              { x: 25, y: 30 },
+              { x: 35, y: 65 },
+              { x: 40, y: 50 },
+              { x: 45, y: 40 },
+              { x: 50, y: 30 }
+            ]}
+          />
+        </VictoryChart>
+
+        <Text style={styles.text}>{"VictoryCursorContainer"}</Text>
+        <VictoryChart
+          containerComponent={
+            <VictoryCursorContainer
+              onTouchStart={() => this.changeScroll(false)}
+              onTouchEnd={() => this.changeScroll(true)}
+              cursorLabel={(d) => (`${round(d.x, 2)} , ${round(d.y, 2)}`)}
+            />
+          }
+        >
+          { /* this causes a crash: <VictoryAxis tickLabelComponent={<VictoryLabel angle={45}/>}/> */ }
+          { /* https://github.com/FormidableLabs/victory-native/issues/171 */ }
+          <VictoryBar/>
+        </VictoryChart>
 
         <Text style={styles.text}>{"VictoryBrushContainer"}</Text>
         <VictoryChart
@@ -137,11 +243,11 @@ export default class Demo extends Component {
             <VictoryBrushContainer
               onTouchStart={() => this.changeScroll(false)}
               onTouchEnd={() => this.changeScroll(true)}
-              selectionStyle={{fill: "blue", fillOpacity: 0.1}}
+              selectionStyle={{ fill: "blue", fillOpacity: 0.1 }}
             />
           }
         >
-         <VictoryBar/>
+          <VictoryBar/>
         </VictoryChart>
 
         <Text style={styles.text}>{"VictorySelectionContainer"}</Text>
@@ -155,7 +261,7 @@ export default class Demo extends Component {
         >
           <VictoryScatter
             data={this.state.staticRandomData}
-            style={{ data: {fill: (d, active) => active ? "tomato" : "gray"}}}
+            style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
           />
         </VictoryChart>
 
@@ -204,9 +310,9 @@ export default class Demo extends Component {
         <VictoryPie
           innerRadius={75}
           labelRadius={125}
-          style={{ labels: { fontSize: 20 }}}
+          style={{ labels: { fontSize: 20 } }}
           data={this.state.randomData}
-          animate={{duration: 1500}}
+          animate={{ duration: 1500 }}
         />
 
         <VictoryPie
@@ -238,13 +344,13 @@ export default class Demo extends Component {
             }
           }}
           data={[
-            {x: "<5", y: 6279},
-            {x: "5-13", y: 9182},
-            {x: "14-17", y: 5511},
-            {x: "18-24", y: 7164},
-            {x: "25-44", y: 6716},
-            {x: "45-64", y: 4263},
-            {x: "≥65", y: 7502}
+            { x: "<5", y: 6279 },
+            { x: "5-13", y: 9182 },
+            { x: "14-17", y: 5511 },
+            { x: "18-24", y: 7164 },
+            { x: "25-44", y: 6716 },
+            { x: "45-64", y: 4263 },
+            { x: "≥65", y: 7502 }
           ]}
           innerRadius={70}
           labelRadius={100}
@@ -266,10 +372,10 @@ export default class Demo extends Component {
             }
           }}
           data={[
-            {x: "Cat", y: 62},
-            {x: "Dog", y: 91},
-            {x: "Fish", y: 55},
-            {x: "Bird", y: 55}
+            { x: "Cat", y: 62 },
+            { x: "Dog", y: 91 },
+            { x: "Fish", y: 55 },
+            { x: "Bird", y: 55 }
           ]}
         />
 
@@ -279,7 +385,7 @@ export default class Demo extends Component {
 
         <VictoryChart><VictoryCandlestick data={candleData}/></VictoryChart>
 
-        <VictoryChart domain={{x: [0, 4]}}>
+        <VictoryChart domain={{ x: [0, 4] }}>
           <VictoryGroup
             labels={["a", "b", "c"]}
             offset={10}
@@ -287,23 +393,23 @@ export default class Demo extends Component {
           >
             <VictoryBar
               data={[
-                {x: 1, y: 1},
-                {x: 2, y: 2},
-                {x: 3, y: 5}
+                { x: 1, y: 1 },
+                { x: 2, y: 2 },
+                { x: 3, y: 5 }
               ]}
             />
             <VictoryBar
               data={[
-                {x: 1, y: 2},
-                {x: 2, y: 1},
-                {x: 3, y: 7}
+                { x: 1, y: 2 },
+                { x: 2, y: 1 },
+                { x: 3, y: 7 }
               ]}
             />
             <VictoryBar
               data={[
-                {x: 1, y: 3},
-                {x: 2, y: 4},
-                {x: 3, y: 9}
+                { x: 1, y: 3 },
+                { x: 2, y: 4 },
+                { x: 3, y: 9 }
               ]}
             />
           </VictoryGroup>
@@ -335,7 +441,7 @@ export default class Demo extends Component {
             ]}
           />
         </VictoryChart>
-        <VictoryChart animate={{duration: 2000}}>
+        <VictoryChart animate={{ duration: 2000 }}>
           <VictoryBar
             labels={() => "Hi"}
             data={this.state.transitionData}
@@ -361,22 +467,38 @@ export default class Demo extends Component {
           <VictoryStack>
             <VictoryArea
               data={[
-                {x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}, {x: "d", y: 4}, {x: "e", y: 7}
+                { x: "a", y: 2 },
+                { x: "b", y: 3 },
+                { x: "c", y: 5 },
+                { x: "d", y: 4 },
+                { x: "e", y: 7 }
               ]}
             />
             <VictoryArea
               data={[
-                {x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}, {x: "d", y: 7}, {x: "e", y: 5}
+                { x: "a", y: 1 },
+                { x: "b", y: 4 },
+                { x: "c", y: 5 },
+                { x: "d", y: 7 },
+                { x: "e", y: 5 }
               ]}
             />
             <VictoryArea
               data={[
-                {x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}, {x: "d", y: 2}, {x: "e", y: 6}
+                { x: "a", y: 3 },
+                { x: "b", y: 2 },
+                { x: "c", y: 6 },
+                { x: "d", y: 2 },
+                { x: "e", y: 6 }
               ]}
             />
             <VictoryArea
               data={[
-                {x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 3}, {x: "d", y: 4}, {x: "e", y: 7}
+                { x: "a", y: 2 },
+                { x: "b", y: 3 },
+                { x: "c", y: 3 },
+                { x: "d", y: 4 },
+                { x: "e", y: 7 }
               ]}
             />
           </VictoryStack>
@@ -388,22 +510,22 @@ export default class Demo extends Component {
 
         <VictoryLine
           data={[
-            {x: 0, y: 1},
-            {x: 1, y: 3},
-            {x: 2, y: 2},
-            {x: 3, y: 4},
-            {x: 4, y: 3},
-            {x: 5, y: 5}
+            { x: 0, y: 1 },
+            { x: 1, y: 3 },
+            { x: 2, y: 2 },
+            { x: 3, y: 4 },
+            { x: 4, y: 3 },
+            { x: 5, y: 5 }
           ]}
         />
 
         <VictoryLine
           data={[
-            {amount: 1, yield: 1, error: 0.5},
-            {amount: 2, yield: 2, error: 1.1},
-            {amount: 3, yield: 3, error: 0},
-            {amount: 4, yield: 2, error: 0.1},
-            {amount: 5, yield: 1, error: 1.5}
+            { amount: 1, yield: 1, error: 0.5 },
+            { amount: 2, yield: 2, error: 1.1 },
+            { amount: 3, yield: 3, error: 0 },
+            { amount: 4, yield: 2, error: 0.1 },
+            { amount: 5, yield: 1, error: 1.5 }
           ]}
           x={"amount"}
           y={(data) => (data.yield + data.error)}
@@ -416,21 +538,21 @@ export default class Demo extends Component {
           domain={[0, 5]}
           padding={75}
           data={[
-            {x: 0, y: 1},
-            {x: 1, y: 3},
-            {x: 2, y: 2},
-            {x: 3, y: 4},
-            {x: 4, y: 3},
-            {x: 5, y: 5}
+            { x: 0, y: 1 },
+            { x: 1, y: 3 },
+            { x: 2, y: 2 },
+            { x: 3, y: 4 },
+            { x: 4, y: 3 },
+            { x: 5, y: 5 }
           ]}
           interpolation="cardinal"
-          label="LINE"
+          labels={["LINE"]}
           style={{
             data: {
               stroke: "#822722",
               strokeWidth: 3
             },
-            labels: {fontSize: 12}
+            labels: { fontSize: 12 }
           }}
         />
 
@@ -446,34 +568,34 @@ export default class Demo extends Component {
             }
           }}
           data={[
-            {x: 0, y: 1},
-            {x: 1, y: 3},
-            {x: 2, y: 2},
-            {x: 3, y: 4},
-            {x: 4, y: 3},
-            {x: 5, y: 5}
+            { x: 0, y: 1 },
+            { x: 1, y: 3 },
+            { x: 2, y: 2 },
+            { x: 3, y: 4 },
+            { x: 4, y: 3 },
+            { x: 5, y: 5 }
           ]}
         />
 
         <VictoryLine
           style={{
-            data: {stroke: "red", strokeWidth: 9}
+            data: { stroke: "red", strokeWidth: 9 }
           }}
           interpolation={"linear"}
           data={[
-            {x: 0, y: 1},
-            {x: 1, y: 3},
-            {x: 2, y: 2},
-            {x: 3, y: 4},
-            {x: 4, y: 3},
-            {x: 5, y: 5}
+            { x: 0, y: 1 },
+            { x: 1, y: 3 },
+            { x: 2, y: 2 },
+            { x: 3, y: 4 },
+            { x: 4, y: 3 },
+            { x: 5, y: 5 }
           ]}
         />
 
         <VictoryLine
-          style={{data: this.state.style}}
+          style={{ data: this.state.style }}
           interpolation="basis"
-          animate={{duration: 1500}}
+          animate={{ duration: 1500 }}
           y={this.state.y}
         />
 
@@ -483,23 +605,23 @@ export default class Demo extends Component {
 
         <VictoryArea
           data={[
-            {x: 1, y: 1},
-            {x: 2, y: 2},
-            {x: 3, y: 3},
-            {x: 4, y: 1},
-            {x: 5, y: 3},
-            {x: 6, y: 4},
-            {x: 7, y: 2}
+            { x: 1, y: 1 },
+            { x: 2, y: 2 },
+            { x: 3, y: 3 },
+            { x: 4, y: 1 },
+            { x: 5, y: 3 },
+            { x: 6, y: 4 },
+            { x: 7, y: 2 }
           ]}
         />
 
         <VictoryArea
           data={[
-            {amount: 1, yield: 1, error: 0.5},
-            {amount: 2, yield: 2, error: 1.1},
-            {amount: 3, yield: 3, error: 0},
-            {amount: 4, yield: 2, error: 0.1},
-            {amount: 5, yield: 1, error: 1.5}
+            { amount: 1, yield: 1, error: 0.5 },
+            { amount: 2, yield: 2, error: 1.1 },
+            { amount: 3, yield: 3, error: 0 },
+            { amount: 4, yield: 2, error: 0.1 },
+            { amount: 5, yield: 1, error: 1.5 }
           ]}
           x={"amount"}
           y={(data) => (data.yield + data.error)}
@@ -507,34 +629,34 @@ export default class Demo extends Component {
 
         <VictoryArea
           interpolation="basis"
-          animate={{duration: 1500}}
+          animate={{ duration: 1500 }}
           data={this.state.data}
         />
 
         <VictoryGroup
           width={300}
           height={375}
-          style={{data: {opacity: 0.3}}}
+          style={{ data: { opacity: 0.3 } }}
         >
           <VictoryArea
             data={[
-              {x: 1, y: 1},
-              {x: 2, y: 2},
-              {x: 3, y: 3}
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 }
             ]}
           />
           <VictoryArea
             data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
+              { x: 1, y: 2 },
+              { x: 2, y: 1 },
+              { x: 3, y: 1 }
             ]}
           />
           <VictoryArea
             data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
+              { x: 1, y: 3 },
+              { x: 2, y: 4 },
+              { x: 3, y: 2 }
             ]}
           />
         </VictoryGroup>
@@ -545,23 +667,23 @@ export default class Demo extends Component {
         >
           <VictoryArea
             data={[
-              {x: 1, y: 1},
-              {x: 2, y: 2},
-              {x: 3, y: 3}
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 }
             ]}
           />
           <VictoryArea
             data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
+              { x: 1, y: 2 },
+              { x: 2, y: 1 },
+              { x: 3, y: 1 }
             ]}
           />
           <VictoryArea
             data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
+              { x: 1, y: 3 },
+              { x: 2, y: 4 },
+              { x: 3, y: 2 }
             ]}
           />
         </VictoryStack>
@@ -573,36 +695,36 @@ export default class Demo extends Component {
             strokeDasharray: "5,5",
             strokeWidth: 2,
             fillOpacity: 0.4
-          }}}
+          } }}
         >
           <VictoryArea
             style={{ data: {
               fill: "tomato", stroke: "tomato"
-            }}}
+            } }}
             data={[
-              {x: 1, y: 1},
-              {x: 2, y: 2},
-              {x: 3, y: 3}
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 }
             ]}
           />
           <VictoryArea
             style={{ data: {
               fill: "orange", stroke: "orange"
-            }}}
+            } }}
             data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
+              { x: 1, y: 2 },
+              { x: 2, y: 1 },
+              { x: 3, y: 1 }
             ]}
           />
           <VictoryArea
             style={{ data: {
               fill: "gold", stroke: "gold"
-            }}}
+            } }}
             data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
+              { x: 1, y: 3 },
+              { x: 2, y: 4 },
+              { x: 3, y: 2 }
             ]}
           />
         </VictoryStack>
@@ -613,11 +735,11 @@ export default class Demo extends Component {
 
         <VictoryBar
           data={[
-            {x: 1, y: 1},
-            {x: 2, y: 2},
-            {x: 3, y: 3},
-            {x: 4, y: 2},
-            {x: 5, y: 1}
+            { x: 1, y: 1 },
+            { x: 2, y: 2 },
+            { x: 3, y: 3 },
+            { x: 4, y: 2 },
+            { x: 5, y: 1 }
           ]}
         />
 
@@ -629,23 +751,23 @@ export default class Demo extends Component {
         >
           <VictoryBar
             data={[
-              {x: 1, y: 1},
-              {x: 2, y: 2},
-              {x: 3, y: 3}
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 }
             ]}
           />
           <VictoryBar
             data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
+              { x: 1, y: 2 },
+              { x: 2, y: 1 },
+              { x: 3, y: 1 }
             ]}
           />
           <VictoryBar
             data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
+              { x: 1, y: 3 },
+              { x: 2, y: 4 },
+              { x: 3, y: 2 }
             ]}
           />
         </VictoryGroup>
@@ -657,23 +779,23 @@ export default class Demo extends Component {
         >
           <VictoryBar
             data={[
-              {x: 1, y: 1},
-              {x: 2, y: 2},
-              {x: 3, y: 3}
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 }
             ]}
           />
           <VictoryBar
             data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
+              { x: 1, y: 2 },
+              { x: 2, y: 1 },
+              { x: 3, y: 1 }
             ]}
           />
           <VictoryBar
             data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
+              { x: 1, y: 3 },
+              { x: 2, y: 4 },
+              { x: 3, y: 2 }
             ]}
           />
         </VictoryStack>
@@ -687,11 +809,11 @@ export default class Demo extends Component {
             }
           }}
           data={[
-            {x: 1, y: 1},
-            {x: 2, y: 2},
-            {x: 3, y: 3},
-            {x: 4, y: 2},
-            {x: 5, y: 1}
+            { x: 1, y: 1 },
+            { x: 2, y: 2 },
+            { x: 3, y: 3 },
+            { x: 4, y: 2 },
+            { x: 5, y: 1 }
           ]}
         />
 
@@ -707,11 +829,11 @@ export default class Demo extends Component {
 
         <VictoryScatter
           data={[
-            {x: 1, y: 3},
-            {x: 2, y: 5},
-            {x: 3, y: 4},
-            {x: 4, y: 2},
-            {x: 5, y: 5}
+            { x: 1, y: 3 },
+            { x: 2, y: 5 },
+            { x: 3, y: 4 },
+            { x: 4, y: 2 },
+            { x: 5, y: 5 }
           ]}
           size={8}
           symbol="star"
@@ -776,7 +898,7 @@ export default class Demo extends Component {
 
         <VictoryAxis
           dependentAxis
-          padding={{left: 50, top: 20, bottom: 20}}
+          padding={{ left: 50, top: 20, bottom: 20 }}
           scale="log"
           domain={[1, 5]}
         />
@@ -785,41 +907,22 @@ export default class Demo extends Component {
 
         <VictoryErrorBar
           style={{
-            data: {stroke: "red", strokeWidth: 2}
+            data: { stroke: "red", strokeWidth: 2 }
           }}
           data={[
-            {x: 1, y: 1, errorX: [1, 0.5], errorY: .1},
-            {x: 2, y: 2, errorX: [1, 3], errorY: .1},
-            {x: 3, y: 3, errorX: [1, 3], errorY: [.2, .3]},
-            {x: 4, y: 2, errorX: [1, 0.5], errorY: .1},
-            {x: 5, y: 1, errorX: [1, 0.5], errorY: .2}
+            { x: 1, y: 1, errorX: [1, 0.5], errorY: .1 },
+            { x: 2, y: 2, errorX: [1, 3], errorY: .1 },
+            { x: 3, y: 3, errorX: [1, 3], errorY: [.2, .3] },
+            { x: 4, y: 2, errorX: [1, 0.5], errorY: .1 },
+            { x: 5, y: 1, errorX: [1, 0.5], errorY: .2 }
           ]}
         />
 
         <Text style={styles.text}>{"Tooltips"}</Text>
-        <VictoryChart
-          domain={{y: [-25, 25]}}
-        >
-          <VictoryGroup
-            data={
-              range(10).map((i) => {
-                return {
-                  x: i,
-                  y: random(-20, 20)
-                };
-              })
-            }
-          >
-            <VictoryLine/>
-            <VictoryVoronoiTooltip
-              labels={(d) => `x: ${d.x} \n y: ${d.y}`}
-            />
-          </VictoryGroup>
-        </VictoryChart>
-
         <VictoryChart>
+          { /* Removed from VictoryScatter: labelComponent={<VictoryTooltip/>} due to crash */ }
+          { /* https://github.com/FormidableLabs/victory-native/issues/171 */ }
           <VictoryScatter
-            labelComponent={<VictoryTooltip/>}
             data={[
               {
                 x: 1, y: 3, fill: "red",
@@ -848,5 +951,3 @@ export default class Demo extends Component {
     );
   }
 }
-
-Expo.registerRootComponent(Demo);
