@@ -1,18 +1,9 @@
-import Expo, {
-  Constants,
-  WebBrowser,
-} from 'expo';
+import Expo, { Constants, WebBrowser } from 'expo';
 import React from 'react';
-import {
-  Button,
-  Linking,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Button, Linking, StyleSheet, Text, View } from 'react-native';
 import qs from 'qs';
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     redirectData: null,
   };
@@ -20,9 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>
-          Redirect Example
-        </Text>
+        <Text style={styles.header}>Redirect Example</Text>
 
         <Button
           onPress={this._openWebBrowserAsync}
@@ -34,7 +23,7 @@ class App extends React.Component {
     );
   }
 
-  _handleRedirect = (event) => {
+  _handleRedirect = event => {
     WebBrowser.dismissBrowser();
 
     let query = event.url.replace(Constants.linkingUri, '');
@@ -45,38 +34,33 @@ class App extends React.Component {
       data = null;
     }
 
-    this.setState({redirectData: data});
-  }
+    this.setState({ redirectData: data });
+  };
 
   _openWebBrowserAsync = async () => {
     this._addLinkingListener();
     let result = await WebBrowser.openBrowserAsync(
-      `https://backend-xxswjknyfi.now.sh//?linkingUri=${Constants.linkingUri}`
+      `https://backend-xxswjknyfi.now.sh/?linkingUri=${Constants.linkingUri}`
     );
     this._removeLinkingListener();
     this.setState({ result });
-
-  }
+  };
 
   _addLinkingListener = () => {
     Linking.addEventListener('url', this._handleRedirect);
-  }
+  };
 
   _removeLinkingListener = () => {
     Linking.removeEventListener('url', this._handleRedirect);
-  }
+  };
 
   _maybeRenderRedirectData = () => {
     if (!this.state.redirectData) {
       return;
     }
 
-    return (
-      <Text>
-        {JSON.stringify(this.state.redirectData)}
-      </Text>
-    );
-  }
+    return <Text>{JSON.stringify(this.state.redirectData)}</Text>;
+  };
 }
 
 const styles = StyleSheet.create({
@@ -92,5 +76,3 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
 });
-
-Expo.registerRootComponent(App);

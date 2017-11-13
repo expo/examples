@@ -1,14 +1,11 @@
 {
   "name": "with-webbrowser-redirect",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
-  "author": null,
   "private": true,
-  "main": "main.js",
+  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "expo": "17.0.0",
+    "expo": "^22.0.0",
     "qs": "^6.4.0",
-    "react": "16.0.0-alpha.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-17.0.0.tar.gz"
+    "react": "16.0.0-beta.5",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz"
   }
 }
