@@ -6,7 +6,7 @@ const io = require('socket.io-client');
 // Replace this URL with your own, if you want to run the backend locally!
 const SocketEndpoint = 'https://socket-io-expo-backend-dtyxsdtzxb.now.sh';
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     isConnected: false,
     data: null,
@@ -46,5 +46,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-Expo.registerRootComponent(App);
