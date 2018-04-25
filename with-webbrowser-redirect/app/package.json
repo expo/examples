@@ -3,9 +3,8 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "expo": "^22.0.0",
-    "qs": "^6.4.0",
-    "react": "16.0.0-beta.5",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz"
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz"
   }
 }

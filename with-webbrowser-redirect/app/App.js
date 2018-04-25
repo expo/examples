@@ -1,7 +1,6 @@
-import Expo, { Constants, WebBrowser } from 'expo';
+import Expo, { Linking, WebBrowser } from 'expo';
 import React from 'react';
-import { Button, Linking, StyleSheet, Text, View } from 'react-native';
-import qs from 'qs';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default class App extends React.Component {
   state = {
@@ -26,13 +25,7 @@ export default class App extends React.Component {
   _handleRedirect = event => {
     WebBrowser.dismissBrowser();
 
-    let query = event.url.replace(Constants.linkingUri, '');
-    let data;
-    if (query) {
-      data = qs.parse(query);
-    } else {
-      data = null;
-    }
+    let data = Linking.parse(event.url);
 
     this.setState({ redirectData: data });
   };
@@ -40,7 +33,7 @@ export default class App extends React.Component {
   _openWebBrowserAsync = async () => {
     this._addLinkingListener();
     let result = await WebBrowser.openBrowserAsync(
-      `https://backend-xxswjknyfi.now.sh/?linkingUri=${Constants.linkingUri}`
+      `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/')}`
     );
     this._removeLinkingListener();
     this.setState({ result });
