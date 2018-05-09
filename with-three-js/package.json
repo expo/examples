@@ -1,0 +1,11 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "dependencies": {
+    "expo-three": "^2.2.2-alpha.1",
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "three": "^0.89.0"
+  }
+}
