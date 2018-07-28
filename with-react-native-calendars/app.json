@@ -1,12 +1,19 @@
 {
   "expo": {
     "name": "with-react-native-calendars",
+    "description": "react native calendars example",
     "slug": "react-native-calendars-example",
-    "privacy": "public",
-    "sdkVersion": "22.0.0",
+    "sdkVersion": "29.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
+    "privacy": "public",
+    "packagerOpts": {
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
+    },
     "ios": {
       "supportsTablet": true
     }
