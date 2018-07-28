@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Image, Button, StyleSheet, Text, View } from 'react-native';
 import { AuthSession } from 'expo';
 
 const FB_APP_ID = '672636582940821';
 
-export default class App extends React.Component {
+export default class App extends Component {
   state = {
     userInfo: null,
   };
@@ -38,7 +38,9 @@ export default class App extends React.Component {
     let redirectUrl = AuthSession.getRedirectUrl();
 
     // You need to add this url to your authorized redirect urls on your Facebook app
-    console.log({ redirectUrl });
+    console.log({
+      redirectUrl
+    });
 
     // NOTICE: Please do not actually request the token on the client (see:
     // response_type=token in the authUrl), it is not secure. Request a code

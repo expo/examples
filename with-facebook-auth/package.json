@@ -1,13 +1,13 @@
 {
   "name": "with-facebook-auth",
   "version": "0.0.0",
-  "description": "",
+  "description": "Hello Expo!",
   "author": "support@expo.io",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "expo": "^21.0.0",
-    "react": "16.0.0-alpha.12",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz"
+    "expo": "^29.0.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz"
   }
 }
