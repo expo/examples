@@ -2,17 +2,23 @@
   "expo": {
     "name": "with-three-js",
     "description": "Example using Three JS",
-    "slug": "ice",
-    "privacy": "public",
-    "sdkVersion": "27.0.0",
-    "platforms": ["ios", "android"],
+    "slug": "with-three-js",
+    "sdkVersion": "29.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
+    "primaryColor": "#ececec",
+    "privacy": "public",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ECECEC"
+      "backgroundColor": "#ececec"
+    },
+    "packagerOpts": {
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
     },
     "ios": {
       "supportsTablet": true
