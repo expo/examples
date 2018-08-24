@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  StyleSheet
-} from 'react-native';
-import {Agenda} from 'react-native-calendars';
+import { StyleSheet, Text, View } from 'react-native';
+import { Agenda } from 'react-native-calendars';
 
 export default class AgendaScreen extends Component {
   constructor(props) {

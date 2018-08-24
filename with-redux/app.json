@@ -3,11 +3,11 @@
     "name": "with-redux",
     "description": "Example with Redux, React Native Animated, Fetch",
     "slug": "with-redux",
-    "privacy": "public",
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "29.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#000000",
+    "privacy": "public",
     "icon": "./assets/icons/app-icon.png",
     "loading": {
       "icon": "./assets/icons/loading-icon.png"
@@ -17,7 +17,10 @@
       "backgroundColor": "#000000"
     },
     "packagerOpts": {
-      "assetExts": ["ttf", "mp4"]
+      "assetExts": [
+        "ttf",
+        "mp4"
+      ]
     },
     "ios": {
       "supportsTablet": true

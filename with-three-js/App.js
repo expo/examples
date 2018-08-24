@@ -1,8 +1,8 @@
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import Expo from 'expo';
 import ExpoTHREE from 'expo-three';
-import React from 'react';
 import * as THREE from 'three';
-import { StyleSheet, Text, View } from 'react-native';
 
 console.disableYellowBox = true;
 

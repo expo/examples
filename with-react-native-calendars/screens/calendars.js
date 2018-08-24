@@ -1,10 +1,6 @@
-import React, {Component} from 'react';
-import {
-  Text,
-  StyleSheet,
-  ScrollView
-} from 'react-native';
-import {Calendar} from 'react-native-calendars';
+import React, { Component } from 'react';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 
 export default class CalendarsScreen extends Component {
   constructor(props) {
@@ -16,14 +12,21 @@ export default class CalendarsScreen extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.text}>Calendar with selectable date and arrows</Text>
+        <Text style={styles.text}>
+          Calendar with selectable date and arrows
+        </Text>
+
         <Calendar
           onDayPress={this.onDayPress}
           style={styles.calendar}
           hideExtraDays
           markedDates={{[this.state.selected]: {selected: true}}}
         />
-        <Text style={styles.text}>Calendar with marked dates and hidden arrows</Text>
+
+        <Text style={styles.text}>
+          Calendar with marked dates and hidden arrows
+        </Text>
+
         <Calendar
           style={styles.calendar}
           current={'2012-05-16'}
@@ -38,7 +41,11 @@ export default class CalendarsScreen extends Component {
           // disabledByDefault={true}
           hideArrows={true}
         />
-        <Text style={styles.text}>Calendar with marked dates and spinner</Text>
+
+        <Text style={styles.text}>
+          Calendar with marked dates and spinner
+        </Text>
+
         <Calendar
           style={styles.calendar}
           current={'2012-05-16'}

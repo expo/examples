@@ -1,14 +1,14 @@
 import React from 'react';
 import { Platform, StatusBar, View } from 'react-native';
 import { Constants } from 'expo';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import MenuScreen from './screens/menu';
 import CalendarsScreen from './screens/calendars';
 import AgendaScreen from './screens/agenda';
 import CalendarsListScreen from './screens/calendarsList';
 
-const NavigationStack = StackNavigator(
+const NavigationStack = createStackNavigator(
   {
     menu: {
       screen: MenuScreen,
