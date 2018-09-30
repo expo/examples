@@ -3,7 +3,7 @@
     "name": "with-three-js",
     "description": "Example using Three JS",
     "slug": "with-three-js",
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "30.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#ececec",
@@ -15,10 +15,7 @@
       "backgroundColor": "#ececec"
     },
     "packagerOpts": {
-      "assetExts": [
-        "ttf",
-        "mp4"
-      ]
+      "assetExts": ["ttf", "mp4"]
     },
     "ios": {
       "supportsTablet": true
