@@ -13,6 +13,7 @@
     },
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "scheme": "expo.examples.with-webbrowser-redirect"
   }
 }
