@@ -31,12 +31,19 @@ export default class App extends React.Component {
   };
 
   _openWebBrowserAsync = async () => {
-    this._addLinkingListener();
-    let result = await WebBrowser.openBrowserAsync(
-      `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/')}`
-    );
-    this._removeLinkingListener();
-    this.setState({ result });
+    try {
+      this._addLinkingListener();
+      let result = await WebBrowser.openBrowserAsync(
+        // We add `?` at the end of the URL since the test backend that is used
+        // just appends `authToken=<token>` to the URL provided.
+        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/?')}`
+      );
+      this._removeLinkingListener();
+      this.setState({ result });
+    } catch (error) {
+      alert(error);
+      console.log(error);
+    }
   };
 
   _addLinkingListener = () => {
