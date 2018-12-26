@@ -80,38 +80,46 @@ const numberWithCommas = x => {
 const fetchPrice = async source => {
   const response = await fetch(source);
   const json = await response.json();
+
   return json.result.price;
 };
 
 class PriceSectionComponent extends React.Component {
   state = {
     display: new Animated.Value(this.props.top),
-    value: this.props.top,
+    value: this.props.top
   };
 
   componentWillReceiveProps(nextProps) {
-    Animated.timing(this.state.display, {
-      toValue: nextProps.top,
+    const { display } = this.state;
+
+    Animated.timing(display, {
       duration: 600,
+      toValue: nextProps.top
     }).start();
   }
 
   componentDidMount() {
-    this.state.display.addListener(({ value }) => {
+    const { display } = this.state;
+
+    display.addListener(({ value }) => {
       this.setState({ value });
     });
   }
 
   render() {
-    const valueToRender = numberWithCommas(this.state.value.toFixed(this.props.fixed));
+    const { bottom, fixed, symbol } = this.props;
+    const { value } = this.state;
+
+    const valueToRender = numberWithCommas(value.toFixed(fixed));
 
     return (
       <View style={styles.priceSection}>
         <Text style={[styles.priceSectionTop]}>
-          {this.props.symbol ? `${this.props.symbol} ` : undefined}
+          {symbol ? `${symbol} ` : undefined}
           {valueToRender}
         </Text>
-        <Text style={[styles.priceSectionBottom]}>{this.props.bottom}</Text>
+        <Text style={[styles.priceSectionBottom]}>{bottom}</Text>
       </View>
     );
   }
@@ -119,42 +127,45 @@ class PriceSectionComponent extends React.Component {
 
 class AppScreen extends React.Component {
   state = {
-    value: 1,
+    value: 1
   };
 
   async componentDidMount() {
-    const btc = await fetchPrice('https://api.cryptowat.ch/markets/gdax/btcusd/price');
-    const ltc = await fetchPrice('https://api.cryptowat.ch/markets/gdax/ethusd/price');
-    const eth = await fetchPrice('https://api.cryptowat.ch/markets/gdax/ltcusd/price');
-    const euro = await fetchPrice('https://api.cryptowat.ch/markets/bitstamp/eurusd/price');
+    const baseURL = 'https://api.cryptowat.ch/markets/';
+    const btc = await fetchPrice(`${baseURL}gdax/btcusd/price`);
+    const ltc = await fetchPrice(`${baseURL}gdax/ethusd/price`);
+    const eth = await fetchPrice(`${baseURL}gdax/ltcusd/price`);
+    const euro = await fetchPrice(`${baseURL}bitstamp/eurusd/price`);
 
     this.props.dispatch({
       type: 'UPDATE_STATE',
-      state: { btc, ltc, eth, euro, isAvailable: true },
+      state: { btc, ltc, eth, euro, isAvailable: true }
     });
   }
 
-  _handleUpdateConversion = value => this.setState({ value });
-
   render() {
-    if (!this.props.isAvailable) {
+    const { btc, eth, euro, isAvailable, ltc } = this.props;
+    const { value } = this.state;
+
+    if (!isAvailable) {
       return null;
     }
 
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="#000000" barStyle="light-content" />
+        <StatusBar backgroundColor="#000" barStyle="light-content" />
+
         <PriceSectionComponent
-          top={this.state.value}
           bottom="United States Dollar"
-          symbol="$"
           fixed={2}
+          symbol="$"
+          top={value}
         />
         <PriceSectionComponent
-          top={Number(this.state.value / this.props.euro)}
           bottom="Euro"
-          symbol="€"
           fixed={2}
+          symbol="€"
+          top={Number(value / euro)}
         />
 
         <Slider
@@ -162,28 +173,29 @@ class AppScreen extends React.Component {
           maximumValue={1000000}
           minimumValue={1}
           step={1}
-          value={this.state.value}
-          onSlidingComplete={this._handleUpdateConversion}
+          value={value}
+          onSlidingComplete={val => this.setState({ value: val })}
         />
+
         <PriceSectionComponent
-          top={Number(this.state.value / this.props.ltc)}
           bottom="Litecoin"
-          symbol="LTC"
           fixed={3}
+          symbol="LTC"
+          top={Number(value / ltc)}
         />
 
         <PriceSectionComponent
-          top={Number(this.state.value / this.props.eth)}
           bottom="Ethereum"
-          symbol="ETH"
           fixed={4}
+          symbol="ETH"
+          top={Number(value / eth)}
         />
 
         <PriceSectionComponent
-          top={Number(this.state.value / this.props.btc)}
           bottom="Bitcoin"
-          symbol="BTC"
           fixed={5}
+          symbol="BTC"
+          top={Number(value / btc)}
         />
       </View>
     );
@@ -205,15 +217,11 @@ const ConnectedAppScreen = connect(mapStateToProps)(AppScreen);
 -----------------------------------------------------------------
 */
 
-export default class RootComponent extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <ConnectedAppScreen />
-      </Provider>
-    );
-  }
-}
+export default RootComponent = () => (
+  <Provider store={store}>
+    <ConnectedAppScreen />
+  </Provider>
+);
 
 /*
 -----------------------------------------------------------------
@@ -231,25 +239,25 @@ export default class RootComponent extends React.Component {
 */
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000000',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#000',
     flex: 1,
+    justifyContent: 'center'
   },
   slider: {
     width: '100%',
   },
   priceSection: {
-    width: '100%',
     padding: 16,
+    width: '100%'
   },
   priceSectionTop: {
-    color: '#FFFFFF',
-    fontSize: 32,
+    color: '#fff',
+    fontSize: 32
   },
   priceSectionBottom: {
-    color: '#FFFFFF',
+    color: '#fff',
     fontSize: 12,
-    marginTop: 2,
+    marginTop: 2
   },
 });
