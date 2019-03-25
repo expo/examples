@@ -6,7 +6,7 @@ import {
   Text,
   Dimensions
 } from "react-native";
-import Svg from "react-native-svg";
+import { Svg } from "expo";
 import {
   VictoryAxis,
   VictoryChart,
@@ -795,9 +795,7 @@ export default class Demo extends React.Component {
         <Text style={styles.text}>{"<VictoryErrorBar />"}</Text>
 
         <VictoryErrorBar
-          style={{
-            data: { stroke: "red", strokeWidth: 2 }
-          }}
+          style={{ data: { stroke: "red", strokeWidth: 2 } }}
           data={[
             { x: 1, y: 1, errorX: [1, 0.5], errorY: 0.1 },
             { x: 2, y: 2, errorX: [1, 3], errorY: 0.1 },
