@@ -1,20 +1,24 @@
 {
   "expo": {
-    "name": "victory-native-example",
-    "description": "Using victory-native in Expo, see the source: https://github.com/expo/examples/blob/master/with-victory-native",
+    "name": "Victory Native Example",
+    "description":
+      "Using victory-native in Expo, see the source: https://github.com/expo/examples/blob/master/with-victory-native",
     "slug": "victory-native-example",
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "32.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "privacy": "public",
-    "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
+    "icon":
+      "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png",
     "notification": {
-      "icon": "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
+      "icon":
+        "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
       "color": "#000000"
     },
     "loading": {
-      "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png"
+      "icon":
+        "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png"
     },
     "ios": {
       "supportsTablet": true
