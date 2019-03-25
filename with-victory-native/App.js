@@ -1,10 +1,11 @@
 import React from "react";
 import {
+  Dimensions,
+  Platform,
   ScrollView,
   StyleSheet,
-  Platform,
   Text,
-  Dimensions
+  View
 } from "react-native";
 import { Svg } from "expo";
 import {
@@ -34,9 +35,11 @@ import { random, range, round } from "lodash";
 import { VictoryTheme } from "victory-core";
 
 const styles = StyleSheet.create({
+  bgView: {
+    backgroundColor: "#e1d7cd"
+  },
   container: {
     alignItems: "center",
-    backgroundColor: "#e1d7cd",
     justifyContent: "center",
     paddingLeft: 50,
     paddingRight: 50,
@@ -46,8 +49,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: Platform.OS === "ios" ? "Menlo" : "monospace",
     fontWeight: "bold",
-    marginTop: 10,
-    marginBottom: 30
+    marginBottom: 24,
+    marginTop: 16
   }
 });
 
@@ -163,697 +166,714 @@ export default class Demo extends React.Component {
 
   render() {
     return (
-      <ScrollView
-        contentContainerStyle={styles.container}
-        scrollEnabled={this.state.scrollEnabled}
-      >
-        <Text style={styles.text}>Victory Native Demo</Text>
-        <Svg width={Dimensions.get("window").width} height={300}>
-          <VictoryLegend
-            x={5}
-            y={10}
-            standalone={false}
-            data={legendData}
-            style={legendStyle}
-          />
-          <VictoryLegend
-            x={5}
-            y={200}
-            data={legendData}
-            standalone={false}
-            itemsPerRow={3}
-            style={legendStyle}
-          />
-        </Svg>
-
-        <VictoryChart polar theme={VictoryTheme.material}>
-          <VictoryBar
-            style={{ data: { fill: "tomato", opacity: 0.5 } }}
-            data={[
-              { x: 15, y: 20, label: 1, fill: "red" },
-              { x: 25, y: 30, label: 2, fill: "orange" },
-              { x: 35, y: 65, label: 3, fill: "gold" },
-              { x: 40, y: 50, label: 4, fill: "blue" },
-              { x: 45, y: 40, label: 5, fill: "cyan" },
-              { x: 50, y: 30, label: 6, fill: "green" }
-            ]}
-          />
-          <VictoryScatter
-            style={{ data: { fill: "black" } }}
-            data={[
-              { x: 15, y: 20 },
-              { x: 25, y: 30 },
-              { x: 35, y: 65 },
-              { x: 40, y: 50 },
-              { x: 45, y: 40 },
-              { x: 50, y: 30 }
-            ]}
-          />
-        </VictoryChart>
-
-        <Text style={styles.text}>{"VictoryCursorContainer"}</Text>
-        <VictoryChart
-          containerComponent={
-            <VictoryCursorContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
-              cursorLabel={d => `${round(d.x, 2)} , ${round(d.y, 2)}`}
-            />
-          }
+      <View style={styles.bgView}>
+        <ScrollView
+          contentContainerStyle={styles.container}
+          scrollEnabled={this.state.scrollEnabled}
         >
-          {/* this causes a crash: <VictoryAxis tickLabelComponent={<VictoryLabel angle={45}/>}/> */}
-          {/* https://github.com/FormidableLabs/victory-native/issues/171 */}
-          <VictoryBar />
-        </VictoryChart>
+          <Text style={styles.text}>Victory Native Demo</Text>
 
-        <Text style={styles.text}>{"VictoryBrushContainer"}</Text>
-        <VictoryChart
-          containerComponent={
-            <VictoryBrushContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
-              selectionStyle={{ fill: "blue", fillOpacity: 0.1 }}
+          <Svg width={Dimensions.get("window").width} height={300}>
+            <VictoryLegend
+              x={5}
+              y={10}
+              standalone={false}
+              data={legendData}
+              style={legendStyle}
             />
-          }
-        >
-          <VictoryBar />
-        </VictoryChart>
+            <VictoryLegend
+              x={5}
+              y={200}
+              data={legendData}
+              standalone={false}
+              itemsPerRow={3}
+              style={legendStyle}
+            />
+          </Svg>
 
-        <Text style={styles.text}>{"VictorySelectionContainer"}</Text>
-        <VictoryChart
-          containerComponent={
-            <VictorySelectionContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
+          <VictoryChart polar theme={VictoryTheme.material}>
+            <VictoryBar
+              style={{ data: { fill: "tomato", opacity: 0.5 } }}
+              data={[
+                { x: 15, y: 20, label: 1, fill: "red" },
+                { x: 25, y: 30, label: 2, fill: "orange" },
+                { x: 35, y: 65, label: 3, fill: "gold" },
+                { x: 40, y: 50, label: 4, fill: "blue" },
+                { x: 45, y: 40, label: 5, fill: "cyan" },
+                { x: 50, y: 30, label: 6, fill: "green" }
+              ]}
             />
-          }
-        >
-          <VictoryScatter
-            data={this.state.staticRandomData}
+            <VictoryScatter
+              style={{ data: { fill: "black" } }}
+              data={[
+                { x: 15, y: 20 },
+                { x: 25, y: 30 },
+                { x: 35, y: 65 },
+                { x: 40, y: 50 },
+                { x: 45, y: 40 },
+                { x: 50, y: 30 }
+              ]}
+            />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"VictoryCursorContainer"}</Text>
+          <VictoryChart
+            containerComponent={
+              <VictoryCursorContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+                cursorLabel={d => `${round(d.x, 2)} , ${round(d.y, 2)}`}
+              />
+            }
+          >
+            {/* this causes a crash: <VictoryAxis tickLabelComponent={<VictoryLabel angle={45}/>}/> */}
+            {/* https://github.com/FormidableLabs/victory-native/issues/171 */}
+            <VictoryBar />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"VictoryBrushContainer"}</Text>
+          <VictoryChart
+            containerComponent={
+              <VictoryBrushContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+                selectionStyle={{ fill: "blue", fillOpacity: 0.1 }}
+              />
+            }
+          >
+            <VictoryBar />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"VictorySelectionContainer"}</Text>
+          <VictoryChart
+            containerComponent={
+              <VictorySelectionContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+              />
+            }
+          >
+            <VictoryScatter
+              data={this.state.staticRandomData}
+              style={{
+                data: { fill: (d, active) => (active ? "tomato" : "gray") }
+              }}
+            />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"VictoryZoomContainer"}</Text>
+          <VictoryChart
+            containerComponent={
+              <VictoryZoomContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+              />
+            }
+          >
+            <VictoryBar />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"VictoryVoronoiContainer"}</Text>
+          <VictoryChart
+            containerComponent={
+              <VictoryVoronoiContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+                labels={d => `( ${d.x} , ${d.y} )`}
+              />
+            }
+          >
+            <VictoryLine data={this.state.staticRandomData} />
+          </VictoryChart>
+
+          <Text style={styles.text}>
+            {'createContainer("zoom", "voronoi")'}
+          </Text>
+
+          <VictoryChart
+            containerComponent={
+              <VictoryZoomVoronoiContainer
+                onTouchStart={() => this.changeScroll(false)}
+                onTouchEnd={() => this.changeScroll(true)}
+                labels={d => `( ${d.x} , ${d.y} )`}
+                dimension={"x"}
+              />
+            }
+          >
+            <VictoryScatter data={this.state.staticRandomData} />
+          </VictoryChart>
+
+          <Text style={styles.text}>{"<VictoryPie/>"}</Text>
+
+          <VictoryPie
+            innerRadius={75}
+            labelRadius={125}
+            style={{ labels: { fontSize: 20 } }}
+            data={this.state.randomData}
+            animate={{ duration: 1500 }}
+          />
+
+          <VictoryPie style={{ data: { stroke: "none", opacity: 0.3 } }} />
+          <VictoryPie innerRadius={90} />
+          <VictoryPie endAngle={90} startAngle={-90} />
+          <VictoryPie
+            endAngle={90}
+            innerRadius={90}
+            padAngle={5}
+            startAngle={-90}
+          />
+          <VictoryPie
             style={{
-              data: { fill: (d, active) => (active ? "tomato" : "gray") }
+              labels: {
+                fill: "white",
+                stroke: "none",
+                fontSize: 15,
+                fontWeight: "bold"
+              }
+            }}
+            data={[
+              { x: "<5", y: 6279 },
+              { x: "5-13", y: 9182 },
+              { x: "14-17", y: 5511 },
+              { x: "18-24", y: 7164 },
+              { x: "25-44", y: 6716 },
+              { x: "45-64", y: 4263 },
+              { x: "≥65", y: 7502 }
+            ]}
+            innerRadius={70}
+            labelRadius={100}
+            colorScale={[
+              "#D85F49",
+              "#F66D3B",
+              "#D92E1D",
+              "#D73C4C",
+              "#FFAF59",
+              "#E28300",
+              "#F6A57F"
+            ]}
+          />
+          <VictoryPie
+            style={{
+              data: {
+                stroke: data => (data.y > 75 ? "black" : "none"),
+                opacity: data => (data.y > 75 ? 1 : 0.4)
+              }
+            }}
+            data={[
+              { x: "Cat", y: 62 },
+              { x: "Dog", y: 91 },
+              { x: "Fish", y: 55 },
+              { x: "Bird", y: 55 }
+            ]}
+          />
+
+          <Text style={styles.text}>{"<VictoryChart/>"}</Text>
+
+          <VictoryChart>
+            <VictoryBar />
+            <VictoryLine />
+          </VictoryChart>
+
+          <VictoryChart>
+            <VictoryCandlestick data={candleData} />
+          </VictoryChart>
+
+          <VictoryChart domain={{ x: [0, 4] }}>
+            <VictoryGroup
+              labels={["a", "b", "c"]}
+              offset={10}
+              colorScale={"qualitative"}
+            >
+              <VictoryBar
+                data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 5 }]}
+              />
+              <VictoryBar
+                data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 7 }]}
+              />
+              <VictoryBar
+                data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 9 }]}
+              />
+            </VictoryGroup>
+          </VictoryChart>
+
+          <VictoryChart>
+            <VictoryScatter
+              data={[
+                {
+                  x: 1,
+                  y: 3,
+                  fill: "red",
+                  symbol: "plus",
+                  size: 6,
+                  label: "Red"
+                },
+                {
+                  x: 2,
+                  y: 5,
+                  fill: "magenta",
+                  size: 9,
+                  opacity: 0.4,
+                  label: "Magenta"
+                },
+                {
+                  x: 3,
+                  y: 4,
+                  fill: "orange",
+                  size: 5,
+                  label: "Orange"
+                },
+                {
+                  x: 4,
+                  y: 2,
+                  fill: "brown",
+                  symbol: "square",
+                  size: 6,
+                  label: "Brown"
+                },
+                {
+                  x: 5,
+                  y: 5,
+                  fill: "black",
+                  symbol: "triangleUp",
+                  size: 5,
+                  label: "Black"
+                }
+              ]}
+            />
+          </VictoryChart>
+          <VictoryChart animate={{ duration: 2000 }}>
+            <VictoryBar
+              labels={() => "Hi"}
+              data={this.state.transitionData}
+              style={{
+                data: {
+                  fill: "tomato",
+                  width: 12
+                }
+              }}
+              animate={{
+                onExit: {
+                  duration: 500,
+                  before: () => ({
+                    y: 0,
+                    fill: "orange",
+                    label: "BYE"
+                  })
+                }
+              }}
+            />
+          </VictoryChart>
+
+          <VictoryChart>
+            <VictoryStack>
+              <VictoryArea
+                data={[
+                  { x: "a", y: 2 },
+                  { x: "b", y: 3 },
+                  { x: "c", y: 5 },
+                  { x: "d", y: 4 },
+                  { x: "e", y: 7 }
+                ]}
+              />
+              <VictoryArea
+                data={[
+                  { x: "a", y: 1 },
+                  { x: "b", y: 4 },
+                  { x: "c", y: 5 },
+                  { x: "d", y: 7 },
+                  { x: "e", y: 5 }
+                ]}
+              />
+              <VictoryArea
+                data={[
+                  { x: "a", y: 3 },
+                  { x: "b", y: 2 },
+                  { x: "c", y: 6 },
+                  { x: "d", y: 2 },
+                  { x: "e", y: 6 }
+                ]}
+              />
+              <VictoryArea
+                data={[
+                  { x: "a", y: 2 },
+                  { x: "b", y: 3 },
+                  { x: "c", y: 3 },
+                  { x: "d", y: 4 },
+                  { x: "e", y: 7 }
+                ]}
+              />
+            </VictoryStack>
+          </VictoryChart>
+
+          <Text style={styles.text}>{"<VictoryLine />"}</Text>
+
+          <VictoryLine />
+
+          <VictoryLine
+            data={[
+              { x: 0, y: 1 },
+              { x: 1, y: 3 },
+              { x: 2, y: 2 },
+              { x: 3, y: 4 },
+              { x: 4, y: 3 },
+              { x: 5, y: 5 }
+            ]}
+          />
+
+          <VictoryLine
+            data={[
+              { amount: 1, yield: 1, error: 0.5 },
+              { amount: 2, yield: 2, error: 1.1 },
+              { amount: 3, yield: 3, error: 0 },
+              { amount: 4, yield: 2, error: 0.1 },
+              { amount: 5, yield: 1, error: 1.5 }
+            ]}
+            x={"amount"}
+            y={data => data.yield + data.error}
+          />
+
+          <VictoryLine y={data => Math.sin(2 * Math.PI * data.x)} />
+
+          <VictoryLine
+            height={300}
+            domain={[0, 5]}
+            padding={75}
+            data={[
+              { x: 0, y: 1 },
+              { x: 1, y: 3 },
+              { x: 2, y: 2 },
+              { x: 3, y: 4 },
+              { x: 4, y: 3 },
+              { x: 5, y: 5 }
+            ]}
+            interpolation="cardinal"
+            labels={["LINE"]}
+            style={{
+              data: { stroke: "#822722", strokeWidth: 3 },
+              labels: { fontSize: 12 }
             }}
           />
-        </VictoryChart>
 
-        <Text style={styles.text}>{"VictoryZoomContainer"}</Text>
-        <VictoryChart
-          containerComponent={
-            <VictoryZoomContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
-            />
-          }
-        >
-          <VictoryBar />
-        </VictoryChart>
+          <VictoryLine
+            width={300}
+            style={{
+              data: {
+                stroke: data => {
+                  const y = data.map(d => d.y);
+                  return Math.max(...y) > 2 ? "red" : "blue";
+                }
+              }
+            }}
+            data={[
+              { x: 0, y: 1 },
+              { x: 1, y: 3 },
+              { x: 2, y: 2 },
+              { x: 3, y: 4 },
+              { x: 4, y: 3 },
+              { x: 5, y: 5 }
+            ]}
+          />
 
-        <Text style={styles.text}>{"VictoryVoronoiContainer"}</Text>
-        <VictoryChart
-          containerComponent={
-            <VictoryVoronoiContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
-              labels={d => `( ${d.x} , ${d.y} )`}
-            />
-          }
-        >
-          <VictoryLine data={this.state.staticRandomData} />
-        </VictoryChart>
+          <VictoryLine
+            style={{ data: { stroke: "red", strokeWidth: 9 } }}
+            interpolation={"linear"}
+            data={[
+              { x: 0, y: 1 },
+              { x: 1, y: 3 },
+              { x: 2, y: 2 },
+              { x: 3, y: 4 },
+              { x: 4, y: 3 },
+              { x: 5, y: 5 }
+            ]}
+          />
 
-        <Text style={styles.text}>{'createContainer("zoom", "voronoi")'}</Text>
+          <VictoryLine
+            style={{ data: this.state.style }}
+            interpolation="basis"
+            animate={{ duration: 1500 }}
+            y={this.state.y}
+          />
 
-        <VictoryChart
-          containerComponent={
-            <VictoryZoomVoronoiContainer
-              onTouchStart={() => this.changeScroll(false)}
-              onTouchEnd={() => this.changeScroll(true)}
-              labels={d => `( ${d.x} , ${d.y} )`}
-              dimension={"x"}
-            />
-          }
-        >
-          <VictoryScatter data={this.state.staticRandomData} />
-        </VictoryChart>
+          <Text style={styles.text}>{"<VictoryArea />"}</Text>
 
-        <Text style={styles.text}>{"<VictoryPie/>"}</Text>
+          <VictoryArea />
 
-        <VictoryPie
-          innerRadius={75}
-          labelRadius={125}
-          style={{ labels: { fontSize: 20 } }}
-          data={this.state.randomData}
-          animate={{ duration: 1500 }}
-        />
+          <VictoryArea
+            data={[
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 },
+              { x: 4, y: 1 },
+              { x: 5, y: 3 },
+              { x: 6, y: 4 },
+              { x: 7, y: 2 }
+            ]}
+          />
 
-        <VictoryPie style={{ data: { stroke: "none", opacity: 0.3 } }} />
-        <VictoryPie innerRadius={90} />
-        <VictoryPie endAngle={90} startAngle={-90} />
-        <VictoryPie
-          endAngle={90}
-          innerRadius={90}
-          padAngle={5}
-          startAngle={-90}
-        />
-        <VictoryPie
-          style={{
-            labels: {
-              fill: "white",
-              stroke: "none",
-              fontSize: 15,
-              fontWeight: "bold"
-            }
-          }}
-          data={[
-            { x: "<5", y: 6279 },
-            { x: "5-13", y: 9182 },
-            { x: "14-17", y: 5511 },
-            { x: "18-24", y: 7164 },
-            { x: "25-44", y: 6716 },
-            { x: "45-64", y: 4263 },
-            { x: "≥65", y: 7502 }
-          ]}
-          innerRadius={70}
-          labelRadius={100}
-          colorScale={[
-            "#D85F49",
-            "#F66D3B",
-            "#D92E1D",
-            "#D73C4C",
-            "#FFAF59",
-            "#E28300",
-            "#F6A57F"
-          ]}
-        />
-        <VictoryPie
-          style={{
-            data: {
-              stroke: data => (data.y > 75 ? "black" : "none"),
-              opacity: data => (data.y > 75 ? 1 : 0.4)
-            }
-          }}
-          data={[
-            { x: "Cat", y: 62 },
-            { x: "Dog", y: 91 },
-            { x: "Fish", y: 55 },
-            { x: "Bird", y: 55 }
-          ]}
-        />
+          <VictoryArea
+            data={[
+              { amount: 1, yield: 1, error: 0.5 },
+              { amount: 2, yield: 2, error: 1.1 },
+              { amount: 3, yield: 3, error: 0 },
+              { amount: 4, yield: 2, error: 0.1 },
+              { amount: 5, yield: 1, error: 1.5 }
+            ]}
+            x={"amount"}
+            y={data => data.yield + data.error}
+          />
 
-        <Text style={styles.text}>{"<VictoryChart/>"}</Text>
+          <VictoryArea
+            interpolation="basis"
+            animate={{ duration: 1500 }}
+            data={this.state.data}
+          />
 
-        <VictoryChart>
-          <VictoryBar />
-          <VictoryLine />
-        </VictoryChart>
-
-        <VictoryChart>
-          <VictoryCandlestick data={candleData} />
-        </VictoryChart>
-
-        <VictoryChart domain={{ x: [0, 4] }}>
           <VictoryGroup
-            labels={["a", "b", "c"]}
-            offset={10}
+            width={300}
+            height={375}
+            style={{ data: { opacity: 0.3 } }}
+          >
+            <VictoryArea
+              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
+            />
+            <VictoryArea
+              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
+            />
+            <VictoryArea
+              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
+            />
+          </VictoryGroup>
+
+          <VictoryStack width={300} height={375}>
+            <VictoryArea
+              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
+            />
+            <VictoryArea
+              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
+            />
+            <VictoryArea
+              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
+            />
+          </VictoryStack>
+
+          <VictoryStack
+            width={300}
+            height={450}
+            style={{
+              data: {
+                strokeDasharray: "5,5",
+                strokeWidth: 2,
+                fillOpacity: 0.4
+              }
+            }}
+          >
+            <VictoryArea
+              style={{ data: { fill: "tomato", stroke: "tomato" } }}
+              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
+            />
+            <VictoryArea
+              style={{ data: { fill: "orange", stroke: "orange" } }}
+              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
+            />
+            <VictoryArea
+              style={{ data: { fill: "gold", stroke: "gold" } }}
+              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
+            />
+          </VictoryStack>
+
+          <Text style={styles.text}>{"<VictoryBar />"}</Text>
+
+          <VictoryBar />
+
+          <VictoryBar
+            data={[
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 },
+              { x: 4, y: 2 },
+              { x: 5, y: 1 }
+            ]}
+          />
+
+          <VictoryGroup
+            width={300}
+            height={375}
+            offset={20}
             colorScale={"qualitative"}
           >
             <VictoryBar
-              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 5 }]}
+              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
             />
             <VictoryBar
-              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 7 }]}
+              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
             />
             <VictoryBar
-              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 9 }]}
+              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
             />
           </VictoryGroup>
-        </VictoryChart>
 
-        <VictoryChart>
-          <VictoryScatter
-            data={[
-              {
-                x: 1,
-                y: 3,
-                fill: "red",
-                symbol: "plus",
-                size: 6,
-                label: "Red"
-              },
-              {
-                x: 2,
-                y: 5,
-                fill: "magenta",
-                size: 9,
-                opacity: 0.4,
-                label: "Magenta"
-              },
-              {
-                x: 3,
-                y: 4,
-                fill: "orange",
-                size: 5,
-                label: "Orange"
-              },
-              {
-                x: 4,
-                y: 2,
-                fill: "brown",
-                symbol: "square",
-                size: 6,
-                label: "Brown"
-              },
-              {
-                x: 5,
-                y: 5,
-                fill: "black",
-                symbol: "triangleUp",
-                size: 5,
-                label: "Black"
-              }
-            ]}
-          />
-        </VictoryChart>
-        <VictoryChart animate={{ duration: 2000 }}>
-          <VictoryBar
-            labels={() => "Hi"}
-            data={this.state.transitionData}
-            style={{
-              data: {
-                fill: "tomato",
-                width: 12
-              }
-            }}
-            animate={{
-              onExit: {
-                duration: 500,
-                before: () => ({
-                  y: 0,
-                  fill: "orange",
-                  label: "BYE"
-                })
-              }
-            }}
-          />
-        </VictoryChart>
-
-        <VictoryChart>
-          <VictoryStack>
-            <VictoryArea
-              data={[
-                { x: "a", y: 2 },
-                { x: "b", y: 3 },
-                { x: "c", y: 5 },
-                { x: "d", y: 4 },
-                { x: "e", y: 7 }
-              ]}
+          <VictoryStack width={300} height={375} colorScale={"qualitative"}>
+            <VictoryBar
+              data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
             />
-            <VictoryArea
-              data={[
-                { x: "a", y: 1 },
-                { x: "b", y: 4 },
-                { x: "c", y: 5 },
-                { x: "d", y: 7 },
-                { x: "e", y: 5 }
-              ]}
+            <VictoryBar
+              data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
             />
-            <VictoryArea
-              data={[
-                { x: "a", y: 3 },
-                { x: "b", y: 2 },
-                { x: "c", y: 6 },
-                { x: "d", y: 2 },
-                { x: "e", y: 6 }
-              ]}
-            />
-            <VictoryArea
-              data={[
-                { x: "a", y: 2 },
-                { x: "b", y: 3 },
-                { x: "c", y: 3 },
-                { x: "d", y: 4 },
-                { x: "e", y: 7 }
-              ]}
+            <VictoryBar
+              data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
             />
           </VictoryStack>
-        </VictoryChart>
 
-        <Text style={styles.text}>{"<VictoryLine />"}</Text>
-
-        <VictoryLine />
-
-        <VictoryLine
-          data={[
-            { x: 0, y: 1 },
-            { x: 1, y: 3 },
-            { x: 2, y: 2 },
-            { x: 3, y: 4 },
-            { x: 4, y: 3 },
-            { x: 5, y: 5 }
-          ]}
-        />
-
-        <VictoryLine
-          data={[
-            { amount: 1, yield: 1, error: 0.5 },
-            { amount: 2, yield: 2, error: 1.1 },
-            { amount: 3, yield: 3, error: 0 },
-            { amount: 4, yield: 2, error: 0.1 },
-            { amount: 5, yield: 1, error: 1.5 }
-          ]}
-          x={"amount"}
-          y={data => data.yield + data.error}
-        />
-
-        <VictoryLine y={data => Math.sin(2 * Math.PI * data.x)} />
-
-        <VictoryLine
-          height={300}
-          domain={[0, 5]}
-          padding={75}
-          data={[
-            { x: 0, y: 1 },
-            { x: 1, y: 3 },
-            { x: 2, y: 2 },
-            { x: 3, y: 4 },
-            { x: 4, y: 3 },
-            { x: 5, y: 5 }
-          ]}
-          interpolation="cardinal"
-          labels={["LINE"]}
-          style={{
-            data: { stroke: "#822722", strokeWidth: 3 },
-            labels: { fontSize: 12 }
-          }}
-        />
-
-        <VictoryLine
-          width={300}
-          style={{
-            data: {
-              stroke: data => {
-                const y = data.map(d => d.y);
-                return Math.max(...y) > 2 ? "red" : "blue";
-              }
-            }
-          }}
-          data={[
-            { x: 0, y: 1 },
-            { x: 1, y: 3 },
-            { x: 2, y: 2 },
-            { x: 3, y: 4 },
-            { x: 4, y: 3 },
-            { x: 5, y: 5 }
-          ]}
-        />
-
-        <VictoryLine
-          style={{ data: { stroke: "red", strokeWidth: 9 } }}
-          interpolation={"linear"}
-          data={[
-            { x: 0, y: 1 },
-            { x: 1, y: 3 },
-            { x: 2, y: 2 },
-            { x: 3, y: 4 },
-            { x: 4, y: 3 },
-            { x: 5, y: 5 }
-          ]}
-        />
-
-        <VictoryLine
-          style={{ data: this.state.style }}
-          interpolation="basis"
-          animate={{ duration: 1500 }}
-          y={this.state.y}
-        />
-
-        <Text style={styles.text}>{"<VictoryArea />"}</Text>
-
-        <VictoryArea />
-
-        <VictoryArea
-          data={[
-            { x: 1, y: 1 },
-            { x: 2, y: 2 },
-            { x: 3, y: 3 },
-            { x: 4, y: 1 },
-            { x: 5, y: 3 },
-            { x: 6, y: 4 },
-            { x: 7, y: 2 }
-          ]}
-        />
-
-        <VictoryArea
-          data={[
-            { amount: 1, yield: 1, error: 0.5 },
-            { amount: 2, yield: 2, error: 1.1 },
-            { amount: 3, yield: 3, error: 0 },
-            { amount: 4, yield: 2, error: 0.1 },
-            { amount: 5, yield: 1, error: 1.5 }
-          ]}
-          x={"amount"}
-          y={data => data.yield + data.error}
-        />
-
-        <VictoryArea
-          interpolation="basis"
-          animate={{ duration: 1500 }}
-          data={this.state.data}
-        />
-
-        <VictoryGroup
-          width={300}
-          height={375}
-          style={{ data: { opacity: 0.3 } }}
-        >
-          <VictoryArea
-            data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
-          />
-          <VictoryArea
-            data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
-          />
-          <VictoryArea
-            data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
-          />
-        </VictoryGroup>
-
-        <VictoryStack width={300} height={375}>
-          <VictoryArea
-            data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
-          />
-          <VictoryArea
-            data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
-          />
-          <VictoryArea
-            data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
-          />
-        </VictoryStack>
-
-        <VictoryStack
-          width={300}
-          height={450}
-          style={{
-            data: {
-              strokeDasharray: "5,5",
-              strokeWidth: 2,
-              fillOpacity: 0.4
-            }
-          }}
-        >
-          <VictoryArea
-            style={{ data: { fill: "tomato", stroke: "tomato" } }}
-            data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]}
-          />
-          <VictoryArea
-            style={{ data: { fill: "orange", stroke: "orange" } }}
-            data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]}
-          />
-          <VictoryArea
-            style={{ data: { fill: "gold", stroke: "gold" } }}
-            data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]}
-          />
-        </VictoryStack>
-
-        <Text style={styles.text}>{"<VictoryBar />"}</Text>
-
-        <VictoryBar />
-
-        <VictoryBar
-          data={[
-            { x: 1, y: 1 },
-            { x: 2, y: 2 },
-            { x: 3, y: 3 },
-            { x: 4, y: 2 },
-            { x: 5, y: 1 }
-          ]}
-        />
-
-        <VictoryGroup
-          width={300}
-          height={375}
-          offset={20}
-          colorScale={"qualitative"}
-        >
-          <VictoryBar data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]} />
-          <VictoryBar data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]} />
-          <VictoryBar data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]} />
-        </VictoryGroup>
-
-        <VictoryStack width={300} height={375} colorScale={"qualitative"}>
-          <VictoryBar data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }]} />
-          <VictoryBar data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 1 }]} />
-          <VictoryBar data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 2 }]} />
-        </VictoryStack>
-
-        <VictoryBar
-          height={375}
-          padding={75}
-          style={{ data: { fill: data => (data.y > 2 ? "red" : "blue") } }}
-          data={[
-            { x: 1, y: 1 },
-            { x: 2, y: 2 },
-            { x: 3, y: 3 },
-            { x: 4, y: 2 },
-            { x: 5, y: 1 }
-          ]}
-        />
-
-        <Text style={styles.text}>{"<VictoryScatter />"}</Text>
-
-        <VictoryScatter />
-
-        <VictoryScatter y={data => Math.sin(2 * Math.PI * data.x)} />
-
-        <VictoryScatter
-          data={[
-            { x: 1, y: 3 },
-            { x: 2, y: 5 },
-            { x: 3, y: 4 },
-            { x: 4, y: 2 },
-            { x: 5, y: 5 }
-          ]}
-          size={8}
-          symbol="star"
-          style={{ data: { fill: "gold", stroke: "orange", strokeWidth: 3 } }}
-        />
-
-        <VictoryScatter
-          style={{
-            data: {
-              fill: data => (data.y > 0 ? "red" : "blue")
-            }
-          }}
-          symbol={data => (data.y > 0 ? "triangleUp" : "triangleDown")}
-          y={d => Math.sin(2 * Math.PI * d.x)}
-          samples={25}
-        />
-
-        <Text style={styles.text}>{"<VictoryAxis />"}</Text>
-
-        <VictoryAxis height={100} />
-
-        <VictoryAxis
-          height={100}
-          scale="time"
-          tickValues={[
-            new Date(1980, 1, 1),
-            new Date(1990, 1, 1),
-            new Date(2000, 1, 1),
-            new Date(2010, 1, 1),
-            new Date(2020, 1, 1)
-          ]}
-          tickFormat={x => x.getFullYear()}
-        />
-
-        <Svg width={320} height={320}>
-          <VictoryAxis
-            width={320}
-            height={320}
-            domain={[-10, 10]}
-            crossAxis
-            offsetY={160}
-            standalone={false}
-          />
-          <VictoryAxis
-            dependentAxis
-            width={320}
-            height={320}
-            domain={[-10, 10]}
-            crossAxis
-            offsetX={160}
-            standalone={false}
-          />
-        </Svg>
-
-        <VictoryAxis
-          dependentAxis
-          padding={{ left: 50, top: 20, bottom: 20 }}
-          scale="log"
-          domain={[1, 5]}
-        />
-
-        <Text style={styles.text}>{"<VictoryErrorBar />"}</Text>
-
-        <VictoryErrorBar
-          style={{ data: { stroke: "red", strokeWidth: 2 } }}
-          data={[
-            { x: 1, y: 1, errorX: [1, 0.5], errorY: 0.1 },
-            { x: 2, y: 2, errorX: [1, 3], errorY: 0.1 },
-            { x: 3, y: 3, errorX: [1, 3], errorY: [0.2, 0.3] },
-            { x: 4, y: 2, errorX: [1, 0.5], errorY: 0.1 },
-            { x: 5, y: 1, errorX: [1, 0.5], errorY: 0.2 }
-          ]}
-        />
-
-        <Text style={styles.text}>{"Tooltips"}</Text>
-        <VictoryChart>
-          {/* Removed from VictoryScatter: labelComponent={<VictoryTooltip/>} due to crash */}
-          {/* https://github.com/FormidableLabs/victory-native/issues/171 */}
-          <VictoryScatter
+          <VictoryBar
+            height={375}
+            padding={75}
+            style={{ data: { fill: data => (data.y > 2 ? "red" : "blue") } }}
             data={[
-              {
-                x: 1,
-                y: 3,
-                fill: "red",
-                symbol: "plus",
-                size: 6,
-                label: "Red"
-              },
-              {
-                x: 2,
-                y: 5,
-                fill: "magenta",
-                size: 9,
-                opacity: 0.4,
-                label: "Magenta"
-              },
-              {
-                x: 3,
-                y: 4,
-                fill: "orange",
-                size: 5,
-                label: "Orange"
-              },
-              {
-                x: 4,
-                y: 2,
-                fill: "brown",
-                symbol: "square",
-                size: 6,
-                label: "Brown"
-              },
-              {
-                x: 5,
-                y: 5,
-                fill: "black",
-                symbol: "triangleUp",
-                size: 5,
-                label: "Black"
-              }
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 },
+              { x: 4, y: 2 },
+              { x: 5, y: 1 }
             ]}
           />
-        </VictoryChart>
-      </ScrollView>
+
+          <Text style={styles.text}>{"<VictoryScatter />"}</Text>
+
+          <VictoryScatter />
+
+          <VictoryScatter y={data => Math.sin(2 * Math.PI * data.x)} />
+
+          <VictoryScatter
+            data={[
+              { x: 1, y: 3 },
+              { x: 2, y: 5 },
+              { x: 3, y: 4 },
+              { x: 4, y: 2 },
+              { x: 5, y: 5 }
+            ]}
+            size={8}
+            symbol="star"
+            style={{ data: { fill: "gold", stroke: "orange", strokeWidth: 3 } }}
+          />
+
+          <VictoryScatter
+            style={{
+              data: {
+                fill: data => (data.y > 0 ? "red" : "blue")
+              }
+            }}
+            symbol={data => (data.y > 0 ? "triangleUp" : "triangleDown")}
+            y={d => Math.sin(2 * Math.PI * d.x)}
+            samples={25}
+          />
+
+          <Text style={styles.text}>{"<VictoryAxis />"}</Text>
+
+          <VictoryAxis height={100} />
+
+          <VictoryAxis
+            height={100}
+            scale="time"
+            tickValues={[
+              new Date(1980, 1, 1),
+              new Date(1990, 1, 1),
+              new Date(2000, 1, 1),
+              new Date(2010, 1, 1),
+              new Date(2020, 1, 1)
+            ]}
+            tickFormat={x => x.getFullYear()}
+          />
+
+          <Svg width={320} height={320}>
+            <VictoryAxis
+              width={320}
+              height={320}
+              domain={[-10, 10]}
+              crossAxis
+              offsetY={160}
+              standalone={false}
+            />
+            <VictoryAxis
+              dependentAxis
+              width={320}
+              height={320}
+              domain={[-10, 10]}
+              crossAxis
+              offsetX={160}
+              standalone={false}
+            />
+          </Svg>
+
+          <VictoryAxis
+            dependentAxis
+            padding={{ left: 50, top: 20, bottom: 20 }}
+            scale="log"
+            domain={[1, 5]}
+          />
+
+          <Text style={styles.text}>{"<VictoryErrorBar />"}</Text>
+
+          <VictoryErrorBar
+            style={{ data: { stroke: "red", strokeWidth: 2 } }}
+            data={[
+              { x: 1, y: 1, errorX: [1, 0.5], errorY: 0.1 },
+              { x: 2, y: 2, errorX: [1, 3], errorY: 0.1 },
+              { x: 3, y: 3, errorX: [1, 3], errorY: [0.2, 0.3] },
+              { x: 4, y: 2, errorX: [1, 0.5], errorY: 0.1 },
+              { x: 5, y: 1, errorX: [1, 0.5], errorY: 0.2 }
+            ]}
+          />
+
+          <Text style={styles.text}>{"Tooltips"}</Text>
+          <VictoryChart>
+            {/* Removed from VictoryScatter: labelComponent={<VictoryTooltip/>} due to crash */}
+            {/* https://github.com/FormidableLabs/victory-native/issues/171 */}
+            <VictoryScatter
+              data={[
+                {
+                  x: 1,
+                  y: 3,
+                  fill: "red",
+                  symbol: "plus",
+                  size: 6,
+                  label: "Red"
+                },
+                {
+                  x: 2,
+                  y: 5,
+                  fill: "magenta",
+                  size: 9,
+                  opacity: 0.4,
+                  label: "Magenta"
+                },
+                {
+                  x: 3,
+                  y: 4,
+                  fill: "orange",
+                  size: 5,
+                  label: "Orange"
+                },
+                {
+                  x: 4,
+                  y: 2,
+                  fill: "brown",
+                  symbol: "square",
+                  size: 6,
+                  label: "Brown"
+                },
+                {
+                  x: 5,
+                  y: 5,
+                  fill: "black",
+                  symbol: "triangleUp",
+                  size: 5,
+                  label: "Black"
+                }
+              ]}
+            />
+          </VictoryChart>
+        </ScrollView>
+      </View>
     );
   }
 }
