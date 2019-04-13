@@ -7,11 +7,11 @@ Try it at https://expo.io/@community/image-upload-example
 ### Running the app
 
 - `cd` into the `app` directory and run `yarn` or `npm install`
-- Open `app` with `exp` or XDE, try it out.
+- Open `app` with [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
 ### Running the server
 
-- By default, the app will use a server that is already deployed in order to upload the image to S3. If you want to deploy your own, follow the steps in the [backend directory](https://github.com/expo/examples/tree/master/with-formdata-image-upload/backend). 
+- By default, the app will use a server that is already deployed in order to upload the image to S3. If you want to deploy your own, follow the steps in the [backend directory](https://github.com/expo/examples/tree/master/with-formdata-image-upload/backend).
 
 ## The idea behind the example
 
