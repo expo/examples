@@ -4,6 +4,8 @@ Try it at https://expo.io/@community/with-webbrowser-redirect
 
 ## How to use
 
+- Use [this link](https://snack.expo.io/@git/github.com/expo/examples:with-webbrowser-redirect/app) to open this project in your browser using Snack
+
 ### Running the app
 
 - `cd` into the `app` directory and run `yarn` or `npm install`
