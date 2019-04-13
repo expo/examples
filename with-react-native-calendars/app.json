@@ -3,7 +3,7 @@
     "name": "with-react-native-calendars",
     "description": "react native calendars example",
     "slug": "react-native-calendars-example",
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "32.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
