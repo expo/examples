@@ -4,6 +4,8 @@ Try it at https://expo.io/@community/image-upload-example
 
 ## How to use
 
+- Use [this link](https://snack.expo.io/@git/github.com/expo/examples:with-formdata-image-upload/app) to open this project in your browser using Snack
+
 ### Running the app
 
 - `cd` into the `app` directory and run `yarn` or `npm install`
@@ -11,7 +13,7 @@ Try it at https://expo.io/@community/image-upload-example
 
 ### Running the server
 
-- By default, the app will use a server that is already deployed in order to upload the image to S3. If you want to deploy your own, follow the steps in the [backend directory](https://github.com/expo/examples/tree/master/with-formdata-image-upload/backend). 
+- By default, the app will use a server that is already deployed in order to upload the image to S3. If you want to deploy your own, follow the steps in the [backend directory](https://github.com/expo/examples/tree/master/with-formdata-image-upload/backend).
 
 ## The idea behind the example
 
