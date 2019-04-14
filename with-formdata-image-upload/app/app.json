@@ -3,7 +3,7 @@
     "name": "image-upload-example",
     "description": "Demonstration of how to upload images from the ImagePicker, using a Node backend to upload to S3. https://github.com/expo/examples/tree/master/with-formdata-image-upload",
     "slug": "image-upload-example",
-    "sdkVersion": "20.0.0",
+    "sdkVersion": "32.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",

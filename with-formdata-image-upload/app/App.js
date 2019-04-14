@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Exponent, { Constants, ImagePicker, registerRootComponent } from 'expo';
+import { Constants, ImagePicker, Permissions } from 'expo';
 
 export default class App extends React.Component {
   state = {
@@ -20,8 +20,6 @@ export default class App extends React.Component {
   };
 
   render() {
-    let { image } = this.state;
-
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text
@@ -34,74 +32,74 @@ export default class App extends React.Component {
           Example: Upload ImagePicker result
         </Text>
 
-        <Button
-          onPress={this._pickImage}
-          title="Pick an image from camera roll"
-        />
-
-        <Button onPress={this._takePhoto} title="Take a photo" />
-
+        {this._maybeRenderControls()}
+        {this._maybeRenderUploadingIndicator()}
         {this._maybeRenderImage()}
-        {this._maybeRenderUploadingOverlay()}
 
         <StatusBar barStyle="default" />
       </View>
     );
   }
 
-  _maybeRenderUploadingOverlay = () => {
+  _maybeRenderUploadingIndicator = () => {
     if (this.state.uploading) {
+      return <ActivityIndicator animating size="large" />;
+    }
+  };
+
+  _maybeRenderControls = () => {
+    if (!this.state.uploading) {
       return (
-        <View
-          style={[
-            StyleSheet.absoluteFill,
-            {
-              backgroundColor: 'rgba(0,0,0,0.4)',
-              alignItems: 'center',
-              justifyContent: 'center',
-            },
-          ]}>
-          <ActivityIndicator color="#fff" animating size="large" />
+        <View>
+          <View style={{ marginVertical: 8 }}>
+            <Button
+              onPress={this._pickImage}
+              title="Pick an image from camera roll"
+            />
+          </View>
+          <View style={{ marginVertical: 8 }}>
+            <Button
+              onPress={this._takePhoto}
+              title="Take a photo"
+            />
+          </View>
         </View>
       );
     }
   };
 
   _maybeRenderImage = () => {
-    let { image } = this.state;
-    if (!image) {
-      return;
-    }
-
-    return (
-      <View
-        style={{
-          marginTop: 30,
-          width: 250,
-          borderRadius: 3,
-          elevation: 2,
-          shadowColor: 'rgba(0,0,0,1)',
-          shadowOpacity: 0.2,
-          shadowOffset: { width: 4, height: 4 },
-          shadowRadius: 5,
-        }}>
+    if (this.state.image) {
+      return (
         <View
           style={{
-            borderTopRightRadius: 3,
-            borderTopLeftRadius: 3,
-            overflow: 'hidden',
+            marginTop: 30,
+            width: 250,
+            borderRadius: 3,
+            elevation: 2,
+            shadowColor: 'rgba(0,0,0,1)',
+            shadowOpacity: 0.2,
+            shadowOffset: { width: 4, height: 4 },
+            shadowRadius: 5,
           }}>
-          <Image source={{ uri: image }} style={{ width: 250, height: 250 }} />
-        </View>
+          <View
+            style={{
+              borderTopRightRadius: 3,
+              borderTopLeftRadius: 3,
+              overflow: 'hidden',
+            }}>
+            <Image source={{ uri: this.state.image }} style={{ width: 250, height: 250 }} />
+          </View>
 
-        <Text
-          onPress={this._copyToClipboard}
-          onLongPress={this._share}
-          style={{ paddingVertical: 10, paddingHorizontal: 10 }}>
-          {image}
-        </Text>
-      </View>
-    );
+          <Text
+            onPress={this._copyToClipboard}
+            onLongPress={this._share}
+            style={{ paddingVertical: 10, paddingHorizontal: 10 }}>
+            {this.state.image}
+          </Text>
+        </View>
+      );
+    }
   };
 
   _share = () => {
@@ -117,7 +115,17 @@ export default class App extends React.Component {
     alert('Copied image URL to clipboard');
   };
 
+  _askPermission = async (type, failureMessage) => {
+    const { status, permissions } = await Permissions.askAsync(type);
+
+    if (status === 'denied') {
+      alert(failureMessage);
+    }
+  };
+
   _takePhoto = async () => {
+    await this._askPermission(Permissions.CAMERA, 'We need the camera permission to take a picture...');
+    await this._askPermission(Permissions.CAMERA_ROLL, 'We need the camera-roll permission to read pictures from your phone...');
     let pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -127,6 +135,7 @@ export default class App extends React.Component {
   };
 
   _pickImage = async () => {
+    await this._askPermission(Permissions.CAMERA_ROLL, 'We need the camera-roll permission to read pictures from your phone...');
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
