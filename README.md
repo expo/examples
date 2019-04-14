@@ -19,4 +19,5 @@ for you to take a look at, as well as a couple of [Snacks](https://expo.io/tools
 ## Snack Links (in progress of adding more)
 - [Example Snack](https://snack.expo.io/@documentation/pushnotifications) for the [Notifications](https://docs.expo.io/versions/v32.0.0/sdk/notifications/) API.
  Expo's guide for Push Notifications can be found [here](https://docs.expo.io/versions/v32.0.0/guides/push-notifications/).
- 
+
+- [Example Snack](https://snack.expo.io/@documentation/interactivenotificationexample) for Interactive Push Notifications. These are referred to as Notification Categories in the [Expo Docs](https://docs.expo.io/versions/latest/sdk/notifications/#notification-categories)
