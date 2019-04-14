@@ -2,6 +2,8 @@
 
 ## How to use
 
+- Use [this link](https://snack.expo.io/@documentation/reduxexample) to open this project in your browser using Snack
+
 ### Running the app
 
 - Run `yarn` or `npm install`
