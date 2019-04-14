@@ -125,6 +125,7 @@ export default class App extends React.Component {
 
   _takePhoto = async () => {
     await this._askPermission(Permissions.CAMERA, 'We need the camera permission to take a picture...');
+    await this._askPermission(Permissions.CAMERA_ROLL, 'We need the camera-roll permission to read pictures from your phone...');
     let pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
