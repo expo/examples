@@ -1,10 +1,10 @@
 # React Native Calendars Example
 
-Try it at https://expo.io/@community/react-native-calendars-example
+Try it at https://expo.io/@documentation/react-native-calendars-example
 
 ## How to use
 
-- Use [this link](https://snack.expo.io/@git/github.com/expo/examples:with-react-native-calendars) to open this project in your browser using Snack
+- Use [this link](https://snack.expo.io/@documentation/reactnativecalendars-example) to open this project in your browser using Snack
 
 ### Running the app
 
