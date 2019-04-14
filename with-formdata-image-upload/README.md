@@ -1,10 +1,10 @@
 # Image Upload Example
 
-Try it at https://expo.io/@community/image-upload-example
+Try it at https://expo.io/@documentation/imageUploadExample
 
 ## How to use
 
-- Use [this link](https://snack.expo.io/@git/github.com/expo/examples:with-formdata-image-upload/app) to open this project in your browser using Snack
+- Use [this link](https://snack.expo.io/@documentation/image-upload-example) to open this project in your browser using Snack
 
 ### Running the app
 
