@@ -2,7 +2,7 @@
 
 ## How to use
 
-- Use [this link](https://snack.expo.io/@git/github.com/expo/examples:with-redux) to open this project in your browser using Snack
+- Use [this link](https://snack.expo.io/@documentation/reduxexample) to open this project in your browser using Snack
 
 ### Running the app
 
