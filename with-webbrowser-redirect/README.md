@@ -1,8 +1,10 @@
 # WebBrowser Redirect Example
 
-Try it at https://expo.io/@community/with-webbrowser-redirect
+Try it at https://expo.io/@documentation/webbrowser-redirect-example
 
 ## How to use
+
+- Use [this link](https://snack.expo.io/@documentation/webbrowser-redirect-example) to open this project in your browser using Snack
 
 ### Running the app
 
