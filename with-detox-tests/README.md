@@ -7,7 +7,7 @@
 ### Run the tests
 
 1. [Install dependencies](https://github.com/wix/detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies) (only follow Step 1 from this guide for now, the rest is already done in this project)
-2. Start the packager: `exp start` (if you don't have `exp` installed, `yarn global add exp`).
+2. Start the packager: [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/) (if you don't have `expo` installed, `yarn global add expo-cli`).
 3. `npm run e2e`
 
 ## The idea behind this example

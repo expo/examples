@@ -7,7 +7,7 @@ Try it at https://expo.io/@community/victory-native-example
 ## Running the app
 
 - Run `yarn` or `npm install`
-- Open this directory with `exp` or XDE, try it out.
+- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
 ## The idea behind the example
 

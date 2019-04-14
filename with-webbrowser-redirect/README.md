@@ -7,7 +7,7 @@ Try it at https://expo.io/@community/with-webbrowser-redirect
 ### Running the app
 
 - `cd` into the `app` directory and run `yarn` or `npm install`
-- Open `app` with `exp` or XDE, try it out.
+- Open `app` with [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
 ## The idea behind the example
 
