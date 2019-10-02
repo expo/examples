@@ -11,7 +11,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Constants, ImagePicker, Permissions } from 'expo';
+import Constants from 'expo-constants';
+import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
 
 export default class App extends React.Component {
   state = {
@@ -58,10 +60,7 @@ export default class App extends React.Component {
             />
           </View>
           <View style={{ marginVertical: 8 }}>
-            <Button
-              onPress={this._takePhoto}
-              title="Take a photo"
-            />
+            <Button onPress={this._takePhoto} title="Take a photo" />
           </View>
         </View>
       );
@@ -88,7 +87,10 @@ export default class App extends React.Component {
               borderTopLeftRadius: 3,
               overflow: 'hidden',
             }}>
-            <Image source={{ uri: this.state.image }} style={{ width: 250, height: 250 }} />
+            <Image
+              source={{ uri: this.state.image }}
+              style={{ width: 250, height: 250 }}
+            />
           </View>
 
           <Text
@@ -124,8 +126,14 @@ export default class App extends React.Component {
   };
 
   _takePhoto = async () => {
-    await this._askPermission(Permissions.CAMERA, 'We need the camera permission to take a picture...');
-    await this._askPermission(Permissions.CAMERA_ROLL, 'We need the camera-roll permission to read pictures from your phone...');
+    await this._askPermission(
+      Permissions.CAMERA,
+      'We need the camera permission to take a picture...'
+    );
+    await this._askPermission(
+      Permissions.CAMERA_ROLL,
+      'We need the camera-roll permission to read pictures from your phone...'
+    );
     let pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -135,7 +143,10 @@ export default class App extends React.Component {
   };
 
   _pickImage = async () => {
-    await this._askPermission(Permissions.CAMERA_ROLL, 'We need the camera-roll permission to read pictures from your phone...');
+    await this._askPermission(
+      Permissions.CAMERA_ROLL,
+      'We need the camera-roll permission to read pictures from your phone...'
+    );
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],

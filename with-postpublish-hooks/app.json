@@ -4,7 +4,7 @@
     "slug": "with-postpublish-hooks",
     "description": "Demo project with postPublish hooks. The actual app itself is empty, the interesting part is in the hooks configuration in app.json",
     "privacy": "unlisted",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "hooks": {

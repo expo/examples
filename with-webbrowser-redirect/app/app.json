@@ -3,7 +3,7 @@
     "name": "with-webbrowser-redirect",
     "slug": "with-webbrowser-redirect",
     "privacy": "public",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -14,6 +14,10 @@
     "ios": {
       "supportsTablet": true
     },
-    "scheme": "expo.examples.with-webbrowser-redirect"
+    "scheme": "expo.examples.with-webbrowser-redirect",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

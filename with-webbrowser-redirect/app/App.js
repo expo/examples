@@ -1,6 +1,7 @@
-import { Linking, WebBrowser } from 'expo';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { Linking } from 'expo';
+import * as WebBrowser from 'expo-web-browser';
 
 export default class App extends React.Component {
   state = {
@@ -13,8 +14,13 @@ export default class App extends React.Component {
         <Text style={styles.header}>Redirect Example</Text>
 
         <Button
-          onPress={this._openWebBrowserAsync}
-          title="Tap here to try it out"
+          onPress={this._openBrowserAsync}
+          title="Tap here to try it out with openBrowserAsync"
+        />
+
+        <Button
+          onPress={this._openAuthSessionAsync}
+          title="Tap here to try it out with openAuthSessionAsync"
         />
 
         {this._maybeRenderRedirectData()}
@@ -30,7 +36,30 @@ export default class App extends React.Component {
     this.setState({ redirectData: data });
   };
 
-  _openWebBrowserAsync = async () => {
+  // openAuthSessionAsync doesn't require that you add Linking listeners, it
+  // returns the redirect URL in the resulting Promise
+  _openAuthSessionAsync = async () => {
+    try {
+      let result = await WebBrowser.openAuthSessionAsync(
+        // We add `?` at the end of the URL since the test backend that is used
+        // just appends `authToken=<token>` to the URL provided.
+        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/?')}`
+      );
+      let redirectData;
+      if (result.url) {
+        redirectData = Linking.parse(result.url);
+      }
+      this.setState({ result, redirectData });
+    } catch (error) {
+      alert(error);
+      console.log(error);
+    }
+  };
+
+  // openBrowserAsync requires that you subscribe to Linking events and the
+  // resulting Promise only contains information about whether it was canceled
+  // or dismissed
+  _openBrowserAsync = async () => {
     try {
       this._addLinkingListener();
       let result = await WebBrowser.openBrowserAsync(
@@ -59,7 +88,11 @@ export default class App extends React.Component {
       return;
     }
 
-    return <Text>{JSON.stringify(this.state.redirectData)}</Text>;
+    return (
+      <Text style={{ marginTop: 30 }}>
+        {JSON.stringify(this.state.redirectData)}
+      </Text>
+    );
   };
 }
 

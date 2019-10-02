@@ -3,7 +3,7 @@
     "name": "with-facebook-auth",
     "description": "Using Facebook authentication in Expo, see the source: https://github.com/expo/examples/blob/master/with-facebook-auth",
     "slug": "with-facebook-auth",
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -13,6 +13,10 @@
         "ttf",
         "mp4"
       ]
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

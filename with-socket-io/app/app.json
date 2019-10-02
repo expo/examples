@@ -3,7 +3,7 @@
     "name": "socket-io-example",
     "slug": "socket-io-example",
     "description": "Using socket.io in Expo, see the source: https://github.com/expo/examples/blob/master/with-socket-io",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "35.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
@@ -14,6 +14,10 @@
     },
     "loading": {
       "icon": "https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png"
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }
