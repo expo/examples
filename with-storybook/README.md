@@ -1,8 +1,6 @@
-# Storybook
+# Storybook Example
 
-How to use any Unimodules with storybook!
-
-## Expo Web
+### Running in the browser
 
 1. Create Expo project `expo init`
 2. cd into the project and run `npx -p @storybook/cli sb init --type react` to bootstrap a new React project
@@ -29,8 +27,12 @@ How to use any Unimodules with storybook!
 
 5. Run `yarn storybook` to try it out!
 
-## Native
+### Running in the client
 
 TBD... Feel free to open a PR!
 
 -> Usage with React Native (not universal) https://storybook.js.org/docs/guides/guide-react-native/
+
+## The idea behind the example
+
+This example shows how to use Unimodules with Storybook for web. You can use Storybook to test and share your component library quickly and easily.
