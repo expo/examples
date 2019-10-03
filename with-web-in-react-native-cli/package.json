@@ -1,22 +1,23 @@
 {
-  "name": "ExpoWebReactNativeCLI",
+  "name": "with-web-in-react-native-cli",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "expo start:web",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.2"
+    "react-dom": "^16.10.1",
+    "react-native": "0.61.2",
+    "react-native-web": "^0.11.7"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
-    "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
