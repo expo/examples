@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "@expo/webpack-config": "^0.7.6",
+    "@expo/webpack-config": "^0.7.11",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
