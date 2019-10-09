@@ -1,5 +1,6 @@
-import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import { storiesOf } from '@storybook/react-native';
+import * as Font from 'expo-font';
 import { Text } from 'react-native';
 
 export default {
@@ -31,3 +32,6 @@ export function font() {
     </Text>
   );
 }
+
+// On-Device Register
+storiesOf('Font', module).add('Font', font);
