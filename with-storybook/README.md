@@ -17,10 +17,7 @@
        config,
        {
          projectRoot: resolve(__dirname, '../'),
-       },
-       {
-         supportsFontLoading: false,
-       },
+       }
      );
    };
    ```
