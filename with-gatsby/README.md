@@ -1,5 +1,9 @@
 # [Gatsby Example](https://www.gatsbyjs.org/)
 
+Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/blog/2016/11/22/prerendering-explained/) the web part of your Expo app. This demo shows you how to setup your universal application to use use advanced universal modules from the Expo SDK like Camera, Gestures, Permissions, etc... with the Gatsby tool-chain!
+
+> Notice: Prerendering is an experimental feature with Expo so modules might not be fully optimized for Gatsby. If you find bugs please report them on the [Expo repo](https://github.com/expo/expo/issues) with the `[Gatsby]` tag in the title.
+
 ### ⚽️ Running in the browser
 
 1. Create Expo project `expo init`
