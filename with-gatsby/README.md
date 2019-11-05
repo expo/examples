@@ -32,7 +32,6 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
 6. Add `/.cache` and `/public` to your [`.gitignore`](./.gitignore)
 7. Run `yarn gatsby develop` to try it out!
 
-
 ### 🏁 New Commands
 
 - **Starting web**
