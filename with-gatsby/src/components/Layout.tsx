@@ -12,7 +12,7 @@ import { Text, View } from 'react-native';
 import Header from './header';
 
 const Anchor = (props: any) => {
-    return <Text accessibilityRole="link" {...props}/>
+  return <Text accessibilityRole="link" {...props} />
 }
 
 const Layout = ({ children }) => {
@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
         <Text>
           © {new Date().getFullYear()}, Built with
           {` `}
-            <Anchor href="https://www.gatsbyjs.org">Gatsby</Anchor>
+          <Anchor href="https://www.gatsbyjs.org">Gatsby</Anchor>
         </Text>
       </View>
     </>

@@ -21,7 +21,7 @@ const IndexPage = () => {
 
 const styles = StyleSheet.create({
   header: {
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
     marginBottom: 24,
   },
   paragraph: {
@@ -29,6 +29,5 @@ const styles = StyleSheet.create({
     fontSize: 16
   }
 })
-
 
 export default IndexPage
