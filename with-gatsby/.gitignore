@@ -12,3 +12,7 @@ web-report/
 
 # macOS
 .DS_Store
+
+# Gatsby
+/.cache
+/public
