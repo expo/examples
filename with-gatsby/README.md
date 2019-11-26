@@ -6,9 +6,9 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
 
 ### ⚽️ Running in the browser
 
-1. Create Expo project `expo init`
-2. Install the plugin: `yarn add react-native-web gatsby-plugin-react-native-web` or `npm install --save react-native-web gatsby-plugin-react-native-web`
-3. Create a `gatsby-config.js` and use the plugin:
+- Create Expo project `expo init`
+- Install the plugin: `yarn add gatsby gatsby-plugin-react-native-web` or `npm install --save gatsby gatsby-plugin-react-native-web`
+- Create a `gatsby-config.js` and use the plugin:
    [`gatsby-config.js`](./gatsby-config.js)
 
    ```js
@@ -19,18 +19,20 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
      ],
    }
    ```
+- Add `/.cache` and `/public` to your [`.gitignore`](./.gitignore)
+- Now create the first page of your Gatsby project: 
+  - Create the pages folder: `mkdir -p src/pages` 
+  - Create the file: 
+  ```
+  # JS
+  cp App.js src/pages/index.js
 
-4. Install the babel preset for React Native web: `yarn add --dev babel-preset-expo` or `npm install --save-dev babel-preset-expo`
+  # TS
+  cp App.tsx src/pages/index.tsx
+  ```
+- Run `yarn gatsby develop` to try it out!
+  - Open the project in the browser `http://localhost:8000/`
 
-5. Create a `babel.config.js` and use the Babel preset:
-   [`babel.config.js`](./babel.config.js)
-
-   ```js
-   module.exports = { presets: ['babel-preset-expo'] }
-   ```
-
-6. Add `/.cache` and `/public` to your [`.gitignore`](./.gitignore)
-7. Run `yarn gatsby develop` to try it out!
 
 ### 🏁 New Commands
 
