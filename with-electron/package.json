@@ -9,9 +9,9 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/electron-adapter": "^0.0.0-alpha.7",
+    "@expo/electron-adapter": "^0.0.0-alpha.8",
     "@expo/webpack-config": "^0.10.0",
-    "electron": "^7.1.2",
+    "electron": "^6.0.12",
     "expo": "^35.0.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",

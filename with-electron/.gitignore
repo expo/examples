@@ -13,7 +13,7 @@ web-report/
 # macOS
 .DS_Store
 /dist
-# @generated: @expo/electron-adapter@0.0.0-alpha.7
+# @generated: @expo/electron-adapter@0.0.0-alpha.8
 /.expo/*
 # Expo Web
 /web-build/*
