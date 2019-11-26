@@ -33,7 +33,6 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
 - Run `yarn gatsby develop` to try it out!
   - Open the project in the browser `http://localhost:8000/`
 
-
 ### 🏁 New Commands
 
 - **Starting web**
@@ -47,6 +46,22 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
 - **Serving your static project**
   - 🚫 `serve web-build`
   - ✅ `yarn gatsby serve`
+
+### 📁 File Structure
+
+```
+Expo Gatsby
+├── src
+│   └── pages ➡️ Routes
+│       └── index.tsx ➡️ Entry Point for Gatsby
+├── .cache ➡️ Generated Gatsby files (should be ignored)
+├── public ➡️ Generated Gatsby files (should be ignored)
+├── assets ➡️ All static assets for your project
+├── App.tsx ➡️ Entry Point for Mobile apps
+├── app.json ➡️ Expo config file
+├── gatsby-config.js ➡️ Gatsby config file
+└── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
+```
 
 ### 👀 More Info
 
