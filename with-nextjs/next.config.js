@@ -1,12 +1,7 @@
-const { withExpo } = require('@expo/next-adapter');
-const withImages = require('next-images');
-const withFonts = require('next-fonts');
-const withOffline = require('next-offline');
+// @generated: @expo/next-adapter@2.0.0-beta.7
+// Learn more: https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-nextjs.md#withexpo
 
-module.exports = withExpo(withOffline(withFonts(withImages({
-    projectRoot: __dirname,
-    workboxOpts: {
-        swDest: 'workbox-service-worker.js',
+const { withExpo } = require('@expo/next-adapter');
 
         /* changing any value means you'll have to copy over all the defaults  */
         /* next-offline */
