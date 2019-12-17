@@ -1,10 +1,13 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { useREM } from 'react-native-web-hooks';
 
-const Header = ({ siteTitle }) => {
+interface Props {
+  siteTitle: string;
+}
+
+const Header = ({ siteTitle = '' }: Props) => {
 
   const accessibilityRole: any = 'banner'
   return (
@@ -36,13 +39,6 @@ const Header = ({ siteTitle }) => {
       </View>
     </View>
   )
-}
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Header
