@@ -16,7 +16,7 @@ const IndexPage = () => {
         style={[styles.header, { fontSize: useREM(2.25) }]}
         accessibilityRole="header"
       >
-        Hi people
+        Hello
       </Text>
       <Text style={styles.paragraph}>
         Welcome to this Gatsby site, rendering React Native Web, and using Expo
