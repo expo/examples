@@ -1,19 +1,45 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View, Platform } from "react-native";
 
-export default function App() {
-  return (
+import { 
+  Router,
+  Switch,
+  Route,
+  Link
+ } from "./react-router";
+
+const Home = () => <Text>Home</Text>;
+
+const About = () => <Text>About</Text>;
+
+const App = () => (
+  <Router>
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <View style={styles.nav}>
+        <Link to="/">
+          <Text>Home</Text>
+        </Link>
+        <Link to="/about">
+          <Text>About</Text>
+        </Link>
+      </View>
+
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
     </View>
-  );
-}
+  </Router>
+);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 25,
+    padding: 10
   },
+  nav:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  }
+
 });
+
+export default App;
