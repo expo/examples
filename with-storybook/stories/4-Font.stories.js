@@ -1,5 +1,6 @@
-import * as Font from 'expo-font';
 import React, { useEffect, useState } from 'react';
+import { storiesOf } from '@storybook/react-native';
+import * as Font from 'expo-font';
 import { Text } from 'react-native';
 
 export default {
@@ -12,22 +13,27 @@ export function font() {
   useEffect(() => {
     (async () => {
       await Font.loadAsync({
-        'retro-regular': require('../assets/retro-regular.ttf'),
+        'retro-regular': require('../assets/retro-regular.ttf')
       });
       setLoaded(true);
     })();
   }, []);
 
   return (
-    <Text
-      style={{
-        fontFamily: 'retro-regular',
-        backgroundColor: 'transparent',
-        fontSize: 56,
-        color: '#000',
-      }}
-    >
-      Cool new font
-    </Text>
+    loaded && (
+      <Text
+        style={{
+          fontFamily: 'retro-regular',
+          backgroundColor: 'transparent',
+          fontSize: 56,
+          color: '#000'
+        }}
+      >
+        Cool new font
+      </Text>
+    )
   );
 }
+
+// On-Device Register
+storiesOf('Font', module).add('Font', font);
