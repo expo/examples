@@ -1,3 +1,20 @@
 .expo
 .vscode
 node_modules
+
+# Web
+web-build
+web-report
+
+# Electron
+dist
+
+# Gatsby
+.cache
+with-gatsby/public
+
+# Next.js 
+.next
+with-nextjs/out
+
+.gh-assets
