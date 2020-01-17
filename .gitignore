@@ -1,3 +1,27 @@
 .expo
 .vscode
 node_modules
+yarn-error.log
+
+# Web
+web-build
+web-report
+
+# Electron
+dist
+
+# Gatsby
+.cache
+with-gatsby/public
+
+# Next.js 
+.next
+with-nextjs/out
+
+.gh-assets
+
+# Native
+*/ios/Pods
+
+# Websockets
+*/backend/.env
