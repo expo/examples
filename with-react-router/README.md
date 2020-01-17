@@ -13,15 +13,15 @@ This demo shows you how to setup your universal application to switch between we
 - Now you can use these files to create your universal routes! [Basic Example](App.js)
   - [Deployed example](https://5e20d26f3f285b0766a74be2--stupefied-perlman-ca9443.netlify.com/about)
 
-![react-router-native-expo-web-example](/.gh-assets/native-example.png "React Router native expo web example")
-![react-router-dom-expo-web-example](/.gh-assets/web-example.png "React Router dom expo web example")
+![react-router-native-expo-web-example](.gh-assets/native-example.png "React Router native expo web example")
+![react-router-dom-expo-web-example](.gh-assets/web-example.png "React Router dom expo web example")
 
 
 ### Deploying to Netlify
 
 You may find get the following error when visiting URLs other than '/' on when your single page application (SPA) is deployed to Netlify:
 
-![netlify-error](/.gh-assets/page-not-found.png "Netlify: Page Not Found error")
+![netlify-error](.gh-assets/page-not-found.png "Netlify: Page Not Found error")
 
 > **Page Not Found**
 > Looks like you've followed a broken link or entered a URL that doesn't exist on this site.
