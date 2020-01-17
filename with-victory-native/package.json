@@ -1,10 +1,4 @@
 {
-  "name": "with-victory-native",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
-  "author": "support@expo.io",
-  "private": true,
-  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^35.0.0",
     "expo-font": "~7.0.0",

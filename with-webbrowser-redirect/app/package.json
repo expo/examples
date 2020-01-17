@@ -1,7 +1,6 @@
 {
   "name": "with-webbrowser-redirect",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^35.0.0",
     "expo-web-browser": "~7.0.0",

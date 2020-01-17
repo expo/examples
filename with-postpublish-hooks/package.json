@@ -4,7 +4,6 @@
   "description": "An example of how to use post-publishing hooks",
   "author": "support@expo.io",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^35.0.0",
     "expo-postpublish-slack-notify": "^1.2.0",
