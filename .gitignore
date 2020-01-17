@@ -1,6 +1,7 @@
 .expo
 .vscode
 node_modules
+yarn-error.log
 
 # Web
 web-build
@@ -18,3 +19,9 @@ with-gatsby/public
 with-nextjs/out
 
 .gh-assets
+
+# Native
+*/ios/Pods
+
+# Websockets
+*/backend/.env
