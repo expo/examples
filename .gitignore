@@ -18,8 +18,6 @@ with-gatsby/public
 .next
 with-nextjs/out
 
-.gh-assets
-
 # Native
 */ios/Pods
 
