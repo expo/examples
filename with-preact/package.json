@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "expo": "36.0.0",
+    "preact": "10.2.1",
+    "preact-responder-event-plugin": "1.0.14",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native-web": "0.11.7"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@expo/webpack-config": "0.10.11",
+    "babel-preset-expo": "8.0.0"
+  }
+}
