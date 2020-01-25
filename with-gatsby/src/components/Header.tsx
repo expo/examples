@@ -1,10 +1,14 @@
 import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
 import { Text, View } from "react-native";
 import { useREM } from "react-native-web-hooks";
 
-const Header = ({ siteTitle, siteDescription }) => {
+interface Props {
+  siteTitle: string;
+  siteDescription: string;
+}
+
+const Header = ({ siteTitle = "", siteDescription = "" }: Props) => {
   const accessibilityRole: any = "banner";
   return (
     <View
@@ -43,10 +47,7 @@ const Header = ({ siteTitle, siteDescription }) => {
           paddingHorizontal: useREM(1.0875)
         }}
       >
-        <Text
-          accessibilityRole="header"
-          style={{ fontSize: useREM(1) }}
-        >
+        <Text accessibilityRole="header" style={{ fontSize: useREM(1) }}>
           <Link
             to="/"
             style={{
@@ -61,12 +62,4 @@ const Header = ({ siteTitle, siteDescription }) => {
     </View>
   );
 };
-Header.propTypes = {
-  siteTitle: PropTypes.string
-};
-
-Header.defaultProps = {
-  siteTitle: ``
-};
-
 export default Header;

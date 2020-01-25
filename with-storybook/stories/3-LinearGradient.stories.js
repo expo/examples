@@ -1,5 +1,5 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default {
@@ -12,3 +12,6 @@ export const linearGradient = () => (
     colors={['red', 'blue', 'yellow']}
   />
 );
+
+// On-Device Register
+storiesOf('LinearGradient', module).add('Linear Gradient', linearGradient);

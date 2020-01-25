@@ -4,22 +4,23 @@
  *
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
-import { graphql, useStaticQuery } from "gatsby";
-import PropTypes from "prop-types";
-import React, { ReactNode } from "react";
-import { Text, View } from "react-native";
 
-import Header from "./header";
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { Text, View } from 'react-native';
+
+interface Props {
+  children: React.ReactNode;
+}
+
+import Header from './header';
+
 
 const Anchor = (props: any) => {
   return <Text accessibilityRole="link" {...props} />;
 };
 
-const Layout = ({
-  children,
-}: {
-  children: ReactNode;
-}) => {
+const Layout = ({ children }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -54,8 +55,4 @@ const Layout = ({
   );
 };
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-export default Layout;
+export default Layout

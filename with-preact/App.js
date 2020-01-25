@@ -1,8 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { OnDeviceStorybookUI } from './.storybook/config';
 
-export default OnDeviceStorybookUI;
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Demo Preact + Expo web</Text>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
