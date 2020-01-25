@@ -18,7 +18,7 @@ export default () => (
     <ExpoFontExample />
     <ExpoBlurExample />
     {/*<ExpoBatteryExample />*/}
-    {/*<ExpoGesturesExample />*/}
+    <ExpoGesturesExample />
     <ExpoConstantsExample />
     <ExpoCameraExample />
     <ExpoPermissionsExample />
