@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import useREM from "../hooks/useREM";
+import { useREM } from "react-native-web-hooks";
 import Constants from "expo-constants";
 
 import Layout from "../components/layout";

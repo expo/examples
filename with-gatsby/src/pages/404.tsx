@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import useREM from "../hooks/useREM";
+import { useREM } from "react-native-web-hooks";
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';

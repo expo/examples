@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { Text, View } from "react-native";
-import useREM from "../hooks/useREM";
+import { useREM } from "react-native-web-hooks";
 
 const Header = ({ siteTitle, siteDescription }) => {
   const accessibilityRole: any = "banner";

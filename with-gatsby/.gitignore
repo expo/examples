@@ -16,3 +16,6 @@ web-report/
 # Gatsby
 /.cache
 /public
+
+.idea
+report.html
