@@ -2,7 +2,7 @@
 name: New Example Idea
 about: Suggest an idea for a new example
 title: ''
-labels: enhancement, help wanted, New Example
+labels: New Example, enhancement, help wanted
 assignees: EvanBacon
 
 ---
