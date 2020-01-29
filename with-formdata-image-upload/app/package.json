@@ -4,7 +4,6 @@
   "description": "An example of how to upload image data with expo and fetch",
   "author": "support@expo.io",
   "private": true,
-  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "expo": "^35.0.0",
     "expo-constants": "~7.0.0",
