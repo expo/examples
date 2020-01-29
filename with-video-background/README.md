@@ -4,9 +4,9 @@ Video backgrounds are common in mobile apps. This shows you how to do it univers
 
 ## How to use
 
-Install: `yarn install`
+- Install: `yarn`
 
-[Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/): `npm install -g expo-cli` (if not already installed globally on your machine)
+- [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/): `npm install -g expo-cli` (if not already installed globally on your machine)
 
-Run Project Locally: `expo start`
+- Run Project Locally: `expo start`
 
