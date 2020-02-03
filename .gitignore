@@ -3,6 +3,8 @@
 node_modules
 yarn-error.log
 
+yarn.lock
+
 # Web
 web-build
 web-report
