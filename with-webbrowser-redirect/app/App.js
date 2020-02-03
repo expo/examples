@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { Linking } from 'expo';
 import * as WebBrowser from 'expo-web-browser';
+import Constants from 'expo-constants';
 
 export default class App extends React.Component {
   state = {
@@ -29,7 +30,11 @@ export default class App extends React.Component {
   }
 
   _handleRedirect = event => {
-    WebBrowser.dismissBrowser();
+    if (Constants.platform.ios) {
+      WebBrowser.dismissBrowser();
+    } else {
+      this._removeLinkingListener();
+    }
 
     let data = Linking.parse(event.url);
 
@@ -67,7 +72,12 @@ export default class App extends React.Component {
         // just appends `authToken=<token>` to the URL provided.
         `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/?')}`
       );
-      this._removeLinkingListener();
+
+      // https://github.com/expo/expo/issues/5555
+      if (Constants.platform.ios) {
+        this._removeLinkingListener();
+      }
+
       this.setState({ result });
     } catch (error) {
       alert(error);
