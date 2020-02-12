@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "expo": "^36.0.0",
+    "expo-image-picker": "8.0.2",
+    "expo-permissions": "8.0.0",
+    "firebase": "7.8.1",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "uuid": "3.4.0",
+    "whatwg-fetch": "3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "babel-preset-expo": "8.0.0"
+  }
+}
