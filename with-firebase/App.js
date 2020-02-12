@@ -23,12 +23,11 @@ firebase.initializeApp(firebaseConfig);
 export default class App extends React.Component {
   state = {
     text: '',
-    loading: false,
+    loading: true,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let initialLoad = true;
-    this.setState({loading: true});
 
     firebase.database().ref('example').on('value', (snapshot) => {
       this.setState({text: snapshot.val() && snapshot.val().text});
