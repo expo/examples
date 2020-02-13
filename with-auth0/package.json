@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "expo": "36.0.0",
+    "jwt-decode": "2.2.0",
+    "react": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "babel-preset-expo": "8.0.0"
+  }
+}
