@@ -15,7 +15,7 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 
 - Create your own [Twitter app](https://developer.twitter.com/en/apps/create)
 - Mark the checkbox `Enable Sign in with Twitter`
-- Add the AuthSession's Callback URL (read more about this below)
+- Add the AuthSession's Callback URL ([read more here](#authsession-callback-url))
 
 #### Prepare the backend
 
