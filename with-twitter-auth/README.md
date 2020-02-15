@@ -36,7 +36,7 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 ```
 Expo Twitter Auth
 ├── app ➡️ Expo application with Twitter auth
-└── backend - Simple API to fetch request and access tokens
+└── backend ➡️ Simple API to fetch request and access tokens
 ```
 
 ## 📝 Notes
