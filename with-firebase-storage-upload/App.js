@@ -23,7 +23,9 @@ const firebaseConfig = {
   messagingSenderId: '506017999540',
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 // Firebase sets some timeers for a long period, which will trigger some warnings. Let's turn that off for this example
 console.disableYellowBox = true;
