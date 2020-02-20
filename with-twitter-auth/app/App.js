@@ -45,7 +45,7 @@ export default function App() {
       // Validate if the auth session response is successful
       // Note, we still receive a `authResponse.type = 'success'`, thats why we need to check on the params itself
       if (authResponse.params && authResponse.params.denied) {
-        return setError('AuthSession was not successful, user did not authorize the app');
+        return setError('AuthSession failed, user did not authorize the app');
       }
 
       // Step #3 - when the user (successfully) authorized the app, we will receive a verification code.
