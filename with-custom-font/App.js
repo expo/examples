@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { useFonts } from '@use-expo/font';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { AppLoading } from 'expo';
 
 let customFonts = {
-  'OdibeeSans-Regular': require('./assets/fonts/OdibeeSans-Regular.ttf'),
+  'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
   'Inter-SemiBoldItalic': 'https://rsms.me/inter/font-files/Inter-SemiBoldItalic.otf?v=3.12',
 };
 
@@ -15,10 +15,10 @@ export default (props) => {
     return <AppLoading />;
   } else {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-        <Text style={{ fontSize: 28 }}>Hello, standard font :)</Text>
-        <Text style={{ fontFamily: 'OdibeeSans-Regular', fontSize: 28 }}>Hello, custom font!</Text>
-        <Text style={{ fontFamily: 'Inter-SemiBoldItalic', fontSize: 18 }}>Hello, remote, semi-bold, italic font =P</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Platform Default</Text>
+        <Text style={{ fontFamily: 'Inter-Black' }}>Inter Black</Text>
+        <Text style={{ fontFamily: 'Inter-SemiBoldItalic' }}>Inter SemiBoldItalic</Text>
       </View>
     );
   }
