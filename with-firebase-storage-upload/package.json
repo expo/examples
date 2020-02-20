@@ -7,8 +7,7 @@
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
-    "uuid": "3.4.0",
-    "whatwg-fetch": "3.0.0"
+    "uuid": "3.4.0"
   },
   "devDependencies": {
     "@babel/core": "7.0.0",
