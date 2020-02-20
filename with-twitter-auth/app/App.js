@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { AuthSession } from 'expo';
 import {
   ActivityIndicator,
@@ -11,28 +11,22 @@ import {
 const requestTokenURL = 'http://localhost:3000/request-token';
 const accessTokenURL = 'http://localhost:3000/access-token';
 
-export default class App extends React.Component {
-  state = {
-    loading: false,
-    error: undefined,
-    username: undefined,
-  };
+// This is the callback or redirect URL you need to whitelist in your Twitter app
+console.log(`Callback URL: ${AuthSession.getRedirectUrl()}`);
 
-  componentDidMount() {
-    // This is the callback or redirect URL you need to whitelist in your Twitter app
-    console.log(`Callback URL: ${AuthSession.getRedirectUrl()}`);
-  }
+export default function App() {
+  const [username, setUsername] = useState();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
-  _onLogout = () => {
-    this.setState({
-      loading: false,
-      error: undefined,
-      username: undefined,
-    });
-  }
+  const onLogout = useCallback(() => {
+    setUsername();
+    setLoading(false);
+    setError();
+  }, []);
 
-  _onLogin = async () => {
-    this.setState({ loading: true });
+  const onLogin = useCallback(async () => {
+    setLoading(true);
 
     try {
       // Step #1 - first we need to fetch a request token to start the browser-based authentication flow
@@ -51,7 +45,7 @@ export default class App extends React.Component {
       // Validate if the auth session response is successful
       // Note, we still receive a `authResponse.type = 'success'`, thats why we need to check on the params itself
       if (authResponse.params && authResponse.params.denied) {
-        return this.setState({ error: 'AuthSession was not successful, user did not authorize the app' });
+        return setError('AuthSession was not successful, user did not authorize the app');
       }
 
       // Step #3 - when the user (successfully) authorized the app, we will receive a verification code.
@@ -67,44 +61,40 @@ export default class App extends React.Component {
 
       // Now let's store the username in our state to render it.
       // You might want to store the `oauth_token` and `oauth_token_secret` for future use.
-      this.setState({ username: accessTokens.screen_name });
+      setUsername(accessTokens.screen_name);
     } catch (error) {
       console.log('Something went wrong...', error);
-      this.setState({ error: error.message });
+      setError(error.message);
     } finally {
-      this.setState({ loading: false });
+      setLoading(false);
     }
-  }
+  }, []);
 
-  render() {
-    const { loading, error, username } = this.state;
+  return (
+    <View style={styles.container}>
+      {username !== undefined ? (
+        <View>
+          <Text style={styles.title}>Hi {username}!</Text>
+          <Button title="Logout to try again" onPress={onLogout} />
+        </View>
+      ) : (
+        <View>
+          <Text style={styles.title}>Example: Twitter login</Text>
+          <Button title="Login with Twitter" onPress={onLogin} />
+        </View>
+      )}
 
-    return (
-      <View style={styles.container}>
-        {username !== undefined ? (
-          <View>
-            <Text style={styles.title}>Hi {username}!</Text>
-            <Button title="Logout to try again" onPress={this._onLogout} />
-          </View>
-        ) : (
-          <View>
-            <Text style={styles.title}>Example: Twitter login</Text>
-            <Button title="Login with Twitter" onPress={this._onLogin} />
-          </View>
-        )}
+      {error !== undefined && (
+        <Text style={styles.error}>Error: {error}</Text>
+      )}
 
-        {error !== undefined && (
-          <Text style={styles.error}>Error: {error}</Text>
-        )}
-
-        {loading && (
-          <View style={[StyleSheet.absoluteFill, styles.loading]}>
-            <ActivityIndicator color="#fff" size="large" animating />
-          </View>
-        )}
-      </View>
-    );
-  }
+      {loading && (
+        <View style={[StyleSheet.absoluteFill, styles.loading]}>
+          <ActivityIndicator color="#fff" size="large" animating />
+        </View>
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
