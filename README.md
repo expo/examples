@@ -48,6 +48,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://twitter.com/baconbrix"><img src="https://avatars1.githubusercontent.com/u/9664363?v=4" width="100px;" alt=""/><br /><sub><b>Evan Bacon</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=EvanBacon" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/brentvatne"><img src="https://avatars2.githubusercontent.com/u/90494?v=4" width="100px;" alt=""/><br /><sub><b>Brent Vatne</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=brentvatne" title="Code">💻</a></td>
     <td align="center"><a href="https://bycedric.com"><img src="https://avatars2.githubusercontent.com/u/1203991?v=4" width="100px;" alt=""/><br /><sub><b>Cedric van Putten</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=byCedric" title="Code">💻</a></td>
   </tr>
 </table>
