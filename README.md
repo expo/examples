@@ -37,7 +37,7 @@
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -50,6 +50,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://twitter.com/baconbrix"><img src="https://avatars1.githubusercontent.com/u/9664363?v=4" width="100px;" alt=""/><br /><sub><b>Evan Bacon</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=EvanBacon" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/brentvatne"><img src="https://avatars2.githubusercontent.com/u/90494?v=4" width="100px;" alt=""/><br /><sub><b>Brent Vatne</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=brentvatne" title="Code">💻</a></td>
     <td align="center"><a href="https://bycedric.com"><img src="https://avatars2.githubusercontent.com/u/1203991?v=4" width="100px;" alt=""/><br /><sub><b>Cedric van Putten</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=byCedric" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/cruzach"><img src="https://avatars0.githubusercontent.com/u/35579283?v=4" width="100px;" alt=""/><br /><sub><b>Charlie Cruzan</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=cruzach" title="Code">💻</a> <a href="https://github.com/expo/examples/commits?author=cruzach" title="Documentation">📖</a></td>
   </tr>
 </table>
 
