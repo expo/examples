@@ -33,5 +33,7 @@
     <img  alt="Twitter: expo" src="https://img.shields.io/twitter/follow/expo.svg?style=flat-square&label=Follow%20%40expo&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=15&color=lightgray" />
   </a>
   
-  <img aria-label="Star the repo" align="right" alt="Star expo-examples on Github" src="https://img.shields.io/github/stars/expo/examples.svg?style=flat-square&label=Star%20on%20Github&logo=GITHUB&logoColor=FFFFFF&labelColor=24292e&logoWidth=15&color=lightgray" />
+  <a aria-label="Star expo examples on Github" href="https://github.com/expo/examples">
+    <img aria-label="Star the repo" align="right" alt="Star expo-examples on Github" src="https://img.shields.io/github/stars/expo/examples.svg?style=flat-square&label=Star%20on%20Github&logo=GITHUB&logoColor=FFFFFF&labelColor=24292e&logoWidth=15&color=lightgray" />
+  </a>
 </p>
