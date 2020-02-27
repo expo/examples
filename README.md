@@ -37,7 +37,7 @@
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -52,6 +52,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://bycedric.com"><img src="https://avatars2.githubusercontent.com/u/1203991?v=4" width="100px;" alt=""/><br /><sub><b>Cedric van Putten</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=byCedric" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/cruzach"><img src="https://avatars0.githubusercontent.com/u/35579283?v=4" width="100px;" alt=""/><br /><sub><b>Charlie Cruzan</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=cruzach" title="Code">💻</a> <a href="https://github.com/expo/examples/commits?author=cruzach" title="Documentation">📖</a></td>
     <td align="center"><a href="https://blog.calebnance.com"><img src="https://avatars2.githubusercontent.com/u/1774589?v=4" width="100px;" alt=""/><br /><sub><b>Caleb Nance</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=calebnance" title="Code">💻</a> <a href="https://github.com/expo/examples/commits?author=calebnance" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/sjchmiela"><img src="https://avatars2.githubusercontent.com/u/1151041?v=4" width="100px;" alt=""/><br /><sub><b>Stanisław Chmiela</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=sjchmiela" title="Code">💻</a></td>
   </tr>
 </table>
 
