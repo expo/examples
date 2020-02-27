@@ -1,4 +1,7 @@
 <img alt="expo examples" src=".gh-assets/banner.png">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center">
   <a aria-label="SDK version" href="https://www.npmjs.com/package/expo" target="_blank">
@@ -33,3 +36,22 @@
     <img aria-label="Star the repo" align="right" alt="Star expo-examples on Github" src="https://img.shields.io/github/stars/expo/examples.svg?style=flat-square&label=Star%20on%20Github&logo=GITHUB&logoColor=FFFFFF&labelColor=24292e&logoWidth=15&color=lightgray" />
   </a>
 </p>
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://twitter.com/baconbrix"><img src="https://avatars1.githubusercontent.com/u/9664363?v=4" width="100px;" alt=""/><br /><sub><b>Evan Bacon</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=EvanBacon" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
