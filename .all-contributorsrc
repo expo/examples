@@ -14,11 +14,20 @@
         "code"
       ]
     },
-    {
+     {
       "login": "brentvatne",
       "name": "Brent Vatne",
       "avatar_url": "https://avatars2.githubusercontent.com/u/90494?v=4",
       "profile": "https://github.com/brentvatne",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "byCedric",
+      "name": "Cedric van Putten",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1203991?v=4",
+      "profile": "https://bycedric.com",
       "contributions": [
         "code"
       ]
