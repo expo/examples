@@ -1,22 +1,18 @@
 <img alt="expo examples" src=".gh-assets/banner.png">
 
 <p align="center">
- 
-   <a aria-label="SDK version" href="https://www.npmjs.com/package/expo" target="_blank">
+  <a aria-label="SDK version" href="https://www.npmjs.com/package/expo" target="_blank">
     <img alt="Expo SDK version" src="https://img.shields.io/npm/v/expo.svg?style=flat-square&label=SDK&labelColor=000000&color=4630EB">
   </a>
-    
   <a aria-label="Join our forums" href="https://forums.expo.io" target="_blank">
     <img alt="" src="https://img.shields.io/badge/Ask%20Questions%20-blue.svg?style=flat-square&logo=discourse&logoWidth=15&labelColor=000000&color=4630EB">
   </a>
-  <a aria-label="Expo is free to use" href="https://github.com/expo/expo/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-success.svg?style=flat-square&color=33CC12" target="_blank" />
+  <a aria-label="PRs Welcome" href="http://makeapullrequest.com" target="_blank">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"/>
   </a>
-  <a aria-label="expo downloads" href="http://www.npmtrends.com/expo" target="_blank">
-    <img alt="Downloads" src="https://img.shields.io/npm/dm/expo.svg?style=flat-square&labelColor=gray&color=33CC12&label=Downloads" />
+  <a aria-label="first-timers-only Friendly" href="http://www.firsttimersonly.com" target="_blank">
+    <img alt="first-timers-only Friendly" src="https://img.shields.io/badge/first--timers--only-friendly-4630EB.svg?style=flat-square" />
   </a>
-  </a>
-  
 </p>
 
 <p align="center">
