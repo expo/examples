@@ -22,7 +22,7 @@
 <p align="center">
   <a aria-label="create a new example" href="https://github.com/expo/examples/blob/master/contributing.md"><b>Create an Example</b></a>
  |
-  <a aria-label="suggest an example" href="https://github.com/expo/examples/issues/new?assignees=&labels=&template=feature_request.md">Suggest an Example 📚</a>
+  <a aria-label="suggest an example" href="https://github.com/expo/examples/issues/new?assignees=&labels=&template=feature_request.md">Suggest an Example 🚀</a>
 </p>
 
 <p align="center">Easy example for using features, libraries, and other integrations with the Expo SDK!
