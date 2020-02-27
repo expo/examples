@@ -37,7 +37,7 @@
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -54,6 +54,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://blog.calebnance.com"><img src="https://avatars2.githubusercontent.com/u/1774589?v=4" width="100px;" alt=""/><br /><sub><b>Caleb Nance</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=calebnance" title="Code">💻</a> <a href="https://github.com/expo/examples/commits?author=calebnance" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/sjchmiela"><img src="https://avatars2.githubusercontent.com/u/1151041?v=4" width="100px;" alt=""/><br /><sub><b>Stanisław Chmiela</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=sjchmiela" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/tsapeta"><img src="https://avatars0.githubusercontent.com/u/1714764?v=4" width="100px;" alt=""/><br /><sub><b>Tomasz Sapeta</b></sub></a><br /><a href="https://github.com/expo/examples/pulls?q=is%3Apr+reviewed-by%3Atsapeta" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/ivnnv"><img src="https://avatars0.githubusercontent.com/u/23552631?v=4" width="100px;" alt=""/><br /><sub><b>Ivn Nv</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=ivnnv" title="Code">💻</a></td>
   </tr>
 </table>
 

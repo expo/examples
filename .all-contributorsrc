@@ -69,6 +69,15 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "ivnnv",
+      "name": "Ivn Nv",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/23552631?v=4",
+      "profile": "https://github.com/ivnnv",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
