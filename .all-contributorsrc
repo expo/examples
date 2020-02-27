@@ -14,7 +14,7 @@
         "code"
       ]
     },
-     {
+    {
       "login": "brentvatne",
       "name": "Brent Vatne",
       "avatar_url": "https://avatars2.githubusercontent.com/u/90494?v=4",
@@ -30,6 +30,16 @@
       "profile": "https://bycedric.com",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "cruzach",
+      "name": "Charlie Cruzan",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/35579283?v=4",
+      "profile": "https://github.com/cruzach",
+      "contributions": [
+        "code",
+        "doc"
       ]
     }
   ],
