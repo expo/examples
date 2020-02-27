@@ -60,6 +60,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "tsapeta",
+      "name": "Tomasz Sapeta",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1714764?v=4",
+      "profile": "https://github.com/tsapeta",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
