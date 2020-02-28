@@ -68,3 +68,5 @@ Expo Gatsby
 \```
 
 ```
+
+If you have doubts about any of these steps, please feel free the reach out to me personally @baconbrix on Twitter 😁
