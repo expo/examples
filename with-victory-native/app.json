@@ -3,7 +3,7 @@
     "name": "victory-native-example",
     "description": "Using victory-native in Expo, see the source: https://github.com/expo/examples/blob/master/with-victory-native",
     "slug": "victory-native-example",
-    "sdkVersion": "35.0.0",
+    "sdkVersion": "36.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
