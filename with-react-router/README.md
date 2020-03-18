@@ -8,8 +8,8 @@ This demo shows you how to setup your universal application to switch between we
 - Create Expo project `expo init`
 - Install the plugin: `yarn add react-router-dom react-router-native` or `npm install --save react-router-dom react-router-native`
 - Create platform specific files to switch between web and native:
-  - [`react-router.js`](/react-router.js) for web.
-  - [`react-router.native.js`](/react-router.native.js) for iOS and Android.
+  - [`react-router.js`](https://github.com/expo/examples/blob/master/with-react-router/react-router.js) for web.
+  - [`react-router.native.js`](https://github.com/expo/examples/blob/master/with-react-router/react-router.native.js) for iOS and Android.
 - Now you can use these files to create your universal routes! [Basic Example](App.js)
   - [Deployed example](https://5e20d26f3f285b0766a74be2--stupefied-perlman-ca9443.netlify.com/about)
 
