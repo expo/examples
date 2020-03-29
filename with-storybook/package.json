@@ -7,10 +7,13 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "^35.0.0",
-    "react": "16.8.3",
-    "react-dom": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "expo": "^36.0.0",
+    "expo-constants": "~8.0.0",
+    "expo-font": "~8.0.0",
+    "expo-linear-gradient": "~8.0.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
     "react-native-web": "^0.11.7"
   },
   "devDependencies": {
@@ -21,11 +24,10 @@
     "@storybook/addons": "^5.2.1",
     "@storybook/react": "^5.2.1",
     "@storybook/react-native": "^5.2.3",
-    "@types/react": "^16.8.23",
-    "@types/react-native": "^0.57.65",
+    "@types/react": "^16.9.0",
+    "@types/react-native": "^0.60.15",
     "babel-loader": "^8.0.6",
-    "babel-preset-expo": "^7.0.0",
-    "typescript": "^3.4.5"
-  },
-  "private": true
+    "babel-preset-expo": "^8.0.0",
+    "typescript": "^3.7.2"
+  }
 }
