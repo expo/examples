@@ -3,8 +3,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
-    "storybook": "start-storybook -p 6006",
+    "web": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -15,8 +14,8 @@
     "react-native-web": "^0.11.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@expo/webpack-config": "^0.7.11",
+    "@babel/core": "^7.9.0",
+    "@expo/webpack-config": "^0.11.11",
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addons": "^5.2.1",
