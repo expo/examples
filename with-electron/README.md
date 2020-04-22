@@ -1,14 +1,22 @@
 # Electron Example
 
+<p>
+  <!-- Web -->
+  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+</p>
+
 > 🚨 Electron support is experimental, so the workflow is suboptimal and subject to breaking changes. If you find bugs please report them on [expo/expo-cli](https://github.com/expo/expo-cli/issues) with the `[electron]` tag in the title.
 
 [Electron][electron] is a framework for creating desktop apps that run in a Chromium wrapper. Using Expo with Electron will enable you to use your existing components to build OSX, Windows, and Linux apps.
 
 For more info [check out the latest docs!](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-electron.md)
 
-### Running
+## 🚀 How to use
 
-1. Create a new Expo project `expo init`
-2. cd into the project and run `yarn add -D @expo/electron-adapter`
-3. Now run `yarn expo-electron` to bootstrap the project. You can read more about what this does in the docs: [Using Electron](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-electron.md).
-4. Run `yarn expo-electron start` to start the project.
+- Run `yarn` or `npm install`
+- Run `yarn expo-electron start`
+- Wait until the web build is finished and Electron is started.
+
+## 📝 Notes
+
+- [Known issue with app entry](https://github.com/expo/expo-cli/issues/1385)
