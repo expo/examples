@@ -1,23 +1,25 @@
 # SQLite Example
 
+<p>
+  <!-- iOS -->
+  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
+  <!-- Android -->
+  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
+</p>
+
 Example demonstrating use of the `SQLite` API in Expo.
 
 The app allows adding todo items, marking them as done, and deleting done items.
 `SQLite` features used include creating and opening databases, creating tables,
 inserting items, querying and displaying results, using prepared statements.
 
-You can also see this code in action **right in your browser** via [this snack](https://snack.expo.io/@charliecruzan/sqlite-example)!
+![Simulator Example](.gh-assets/1.png)
 
-#### Install & Build
+## 🚀 How to use
 
-- Clone this repository
+- Run `yarn` or `npm install`
+- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
-- Install dependencies by running `yarn install`
+## 📝 Notes
 
-- Install [Expo CLI](https://docs.expo.io/versions/latest/workflow/expo-cli/) by running `npm install -g expo-cli` (if not already installed globally on your machine)
-
-- Run the project locally by running `expo start`
-
-#### Screenshot
-
-<img src="./.gh-assets/1.png?raw=true" width="440" />
+- [Expo SQLite docs](https://docs.expo.io/versions/latest/sdk/sqlite/)
