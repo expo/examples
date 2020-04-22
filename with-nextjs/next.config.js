@@ -1,28 +1,8 @@
+// @generated: @expo/next-adapter@2.1.0
+// Learn more: https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-nextjs.md#withexpo
+
 const { withExpo } = require('@expo/next-adapter');
-const withImages = require('next-images');
-const withFonts = require('next-fonts');
-const withOffline = require('next-offline');
 
-module.exports = withExpo(withOffline(withFonts(withImages({
-    projectRoot: __dirname,
-    workboxOpts: {
-        swDest: 'workbox-service-worker.js',
-
-        /* changing any value means you'll have to copy over all the defaults  */
-        /* next-offline */
-        globPatterns: ['static/**/*'],
-        globDirectory: '.',
-        runtimeCaching: [
-            {
-                urlPattern: /^https?.*/,
-                handler: 'NetworkFirst',
-                options: {
-                    cacheName: 'offlineCache',
-                    expiration: {
-                        maxEntries: 200,
-                    },
-                },
-            },
-        ],
-    },
-}))));
+module.exports = withExpo({
+  projectRoot: __dirname,
+});
