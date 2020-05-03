@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Button, StyleSheet, Text, View } from 'react-native';
-import { AuthSession } from 'expo';
+import * as AuthSession from 'expo-auth-session';
 import jwtDecode from 'jwt-decode';
 
 // You need to swap out the Auth0 client id and domain with the one from your Auth0 client.
