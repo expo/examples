@@ -1,16 +1,21 @@
-# postPublish hooks
+# Post Publish Hooks Example
 
-## How to use
+<p>
+  <!-- iOS -->
+  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
+  <!-- Android -->
+  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
+</p>
 
-## Configure it
+It's common to need to perform a set of tasks once you publish an update to your project. For example, you may want to notify people on Twitter or Slack, upload sourcemaps and cut a release on Sentry, etc. This example demonstrates how you can write your own simple hooks with `./hooks/echo.js`, and install and use hooks distributed through npm, such as `expo-prepublish-slack-notify`.
+
+## 🚀 How to use
+
+#### Configure it
 
 - Create an incoming webhook for your Slack server and replace `https://hooks.slack.com/put-your-stuff-here` in `app.json` with your webhook url -- or remove the `expo-postpublish-slack-notify` hook entirely from `app.json`.
 
-## Running the app
+#### Running the app
 
 - Run `yarn` or `npm install`
 - Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
-
-## The idea behind the example
-
-It's common to need to perform a set of tasks once you publish an update to your project. For example, you may want to notify people on Twitter or Slack, upload sourcemaps and cut a release on Sentry, etc. This example demonstrates how you can write your own simple hooks with `./hooks/echo.js`, and install and use hooks distributed through npm, such as `expo-prepublish-slack-notify`.
