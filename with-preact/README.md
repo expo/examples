@@ -1,12 +1,17 @@
 # Preact Example
 
+<p>
+  <!-- Web -->
+  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+</p>
+
 > 💡 The most updated info is in the Expo docs: [Using Preact](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-preact.md)
 
 [Preact](https://preactjs.com/) is "a fast 3kB alternative to React" with the same modern API as React. Preact was created by [Jason Miller](https://twitter.com/_developit).
 
 ## Before Preact
 
-If you create a standard Expo web project (at the time of writing this), the bundle size will look something like the report below. 
+If you create a standard Expo web project (at the time of writing this), the bundle size will look something like the report below.
 
 **❌ 60.75 KB Gzipped**
 
