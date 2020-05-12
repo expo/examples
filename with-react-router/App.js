@@ -1,12 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Platform } from "react-native";
-
-import { 
-  Router,
-  Switch,
-  Route,
-  Link
- } from "./react-router";
+import { Router, Route, Link } from "./react-router";
 
 const Home = () => <Text>Home</Text>;
 
@@ -38,8 +32,7 @@ const styles = StyleSheet.create({
   nav:{
     flexDirection: 'row',
     justifyContent: 'space-around',
-  }
-
+  },
 });
 
 export default App;
