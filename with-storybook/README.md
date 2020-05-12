@@ -116,7 +116,7 @@ Storybook with Expo CLI
 │   └── Example.stories.js ➡️ A Storybook page to render
 ├── assets ➡️ All static assets for your project
 ├── App.tsx ➡️ Entry Point for universal Expo apps
-├── app.json ➡️ Expo config file
+├── app.config.js ➡️ Expo config file
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 ```
 
