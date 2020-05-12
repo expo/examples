@@ -6,12 +6,13 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
 
 - It's important to keep examples **concise**. 
   - We use a unified [`.gitignore`](./.gitignore)
-  - No `package.json` or `app.json` values that aren't completely necessary
-  - Do not include an `app.json` or `app.config.js` unless it has values that are relevant to the example
-  - Use remote files for the default assets in the `app.json`:
+  - No `package.json` or `app.config.js` values that aren't completely necessary
+  - Use the new `app.config.js` instead of `app.json`
+  - Do not include an `app.config.js` unless it has values that are relevant to the example
+  - Use remote files for the default assets in the `app.config.js`:
     - `expo.icon` -- **"https://github.com/expo/expo/blob/master/templates/expo-template-blank/assets/icon.png?raw=true"**
     - `expo.splash.image` -- **"https://github.com/expo/expo/blob/master/templates/expo-template-blank/assets/splash.png?raw=true"**
-  - Don't use the `"sdkVersion"` field in your `app.json`, this should be inferred from the installed version of `expo` in the `package.json`.
+  - Don't use the `"sdkVersion"` field in your `app.config.js`, this should be inferred from the installed version of `expo` in the `package.json`.
   - If your example `README.md` requires assets like images, place them in a hidden `.gh-assets` folder, ex: `with-your-example/.gh-assets`.
   - Limit package versions to patches only in the `package.json`:
   ```diff
@@ -63,7 +64,7 @@ Expo Gatsby
 ├── public ➡️ Generated Gatsby files (should be ignored)
 ├── assets ➡️ All static assets for your project
 ├── App.tsx ➡️ Entry Point for Mobile apps
-├── app.json ➡️ Expo config file
+├── app.config.js ➡️ Expo config file
 ├── gatsby-config.js ➡️ Gatsby config file
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 \```
