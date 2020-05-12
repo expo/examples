@@ -1,6 +1,4 @@
 {
-  "name": "with-webbrowser-redirect",
-  "private": true,
   "dependencies": {
     "expo": "^35.0.0",
     "expo-web-browser": "~7.0.0",
