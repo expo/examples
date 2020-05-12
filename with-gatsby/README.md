@@ -60,7 +60,7 @@ Expo Gatsby
 ├── public ➡️ Generated Gatsby files (should be ignored)
 ├── assets ➡️ All static assets for your project
 ├── App.tsx ➡️ Entry Point for Mobile apps
-├── app.json ➡️ Expo config file
+├── app.config.js ➡️ Expo config file
 ├── gatsby-config.js ➡️ Gatsby config file
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 ```

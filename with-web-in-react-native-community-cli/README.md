@@ -18,16 +18,6 @@ if (Platform.OS === 'web') {
 }
 ```
 
-- You'll need to modify the `app.json` to be universal like so:
-
-```diff
-{
-    "name": "reactnativeinitdemo",
-    "displayName": "React Native init web demo",
-+    "expo": {}
-}
-```
-
 - Modify the example in [`App.js`](/App.js) to not use `react-native/Libraries/NewAppScreen` as these components aren't universal and won't work with `react-native-web`.
 - Start the web-only project with `expo start:web`
 

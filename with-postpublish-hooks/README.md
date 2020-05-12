@@ -13,7 +13,7 @@ It's common to need to perform a set of tasks once you publish an update to your
 
 #### Configure it
 
-- Create an incoming webhook for your Slack server and replace `https://hooks.slack.com/put-your-stuff-here` in `app.json` with your webhook url -- or remove the `expo-postpublish-slack-notify` hook entirely from `app.json`.
+- Create an incoming webhook for your Slack server and replace `https://hooks.slack.com/put-your-stuff-here` in `app.config.js` with your webhook url -- or remove the `expo-postpublish-slack-notify` hook entirely from `app.config.js`.
 
 #### Running the app
 
