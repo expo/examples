@@ -9,20 +9,19 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/electron-adapter": "0.0.0-alpha.12",
-    "@expo/webpack-config": "^0.10.7",
-    "electron": "6.1.7",
-    "expo": "^36.0.0",
+    "@expo/electron-adapter": "0.0.0-alpha.48",
+    "@expo/webpack-config": "0.12.0",
+    "electron": "6.1.10",
+    "expo": "37.0.7",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
-    "react-native-web": "^0.11.7"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "react-native-web": "0.11.7"
   },
   "devDependencies": {
-    "@types/react": "^16.9.0",
-    "@types/react-native": "^0.57.65",
-    "babel-preset-expo": "^7.1.0",
-    "typescript": "^3.7.4"
-  },
-  "private": true
+    "@types/react": "16.9.34",
+    "@types/react-native": "0.61.23",
+    "babel-preset-expo": "8.1.0",
+    "typescript": "3.8.3"
+  }
 }
