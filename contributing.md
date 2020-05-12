@@ -7,6 +7,7 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
 - It's important to keep examples **concise**. 
   - We use a unified [`.gitignore`](./.gitignore)
   - No `package.json` or `app.json` values that aren't completely necessary
+  - Do not include an `app.json` or `app.config.js` unless it has values that are relevant to the example
   - Use remote files for the default assets in the `app.json`:
     - `expo.icon` -- **"https://github.com/expo/expo/blob/master/templates/expo-template-blank/assets/icon.png?raw=true"**
     - `expo.splash.image` -- **"https://github.com/expo/expo/blob/master/templates/expo-template-blank/assets/splash.png?raw=true"**
