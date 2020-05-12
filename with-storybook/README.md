@@ -25,7 +25,7 @@ This method runs your Expo components in a Storybook-React environment. This is 
   - You can use any template, we'll use the managed blank TypeScript project for this example.
 - `cd` into the project and run `npx -p @storybook/cli sb init --type react` to bootstrap a new React project
 - Install the expo webpack config so we can add unimodules support `yarn add -D @expo/webpack-config`
-- Create a [custom webpack config](/.storybook/webpack.config.js) `touch .storybook/webpack.config.js`
+- Create a [custom webpack config](./.storybook/webpack.config.js) `touch .storybook/webpack.config.js`
 
   ```js
   const { resolve } = require("path");

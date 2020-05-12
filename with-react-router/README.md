@@ -1,5 +1,10 @@
 # [React Router Example](https://reacttraining.com/react-router/web/guides/quick-start)
 
+<p>
+  <!-- Web -->
+  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+</p>
+
 React Router is a universal routing solution that you can use with Expo!
 This demo shows you how to setup your universal application to switch between web and native routers.
 

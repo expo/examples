@@ -1,7 +1,7 @@
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
-import React from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const db = SQLite.openDatabase("db.db");
 
@@ -47,9 +47,7 @@ function Items({ done: doneHeading, onPressItem }) {
 
 export default function App() {
   const [text, setText] = React.useState(null)
-
-  let _todo;
-  let _done;
+  const [forceUpdate, forceUpdateId] = useForceUpdate()
 
   React.useEffect(() => {
     db.transaction(tx => {
@@ -57,8 +55,7 @@ export default function App() {
         "create table if not exists items (id integer primary key not null, done int, value text);"
       );
     });
-  }, [])
-
+  }, []);
 
   const add = (text) => {
     // is text empty?
@@ -74,14 +71,9 @@ export default function App() {
         );
       },
       null,
-      update
+      forceUpdate
     );
   }
-
-  const update = () => {
-    _todo && _todo.update();
-    _done && _done.update();
-  };
 
   return (
     <View style={styles.container}>
@@ -100,8 +92,8 @@ export default function App() {
       </View>
       <ScrollView style={styles.listArea}>
         <Items
+          key={`forceupdate-todo-${forceUpdateId}`}
           done={false}
-          ref={todo => (_todo = todo)}
           onPressItem={id =>
             db.transaction(
               tx => {
@@ -110,20 +102,20 @@ export default function App() {
                 ]);
               },
               null,
-              update
+              forceUpdate
             )
           }
         />
         <Items
           done
-          ref={done => (_done = done)}
+          key={`forceupdate-done-${forceUpdateId}`}
           onPressItem={id =>
             db.transaction(
               tx => {
                 tx.executeSql(`delete from items where id = ?;`, [id]);
               },
               null,
-              update
+              forceUpdate
             )
           }
         />
@@ -131,6 +123,11 @@ export default function App() {
     </View>
   );
 
+}
+
+function useForceUpdate() {
+  const [value, setValue] = useState(0);
+  return [() => setValue(value + 1), value];
 }
 
 const styles = StyleSheet.create({
