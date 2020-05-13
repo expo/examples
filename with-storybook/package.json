@@ -7,13 +7,13 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "^36.0.0",
+    "expo": "^37.0.7",
     "expo-constants": "~8.0.0",
     "expo-font": "~8.0.0",
     "expo-linear-gradient": "~8.0.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
     "react-native-web": "^0.11.7"
   },
   "devDependencies": {
