@@ -1,5 +1,7 @@
 # Facebook Auth Example
 
+> Check out the [Auth with Facebook](https://docs.expo.io/guides/authentication/#facebook) docs.
+
 Try it at https://expo.io/@community/with-facebook-auth
 
 ## How to use
