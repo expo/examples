@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, SafeAreaView, ActivityIndicator, Image } from 'react-native';
+import { Text, View, SafeAreaView, ActivityIndicator, Image, StyleSheet } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
 
 const GET_TWEET = gql`
@@ -21,36 +21,76 @@ function RootComponent() {
   const { data, loading, error } = useQuery(GET_TWEET);
 
   if (error) { console.error('error', error) };
-  if (loading) return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator />
-    </SafeAreaView>
-  );
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.loadingContainer}>
+        <ActivityIndicator />
+      </SafeAreaView>
+    );
+  };
   const { tweet } = data.twitter;
   const { user } = tweet;
   return (
-    <View style={{ flex: 1, justifyContent: 'center', paddingHorizontal: 50 }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.container}>
+      <View style={styles.profileContainer}>
         <Image
           source={{ uri: user.profile_image_url }}
-          style={{ height: 50, width: 50, borderRadius: 100 }}
+          style={styles.image}
         />
-        <View style={{ marginLeft: 5 }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
+        <View style={styles.details}>
+          <Text style={styles.name}>
             {user.name}
           </Text>
-          <Text style={{ color: 'gray' }}>
+          <Text style={styles.username}>
             @{user.screen_name}
           </Text>
         </View>
       </View>
-      <View style={{ marginTop: 10 }}>
-        <Text style={{ fontSize: 16 }}>
+      <View style={styles.tweetContainer}>
+        <Text style={styles.tweet}>
           {tweet.text}
         </Text>
       </View>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 50
+  },
+  profileContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  image: {
+    height: 50,
+    width: 50,
+    borderRadius: 100,
+  },
+  details: {
+    marginLeft: 5,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  username: {
+    color: 'gray'
+  },
+  tweetContainer: {
+    marginTop: 10
+  },
+  tweet: {
+    fontSize: 16
+  }
+});
 
 export default RootComponent;
