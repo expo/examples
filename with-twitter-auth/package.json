@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "expo": "37.0.7",
+    "expo-auth-session": "^1.2.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",

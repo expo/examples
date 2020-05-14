@@ -26,7 +26,6 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 
 #### Set up the app
 
-- Go to directory `app`
 - Install with `yarn` or `npm install`
 - Open `App.js` and replace `requestTokenURL` and `accessTokenURL` with your backend URLs
 - Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out
