@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@shoutem/ui": "^2.0.7",
+    "expo": "^37.0.7",
+    "react": "16.8.3",
+    "react-dom": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "react-native-linear-gradient": "~2.5.6",
+    "react-native-photo-view": "shoutem/react-native-photo-view#0ffa1481f6b6cb8663cb291b7db1d6644440584d",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-web": "0.11.7",
+    "react-native-webview": "9.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0"
+  }
+}
