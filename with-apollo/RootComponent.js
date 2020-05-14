@@ -17,15 +17,15 @@ const GET_TWEET = gql`
   }
 `
 
-const RootComponent = () => {
+function RootComponent() {
   const { data, loading, error } = useQuery(GET_TWEET);
 
-  if (error) console.error('error', error)
+  if (error) { console.error('error', error) };
   if (loading) return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <ActivityIndicator />
     </SafeAreaView>
-  )
+  );
   const { tweet } = data.twitter;
   const { user } = tweet;
   return (
