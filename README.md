@@ -43,7 +43,7 @@ npx create-react-native-app --template <Example>
 
 # Example - typescript
 
-npx create-react-native-app -t with-typescript
+npx crna -t with-typescript
 ```
 
 ## Contributors ✨
