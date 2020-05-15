@@ -34,6 +34,18 @@
   </a>
 </p>
 
+## Usage
+
+Use this repo to create new React projects with [**create-react-native-app**](https://github.com/expo/create-react-native-app).
+
+```sh
+npx create-react-native-app --template <Example>
+
+# Example - typescript
+
+npx create-react-native-app -t with-typescript
+```
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
