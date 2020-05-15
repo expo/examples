@@ -49,7 +49,7 @@ npx create-react-native-app -t with-typescript
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 If you'd like to contribute something, please check out our [contributing guide](./contributing.md)!
@@ -73,6 +73,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ivnnv"><img src="https://avatars0.githubusercontent.com/u/23552631?v=4" width="100px;" alt=""/><br /><sub><b>Ivn Nv</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=ivnnv" title="Code">💻</a></td>
     <td align="center"><a href="http://www.gasolin.idv.tw"><img src="https://avatars1.githubusercontent.com/u/748808?v=4" width="100px;" alt=""/><br /><sub><b>gasolin</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=gasolin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/brookemitchell"><img src="https://avatars0.githubusercontent.com/u/927600?v=4" width="100px;" alt=""/><br /><sub><b>Brooke</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=brookemitchell" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/FarazPatankar"><img src="https://avatars3.githubusercontent.com/u/10681116?v=4" width="100px;" alt=""/><br /><sub><b>Faraz Patankar</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=FarazPatankar" title="Code">💻</a></td>
   </tr>
 </table>
 
