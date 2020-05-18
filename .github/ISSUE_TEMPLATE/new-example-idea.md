@@ -3,7 +3,7 @@ name: New Example Idea
 about: Suggest an idea for a new example
 title: ''
 labels: New Example, enhancement, help wanted
-assignees: EvanBacon
+assignees: 
 
 ---
 
