@@ -4,7 +4,8 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
 
 ## Rules
 
-- It's important to keep examples **concise**. 
+- It's important to keep examples **concise**.
+  - Start with the [blank example](./blank).
   - We use a unified [`.gitignore`](./.gitignore)
   - No `package.json` or `app.config.js` values that aren't completely necessary
   - Use the new `app.config.js` instead of `app.json`
