@@ -19,13 +19,7 @@
 
 - Install packages with `yarn` or `npm install`.
 - Run `expo start` to try it out.
-- Add your Firebase configuration in `./src/firebaseConfig.js` file.
-- Create a new user from Signup screen.
-- Enter the same credentials at Login screen.
-- You can check the new user created in Firebase console.
 
 ## 📝 Notes
 
-- [Firebase JS docs](https://firebase.google.com/docs/web/setup)
-- [Expo Firebase guide](https://docs.expo.io/versions/latest/guides/using-firebase/)
 - [Formik docs](https://jaredpalmer.com/formik/docs/overview)
