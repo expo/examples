@@ -13,7 +13,7 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 
 ## 🚀 How to use
 
-#### Creating a new project**
+#### Creating a new project
 
 - Install the CLI: `npm i -g expo-cli`
 - Create a project: `expo init --template expo-template-blank-typescript`
