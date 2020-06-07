@@ -21,7 +21,8 @@ export default function App() {
             onLoad={() => {
               // https://facebook.github.io/react-native/docs/animated#timing
               Animated.timing(opacity, {
-                toValue: 1
+                toValue: 1,
+                useNativeDriver: true,
               }).start();
             }}
             resizeMode="cover"
