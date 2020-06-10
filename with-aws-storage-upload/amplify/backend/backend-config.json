@@ -1,0 +1,15 @@
+{
+	"auth": {
+		"expoexampleamplify25cbcd09": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"expoupload": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
