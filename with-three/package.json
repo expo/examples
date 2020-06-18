@@ -1,17 +1,17 @@
 {
   "dependencies": {
-    "expo": "37.0.7",
+    "expo": "38.0.0",
     "expo-gl": "^8.0.0",
     "expo-three": "^5.4.0",
-    "react": "16.9.0",
+    "react": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
     "react-native-web": "^0.11",
-    "react-dom": "16.9.0",
+    "react-dom": "16.11.0",
     "three": "^0.108.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@types/react": "^16.8.23",
+    "@types/react": "^16.11.0",
     "@types/react-native": "^0.57.65",
     "typescript": "^3.4.5"
   }

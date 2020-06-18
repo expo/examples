@@ -5,9 +5,9 @@
     "deploy": "npx netlify deploy --dir web-build"
   },
   "dependencies": {
-    "expo": "37.0.7",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
+    "expo": "38.0.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
     "react-native-web": "0.11.7",
     "react-router-dom": "5.1.2",
