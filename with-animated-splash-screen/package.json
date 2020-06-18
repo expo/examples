@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "38.0.0",
+    "expo": "38.0.12",
     "expo-asset": "8.1.4",
     "expo-constants": "9.0.0",
     "react": "16.11.0",

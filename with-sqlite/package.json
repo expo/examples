@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "38.0.0",
+    "expo": "38.0.12",
     "expo-sqlite": "8.1.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",

@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@use-expo/font": "^2.0.0",
-    "expo": "^37.0.7",
+    "expo": "^38.0.0",
     "expo-font": "~8.0.0",
     "lodash": "^4.17.10",
     "react": "16.11.0",

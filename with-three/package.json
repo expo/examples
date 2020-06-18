@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "38.0.0",
+    "expo": "38.0.12",
     "expo-gl": "^8.0.0",
     "expo-three": "^5.4.0",
     "react": "16.11.0",

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "38.0.0",
+    "expo": "38.0.12",
     "preact": "10.4.1",
     "preact-responder-event-plugin": "1.0.16",
     "react": "16.11.0",

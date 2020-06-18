@@ -7,7 +7,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "^37.0.7",
+    "expo": "^38.0.0",
     "expo-constants": "~8.0.0",
     "expo-font": "~8.0.0",
     "expo-linear-gradient": "~8.0.0",

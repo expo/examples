@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "^37.0.7",
+    "expo": "^38.0.0",
     "expo-image-picker": "8.0.2",
     "expo-permissions": "8.0.0",
     "firebase": "7.8.1",
