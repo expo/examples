@@ -9,6 +9,11 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
+```sh
+npx create-react-native-app -t with-typescript
+```
+
+
 TypeScript is a superset of JavaScript which gives you static types and powerful tooling in Visual Studio Code including autocompletion and useful inline warnings for type errors.
 
 ## 🚀 How to use
@@ -22,7 +27,7 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 ### Adding TypeScript to existing projects
 
 - Copy the `tsconfig.json` from this repo, or new typescript template
-- Add typescript dependencies: `yarn add --dev @types/react @types/react-native typescript`
+- Add typescript dependencies: `yarn add --dev @types/react @types/react-native @types/react-dom typescript`
 - Rename files tpo TypeScript, `.tsx` for React components and `.ts` for plain typescript files
 
 ## 📝 Notes
