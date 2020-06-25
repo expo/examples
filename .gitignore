@@ -26,3 +26,5 @@ with-nextjs/out
 
 # Websockets
 */backend/.env
+
+.DS_Store

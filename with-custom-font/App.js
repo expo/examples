@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-
-import { Text, View, StyleSheet } from "react-native";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 
-export default () => {
+export default function App() {
   let [fontsLoaded] = useFonts({
     "Inter-Black": require("./assets/fonts/Inter-Black.otf"),
     "Inter-SemiBoldItalic":
@@ -23,7 +22,7 @@ export default () => {
       </Text>
     </View>
   );
-};
+}
 
 function useFonts(fontMap) {
   let [fontsLoaded, setFontsLoaded] = useState(false);
