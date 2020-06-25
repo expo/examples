@@ -15,8 +15,8 @@ Try it at https://expo.io/@community/with-facebook-auth
 ### Setting up the Facebook app
 
 - Follow the steps [described in the Facebook for Developers documentation](https://developers.facebook.com/docs/apps/register)
-- Add the "Facebook Login" product and configure it ([screenshot](https://raw.githubusercontent.com/expo/examples/master/with-facebook-auth/_assets/add-facebook-login.png))
-- Make the app public ([screenshot](https://raw.githubusercontent.com/expo/examples/master/with-facebook-auth/_assets/make-public.png))
+- Add the "Facebook Login" product and configure it ([screenshot](https://i.imgur.com/CqHElwS.png))
+- Make the app public ([screenshot](https://i.imgur.com/7RHDX87.png))
 - Swap out the `FB_APP_ID` in `App.js` with your Facebook app's id.
 
 ## The idea behind the example
