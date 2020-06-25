@@ -9,13 +9,13 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-<img alt="expo examples" src=".gh-assets/all-platforms.png">
+<img alt="expo examples" src="https://i.imgur.com/j253BeR.png">
 
 You can use Storybook to test and share your component library quickly and easily! This example shows how to use Expo modules with Storybook CLI and Expo CLI.
 
 ## Running with Storybook CLI
 
-![expo web with storybook-cli](.gh-assets/expo-with-storybook-cli.png "expo web with storybook-cli")
+![expo web with storybook-cli](https://i.imgur.com/0x0Ecmp.png "expo web with storybook-cli")
 
 > web only
 
@@ -58,7 +58,7 @@ Expo with Storybook CLI
 
 ## Running with Expo CLI
 
-<img alt="storybook with expo-cli" src=".gh-assets/storybook-with-expo-cli.png">
+<img alt="storybook with expo-cli" src="https://i.imgur.com/Fpubaor.png">
 
 > This method is universal :]
 

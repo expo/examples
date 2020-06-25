@@ -15,7 +15,7 @@ If you create a standard Expo web project (at the time of writing this), the bun
 
 **❌ 60.75 KB Gzipped**
 
-![expo web bundle without preact](.gh-assets/before-preact.png "Expo web bundle without Preact")
+![expo web bundle without preact](https://i.imgur.com/7OTZIgX.png "Expo web bundle without Preact")
 
 > 💡 You can [**enable** bundle reporting easily!](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/web-performance.md#-what-makes-my-app-large)
 
@@ -25,7 +25,7 @@ After modifying your project to use Preact instead of React DOM, the bundle will
 
 **✅ 27.98 KB Gzipped**
 
-![expo web bundle with preact](.gh-assets/after-preact.png "Expo web bundle with Preact")
+![expo web bundle with preact](https://i.imgur.com/b2TsjtO.png "Expo web bundle with Preact")
 
 ### ⚽️ Getting Started
 
@@ -36,23 +36,27 @@ To use Preact with React Native for web, you'll need to install the packages and
 - Modify the webpack config to use Preact instead of React:
 
   ```js
-  const createExpoWebpackConfigAsync = require('@expo/webpack-config');
+  const createExpoWebpackConfigAsync = require("@expo/webpack-config");
 
-  module.exports = async function(env, argv) {
-    const config = await createExpoWebpackConfigAsync({
+  module.exports = async function (env, argv) {
+    const config = await createExpoWebpackConfigAsync(
+      {
         ...env,
         // Optionally you can enable the bundle size report
-        report: true
-    }, argv);
+        report: true,
+      },
+      argv
+    );
 
     // Add more aliases
     config.resolve.alias = {
       ...config.resolve.alias,
       // Use Preact aliases
-      react$: 'preact/compat',
-      'react-dom$': 'preact/compat',
+      react$: "preact/compat",
+      "react-dom$": "preact/compat",
       // Fix the responder system which react-native-web depends on
-      'react-dom/unstable-native-dependencies$': 'preact-responder-event-plugin',
+      "react-dom/unstable-native-dependencies$":
+        "preact-responder-event-plugin",
     };
     return config;
   };

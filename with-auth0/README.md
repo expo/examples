@@ -29,7 +29,7 @@ Each Expo user has it's own URL for different projects, the basic structure of t
 
 Both the `auth0ClientId` and `auth0Domain` needs to match your Auth0 app settings.
 
-![Application Settings](.gh-assets/auth0-app-settings.jpg)
+![Application Settings](https://i.imgur.com/Io9I4qg.jpg)
 
 ## 📝 Notes
 
