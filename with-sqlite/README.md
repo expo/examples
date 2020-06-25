@@ -13,7 +13,7 @@ The app allows adding todo items, marking them as done, and deleting done items.
 `SQLite` features used include creating and opening databases, creating tables,
 inserting items, querying and displaying results, using prepared statements.
 
-![Simulator Example](.gh-assets/1.png)
+![Simulator Example](https://i.imgur.com/CDrXKzV.png)
 
 ## 🚀 How to use
 
