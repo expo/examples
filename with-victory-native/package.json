@@ -1,17 +1,17 @@
 {
   "dependencies": {
-    "@use-expo/font": "^2.0.0",
-    "expo": "^37.0.7",
-    "expo-font": "~8.0.0",
+    "@use-expo/font": "~2.0.0",
+    "expo": "~38.0.0",
+    "expo-font": "~8.2.1",
     "lodash": "^4.17.10",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
-    "react-native-svg": "9.13.3",
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.0.tar.gz",
+    "react-native-svg": "~12.1.0",
     "react-native-web": "0.11.7",
     "victory-native": "^34.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.0.0"
+    "@babel/core": "7.9.0"
   }
 }
