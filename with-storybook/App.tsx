@@ -6,4 +6,8 @@ configure(() => {
   require("./stories");
 }, module);
 
-export default getStorybookUI();
+export default getStorybookUI({
+  // Pass AsyncStorage below if you want Storybook to open your
+  // last visited story after you close and re-open your app
+  asyncStorage: null
+});

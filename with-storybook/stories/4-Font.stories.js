@@ -7,7 +7,7 @@ export default {
   title: 'Font',
 };
 
-export function font() {
+export const CustomFontComponent = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ export function font() {
 }
 
 // On-Device Register
-storiesOf('Font', module).add('Font', font);
+storiesOf('Font', module).add('Font', () => (<CustomFontComponent/>));
