@@ -20,3 +20,5 @@ For more info [check out the latest docs!](https://github.com/expo/expo/blob/mas
 ## 📝 Notes
 
 - [Known issue with app entry](https://github.com/expo/expo-cli/issues/1385)
+
+[electron]: https://www.electronjs.org/
