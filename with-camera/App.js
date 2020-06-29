@@ -1,84 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, ImageBackground, Platform } from 'react-native';
-import { Camera } from 'expo-camera';
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import { Camera } from "expo-camera";
+import CameraPermissionsWrapper from './CameraPermissionsWrapper';
 
 export default function App() {
-  const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [lastPhotoURI, setLastPhotoURI] = useState(null);
-
-  useEffect(() => {
-    (async () => {
-      if (Platform.OS == "web") { 
-        setHasPermission(true);
-        return; 
-      }
-      const { status } = await Camera.requestPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
+  const cameraRef = useRef(null);
 
   if (lastPhotoURI !== null) {
     return (
-      <ImageBackground 
-        source={{uri: lastPhotoURI}}
+      <ImageBackground
+        source={{ uri: lastPhotoURI }}
         style={{
           flex: 1,
-          backgroundColor: 'transparent',
-          flexDirection: 'row',
-          justifyContent: "center"
-        }}>
+          backgroundColor: "transparent",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
         <TouchableOpacity
-            style={{
-              flex: 0.2,
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-              justifyContent: "center",
-              backgroundColor: "#666",
-              marginBottom: 40, 
-              marginLeft: 20,
-            }}
-            onPress={() => {
-              setLastPhotoURI(null);
-            }}>
-            <Text style={{ fontSize: 30, padding: 10, color: 'white' }}>❌</Text>
-          </TouchableOpacity>
+          style={{
+            flex: 0.2,
+            alignSelf: "flex-end",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#666",
+            marginBottom: 40,
+            marginLeft: 20,
+          }}
+          onPress={() => {
+            setLastPhotoURI(null);
+          }}
+        >
+          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>❌</Text>
+        </TouchableOpacity>
       </ImageBackground>
     );
   }
 
-  if (hasPermission === null) {
-    return <View />;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
-
-  let cameraRef;
   return (
-    <View style={{ flex: 1 }}>
-      <Camera 
-        style={{ flex: 1 }}
-        type={type}
-        ref={ref => {
-          cameraRef = ref;
-        }}
-        >
+    <CameraPermissionsWrapper>
+      <Camera style={{ flex: 1 }} type={type} ref={cameraRef}>
         <View
           style={{
             flex: 1,
-            backgroundColor: 'transparent',
-            flexDirection: 'row',
-            justifyContent: "center"
-          }}>
+            backgroundColor: "transparent",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
           <TouchableOpacity
             style={{
               flex: 0.2,
-              alignSelf: 'flex-end',
-              alignItems: 'center',
+              alignSelf: "flex-end",
+              alignItems: "center",
               justifyContent: "center",
               backgroundColor: "#666",
-              marginBottom: 40, 
+              marginBottom: 40,
               marginLeft: 20,
             }}
             onPress={() => {
@@ -87,30 +71,33 @@ export default function App() {
                   ? Camera.Constants.Type.front
                   : Camera.Constants.Type.back
               );
-            }}>
-            <Text style={{ fontSize: 30, padding: 10, color: 'white' }}>♻</Text>
+            }}
+          >
+            <Text style={{ fontSize: 30, padding: 10, color: "white" }}>♻</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               flex: 0.2,
-              alignSelf: 'flex-end',
-              alignItems: 'center',
+              alignSelf: "flex-end",
+              alignItems: "center",
               justifyContent: "center",
               backgroundColor: "#666",
-              marginBottom: 40, 
+              marginBottom: 40,
               marginLeft: 20,
             }}
             onPress={async () => {
-              if (cameraRef) {
-                console.log(cameraRef.onCameraReady)
-                let photo = await cameraRef.takePictureAsync();
-                setLastPhotoURI(photo.uri)
+              if (cameraRef.current) {
+                let photo = await cameraRef.current.takePictureAsync();
+                setLastPhotoURI(photo.uri);
               }
-            }}>
-            <Text style={{ fontSize: 30, padding: 10, color: 'white' }}>📸</Text>
+            }}
+          >
+            <Text style={{ fontSize: 30, padding: 10, color: "white" }}>
+              📸
+            </Text>
           </TouchableOpacity>
         </View>
       </Camera>
-    </View>
+    </CameraPermissionsWrapper>
   );
 }
