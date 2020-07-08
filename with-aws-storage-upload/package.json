@@ -1,12 +1,5 @@
 {
   "main": "index.js",
-  "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "web": "expo start --web",
-    "start": "react-native start",
-    "test": "jest"
-  },
   "dependencies": {
     "@aws-amplify/auth": "^3.2.13",
     "@aws-amplify/core": "^3.3.3",
