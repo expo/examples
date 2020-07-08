@@ -1,5 +1,4 @@
 {
-  "main": "index.js",
   "dependencies": {
     "@aws-amplify/auth": "^3.2.13",
     "@aws-amplify/core": "^3.3.3",
@@ -23,5 +22,5 @@
     "babel-jest": "~25.2.6",
     "jest": "~25.2.6",
     "react-test-renderer": "~16.9.0"
-  },
+  }
 }
