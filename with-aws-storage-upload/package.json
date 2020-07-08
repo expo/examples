@@ -4,7 +4,7 @@
     "@aws-amplify/auth": "^3.2.13",
     "@aws-amplify/core": "^3.3.3",
     "@aws-amplify/storage": "^3.2.6",
-    "expo": "~37.0.3",
+    "expo": "~38.0.0",
     "expo-constants": "^9.0.0",
     "expo-image-picker": "^8.1.0",
     "expo-splash-screen": "^0.2.3",
