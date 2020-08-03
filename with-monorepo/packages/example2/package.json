@@ -1,0 +1,19 @@
+{
+  "name": "example2",
+  "version": "0.0.1",
+  "main": "__generated__/AppEntry.js",
+  "scripts": {
+    "start": "expo start"
+  },
+  "dependencies": {
+    "expo": "~38.0.0",
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-web": "0.11.7",
+    "expo-keep-awake": "^8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0"
+  }
+}
