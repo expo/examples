@@ -75,6 +75,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/brookemitchell"><img src="https://avatars0.githubusercontent.com/u/927600?v=4" width="100px;" alt=""/><br /><sub><b>Brooke</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=brookemitchell" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/FarazPatankar"><img src="https://avatars3.githubusercontent.com/u/10681116?v=4" width="100px;" alt=""/><br /><sub><b>Faraz Patankar</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=FarazPatankar" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/YassineElbouchaibi"><img src="https://avatars3.githubusercontent.com/u/46449697?v=4" width="100px;" alt=""/><br /><sub><b>El Bouchaibi Yassine</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=YassineElbouchaibi" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/nomi9995"><img src="https://avatars2.githubusercontent.com/u/36044436?v=4" width="100px;" alt=""/><br /><sub><b>Numan</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=nomi9995" title="Code">💻</a></td>
   </tr>
 </table>
 

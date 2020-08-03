@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-navigation/bottom-tabs": "^5.7.3",
+    "@react-navigation/material-top-tabs": "^5.2.15",
+    "@react-navigation/native": "^5.7.2",
+    "@react-navigation/stack": "^5.8.0",
+    "expo": "~38.0.0",
+    "react": "~16.11.0",
+    "react-dom": "~16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.9.0",
+    "react-native-screens": "^2.9.0",
+    "react-native-tab-view": "^2.15.0",
+    "react-native-web": "0.11.7"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0"
+  }
+}
