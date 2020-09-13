@@ -28,11 +28,7 @@ export default function App() {
       clientId: FB_APP_ID,
       scopes: ["public_profile", "user_likes"],
       // For usage in managed apps using the proxy
-      redirectUri: AuthSession.makeRedirectUri({
-        // For usage in bare and standalone
-        // Use your FBID here. The path MUST be `authorize`.
-        native: `fb${FB_APP_ID}://authorize`,
-      }),
+      redirectUri,
       extraParams: {
         // Use `popup` on web for a better experience
         display: Platform.select({ web: "popup" }),
