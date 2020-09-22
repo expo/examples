@@ -4,7 +4,7 @@
 
 ## Running the app
 
-- `cd` into the `app` directory and run `yarn` or `npm install`
+- Run `yarn` or `npm install`
 - Open `app` with [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
 ### Running the server (optional)
