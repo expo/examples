@@ -1,6 +1,6 @@
 import { AppLoading } from "expo";
-import * as Font from "expo-font";
-import React, { useState } from "react";
+import { useFonts } from "expo-font";
+import React from "react";
 import { Text, View } from "react-native";
 
 export default function App() {
@@ -22,13 +22,4 @@ export default function App() {
       </Text>
     </View>
   );
-}
-
-function useFonts(fontMap) {
-  let [fontsLoaded, setFontsLoaded] = useState(false);
-  (async () => {
-    await Font.loadAsync(fontMap);
-    setFontsLoaded(true);
-  })();
-  return [fontsLoaded];
 }
