@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@aws-amplify/auth": "^3.2.13",
+    "@aws-amplify/core": "^3.3.3",
+    "@aws-amplify/storage": "^3.2.6",
+    "expo": "~38.0.0",
+    "expo-constants": "^9.0.0",
+    "expo-image-picker": "^8.1.0",
+    "expo-splash-screen": "^0.2.3",
+    "expo-updates": "~0.2.0",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "~0.61.5",
+    "react-native-gesture-handler": "~1.6.0",
+    "react-native-reanimated": "~1.7.0",
+    "react-native-screens": "~2.2.0",
+    "react-native-unimodules": "~0.9.0",
+    "react-native-web": "~0.11.7"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "babel-jest": "~25.2.6"
+  }
+}
