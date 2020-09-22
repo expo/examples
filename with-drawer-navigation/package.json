@@ -3,15 +3,15 @@
     "@react-native-community/masked-view": "~0.1.10",
     "@react-navigation/drawer": "~5.8.4",
     "@react-navigation/native": "~5.6.1",
-    "expo": "~38.0.0",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "expo": "~39.0.0",
+    "react": "~16.13.0",
+    "react-dom": "~16.13.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
     "react-native-gesture-handler": "~1.6.1",
     "react-native-reanimated": "~1.9.0",
     "react-native-safe-area-context": "~3.0.6",
-    "react-native-screens": "~2.9.0",
-    "react-native-web": "0.11.7"
+    "react-native-screens": "~2.10.1",
+    "react-native-web": "0.13.13"
   },
   "devDependencies": {
     "@babel/core": "7.9.0"

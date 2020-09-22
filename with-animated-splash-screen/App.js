@@ -1,11 +1,13 @@
-import { AppLoading, SplashScreen, Updates } from 'expo';
-import { Asset } from 'expo-asset';
-import Constants from 'expo-constants';
-import React from 'react';
-import { Animated, Button, StyleSheet, Text, View } from 'react-native';
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import Constants from "expo-constants";
+import React from "react";
+import { Animated, Button, StyleSheet, Text, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+// import * as Updates from "expo-updates";
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
-SplashScreen.preventAutoHide();
+SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function App() {
   return (
@@ -36,11 +38,7 @@ function AnimatedAppLoader({ children, image }) {
     );
   }
 
-  return (
-    <AnimatedSplashScreen image={image}>
-      {children}
-    </AnimatedSplashScreen>
-  );
+  return <AnimatedSplashScreen image={image}>{children}</AnimatedSplashScreen>;
 }
 
 function AnimatedSplashScreen({ children, image }) {
@@ -61,7 +59,7 @@ function AnimatedSplashScreen({ children, image }) {
   }, [isAppReady]);
 
   const onImageLoaded = React.useMemo(() => async () => {
-    SplashScreen.hide();
+    SplashScreen.hideAsync();
     try {
       // Load stuff
       await Promise.all([]);
@@ -84,12 +82,13 @@ function AnimatedSplashScreen({ children, image }) {
               backgroundColor: Constants.manifest.splash.backgroundColor,
               opacity: animation,
             },
-          ]}>
+          ]}
+        >
           <Animated.Image
             style={{
-              width: '100%',
-              height: '100%',
-              resizeMode: Constants.manifest.splash.resizeMode || 'contain',
+              width: "100%",
+              height: "100%",
+              resizeMode: Constants.manifest.splash.resizeMode || "contain",
               transform: [
                 {
                   scale: animation,
@@ -111,20 +110,25 @@ function MainScreen() {
     <View
       style={{
         flex: 1,
-        backgroundColor: 'plum',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
+        backgroundColor: "plum",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Text
         style={{
-          color: 'black',
+          color: "black",
           fontSize: 30,
           marginBottom: 15,
-          fontWeight: 'bold',
-        }}>
+          fontWeight: "bold",
+        }}
+      >
         Pretty Cool!
       </Text>
-      <Button title="Run Again" onPress={() => Updates.reload()} />
+      {/* reenable after Updates.reloadAsync() is allowed in dev mode */}
+      {false && (
+        <Button title="Run Again" onPress={() => Updates.reloadAsync()} />
+      )}
     </View>
   );
 }

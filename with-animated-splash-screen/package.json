@@ -1,12 +1,14 @@
 {
   "dependencies": {
-    "expo": "~38.0.0",
-    "expo-asset": "~8.1.7",
-    "expo-constants": "~9.1.1",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
-    "react-native-web": "0.11.7"
+    "expo": "~39.0.0",
+    "expo-asset": "~8.2.0",
+    "expo-constants": "~9.2.0",
+    "expo-splash-screen": "^0.6.1",
+    "expo-updates": "^0.3.3",
+    "react": "~16.13.0",
+    "react-dom": "~16.13.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
+    "react-native-web": "0.13.13"
   },
   "devDependencies": {
     "@babel/core": "7.9.0"

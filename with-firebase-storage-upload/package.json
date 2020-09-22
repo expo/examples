@@ -1,13 +1,13 @@
 {
   "dependencies": {
-    "expo": "~38.0.0",
-    "expo-image-picker": "~8.3.0",
-    "expo-permissions": "~9.0.1",
+    "expo": "~39.0.0",
+    "expo-image-picker": "~9.1.0",
+    "expo-permissions": "~9.3.0",
     "firebase": "7.8.1",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
-    "react-native-web": "0.11.7",
+    "react": "~16.13.0",
+    "react-dom": "~16.13.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
+    "react-native-web": "0.13.13",
     "uuid": "3.4.0"
   },
   "devDependencies": {

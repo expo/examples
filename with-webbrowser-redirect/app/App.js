@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
-import { Linking } from 'expo';
-import * as WebBrowser from 'expo-web-browser';
-import Constants from 'expo-constants';
+import * as React from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import * as Linking from "expo-linking";
+import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
 
 export default class App extends React.Component {
   state = {
@@ -29,7 +29,7 @@ export default class App extends React.Component {
     );
   }
 
-  _handleRedirect = event => {
+  _handleRedirect = (event) => {
     if (Constants.platform.ios) {
       WebBrowser.dismissBrowser();
     } else {
@@ -48,7 +48,7 @@ export default class App extends React.Component {
       let result = await WebBrowser.openAuthSessionAsync(
         // We add `?` at the end of the URL since the test backend that is used
         // just appends `authToken=<token>` to the URL provided.
-        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/?')}`
+        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl("/?")}`
       );
       let redirectData;
       if (result.url) {
@@ -70,7 +70,7 @@ export default class App extends React.Component {
       let result = await WebBrowser.openBrowserAsync(
         // We add `?` at the end of the URL since the test backend that is used
         // just appends `authToken=<token>` to the URL provided.
-        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl('/?')}`
+        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl("/?")}`
       );
 
       // https://github.com/expo/expo/issues/5555
@@ -86,11 +86,11 @@ export default class App extends React.Component {
   };
 
   _addLinkingListener = () => {
-    Linking.addEventListener('url', this._handleRedirect);
+    Linking.addEventListener("url", this._handleRedirect);
   };
 
   _removeLinkingListener = () => {
-    Linking.removeEventListener('url', this._handleRedirect);
+    Linking.removeEventListener("url", this._handleRedirect);
   };
 
   _maybeRenderRedirectData = () => {
@@ -109,9 +109,9 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
     paddingBottom: 40,
   },
   header: {

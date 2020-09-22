@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "~38.0.0",
+    "expo": "~39.0.0",
     "preact": "10.4.1",
     "preact-responder-event-plugin": "1.0.16",
-    "react": "~16.11.0",
-    "react-dom": "~16.11.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
-    "react-native-web": "0.11.7"
+    "react": "~16.13.0",
+    "react-dom": "~16.13.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
+    "react-native-web": "0.13.13"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
