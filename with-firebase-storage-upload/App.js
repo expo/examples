@@ -163,7 +163,7 @@ export default class App extends React.Component {
       this.setState({ uploading: true });
 
       if (!pickerResult.cancelled) {
-        uploadUrl = await uploadImageAsync(pickerResult.uri);
+        const uploadUrl = await uploadImageAsync(pickerResult.uri);
         this.setState({ image: uploadUrl });
       }
     } catch (e) {
