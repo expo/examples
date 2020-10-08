@@ -8,6 +8,9 @@
 Using Next.js with Expo will enable you to [server side render](https://nextjs.org/features/server-side-rendering) the web part of your Expo app. This demo shows you how to setup your universal application to use use advanced universal modules from the Expo SDK like Camera, Gestures, Permissions, etc... with the Next.js tool-chain!
 
 > 🚨 SSR is an experimental feature with Expo so modules might not be fully optimized for Next.js. If you find bugs please report them on the [Expo repo](https://github.com/expo/expo/issues) or [expo-cli repo](https://github.com/expo/expo-cli/issues) with the `[nextjs]` tag in the title.
+>  Also, Next.Js empowers routing, which results in changing of URL paths when running in web browser 
+
+> Taking some help from [here](https://github.com/vercel/next.js/tree/master/examples/with-react-native-web)
 
 ### ⚽️ Running in the browser
 

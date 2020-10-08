@@ -9,6 +9,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@expo/next-adapter": "2.1.0"
+    "@expo/next-adapter": "2.1.39"
+  },
+  "scripts": {
+    "build": "next build",
+    "web": "yarn next dev"
   }
 }
