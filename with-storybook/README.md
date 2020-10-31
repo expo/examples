@@ -36,9 +36,7 @@ This method runs your Expo components in a Storybook-React environment. This is 
   };
   ```
 
-- Run `yarn add -D @expo/webpack-config` to get the webpack-config added.
-
-- Run `yarn web` to try it out!
+- Run `yarn storybook` to try it out!
   - The example should open to `http://localhost:6006/`
 - You may also want to add `storybook-static` to your `.gitignore`
 
@@ -124,4 +122,5 @@ Storybook with Expo CLI
 
 ## 📝 Notes
 
+- [Storybook React](https://storybook.js.org/docs/react/get-started/introduction)
 - [Storybook React Native](https://storybook.js.org/docs/guides/guide-react-native/)
