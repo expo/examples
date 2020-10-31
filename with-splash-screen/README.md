@@ -1,4 +1,4 @@
-# Animated Splash Screen Example
+# Splash Screen Example
 
 <p>
   <!-- iOS -->
