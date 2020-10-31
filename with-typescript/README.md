@@ -28,7 +28,7 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 
 - Copy the `tsconfig.json` from this repo, or new typescript template
 - Add typescript dependencies: `yarn add --dev @types/react @types/react-native @types/react-dom typescript`
-- Rename files tpo TypeScript, `.tsx` for React components and `.ts` for plain typescript files
+- Rename files to TypeScript, `.tsx` for React components and `.ts` for plain typescript files
 
 ## 📝 Notes
 
