@@ -9,7 +9,7 @@
 
 [Electron][electron] is a framework for creating desktop apps that run in a Chromium wrapper. Using Expo with Electron will enable you to use your existing components to build OSX, Windows, and Linux apps.
 
-For more info [check out the latest docs!](https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-electron.md)
+For more info [check out the latest docs!](https://github.com/expo/expo/blob/master/docs/pages/guides/using-electron.md)
 
 ## 🚀 How to use
 
