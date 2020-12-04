@@ -189,8 +189,8 @@ async function uploadImageAsync(uri) {
   // } else {
   //   apiUrl = `http://localhost:3000/upload`
   // }
-
-  let fileType = uri[uri.length - 1];
+  let uriArray = uri.split(".");
+  let fileType = uriArray[uriArray.length - 1];
 
   let formData = new FormData();
   formData.append("photo", {
