@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import * as Linking from "expo-linking";
-import * as WebBrowser from "expo-web-browser";
-import Constants from "expo-constants";
+import React from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import * as Linking from 'expo-linking';
+import * as WebBrowser from 'expo-web-browser';
+import Constants from 'expo-constants';
 
 export default class App extends React.Component {
   state = {

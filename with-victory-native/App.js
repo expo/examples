@@ -1,8 +1,8 @@
-import { useFonts } from "@use-expo/font";
-import { AppLoading } from "expo";
-import * as React from "react";
-import { StyleSheet, View } from "react-native";
-import { VictoryBar, VictoryChart } from "victory-native";
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { VictoryBar, VictoryChart } from 'victory-native';
 
 const data = [
   { quarter: 1, earnings: 13000 },
@@ -13,7 +13,7 @@ const data = [
 
 export default function App() {
   const [isLoaded] = useFonts({
-    Roboto: require("./Roboto.ttf"),
+    Roboto: require('./Roboto.ttf'),
   });
 
   if (!isLoaded) {
@@ -39,8 +39,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f5fcff",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5fcff',
   },
 });

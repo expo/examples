@@ -1,15 +1,15 @@
-import React, { useCallback, useState } from "react";
-import * as AuthSession from "expo-auth-session";
+import React, { useCallback, useState } from 'react';
+import * as AuthSession from 'expo-auth-session';
 import {
   ActivityIndicator,
   Button,
   StyleSheet,
   Text,
   View,
-} from "react-native";
+} from 'react-native';
 
-const requestTokenURL = "http://localhost:3000/request-token";
-const accessTokenURL = "http://localhost:3000/access-token";
+const requestTokenURL = 'http://localhost:3000/request-token';
+const accessTokenURL = 'http://localhost:3000/access-token';
 
 const redirect = AuthSession.makeRedirectUri();
 // This is the callback or redirect URL you need to whitelist in your Twitter app
@@ -36,21 +36,21 @@ export default function App() {
         requestTokenURL + requestParams
       ).then((res) => res.json());
 
-      console.log("Request tokens fetched!", requestTokens);
+      console.log('Request tokens fetched!', requestTokens);
 
       // Step #2 - after we received the request tokens, we can start the auth session flow using these tokens
       const authResponse = await AuthSession.startAsync({
         authUrl:
-          "https://api.twitter.com/oauth/authenticate" +
+          'https://api.twitter.com/oauth/authenticate' +
           toQueryString(requestTokens),
       });
 
-      console.log("Auth response received!", authResponse);
+      console.log('Auth response received!', authResponse);
 
       // Validate if the auth session response is successful
       // Note, we still receive a `authResponse.type = 'success'`, thats why we need to check on the params itself
       if (authResponse.params && authResponse.params.denied) {
-        return setError("AuthSession failed, user did not authorize the app");
+        return setError('AuthSession failed, user did not authorize the app');
       }
 
       // Step #3 - when the user (successfully) authorized the app, we will receive a verification code.
@@ -64,13 +64,13 @@ export default function App() {
         accessTokenURL + accessParams
       ).then((res) => res.json());
 
-      console.log("Access tokens fetched!", accessTokens);
+      console.log('Access tokens fetched!', accessTokens);
 
       // Now let's store the username in our state to render it.
       // You might want to store the `oauth_token` and `oauth_token_secret` for future use.
       setUsername(accessTokens.screen_name);
     } catch (error) {
-      console.log("Something went wrong...", error);
+      console.log('Something went wrong...', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -105,23 +105,23 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   loading: {
-    backgroundColor: "rgba(0,0,0,0.4)",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: 40,
   },
   error: {
     fontSize: 16,
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: 40,
   },
 });
@@ -131,12 +131,12 @@ const styles = StyleSheet.create({
  */
 function toQueryString(params) {
   return (
-    "?" +
+    '?' +
     Object.entries(params)
       .map(
         ([key, value]) =>
           `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
       )
-      .join("&")
+      .join('&')
   );
 }

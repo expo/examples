@@ -1,13 +1,14 @@
-import { AppLoading } from "expo";
-import { Asset } from "expo-asset";
-import Constants from "expo-constants";
-import React from "react";
-import { Animated, Button, StyleSheet, Text, View } from "react-native";
-import * as SplashScreen from "expo-splash-screen";
-// import * as Updates from "expo-updates";
+import AppLoading from 'expo-app-loading';
+import { Asset } from 'expo-asset';
+import Constants from 'expo-constants';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Updates from 'expo-updates';
+import React from 'react';
+import { Animated, Button, StyleSheet, Text, View } from 'react-native';
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
-SplashScreen.preventAutoHideAsync().catch(() => {});
+SplashScreen.preventAutoHideAsync()
+  .catch(() => { /* reloading the app might trigger some race conditions, ignore them */ });
 
 export default function App() {
   return (
@@ -31,6 +32,8 @@ function AnimatedAppLoader({ children, image }) {
   if (!isSplashReady) {
     return (
       <AppLoading
+        // Instruct SplashScreen not to hide yet, we want to do this manually
+        autoHideSplash={false}
         startAsync={startAsync}
         onError={console.error}
         onFinish={onFinish}
@@ -59,8 +62,8 @@ function AnimatedSplashScreen({ children, image }) {
   }, [isAppReady]);
 
   const onImageLoaded = React.useMemo(() => async () => {
-    SplashScreen.hideAsync();
     try {
+      await SplashScreen.hideAsync();
       // Load stuff
       await Promise.all([]);
     } catch (e) {
@@ -125,10 +128,7 @@ function MainScreen() {
       >
         Pretty Cool!
       </Text>
-      {/* reenable after Updates.reloadAsync() is allowed in dev mode */}
-      {false && (
-        <Button title="Run Again" onPress={() => Updates.reloadAsync()} />
-      )}
+      <Button title="Run Again" onPress={Updates.reloadAsync} />
     </View>
   );
 }

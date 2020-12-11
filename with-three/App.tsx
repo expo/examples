@@ -1,6 +1,6 @@
-import { ExpoWebGLRenderingContext, GLView } from "expo-gl";
-import { Renderer, TextureLoader } from "expo-three";
-import * as React from "react";
+import { ExpoWebGLRenderingContext, GLView } from 'expo-gl';
+import { Renderer, TextureLoader } from 'expo-three';
+import * as React from 'react';
 import {
   AmbientLight,
   BoxBufferGeometry,
@@ -12,7 +12,7 @@ import {
   PointLight,
   Scene,
   SpotLight,
-} from "three";
+} from 'three';
 
 export default function App() {
   let timeout;
@@ -78,7 +78,7 @@ class IconMesh extends Mesh {
     super(
       new BoxBufferGeometry(1.0, 1.0, 1.0),
       new MeshStandardMaterial({
-        map: new TextureLoader().load(require("./icon.jpg")),
+        map: new TextureLoader().load(require('./icon.jpg')),
         // color: 0xff0000
       })
     );

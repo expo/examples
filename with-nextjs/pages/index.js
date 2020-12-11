@@ -1,4 +1,4 @@
-// @generated: @expo/next-adapter@2.1.0
+// @generated: @expo/next-adapter@2.1.52
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 

@@ -59,6 +59,8 @@ export default function App() {
               placeholder="Enter email"
               onChangeText={handleChange('email')}
               autoCapitalize="none"
+              autoCompleteType="email"
+              keyboardType="email-address"
               onBlur={handleBlur('email')}
             />
             <ErrorMessage errorValue={touched.email && errors.email} />

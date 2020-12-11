@@ -3,13 +3,13 @@
     "@aws-amplify/auth": "^3.2.13",
     "@aws-amplify/core": "^3.3.3",
     "@aws-amplify/storage": "^3.2.6",
-    "expo": "~39.0.0",
-    "expo-constants": "~9.2.0",
-    "expo-image-picker": "~9.1.0",
-    "react": "~16.13.0",
-    "react-dom": "~16.13.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
-    "react-native-web": "0.13.13"
+    "expo": "~40.0.0",
+    "expo-constants": "~9.3.3",
+    "expo-image-picker": "~9.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-web": "~0.13.12"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

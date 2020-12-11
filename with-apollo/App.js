@@ -1,59 +1,125 @@
-import React from 'react';
-import { Text, View, SafeAreaView, ActivityIndicator, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Button, Text, View, SafeAreaView, ActivityIndicator, StyleSheet } from 'react-native';
 import { ApolloProvider, useQuery, gql } from '@apollo/client';
+import { Picker } from '@react-native-picker/picker';
 
 import { apolloClient } from './apollo';
 
-const GET_TWEET = gql`
-  query {
-    twitter {
-      tweet(id: "1261034643710775299") {
-        text
-        user {
-          name
-          screen_name
-          profile_image_url
+// Imperial I-class Star Destroyer
+const defaultStarshipId = 'c3RhcnNoaXBzOjM=';
+
+const LIST_STARSHIPTS = gql`
+  query listStarships {
+    allStarships {
+      starships {
+        id
+        name
+      }
+    }
+  }
+`;
+
+const GET_STARSHIP = gql`
+  query getStarship($id: ID!) {
+    starship(id: $id) {
+      id
+      name
+      model
+      starshipClass
+      manufacturers
+      length
+      crew
+      costInCredits
+      consumables
+      filmConnection {
+        films {
+          id
+          title
         }
       }
     }
   }
-`
+`;
 
 function RootComponent() {
-  const { data, loading, error } = useQuery(GET_TWEET);
+  const [starshipId, setStarshipId] = useState(defaultStarshipId);
+  const { data, error, loading } = useQuery(GET_STARSHIP, {
+    variables: { id: starshipId },
+  });
 
-  if (error) { console.error('error', error) };
-  if (loading) {
-    return (
-      <SafeAreaView style={styles.loadingContainer}>
-        <ActivityIndicator />
-      </SafeAreaView>
-    );
-  };
-  const { tweet } = data.twitter;
-  const { user } = tweet;
+  if (error) { console.log('Error fetching starship', error); }
+
   return (
     <View style={styles.container}>
-      <View style={styles.profileContainer}>
-        <Image
-          source={{ uri: user.profile_image_url }}
-          style={styles.image}
+      <View style={styles.section}>
+        <StarshipPicker
+          starshipId={starshipId}
+          onStarshipChange={setStarshipId}
         />
-        <View style={styles.details}>
-          <Text style={styles.name}>
-            {user.name}
-          </Text>
-          <Text style={styles.username}>
-            @{user.screen_name}
-          </Text>
-        </View>
       </View>
-      <View style={styles.tweetContainer}>
-        <Text style={styles.tweet}>
-          {tweet.text}
-        </Text>
-      </View>
+      {loading ? (
+        <ActivityIndicator color='#333' />
+      ) : (
+        <StarshipDetails starship={data.starship} />
+      )}
     </View>
+  );
+}
+
+function StarshipPicker(props) {
+  const { data, error, loading } = useQuery(LIST_STARSHIPTS);
+
+  if (error) { console.log('Error listing starships', error) }
+  if (loading) return null;
+
+  const { starships } = data.allStarships;
+
+  return (
+    <Picker
+      selectedValue={props.starshipId}
+      onValueChange={props.onStarshipChange}
+    >
+      {starships.map(starship => (
+        <Picker.Item key={starship.id} label={starship.name} value={starship.id} />
+      ))}
+    </Picker>
+  )
+}
+
+function StarshipDetails({ starship }) {
+  return (
+    <>
+      <View style={styles.section}>
+        <Text style={styles.starshipName}>{starship.name}</Text>
+        <Text style={styles.starshipModel}>{starship.model}</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.label}>Operational abilities</Text>
+        <Text>- {starship.crew} crew members</Text>
+        <Text>- {starship.consumables} without restocking</Text>
+      </View>
+
+      <View>
+        <Text style={styles.label}>Ship attributes</Text>
+        <Text>- {starship.length}m long</Text>
+        <Text>- {starship.costInCredits} credits</Text>
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.label}>Manufacturers</Text>
+        {starship.manufacturers.map(manufacturer => (
+          <Text key={manufacturer}>- {manufacturer}</Text>
+        ))}
+      </View>
+
+      <View style={styles.section}>
+        <Text style={styles.label}>Appeared in</Text>
+        {starship.filmConnection.films.map(film => (
+          <Text key={film.id}>- {film.title}</Text>
+        ))}
+      </View>
+    </>
   )
 }
 
@@ -66,33 +132,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 50
+    paddingHorizontal: 50,
   },
-  profileContainer: {
-    flexDirection: 'row',
-    alignItems: 'center'
+  label: {
+    marginBottom: 2,
+    fontSize: 12,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
-  image: {
-    height: 50,
-    width: 50,
-    borderRadius: 100,
+  section: {
+    marginVertical: 12,
   },
-  details: {
-    marginLeft: 5,
+  starshipName: {
+    fontSize: 32,
+    fontWeight: 'bold',
   },
-  name: {
-    fontSize: 20,
-    fontWeight: 'bold'
+  starshipModel: {
+    fontStyle: 'italic',
   },
-  username: {
-    color: 'gray'
-  },
-  tweetContainer: {
-    marginTop: 10
-  },
-  tweet: {
-    fontSize: 16
-  }
 });
 
 export default function App() {

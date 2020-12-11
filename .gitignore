@@ -2,9 +2,8 @@
 .vscode
 node_modules
 yarn-error.log
-
 yarn.lock
-*/**/yarn.lock
+package-lock.json
 
 # Web
 web-build
@@ -17,7 +16,7 @@ dist
 .cache
 with-gatsby/public
 
-# Next.js 
+# Next.js
 .next
 with-nextjs/out
 

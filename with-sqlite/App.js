@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 
 import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase("db.db");
+const db = SQLite.openDatabase('db.db');
 
 function Items({ done: doneHeading, onPressItem }) {
   const [items, setItems] = React.useState(null);
@@ -18,7 +18,7 @@ function Items({ done: doneHeading, onPressItem }) {
     });
   }, []);
 
-  const heading = doneHeading ? "Completed" : "Todo";
+  const heading = doneHeading ? 'Completed' : 'Todo';
 
   if (items === null || items.length === 0) {
     return null;
@@ -32,13 +32,13 @@ function Items({ done: doneHeading, onPressItem }) {
           key={id}
           onPress={() => onPressItem && onPressItem(id)}
           style={{
-            backgroundColor: done ? "#1c9963" : "#fff",
-            borderColor: "#000",
+            backgroundColor: done ? '#1c9963' : '#fff',
+            borderColor: '#000',
             borderWidth: 1,
             padding: 8
           }}
         >
-          <Text style={{ color: done ? "#fff" : "#000" }}>{value}</Text>
+          <Text style={{ color: done ? '#fff' : '#000' }}>{value}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -52,21 +52,21 @@ export default function App() {
   React.useEffect(() => {
     db.transaction(tx => {
       tx.executeSql(
-        "create table if not exists items (id integer primary key not null, done int, value text);"
+        'create table if not exists items (id integer primary key not null, done int, value text);'
       );
     });
   }, []);
 
   const add = (text) => {
     // is text empty?
-    if (text === null || text === "") {
+    if (text === null || text === '') {
       return false;
     }
 
     db.transaction(
       tx => {
-        tx.executeSql("insert into items (done, value) values (0, ?)", [text]);
-        tx.executeSql("select * from items", [], (_, { rows }) =>
+        tx.executeSql('insert into items (done, value) values (0, ?)', [text]);
+        tx.executeSql('select * from items', [], (_, { rows }) =>
           console.log(JSON.stringify(rows))
         );
       },
@@ -132,20 +132,20 @@ function useForceUpdate() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     flex: 1,
     paddingTop: Constants.statusBarHeight
   },
   heading: {
     fontSize: 20,
-    fontWeight: "bold",
-    textAlign: "center"
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   flexRow: {
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   input: {
-    borderColor: "#4630eb",
+    borderColor: '#4630eb',
     borderRadius: 4,
     borderWidth: 1,
     flex: 1,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   listArea: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: '#f0f0f0',
     flex: 1,
     paddingTop: 16
   },

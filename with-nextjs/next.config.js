@@ -1,5 +1,5 @@
-// @generated: @expo/next-adapter@2.1.0
-// Learn more: https://github.com/expo/expo/blob/master/docs/pages/versions/unversioned/guides/using-nextjs.md#withexpo
+// @generated: @expo/next-adapter@2.1.52
+// Learn more: https://docs.expo.io/guides/using-nextjs/
 
 const { withExpo } = require('@expo/next-adapter');
 
