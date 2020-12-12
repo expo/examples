@@ -13,7 +13,7 @@
 
 - Install with `yarn` or `npm install`.
 - Create your own app on [Auth0](https://auth0.com).
-- Add the AppSession's auth URL to `Allowed Callback URLs` on Auth0.
+- Add the `AuthSession` auth URL to `Allowed Callback URLs` on Auth0.
 - Open `App.js` and replace `auth0ClientId` and `auth0Domain` with your app settings.
 - Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
 
