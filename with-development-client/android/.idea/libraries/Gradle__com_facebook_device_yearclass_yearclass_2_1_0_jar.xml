@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.facebook.device.yearclass:yearclass:2.1.0@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.device.yearclass/yearclass/2.1.0/ef7d013a0140137b4a948dd65b46a08205d21020/yearclass-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.device.yearclass/yearclass/2.1.0/eb51dd0b1a8b6ad01523800ede29fb95f688c07c/yearclass-2.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.device.yearclass/yearclass/2.1.0/9e3f6a57825e0b1ff1daa029aa8987a489896c2a/yearclass-2.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

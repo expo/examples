@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/HelloWorld.iml" filepath="$PROJECT_DIR$/.idea/modules/HelloWorld.iml" group="HelloWorld" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="HelloWorld/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1393336446/expo-constants.iml" filepath="$PROJECT_DIR$/.idea/modules/1393336446/expo-constants.iml" group="HelloWorld/expo-constants" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-837291064/expo-dev-menu.iml" filepath="$PROJECT_DIR$/.idea/modules/-837291064/expo-dev-menu.iml" group="HelloWorld/expo-dev-menu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1283820172/expo-dev-menu-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-1283820172/expo-dev-menu-interface.iml" group="HelloWorld/expo-dev-menu-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2005425422/expo-development-client.iml" filepath="$PROJECT_DIR$/.idea/modules/2005425422/expo-development-client.iml" group="HelloWorld/expo-development-client" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1307582891/expo-error-recovery.iml" filepath="$PROJECT_DIR$/.idea/modules/1307582891/expo-error-recovery.iml" group="HelloWorld/expo-error-recovery" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1644099927/expo-file-system.iml" filepath="$PROJECT_DIR$/.idea/modules/1644099927/expo-file-system.iml" group="HelloWorld/expo-file-system" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/387883136/expo-font.iml" filepath="$PROJECT_DIR$/.idea/modules/387883136/expo-font.iml" group="HelloWorld/expo-font" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/424616438/expo-image-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/424616438/expo-image-loader.iml" group="HelloWorld/expo-image-loader" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1598564014/expo-keep-awake.iml" filepath="$PROJECT_DIR$/.idea/modules/1598564014/expo-keep-awake.iml" group="HelloWorld/expo-keep-awake" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/402260935/expo-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/402260935/expo-linear-gradient.iml" group="HelloWorld/expo-linear-gradient" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2084117862/expo-location.iml" filepath="$PROJECT_DIR$/.idea/modules/2084117862/expo-location.iml" group="HelloWorld/expo-location" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-646478093/expo-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/-646478093/expo-permissions.iml" group="HelloWorld/expo-permissions" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-986322111/expo-splash-screen.iml" filepath="$PROJECT_DIR$/.idea/modules/-986322111/expo-splash-screen.iml" group="HelloWorld/expo-splash-screen" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1671350531/expo-sqlite.iml" filepath="$PROJECT_DIR$/.idea/modules/-1671350531/expo-sqlite.iml" group="HelloWorld/expo-sqlite" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2000180039/expo-updates.iml" filepath="$PROJECT_DIR$/.idea/modules/-2000180039/expo-updates.iml" group="HelloWorld/expo-updates" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-114301208/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-114301208/react-native-gesture-handler.iml" group="HelloWorld/react-native-gesture-handler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/275383860/react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/275383860/react-native-reanimated.iml" group="HelloWorld/react-native-reanimated" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1955497641/react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/1955497641/react-native-screens.iml" group="HelloWorld/react-native-screens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1143418077/unimodules-app-loader.iml" filepath="$PROJECT_DIR$/.idea/modules/-1143418077/unimodules-app-loader.iml" group="HelloWorld/unimodules-app-loader" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-862171015/unimodules-barcode-scanner-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-862171015/unimodules-barcode-scanner-interface.iml" group="HelloWorld/unimodules-barcode-scanner-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1188778635/unimodules-camera-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-1188778635/unimodules-camera-interface.iml" group="HelloWorld/unimodules-camera-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-476421737/unimodules-constants-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-476421737/unimodules-constants-interface.iml" group="HelloWorld/unimodules-constants-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1638882721/unimodules-core.iml" filepath="$PROJECT_DIR$/.idea/modules/1638882721/unimodules-core.iml" group="HelloWorld/unimodules-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1053885374/unimodules-face-detector-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1053885374/unimodules-face-detector-interface.iml" group="HelloWorld/unimodules-face-detector-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/190280360/unimodules-file-system-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/190280360/unimodules-file-system-interface.iml" group="HelloWorld/unimodules-file-system-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-52326113/unimodules-font-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/-52326113/unimodules-font-interface.iml" group="HelloWorld/unimodules-font-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/324047893/unimodules-image-loader-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/324047893/unimodules-image-loader-interface.iml" group="HelloWorld/unimodules-image-loader-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1753727812/unimodules-permissions-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1753727812/unimodules-permissions-interface.iml" group="HelloWorld/unimodules-permissions-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1244456689/unimodules-react-native-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/1244456689/unimodules-react-native-adapter.iml" group="HelloWorld/unimodules-react-native-adapter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/948169921/unimodules-sensors-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/948169921/unimodules-sensors-interface.iml" group="HelloWorld/unimodules-sensors-interface" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1131151613/unimodules-task-manager-interface.iml" filepath="$PROJECT_DIR$/.idea/modules/1131151613/unimodules-task-manager-interface.iml" group="HelloWorld/unimodules-task-manager-interface" />
+    </modules>
+  </component>
+</project>
