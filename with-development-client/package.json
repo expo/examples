@@ -1,5 +1,5 @@
 {
-  "name": "with-dev-launcher",
+  "name": "with-development-client",
   "description": "This bare project template includes a minimal setup for using unimodules, expo-dev-menu and expo-dev-launcher with React Native.",
   "version": "40.0.0",
   "main": "index.js",
