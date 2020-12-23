@@ -1,4 +1,4 @@
-# Reanimated v2 (alpha) example
+# Reanimated v2 (release candidate) example
 
 <p>
   <!-- iOS -->
@@ -8,7 +8,7 @@
   <!-- Web -->
 </p>
 
-Experiment with Reanimated 2 (alpha) in SDK 39.
+Experiment with Reanimated 2 (rc) in SDK 40.
 
 ## 🚀 How to use
 
