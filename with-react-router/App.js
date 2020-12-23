@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, Text, View, Platform } from "react-native";
-import { Router, Route, Link } from "./react-router";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Router, Route, Link } from './react-router';
 
 const Home = () => <Text>Home</Text>;
 

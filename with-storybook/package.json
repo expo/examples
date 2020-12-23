@@ -5,27 +5,27 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "~39.0.0",
-    "expo-constants": "~9.2.0",
-    "expo-font": "~8.3.0",
-    "expo-linear-gradient": "~8.3.0",
-    "react": "~16.13.0",
-    "react-dom": "~16.13.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
-    "react-native-web": "0.13.13"
+    "expo": "~40.0.0",
+    "expo-constants": "~9.3.3",
+    "expo-font": "~8.4.0",
+    "expo-linear-gradient": "~8.4.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
-    "@expo/webpack-config": "^0.11.11",
+    "@babel/core": "~7.9.0",
+    "@expo/webpack-config": "~0.12.45",
     "@storybook/addon-actions": "~5.2.1",
     "@storybook/addon-links": "~5.2.1",
     "@storybook/addons": "~5.2.1",
     "@storybook/react": "~5.2.1",
     "@storybook/react-native": "~5.3.19",
-    "@types/react": "~16.9.49",
+    "@types/react": "~16.9.35",
     "@types/react-dom": "~16.9.8",
-    "@types/react-native": "~0.63.20",
+    "@types/react-native": "~0.63.2",
     "babel-loader": "^8.0.6",
-    "typescript": "^3.7.2"
+    "typescript": "~4.0.0"
   }
 }
