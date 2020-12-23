@@ -19,7 +19,7 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 
-#if __has_include(<EXDevMenu/EXDevMenu-umbrella.h>)
+#if __has_include(<EXDevMenu/EXDevMenu.h>)
 @import EXDevMenu;
 #endif
 
@@ -100,7 +100,7 @@ static void InitializeFlipper(UIApplication *application) {
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"main" initialProperties:nil];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
   
-#if __has_include(<EXDevMenu/EXDevMenu-umbrella.h>)
+#if __has_include(<EXDevMenu/EXDevMenu.h>)
   [DevMenuManager configureWithBridge:bridge];
 #endif
   
