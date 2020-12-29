@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "expo-yarn-workspaces postinstall",
+    "first-app": "yarn workspace @expo/first-app expo start",
+    "second-app": "yarn workspace @expo/second-app expo start"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "expo-yarn-workspaces": "^1.2.1"
+  }
+}
