@@ -31,7 +31,7 @@ PODS:
   - EXPermissions (10.0.0):
     - UMCore
     - UMPermissionsInterface
-  - expo-dev-launcher (0.1.1):
+  - expo-dev-launcher (0.1.2):
     - expo-dev-menu-interface
     - React
   - expo-dev-menu (0.1.2):
@@ -602,7 +602,7 @@ SPEC CHECKSUMS:
   EXLinearGradient: c803fbd1aa974be038177b1e45524bc35759fe9c
   EXLocation: d55e2a37f61bcfb4eba9c813b3f4621d896c4c00
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
-  expo-dev-launcher: 6dc7330b56aaf50d71752b4636f4349d8c809c29
+  expo-dev-launcher: 5ffc81f9c05b723a494ed6538410b15954a42dd4
   expo-dev-menu: 03d796111cbbe837d64cbd20e2430048921f9acf
   expo-dev-menu-interface: e2534e9e6d5c333ef0a0bee02e459f310ddf810b
   EXSecureStore: 1b571851e6068b30b8ec097be848a04603c03bae
