@@ -11,11 +11,11 @@
 #import <EXSplashScreen/EXSplashScreenService.h>
 #import <UMCore/UMModuleRegistryProvider.h>
 
-#if __has_include(<EXDevMenu/EXDevMenu.h>)
+#if defined(EX_DEV_MENU_ENABLED)
 @import EXDevMenu;
 #endif
 
-#if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+#if defined(EX_DEV_LAUNCHER_ENABLED)
 #include <EXDevLauncher/EXDevLauncherController.h>
 #endif
 
@@ -58,7 +58,7 @@ static void InitializeFlipper(UIApplication *application) {
   self.launchOptions = launchOptions;
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   #ifdef DEBUG
-    #if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+    #if defined(EX_DEV_LAUNCHER_ENABLED)
       EXDevLauncherController *contoller = [EXDevLauncherController sharedInstance];
       [contoller startWithWindow:self.window delegate:self launchOptions:launchOptions];
     #else
@@ -77,7 +77,7 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (RCTBridge *)initializeReactNativeApp
 {
-#if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+#if defined(EX_DEV_LAUNCHER_ENABLED)
   NSDictionary *launchOptions = [EXDevLauncherController.sharedInstance getLaunchOptions];
 #else
   NSDictionary *launchOptions = self.launchOptions;
@@ -86,7 +86,7 @@ static void InitializeFlipper(UIApplication *application) {
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:@"main" initialProperties:nil];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
   
-#if __has_include(<EXDevMenu/EXDevMenu.h>)
+#if defined(EX_DEV_MENU_ENABLED)
   [DevMenuManager configureWithBridge:bridge];
 #endif
   
@@ -107,7 +107,7 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
 #ifdef DEBUG
-  #if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+  #if defined(EX_DEV_LAUNCHER_ENABLED)
     return [[EXDevLauncherController sharedInstance] sourceUrl];
   #else
     return [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
@@ -127,7 +127,7 @@ static void InitializeFlipper(UIApplication *application) {
    openURL:(NSURL *)url
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-#if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+#if defined(EX_DEV_LAUNCHER_ENABLED)
   if ([EXDevLauncherController.sharedInstance onDeepLink:url options:options]) {
     return true;
   }
@@ -137,7 +137,7 @@ static void InitializeFlipper(UIApplication *application) {
 
 @end
 
-#if __has_include(<EXDevLauncher/EXDevLauncherController.h>)
+#if defined(EX_DEV_LAUNCHER_ENABLED)
 @implementation AppDelegate (EXDevLauncherControllerDelegate)
 
 - (void)devLauncherController:(EXDevLauncherController *)devLauncherController
