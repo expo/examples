@@ -8,6 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.10.2",
-    "socket.io": "^1.7.1"
+    "socket.io": "^2.4.0"
   }
 }
