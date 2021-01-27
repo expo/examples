@@ -1,4 +1,5 @@
 import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
 import React from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
@@ -40,7 +41,15 @@ async function callGoogleVisionAsync(image) {
 export default function App() {
   const [image, setImage] = React.useState(null);
   const [status, setStatus] = React.useState(null);
+  const [isPermissionsGranted] = Permissions.usePermissions(Permissions.CAMERA, { ask: true });
 
+  if (!isPermissionsGranted) {
+    return (
+      <View style={styles.container}>
+        <Text>You have not granted permission to use the camera on this device!</Text>
+      </View>
+    );
+  }
   const takePictureAsync = async () => {
     const { cancelled, uri, base64 } = await ImagePicker.launchCameraAsync({
       base64: true,
