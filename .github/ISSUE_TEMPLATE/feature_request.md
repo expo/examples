@@ -1,20 +1,24 @@
----
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
----
-
-**Is your feature request related to a problem? Please describe.**
-<!-- A clear and concise description of what the problem is. Ex. I'm always frustrated when [...] -->
-
-**Describe the solution you'd like**
-<!-- A clear and concise description of what you want to happen. -->
-
-**Describe alternatives you've considered**
-<!-- A clear and concise description of any alternative solutions or features you've considered. -->
-
-**Additional context**
-<!-- Add any other context or screenshots about the feature request here. -->
+name: "\U0001F41B Expo Example Request"
+about: 'Suggest an idea for a new Expo example'
+issue_body: true
+inputs:
+  - type: description
+    attributes:
+      value: "Examples should reflect a single feature or library integration. If the example is too complex i.e. chat app, uber clone, than it's probably better suited for a personal boilerplate or template."
+  - type: description
+    attributes:
+      value: Thanks for taking the time to open a request! Please fill out this form as completely as possible.
+  - type: description
+    attributes:
+      value: If you leave out sections there is a high likelihood your issue will be closed.
+  - type: textarea
+    attributes:
+      label: Summary
+      required: true
+      description: Describe the example in 1 or 2 sentences
+      placeholder: Clearly describe what the example demonstrates and possibly how it differs from existing examples.
+  - type: textarea
+    attributes:
+      label: Inspiration
+      required: false
+      placeholder: Does the example exist somewhere else already?
