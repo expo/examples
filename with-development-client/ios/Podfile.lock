@@ -31,13 +31,13 @@ PODS:
   - EXPermissions (10.0.0):
     - UMCore
     - UMPermissionsInterface
-  - expo-dev-launcher (0.1.2):
+  - expo-dev-launcher (0.2.0):
     - expo-dev-menu-interface
     - React
-  - expo-dev-menu (0.1.2):
+  - expo-dev-menu (0.3.0):
     - expo-dev-menu-interface
     - React
-  - expo-dev-menu-interface (0.1.1):
+  - expo-dev-menu-interface (0.1.2):
     - React
   - EXSecureStore (9.3.0):
     - UMCore
@@ -602,9 +602,9 @@ SPEC CHECKSUMS:
   EXLinearGradient: c803fbd1aa974be038177b1e45524bc35759fe9c
   EXLocation: d55e2a37f61bcfb4eba9c813b3f4621d896c4c00
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
-  expo-dev-launcher: f18e5be0500f90b7f74e910e7bb8e3a66bc7090b
-  expo-dev-menu: 1077151c216ca03131d8e429acee57e626798e61
-  expo-dev-menu-interface: e2534e9e6d5c333ef0a0bee02e459f310ddf810b
+  expo-dev-launcher: 0351bdeef423c28146573adbdeb822ed42b941b8
+  expo-dev-menu: 23458ea380b3d67685db766bde78925be00627ed
+  expo-dev-menu-interface: 3c93377ecf505dc4aba68e61685d30353c39b335
   EXSecureStore: 1b571851e6068b30b8ec097be848a04603c03bae
   EXSplashScreen: 8c7c1112ce7611a853486af4737fe2298eda7657
   EXSQLite: bda6a286dded0637bb312ee781239dcca163ff4b
@@ -662,4 +662,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0c16a66c1fa978ff491cf229574e00897e3ee33f
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
