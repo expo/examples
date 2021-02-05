@@ -5,6 +5,12 @@
     "name": "HelloWorld",
     "slug": "expo-template-bare",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "your.bundler.identifier"
+    },
+    "android": {
+      "package": "your.android.package"
+    }
   }
 }
