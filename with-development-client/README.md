@@ -28,7 +28,7 @@ You can easily use this project with `EAS` - just follow the steps below.
 
 This example comes with two pre-configured build types: `release` (a production version of your app - ready to be uploaded to stores), `with-development-client` (a development version of your app that can be shared with your teammates).
 
-To build app, just run `eas build` and select the wanted build type.
+To build the app with the development client, just run `eas build --profile with-development-client`.
 
 > **Note**: the `with-development-client` uses the **internal distribution** on **iOS**. That's why, you need to add your device to be able to install the built app. To do it, you can use `eas device:create`.
 
