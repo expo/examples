@@ -15,6 +15,25 @@ Experiment with Development Client in SDK 40.
 
 - Run `expo start --dev-client`, try it out.
 
+## 🏗 Build with EAS
+
+You can easily use this project with `EAS` - just follow the steps below.
+
+### ⚙️ Prepare project
+
+- adjust value of `ios.bundleIdentifier` and `android.package` in `app.json`
+- run `eas build:configure`
+
+### 💪 Build whatever you want
+
+This example comes with two pre-configured build types: `release` (a production version of your app - ready to be uploaded to stores), `with-development-client` (a development version of your app that can be shared with your teammates).
+
+To build the app with the development client, just run `eas build --profile with-development-client`.
+
+> **Note**: the `with-development-client` uses the **internal distribution** on **iOS**. That's why, you need to add your device to be able to install the built app. To do it, you can use `eas device:create`.
+
+**For more information about EAS, check out [documentation](https://docs.expo.io/eas/).**
+
 ## 📝 Notes
 
 - [Development Client docs](https://docs.expo.io/clients/introduction/)
