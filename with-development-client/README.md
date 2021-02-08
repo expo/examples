@@ -26,7 +26,7 @@ You can easily use this project with `EAS` - just follow the steps below.
 
 ### 💪 Build whatever you want
 
-This example comes with two pre-configured build types: `release` (a productive version of your app - ready to be uploaded to stores), `with-development-client` (a development version of your app that can be shared with your teammates).
+This example comes with two pre-configured build types: `release` (a production version of your app - ready to be uploaded to stores), `with-development-client` (a development version of your app that can be shared with your teammates).
 
 To build app, just run `eas build` and select the wanted build type.
 
