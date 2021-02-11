@@ -1,4 +1,9 @@
-<img alt="expo examples" src=".gh-assets/banner.png">
+<p align="center">
+  <a href="https://github.com/expo/create-react-native-app">
+    <img alt="expo examples" height="128" src="./.gh-assets/banner.png">
+    <h1 align="center">Expo Examples</h1>
+  </a>
+</p>
 
 <p align="center">
   <a aria-label="SDK version" href="https://www.npmjs.com/package/expo" target="_blank">
@@ -49,7 +54,9 @@ npx create-react-native-app -t with-typescript
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/github/contributors/expo/examples)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 If you'd like to contribute something, please check out our [contributing guide](./contributing.md)!
@@ -65,6 +72,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
