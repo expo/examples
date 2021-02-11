@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/expo/create-react-native-app">
+  <a href="https://expo.io/">
     <img alt="expo examples" height="128" src="./.gh-assets/banner.png">
     <h1 align="center">Expo Examples</h1>
   </a>
