@@ -1,15 +1,16 @@
 {
   "dependencies": {
     "expo": "~40.0.0",
-    "react": "16.13.1",
     "framer-motion": "^3.3.0",
     "moti": "^0.4.1",
+    "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
     "react-native-reanimated": "2.0.0-rc.0",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0"
+    "@babel/core": "~7.9.0",
+    "@expo/webpack-config": "^0.12.58"
   }
 }
