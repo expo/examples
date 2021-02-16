@@ -48,7 +48,7 @@ export default class App extends React.Component {
       let result = await WebBrowser.openAuthSessionAsync(
         // We add `?` at the end of the URL since the test backend that is used
         // just appends `authToken=<token>` to the URL provided.
-        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.makeUrl("/?")}`
+        `https://backend-xxswjknyfi.now.sh/?linkingUri=${Linking.createURL("/?")}`
       );
       let redirectData;
       if (result.url) {
