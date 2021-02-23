@@ -17,4 +17,4 @@ This example implements a basic store and list using the `zustand` library.
 
 ## 📝 Notes
 
-- [Zustand docs](https://github.com/pmndrs/zustand)
+- [Detox docs](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md)

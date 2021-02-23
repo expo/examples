@@ -1,6 +1,7 @@
+
 module.exports = {
   testRunner: "jest",
-  runnerConfig: "e2e/config.json",
+  runnerConfig: "e2e/jest.config.json",
   specs: "e2e",
   behavior: {
     init: {
@@ -11,15 +12,15 @@ module.exports = {
     "ios.release": {
       type: "ios.app",
       binaryPath:
-        "ios/build/Build/Products/Release-iphonesimulator/example.app",
+        "ios/build/Build/Products/Release-iphonesimulator/withdetox.app",
       build:
-        "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet",
+        "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/withdetox.xcworkspace -UseNewBuildSystem=NO -scheme withdetox -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet",
     },
     "ios.debug": {
       type: "ios.app",
-      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/example.app",
+      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/withdetox.app",
       build:
-        "xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "cd ios; xcodebuild -workspace withdetox.xcworkspace -scheme withdetox -configuration Debug -sdk iphonesimulator -derivedDataPath build; cd -",
     },
     "android.debug": {
       type: "android.apk",

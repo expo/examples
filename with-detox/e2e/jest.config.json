@@ -2,7 +2,7 @@
     "testEnvironment": "./environment",
     "testRunner": "jest-circus/runner",
     "testTimeout": 120000,
-    "testRegex": "\\.e2e\\.ts$",
+    "testRegex": "\\-e2e\\.ts$",
     "transform": {
       "\\.tsx?$": "ts-jest"
     },

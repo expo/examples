@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "with-detox",
+    "slug": "with-detox",
+    "version": "1.0.0",
+    "sdkVersion": "40.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "android": {
+      "package": "com.bacon.withdetox"
+    },
+    "ios": {
+      "bundleIdentifier": "com.bacon.withdetox"
+    }
+  }
+}
