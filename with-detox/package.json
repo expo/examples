@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "test:ios-release": "detox test --configuration ios.sim.release -l verbose",
+    "test:ios-release-ci": "detox test --configuration ios.sim.release -l verbose --workers 2",
+    "test:android-release": "detox test --configuration android.emu.release",
+    "test:android-release-ci": "detox test --configuration android.emu.release -l verbose --workers 2 --headless --record-logs all --take-screenshots all"
+  },
+  "dependencies": {
+    "expo": "~40.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-web": "~0.13.12"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "@types/jest": "^26.0.19",
+    "@types/react": "~16.9.35",
+    "@types/react-native": "~0.63.2",
+    "detox": "^18.6.2",
+    "jest": "^26.5.0",
+    "jest-circus": "^26.5.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "~4.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
