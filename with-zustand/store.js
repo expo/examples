@@ -4,7 +4,7 @@ const initialState = {
   items: [],
 };
 
-const [useStore, api] = create((set, get) => {
+export const useStore = create((set, get) => {
   return Object.assign(initialState, {
     items: [],
     addItem(text) {
@@ -15,7 +15,5 @@ const [useStore, api] = create((set, get) => {
 });
 
 export function useReset() {
-  api.setState(initialState);
+  useStore.setState(initialState);
 }
-
-export { useStore, api };
