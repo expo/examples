@@ -1,7 +1,8 @@
 import * as React from "react";
+import { Button, Text, View } from "react-native";
 import shallow from "zustand/shallow";
-import { View, Text, Button } from "react-native";
-import { useStore, useReset } from "./store";
+
+import { useReset, useStore } from "./store";
 
 export default function App() {
   const { items, addItem } = useStore(
