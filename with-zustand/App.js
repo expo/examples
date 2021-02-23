@@ -1,6 +1,6 @@
 import * as React from "react";
 import shallow from "zustand/shallow";
-import { View, Text, Button } from 'react-native'  
+import { View, Text, Button } from "react-native";
 import { useStore, useReset } from "./store";
 
 export default function App() {
@@ -13,9 +13,9 @@ export default function App() {
   );
 
   return (
-    <View style={{flex: 1, padding: 12}}>
+    <View style={{ flex: 1, padding: 12 }}>
       <TodoList />
-      <View style={{ flexDirection: "row", justifyContent: 'space-around' }}>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <Button
           onPress={() => addItem(`Item #${items.length}`)}
           title="Add Item"
