@@ -1,59 +1,69 @@
 module.exports = {
-    "testRunner": "jest",
-    "runnerConfig": process.env.DETOX_EXPOSE_GLOBALS === '0' ? 'e2eExplicitRequire/config.json' : 'e2e/config.json',
-    "specs": process.env.DETOX_EXPOSE_GLOBALS === '0' ? 'e2eExplicitRequire' : 'e2e',
-    "behavior": {
-      "init": {
-        "exposeGlobals": process.env.DETOX_EXPOSE_GLOBALS === '0' ? false : true,
+  testRunner: "jest",
+  runnerConfig: "e2e/config.json",
+  specs: "e2e",
+  behavior: {
+    init: {
+      exposeGlobals: false,
+    },
+  },
+  apps: {
+    "ios.release": {
+      type: "ios.app",
+      binaryPath:
+        "ios/build/Build/Products/Release-iphonesimulator/example.app",
+      build:
+        "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet",
+    },
+    "ios.debug": {
+      type: "ios.app",
+      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/example.app",
+      build:
+        "xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+    },
+    "android.debug": {
+      type: "android.apk",
+      binaryPath: "android/app/build/outputs/apk/debug/app-debug.apk",
+      build:
+        "cd android ; ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug ; cd -",
+    },
+    "android.release": {
+      type: "android.apk",
+      binaryPath: "android/app/build/outputs/apk/release/app-release.apk",
+      build:
+        "cd android ; ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release ; cd -",
+    },
+  },
+  devices: {
+    simulator: {
+      type: "ios.simulator",
+      device: {
+        type: "iPhone 11 Pro",
       },
     },
-    "apps": {
-      "ios.release": {
-        "type": "ios.app",
-        "binaryPath": "../demo-react-native/ios/build/Build/Products/Release-iphonesimulator/example.app",
+    emulator: {
+      type: "android.emulator",
+      device: {
+        avdName: "Pixel_API_28",
       },
-      "android.release": {
-        "type": "android.apk",
-        "binaryPath": "../demo-react-native/android/app/build/outputs/apk/release/app-release.apk",
-      }
     },
-    "devices": {
-      "simulator": {
-        "type": "ios.simulator",
-        "device": {
-          "type": "iPhone 11 Pro"
-        }
-      },
-      "emulator": {
-        "type": "android.emulator",
-        "device": {
-          "avdName": "Pixel_API_28"
-        }
-      }
+  },
+  configurations: {
+    "ios.sim.release": {
+      device: "simulator",
+      app: "ios.release",
     },
-    "configurations": {
-      "ios.sim.release": {
-        "device": "simulator",
-        "app": "ios.release",
-        "artifacts": {
-          // Do not use in your projects unless you really need custom paths.
-          // This section serves just as an example that you can locally override
-          // some artifacts, behavior and session settings
-  
-          "pathBuilder": "./e2e/detox.pathbuilder.ios.js"
-        }
-      },
-      "android.emu.release": {
-        "device": "emulator",
-        "app": "android.release",
-        "artifacts": {
-          // Do not use in your projects unless you really need custom paths.
-          // This section serves just as an example that you can locally override
-          // some artifacts, behavior and session settings
-  
-          "pathBuilder": "./e2e/detox.pathbuilder.android.js"
-        }
-      }
-    }
-  };
-  
+    "ios.sim.debug": {
+      device: "simulator",
+      app: "ios.debug",
+    },
+    "android.emu.debug": {
+      device: "emulator",
+      app: "android.debug",
+    },
+    "android.emu.release": {
+      device: "emulator",
+      app: "android.release",
+    },
+  },
+};
