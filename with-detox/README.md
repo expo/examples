@@ -7,13 +7,34 @@
   <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
 </p>
 
-Zustand is a fast state manager with a user-friendly API.
-This example implements a basic store and list using the `zustand` library.
+Detox is an end-to-end (e2e) testing library for iOS and Android. You can use it to automate usage of your native project. This example demonstrates how to use Detox and Jest in a native project that you build locally.
 
 ## 🚀 How to use
 
-- Install with `yarn` or `npm install`.
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
+- Install with `yarn` or `npm install`
+  - Install iOS packages: `npx pod-install`
+- Run `yarn e2e:ios` to build and test the iOS app on a simulator (macOS only).
+  - This combines `yarn build:ios` and `yarn test:ios`.
+  - You can run `yarn test:ios --watch` after building to keep the tests in watch mode.
+- Run `yarn e2e:android` to build and test the Android app on a Google emulator (Genymotion requires extra config).
+  - This combines `yarn build:android` and `yarn test:android`.
+  - You can run `yarn test:android --watch` after building to keep the tests in watch mode.
+- Run `yarn e2e:android-release` to build and test the Android app in release mode.
+
+## Recreate this example
+
+- `npx create-react-native-app -t blank`
+  - `cd` into the project
+- Install packages:
+  - `yarn add -D detox expo-detox-config-plugin typescript @babel/core @babel/runtime @types/jest @types/react @types/react-native babel-jest jest jest-circus ts-jest`
+- Add the following plugin to your `app.json` plugins array (before ejecting). This'll automatically configure the Android native code to support Detox:
+  ```json
+  {
+    "plugins": ["expo-detox-plugin"]
+  }
+  ```
+- Generate the native code `expo eject`
+- Run `yarn detox init -r jest`
 
 ## FAQ
 

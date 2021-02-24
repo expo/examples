@@ -1,5 +1,12 @@
 import { ConfigPlugin, withAppBuildGradle } from "@expo/config-plugins";
 
+/**
+ * [Step 3](https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#3-add-the-native-detox-dependency). Add the Native Detox dependency.
+ *
+ * 1. Add `androidTestImplementation` to the app/build.gradle
+ * 2. Add `testInstrumentationRunner` to the app/build.gradle
+ * @param config
+ */
 const withDetoxTestAppGradle: ConfigPlugin = (config) => {
   return withAppBuildGradle(config, (config) => {
     if (config.modResults.language === "groovy") {
@@ -18,9 +25,6 @@ const withDetoxTestAppGradle: ConfigPlugin = (config) => {
   });
 };
 
-export default withDetoxTestAppGradle;
-
-// The placeholder scheme doesn't really matter, but sometimes the Android build fails without it being defined.
 export function setGradleAndroidTestImplementation(
   buildGradle: string
 ): string {
@@ -28,9 +32,6 @@ export function setGradleAndroidTestImplementation(
   if (buildGradle.match(pattern)) {
     return buildGradle;
   }
-
-  // There's a chance this could fail if another plugin defines `manifestPlaceholders`
-  // but AFAIK only app-auth does this in the Expo ecosystem.
   return buildGradle.replace(
     /dependencies\s?{/,
     `dependencies {
@@ -41,12 +42,9 @@ export function setGradleAndroidTestImplementation(
 export function addDetoxDefaultConfigBlock(buildGradle: string): string {
   const pattern = /detox-plugin-default-config/g;
   if (buildGradle.match(pattern)) {
-    // Select kotlinVersion = '***' and replace the contents between the quotes.
     return buildGradle;
   }
 
-  // There's a chance this could fail if another plugin defines `manifestPlaceholders`
-  // but AFAIK only app-auth does this in the Expo ecosystem.
   return buildGradle.replace(
     /defaultConfig\s?{/,
     `defaultConfig {
@@ -55,3 +53,5 @@ export function addDetoxDefaultConfigBlock(buildGradle: string): string {
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`
   );
 }
+
+export default withDetoxTestAppGradle;

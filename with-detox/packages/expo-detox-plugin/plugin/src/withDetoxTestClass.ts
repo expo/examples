@@ -3,7 +3,11 @@ import * as path from "path";
 import * as fs from "fs";
 import assert from "assert";
 
-// https://github.com/wix/Detox/blob/master/examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java
+/**
+ * Copied from the [official template file](https://github.com/wix/Detox/blob/master/examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java).
+ *
+ * @param androidPackage
+ */
 function getTemplateFile(androidPackage: string): string {
   return `package ${androidPackage};
     

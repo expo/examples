@@ -16,8 +16,8 @@ const withDetox: ConfigPlugin<{} | void> = (config, {} = {}) => {
   return withPlugins(config, [
     [
       withKotlinGradle,
+      // Minimum version of Kotlin required to work with expo packages in SDK 40
       "1.3.50",
-      // "1.3.0",
     ],
     withDetoxProjectGradle,
     withDetoxTestAppGradle,

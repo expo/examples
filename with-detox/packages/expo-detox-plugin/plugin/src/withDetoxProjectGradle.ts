@@ -2,7 +2,7 @@ import { ConfigPlugin, withProjectBuildGradle } from "@expo/config-plugins";
 
 // Because we need the package to be added AFTER the React and Google maven packages, we create a new allprojects.
 // It's ok to have multiple allprojects.repositories, so we create a new one since it's cheaper than tokenizing
-// the existing block to find the correct place to insert our camera maven.
+// the existing block to find the correct place to insert our Detox maven.
 const gradleMaven =
   'allprojects { repositories { maven { url "$rootDir/../node_modules/detox/Detox-android" } } }';
 

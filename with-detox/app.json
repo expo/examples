@@ -4,11 +4,7 @@
     "slug": "with-detox",
     "version": "1.0.0",
     "sdkVersion": "40.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "android": {
       "package": "com.bacon.withdetox"
     },
@@ -16,7 +12,13 @@
       "bundleIdentifier": "com.bacon.withdetox"
     },
     "plugins": [
-      "expo-detox-plugin"
+      "expo-detox-plugin",
+      [
+        "expo-detox-plugin/withGradleProperties",
+        {
+          "org.gradle.jvmargs": "-Xmx2048m -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
+        }
+      ]
     ]
   }
 }

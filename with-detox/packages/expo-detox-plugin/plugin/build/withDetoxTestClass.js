@@ -27,7 +27,11 @@ const config_plugins_1 = require("@expo/config-plugins");
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
 const assert_1 = __importDefault(require("assert"));
-// https://github.com/wix/Detox/blob/master/examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java
+/**
+ * Copied from the [official template file](https://github.com/wix/Detox/blob/master/examples/demo-react-native/android/app/src/androidTest/java/com/example/DetoxTest.java).
+ *
+ * @param androidPackage
+ */
 function getTemplateFile(androidPackage) {
     return `package ${androidPackage};
     

@@ -2,6 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const config_plugins_1 = require("@expo/config-plugins");
 const kotlinClassPath = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion";
+/**
+ * [Step 4](https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#4-add-kotlin). Add Kotlin.
+ *
+ * Lifted from [unimodules-test-core](https://github.com/expo/expo/blob/master/packages/unimodules-test-core/app.plugin.js).
+ *
+ * @param config Expo config
+ * @param version Kotlin version to use
+ */
 const withKotlinGradle = (config, version) => {
     return config_plugins_1.withProjectBuildGradle(config, (config) => {
         if (config.modResults.language === "groovy") {

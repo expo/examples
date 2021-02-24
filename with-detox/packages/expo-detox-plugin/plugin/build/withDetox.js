@@ -14,6 +14,7 @@ const withDetox = (config, {} = {}) => {
     return config_plugins_1.withPlugins(config, [
         [
             withKotlinGradle_1.default,
+            // Minimum version of Kotlin required to work with expo packages in SDK 40
             "1.3.50",
         ],
         withDetoxProjectGradle_1.default,

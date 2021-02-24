@@ -1,4 +1,3 @@
-
 module.exports = {
   testRunner: "jest",
   runnerConfig: "e2e/jest.config.json",
@@ -18,7 +17,8 @@ module.exports = {
     },
     "ios.debug": {
       type: "ios.app",
-      binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/withdetox.app",
+      binaryPath:
+        "ios/build/Build/Products/Debug-iphonesimulator/withdetox.app",
       build:
         "cd ios; xcodebuild -workspace withdetox.xcworkspace -scheme withdetox -configuration Debug -sdk iphonesimulator -derivedDataPath build; cd ..",
     },

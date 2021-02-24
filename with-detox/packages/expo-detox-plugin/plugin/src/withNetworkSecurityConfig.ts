@@ -24,7 +24,7 @@ function getTemplateFile(subdomains: string[]): string {
 }
 
 /**
- * [Step 6](https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#6-enable-clear-text-unencrypted-traffic-for-detox). Create `network_security_config.xml` file.
+ * Create `network_security_config.xml` resource file.
  */
 const withNetworkSecurityConfigFile: ConfigPlugin<{ subdomains: string[] }> = (
   config,
