@@ -34,7 +34,7 @@ export function setGradleAndroidTestImplementation(
   return buildGradle.replace(
     /dependencies\s?{/,
     `dependencies {
-          androidTestImplementation('com.wix:detox:+')`
+    androidTestImplementation('com.wix:detox:+')`
   );
 }
 
@@ -50,8 +50,8 @@ export function addDetoxDefaultConfigBlock(buildGradle: string): string {
   return buildGradle.replace(
     /defaultConfig\s?{/,
     `defaultConfig {
-          // detox-plugin-default-config
-          testBuildType System.getProperty('testBuildType', 'debug')
-          testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`
+        // detox-plugin-default-config
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`
   );
 }

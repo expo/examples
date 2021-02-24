@@ -132,6 +132,9 @@ android {
     }
 
     defaultConfig {
+        // detox-plugin-default-config
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         applicationId 'com.bacon.withdetox'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -184,6 +187,7 @@ android {
 }
 
 dependencies {
+        androidTestImplementation('com.wix:detox:+')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

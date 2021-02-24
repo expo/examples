@@ -24,7 +24,7 @@ function setGradleAndroidTestImplementation(buildGradle) {
     // There's a chance this could fail if another plugin defines `manifestPlaceholders`
     // but AFAIK only app-auth does this in the Expo ecosystem.
     return buildGradle.replace(/dependencies\s?{/, `dependencies {
-          androidTestImplementation('com.wix:detox:+')`);
+    androidTestImplementation('com.wix:detox:+')`);
 }
 exports.setGradleAndroidTestImplementation = setGradleAndroidTestImplementation;
 function addDetoxDefaultConfigBlock(buildGradle) {
@@ -36,8 +36,8 @@ function addDetoxDefaultConfigBlock(buildGradle) {
     // There's a chance this could fail if another plugin defines `manifestPlaceholders`
     // but AFAIK only app-auth does this in the Expo ecosystem.
     return buildGradle.replace(/defaultConfig\s?{/, `defaultConfig {
-          // detox-plugin-default-config
-          testBuildType System.getProperty('testBuildType', 'debug')
-          testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`);
+        // detox-plugin-default-config
+        testBuildType System.getProperty('testBuildType', 'debug')
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'`);
 }
 exports.addDetoxDefaultConfigBlock = addDetoxDefaultConfigBlock;

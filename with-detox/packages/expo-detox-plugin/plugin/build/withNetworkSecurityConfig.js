@@ -29,13 +29,14 @@ const fs = __importStar(require("fs"));
 const assert_1 = __importDefault(require("assert"));
 function getTemplateFile(subdomains) {
     return `<?xml version="1.0" encoding="utf-8"?>
-  <network-security-config>
-      <domain-config cleartextTrafficPermitted="true">
-          ${subdomains
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        ${subdomains
         .map((subdomain) => `<domain includeSubdomains="true">${subdomain}</domain>`)
         .join("")}
-      </domain-config>
-  </network-security-config>`;
+    </domain-config>
+</network-security-config>
+`;
 }
 /**
  * [Step 6](https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#6-enable-clear-text-unencrypted-traffic-for-detox). Create `network_security_config.xml` file.
