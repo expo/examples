@@ -1,5 +1,4 @@
 import {
-  AndroidConfig,
   ConfigPlugin,
   createRunOncePlugin,
   withPlugins,
@@ -15,14 +14,6 @@ const pkg = require("expo-detox-plugin/package.json");
 
 const withDetox: ConfigPlugin<{} | void> = (config, {} = {}) => {
   return withPlugins(config, [
-    [
-      AndroidConfig.Permissions.withPermissions,
-      [
-        "android.permission.CAMERA",
-        // Optional
-        "android.permission.RECORD_AUDIO",
-      ],
-    ],
     [
       withKotlinGradle,
       "1.3.50",

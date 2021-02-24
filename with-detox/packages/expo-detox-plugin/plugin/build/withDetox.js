@@ -13,14 +13,6 @@ const pkg = require("expo-detox-plugin/package.json");
 const withDetox = (config, {} = {}) => {
     return config_plugins_1.withPlugins(config, [
         [
-            config_plugins_1.AndroidConfig.Permissions.withPermissions,
-            [
-                "android.permission.CAMERA",
-                // Optional
-                "android.permission.RECORD_AUDIO",
-            ],
-        ],
-        [
             withKotlinGradle_1.default,
             "1.3.50",
         ],
