@@ -23,6 +23,8 @@ with-nextjs/out
 # Native
 */ios/Pods
 */ios/build/
+*/android/**/.gradle/
+*/android/app/build/
 
 # Websockets
 */backend/.env

@@ -14,25 +14,25 @@ module.exports = {
       binaryPath:
         "ios/build/Build/Products/Release-iphonesimulator/withdetox.app",
       build:
-        "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/withdetox.xcworkspace -UseNewBuildSystem=NO -scheme withdetox -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet",
+        "cd ios; export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/withdetox.xcworkspace -scheme withdetox -configuration Release -sdk iphonesimulator -derivedDataPath build -quiet; cd ..",
     },
     "ios.debug": {
       type: "ios.app",
       binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/withdetox.app",
       build:
-        "cd ios; xcodebuild -workspace withdetox.xcworkspace -scheme withdetox -configuration Debug -sdk iphonesimulator -derivedDataPath build; cd -",
+        "cd ios; xcodebuild -workspace withdetox.xcworkspace -scheme withdetox -configuration Debug -sdk iphonesimulator -derivedDataPath build; cd ..",
     },
     "android.debug": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/debug/app-debug.apk",
       build:
-        "cd android ; ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug ; cd -",
+        "cd android; ./gradlew app:assembleDebug app:assembleAndroidTest -DtestBuildType=debug; cd ..",
     },
     "android.release": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/release/app-release.apk",
       build:
-        "cd android ; ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release ; cd -",
+        "cd android; ./gradlew app:assembleRelease app:assembleAndroidTest -DtestBuildType=release; cd ..",
     },
   },
   devices: {
@@ -45,7 +45,7 @@ module.exports = {
     emulator: {
       type: "android.emulator",
       device: {
-        avdName: "Pixel_API_28",
+        avdName: "Pixel_3a_API_30",
       },
     },
   },
