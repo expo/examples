@@ -25,8 +25,8 @@ const withDetox: ConfigPlugin<{} | void> = (config, {} = {}) => {
     ],
     [
       withKotlinGradle,
-      //'1.3.50'
-      "1.3.0",
+      "1.3.50",
+      // "1.3.0",
     ],
     withDetoxProjectGradle,
     withDetoxTestAppGradle,

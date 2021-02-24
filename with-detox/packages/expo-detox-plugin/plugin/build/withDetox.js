@@ -22,8 +22,7 @@ const withDetox = (config, {} = {}) => {
         ],
         [
             withKotlinGradle_1.default,
-            //'1.3.50'
-            "1.3.0",
+            "1.3.50",
         ],
         withDetoxProjectGradle_1.default,
         withDetoxTestAppGradle_1.default,
