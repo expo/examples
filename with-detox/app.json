@@ -14,6 +14,9 @@
     },
     "ios": {
       "bundleIdentifier": "com.bacon.withdetox"
-    }
+    },
+    "plugins": [
+      "expo-detox-plugin"
+    ]
   }
 }
