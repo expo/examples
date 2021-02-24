@@ -33,6 +33,10 @@ const assert_1 = __importDefault(require("assert"));
  * @param androidPackage
  */
 function getTemplateFile(androidPackage) {
+    // This shouldn't change in standard Expo apps.
+    // Replace 'MainActivity' with the value of android:name entry in
+    // <activity> in AndroidManifest.xml
+    const mainApplicationClassName = "MainActivity";
     return `package ${androidPackage};
     
 import com.wix.detox.Detox;
@@ -50,9 +54,7 @@ import androidx.test.rule.ActivityTestRule;
 @LargeTest
 public class DetoxTest {
     @Rule
-    // Replace 'MainActivity' with the value of android:name entry in 
-    // <activity> in AndroidManifest.xml
-    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class, false, false);
+    public ActivityTestRule<${mainApplicationClassName}> mActivityRule = new ActivityTestRule<>(${mainApplicationClassName}.class, false, false);
 
     @Test
     public void runDetoxTests() {

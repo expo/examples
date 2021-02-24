@@ -8,7 +8,7 @@ import * as path from "path";
 import * as fs from "fs";
 import assert from "assert";
 
-function getTemplateFile(subdomains: string[]): string {
+export function getTemplateFile(subdomains: string[]): string {
   return `<?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">

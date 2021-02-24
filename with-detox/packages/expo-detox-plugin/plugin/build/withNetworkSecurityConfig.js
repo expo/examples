@@ -22,7 +22,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.withNetworkSecurityConfigManifest = void 0;
+exports.withNetworkSecurityConfigManifest = exports.getTemplateFile = void 0;
 const config_plugins_1 = require("@expo/config-plugins");
 const path = __importStar(require("path"));
 const fs = __importStar(require("fs"));
@@ -38,6 +38,7 @@ function getTemplateFile(subdomains) {
 </network-security-config>
 `;
 }
+exports.getTemplateFile = getTemplateFile;
 /**
  * Create `network_security_config.xml` resource file.
  */

@@ -6,6 +6,10 @@ const config_plugins_1 = require("@expo/config-plugins");
 // It's ok to have multiple allprojects.repositories, so we create a new one since it's cheaper than tokenizing
 // the existing block to find the correct place to insert our Detox maven.
 const gradleMaven = 'allprojects { repositories { maven { url "$rootDir/../node_modules/detox/Detox-android" } } }';
+/**
+ * [Step 3](https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md#3-add-the-native-detox-dependency) Add detox to the project build.gradle.
+ * @param config
+ */
 const withDetoxProjectGradle = (config) => {
     return config_plugins_1.withProjectBuildGradle(config, (config) => {
         if (config.modResults.language === "groovy") {
