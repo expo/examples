@@ -1,7 +1,6 @@
 import * as React from "react";
-import { AnimatePresence } from 'framer-motion'
 import { StyleSheet, Pressable } from 'react-native'
-import { View } from 'moti'
+import { View, AnimatePresence } from 'moti'
 
 function Shape({ bg }) {
   return (
