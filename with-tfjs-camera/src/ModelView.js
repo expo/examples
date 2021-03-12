@@ -1,14 +1,12 @@
-import * as mobilenet from "@tensorflow-models/mobilenet";
-import { cameraWithTensors } from "@tensorflow/tfjs-react-native";
-import { Camera } from "expo-camera";
-import React from "react";
-import { StyleSheet, useWindowDimensions, View } from "react-native";
-import { LoadingView } from "./LoadingView";
-import { PredictionList } from "./PredictionList";
+import * as mobilenet from '@tensorflow-models/mobilenet';
+import { Camera } from 'expo-camera';
+import React from 'react';
+import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
-import { useTensorFlowModel } from "./useTensorFlow";
-
-const TensorCamera = cameraWithTensors(Camera);
+import { CustomTensorCamera } from './CustomTensorCamera';
+import { LoadingView } from './LoadingView';
+import { PredictionList } from './PredictionList';
+import { useTensorFlowModel } from './useTensorFlow';
 
 export function ModelView() {
   const model = useTensorFlowModel(mobilenet);
@@ -64,34 +62,6 @@ function ModelCamera({ model, setPredictions }) {
       />
     ),
     [onReady, size.width]
-  );
-}
-
-const textureSize = { width: 1080, height: 1920 };
-
-function CustomTensorCamera({ style, width, ...props }) {
-  const sizeStyle = React.useMemo(() => {
-    const ratio = width / textureSize.width;
-    const cameraWidth = textureSize.width * ratio;
-    const cameraHeight = textureSize.height * ratio;
-    return {
-      maxWidth: cameraWidth,
-      minWidth: cameraWidth,
-      maxHeight: cameraHeight,
-      minHeight: cameraHeight,
-    };
-  }, [width]);
-
-  return (
-    <TensorCamera
-      {...props}
-      style={[style, sizeStyle]}
-      cameraTextureWidth={textureSize.width}
-      cameraTextureHeight={textureSize.height}
-      resizeWidth={152}
-      resizeHeight={200}
-      resizeDepth={3}
-    />
   );
 }
 
