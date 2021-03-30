@@ -5,7 +5,7 @@ PODS:
   - DoubleConversion (1.1.6)
   - EXApplication (2.4.1):
     - UMCore
-  - EXConstants (9.3.5):
+  - EXConstants (10.0.1):
     - UMConstantsInterface
     - UMCore
   - EXErrorRecovery (1.4.0):
@@ -31,13 +31,13 @@ PODS:
   - EXPermissions (10.0.0):
     - UMCore
     - UMPermissionsInterface
-  - expo-dev-launcher (0.2.0):
+  - expo-dev-launcher (0.3.0):
     - expo-dev-menu-interface
     - React
-  - expo-dev-menu (0.3.1):
+  - expo-dev-menu (0.4.0):
     - expo-dev-menu-interface
     - React
-  - expo-dev-menu-interface (0.1.2):
+  - expo-dev-menu-interface (0.2.0):
     - React
   - EXSecureStore (9.3.0):
     - UMCore
@@ -593,7 +593,7 @@ SPEC CHECKSUMS:
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
   DoubleConversion: cde416483dac037923206447da6e1454df403714
   EXApplication: e3c201e7b913d081bbd37bd3c5d0e2cdc21733b4
-  EXConstants: 54d0bf04319d1692c6c7bc03ca151ef7a71705a4
+  EXConstants: d9483a8fe0a963dd7ee3389f371303773e6ecd37
   EXErrorRecovery: b46af4b91e2b4ec598ab1fa51d2cf088aaf5511f
   EXFileSystem: 0e4974ab77bff04cda68d2886d070cbe64b93a6b
   EXFont: 30c64ed8735a180e3f20046e4fdac4ea074d71d3
@@ -602,9 +602,9 @@ SPEC CHECKSUMS:
   EXLinearGradient: c803fbd1aa974be038177b1e45524bc35759fe9c
   EXLocation: d55e2a37f61bcfb4eba9c813b3f4621d896c4c00
   EXPermissions: 17d4846ad1880f6891c74ae58ca1acb43e47ed47
-  expo-dev-launcher: 0351bdeef423c28146573adbdeb822ed42b941b8
-  expo-dev-menu: bbce00e72ede1b7308c469f288b365a9a917a173
-  expo-dev-menu-interface: 3c93377ecf505dc4aba68e61685d30353c39b335
+  expo-dev-launcher: d6ffbe10033d79c47991aaf768495610da43a39f
+  expo-dev-menu: 0d1d68bd626f6c8dea354fc3e62b76c3327bb1f6
+  expo-dev-menu-interface: e6f313b7b0c0c79b1987cf26bc5c969bad69bb7d
   EXSecureStore: 1b571851e6068b30b8ec097be848a04603c03bae
   EXSplashScreen: 8c7c1112ce7611a853486af4737fe2298eda7657
   EXSQLite: bda6a286dded0637bb312ee781239dcca163ff4b

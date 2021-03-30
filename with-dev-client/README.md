@@ -11,7 +11,7 @@ Experiment with Development Client in SDK 40.
 
 ## 🚀 How to use
 
-> `npx create-react-native-app my-app -t with-development-client`
+> `npx create-react-native-app my-app -t with-dev-client`
 
 - Run `expo start --dev-client`, try it out.
 
@@ -26,11 +26,11 @@ You can easily use this project with `EAS` - just follow the steps below.
 
 ### 💪 Build whatever you want
 
-This example comes with two pre-configured build types: `release` (a production version of your app - ready to be uploaded to stores), `with-development-client` (a development version of your app that can be shared with your teammates).
+This example comes with two pre-configured build types: `release` (a production version of your app - ready to be uploaded to stores), `with-dev-client` (a development version of your app that can be shared with your teammates).
 
-To build the app with the development client, just run `eas build --profile with-development-client`.
+To build the app with the dev client, just run `eas build --profile with-dev-client`.
 
-> **Note**: the `with-development-client` uses the **internal distribution** on **iOS**. That's why, you need to add your device to be able to install the built app. To do it, you can use `eas device:create`.
+> **Note**: the `with-dev-client` uses the **internal distribution** on **iOS**. That's why, you need to add your device to be able to install the built app. To do it, you can use `eas device:create`.
 
 **For more information about EAS, check out [documentation](https://docs.expo.io/eas/).**
 

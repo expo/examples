@@ -4,17 +4,17 @@
         "release": {
           "workflow": "generic"
         },
-        "with-development-client": {
+        "with-dev-client": {
           "workflow": "generic",
           "distribution": "internal",
-          "scheme": "with-development-client"
+          "scheme": "with-dev-client"
         }
       },
       "android": {
         "release": {
           "workflow": "generic"
         },
-        "with-development-client": {
+        "with-dev-client": {
           "workflow": "generic",
           "gradleCommand": ":app:bundleDebug"
         }
