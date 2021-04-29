@@ -8,6 +8,7 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
   - Start with the [blank example](./blank).
   - We use a unified [`.gitignore`](./.gitignore)
   - No `package.json` or `app.config.js` values that aren't completely necessary
+    - Avoid `scripts` as these get added by `create-react-native-app`.
   - Use the new `app.config.js` instead of `app.json`
   - Do not include an `app.config.js` unless it has values that are relevant to the example
   - Use remote files for the default assets in the `app.config.js`:
