@@ -5,7 +5,7 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-> 🚨 Electron support is experimental, so the workflow is suboptimal and subject to breaking changes. If you find bugs please report them on [expo/expo-cli](https://github.com/expo/expo-cli/issues) with the `[electron]` tag in the title.
+> 🚨 Electron support is an experimental community project, so the workflow is suboptimal and subject to breaking changes. If you find bugs please report them on [expo/expo-electron-adapter](https://github.com/expo/expo-electron-adapter/issues).
 
 [Electron][electron] is a framework for creating desktop apps that run in a Chromium wrapper. Using Expo with Electron will enable you to use your existing components to build OSX, Windows, and Linux apps.
 
