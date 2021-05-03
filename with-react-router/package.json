@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "expo": "~40.0.0",
+    "expo": "~41.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-web": "~0.13.12",
     "react-router-dom": "5.1.2",
     "react-router-native": "5.1.2"

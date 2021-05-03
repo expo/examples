@@ -2,12 +2,12 @@
   "dependencies": {
     "@apollo/client": "^3.0.0-beta.48",
     "@apollo/link-context": "^2.0.0-beta.3",
-    "@react-native-picker/picker": "^1.9.4",
-    "expo": "~40.0.0",
+    "@react-native-picker/picker": "1.9.11",
+    "expo": "~41.0.0",
     "graphql": "^15.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {

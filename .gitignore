@@ -27,3 +27,4 @@ with-nextjs/out
 */backend/.env
 
 .DS_Store
+report.html

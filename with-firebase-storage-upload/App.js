@@ -1,26 +1,26 @@
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
-import * as firebase from 'firebase';
-import React from 'react';
+import * as ImagePicker from "expo-image-picker";
+import * as firebase from "firebase";
+import React from "react";
 import {
   ActivityIndicator,
   Button,
-  Clipboard,
   Image,
   Share,
   StatusBar,
   StyleSheet,
   Text,
   View,
-} from 'react-native';
-import uuid from 'uuid';
+  LogBox,
+} from "react-native";
+import * as Clipboard from "expo-clipboard";
+import uuid from "uuid";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAlZruO2T_JNOWn4ysfX6AryR6Dzm_VVaA',
-  authDomain: 'blobtest-36ff6.firebaseapp.com',
-  databaseURL: 'https://blobtest-36ff6.firebaseio.com',
-  storageBucket: 'blobtest-36ff6.appspot.com',
-  messagingSenderId: '506017999540',
+  apiKey: "AIzaSyAlZruO2T_JNOWn4ysfX6AryR6Dzm_VVaA",
+  authDomain: "blobtest-36ff6.firebaseapp.com",
+  databaseURL: "https://blobtest-36ff6.firebaseio.com",
+  storageBucket: "blobtest-36ff6.appspot.com",
+  messagingSenderId: "506017999540",
 };
 
 if (!firebase.apps.length) {
@@ -28,7 +28,7 @@ if (!firebase.apps.length) {
 }
 
 // Firebase sets some timeers for a long period, which will trigger some warnings. Let's turn that off for this example
-console.disableYellowBox = true;
+LogBox.ignoreLogs([`Setting a timer for a long period`]);
 
 export default class App extends React.Component {
   state = {
@@ -37,23 +37,30 @@ export default class App extends React.Component {
   };
 
   async componentDidMount() {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    await Permissions.askAsync(Permissions.CAMERA);
+    if (Platform.OS !== "web") {
+      const {
+        status,
+      } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== "granted") {
+        alert("Sorry, we need camera roll permissions to make this work!");
+      }
+    }
   }
 
   render() {
     let { image } = this.state;
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         {!!image && (
           <Text
             style={{
               fontSize: 20,
               marginBottom: 20,
-              textAlign: 'center',
+              textAlign: "center",
               marginHorizontal: 15,
-            }}>
+            }}
+          >
             Example: Upload ImagePicker result
           </Text>
         )}
@@ -64,7 +71,7 @@ export default class App extends React.Component {
         />
 
         <Button onPress={this._takePhoto} title="Take a photo" />
-
+        
         {this._maybeRenderImage()}
         {this._maybeRenderUploadingOverlay()}
 
@@ -80,11 +87,12 @@ export default class App extends React.Component {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: 'rgba(0,0,0,0.4)',
-              alignItems: 'center',
-              justifyContent: 'center',
+              backgroundColor: "rgba(0,0,0,0.4)",
+              alignItems: "center",
+              justifyContent: "center",
             },
-          ]}>
+          ]}
+        >
           <ActivityIndicator color="#fff" animating size="large" />
         </View>
       );
@@ -104,23 +112,26 @@ export default class App extends React.Component {
           width: 250,
           borderRadius: 3,
           elevation: 2,
-        }}>
+        }}
+      >
         <View
           style={{
             borderTopRightRadius: 3,
             borderTopLeftRadius: 3,
-            shadowColor: 'rgba(0,0,0,1)',
+            shadowColor: "rgba(0,0,0,1)",
             shadowOpacity: 0.2,
             shadowOffset: { width: 4, height: 4 },
             shadowRadius: 5,
-            overflow: 'hidden',
-          }}>
+            overflow: "hidden",
+          }}
+        >
           <Image source={{ uri: image }} style={{ width: 250, height: 250 }} />
         </View>
         <Text
           onPress={this._copyToClipboard}
           onLongPress={this._share}
-          style={{ paddingVertical: 10, paddingHorizontal: 10 }}>
+          style={{ paddingVertical: 10, paddingHorizontal: 10 }}
+        >
           {image}
         </Text>
       </View>
@@ -130,14 +141,14 @@ export default class App extends React.Component {
   _share = () => {
     Share.share({
       message: this.state.image,
-      title: 'Check out this photo',
+      title: "Check out this photo",
       url: this.state.image,
     });
   };
 
   _copyToClipboard = () => {
     Clipboard.setString(this.state.image);
-    alert('Copied image URL to clipboard');
+    alert("Copied image URL to clipboard");
   };
 
   _takePhoto = async () => {
@@ -155,10 +166,12 @@ export default class App extends React.Component {
       aspect: [4, 3],
     });
 
+    console.log({ pickerResult });
+
     this._handleImagePicked(pickerResult);
   };
 
-  _handleImagePicked = async pickerResult => {
+  _handleImagePicked = async (pickerResult) => {
     try {
       this.setState({ uploading: true });
 
@@ -168,7 +181,7 @@ export default class App extends React.Component {
       }
     } catch (e) {
       console.log(e);
-      alert('Upload failed, sorry :(');
+      alert("Upload failed, sorry :(");
     } finally {
       this.setState({ uploading: false });
     }
@@ -180,22 +193,19 @@ async function uploadImageAsync(uri) {
   // https://github.com/expo/expo/issues/2402#issuecomment-443726662
   const blob = await new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = function () {
       resolve(xhr.response);
     };
-    xhr.onerror = function(e) {
+    xhr.onerror = function (e) {
       console.log(e);
-      reject(new TypeError('Network request failed'));
+      reject(new TypeError("Network request failed"));
     };
-    xhr.responseType = 'blob';
-    xhr.open('GET', uri, true);
+    xhr.responseType = "blob";
+    xhr.open("GET", uri, true);
     xhr.send(null);
   });
 
-  const ref = firebase
-    .storage()
-    .ref()
-    .child(uuid.v4());
+  const ref = firebase.storage().ref().child(uuid.v4());
   const snapshot = await ref.put(blob);
 
   // We're done with the blob, close and release it

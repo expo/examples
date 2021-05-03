@@ -7,7 +7,7 @@ import secondMessage from "second-package";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello from the first application</Text>
+      <Text>Hello from the second application</Text>
       <FirstPackage />
       <Text>{secondMessage}</Text>
       <StatusBar style="auto" />

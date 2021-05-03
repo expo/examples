@@ -7,11 +7,9 @@ import {
   StatusBar,
   Text,
   View,
-} from 'react-native';
-import * as Clipboard from 'expo-clipboard';
-import Constants from 'expo-constants';
-import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
+} from "react-native";
+import * as Clipboard from "expo-clipboard";
+import * as ImagePicker from "expo-image-picker";
 
 export default class App extends React.Component {
   state = {
@@ -119,8 +117,8 @@ export default class App extends React.Component {
     alert("Copied image URL to clipboard");
   };
 
-  _askPermission = async (type, failureMessage) => {
-    const { status, permissions } = await Permissions.askAsync(type);
+  _askPermission = async (failureMessage) => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     if (status === "denied") {
       alert(failureMessage);
@@ -129,13 +127,9 @@ export default class App extends React.Component {
 
   _takePhoto = async () => {
     await this._askPermission(
-      Permissions.CAMERA,
       "We need the camera permission to take a picture..."
     );
-    await this._askPermission(
-      Permissions.CAMERA_ROLL,
-      "We need the camera-roll permission to read pictures from your phone..."
-    );
+
     let pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -146,9 +140,9 @@ export default class App extends React.Component {
 
   _pickImage = async () => {
     await this._askPermission(
-      Permissions.CAMERA_ROLL,
       "We need the camera-roll permission to read pictures from your phone..."
     );
+
     let pickerResult = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 3],
@@ -166,6 +160,7 @@ export default class App extends React.Component {
       if (!pickerResult.cancelled) {
         uploadResponse = await uploadImageAsync(pickerResult.uri);
         uploadResult = await uploadResponse.json();
+        console.log({ uploadResult });
         this.setState({ image: uploadResult.location });
       }
     } catch (e) {
@@ -180,7 +175,8 @@ export default class App extends React.Component {
 }
 
 async function uploadImageAsync(uri) {
-  let apiUrl = "https://file-upload-example-backend-dkhqoilqqn.now.sh/upload";
+  let apiUrl =
+    "https://file-upload-example-backend-dkhqoilqqn.vercel.app/upload";
 
   // Note:
   // Uncomment this if you want to experiment with local server
@@ -203,6 +199,7 @@ async function uploadImageAsync(uri) {
   let options = {
     method: "POST",
     body: formData,
+    mode: 'cors',
     headers: {
       Accept: "application/json",
       "Content-Type": "multipart/form-data",

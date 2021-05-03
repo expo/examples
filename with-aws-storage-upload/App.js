@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     (async () => {
       if (Constants.platform.ios) {
-        const cameraRollStatus = await ImagePicker.requestCameraRollPermissionsAsync();
+        const cameraRollStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
         const cameraStatus = await ImagePicker.requestCameraPermissionsAsync();
         if (
           cameraRollStatus.status !== 'granted' ||

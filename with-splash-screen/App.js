@@ -1,14 +1,22 @@
-import AppLoading from 'expo-app-loading';
-import { Asset } from 'expo-asset';
-import Constants from 'expo-constants';
-import * as SplashScreen from 'expo-splash-screen';
-import * as Updates from 'expo-updates';
-import React from 'react';
-import { Animated, Button, StyleSheet, Text, View } from 'react-native';
+import AppLoading from "expo-app-loading";
+import { Asset } from "expo-asset";
+import Constants from "expo-constants";
+import * as SplashScreen from "expo-splash-screen";
+import * as Updates from "expo-updates";
+import React from "react";
+import {
+  Animated,
+  Button,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 // Instruct SplashScreen not to hide yet, we want to do this manually
-SplashScreen.preventAutoHideAsync()
-  .catch(() => { /* reloading the app might trigger some race conditions, ignore them */ });
+SplashScreen.preventAutoHideAsync().catch(() => {
+  /* reloading the app might trigger some race conditions, ignore them */
+});
 
 export default function App() {
   return (
@@ -109,6 +117,14 @@ function AnimatedSplashScreen({ children, image }) {
 }
 
 function MainScreen() {
+  function onReloadPress() {
+    if (Platform.OS === "web") {
+      location.reload();
+    } else {
+      Updates.reloadAsync();
+    }
+  }
+
   return (
     <View
       style={{
@@ -128,7 +144,7 @@ function MainScreen() {
       >
         Pretty Cool!
       </Text>
-      <Button title="Run Again" onPress={Updates.reloadAsync} />
+      <Button title="Run Again" onPress={onReloadPress} />
     </View>
   );
 }
