@@ -58,7 +58,6 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>helloworld</string>
-          <string>com.helloworld.HelloWorld</string>
         </array>
       </dict>
     </array>
