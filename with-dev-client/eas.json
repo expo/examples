@@ -1,24 +1,25 @@
 {
-    "builds": {
-      "ios": {
-        "release": {
-          "workflow": "generic"
-        },
-        "with-dev-client": {
-          "workflow": "generic",
-          "distribution": "internal",
-          "scheme": "with-dev-client"
-        }
+  "builds": {
+    "android": {
+      "release": {
+        "workflow": "generic",
+        "gradleCommand": ":app:bundleRelease"
       },
-      "android": {
-        "release": {
-          "workflow": "generic"
-        },
-        "with-dev-client": {
-          "workflow": "generic",
-          "gradleCommand": ":app:bundleDebug"
-        }
+      "development": {
+        "workflow": "generic",
+        "distribution": "internal",
+        "gradleCommand": ":app:assembleDebug"
+      }
+    },
+    "ios": {
+      "release": {
+        "workflow": "generic"
+      },
+      "development": {
+        "workflow": "generic",
+        "distribution": "internal",
+        "schemeBuildConfiguration": "Debug"
       }
     }
   }
-  
+}
