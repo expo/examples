@@ -124,12 +124,17 @@ export default class App extends React.Component {
       alert(failureMessage);
     }
   };
+  _askCameraPermission = async (failureMessage) => {
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    if (status === "denied") {
+      alert(failureMessage);
+    }
+  };
 
   _takePhoto = async () => {
-    await this._askPermission(
+    await this._askCameraPermission(
       "We need the camera permission to take a picture..."
     );
-
     let pickerResult = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 3],
