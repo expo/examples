@@ -23,13 +23,7 @@
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
   - Web: Any web browser
-
-## Adding Native Code
-
-This project can be run from a web browser or the Expo client app. You may find that you want to add more native code later on. You can do this by ejecting the project and rebuilding it yourself.
-
-- Run `yarn eject` to create the native projects.
-- You can still run your project in the web browser or Expo client, you just won't be able to access any new native modules you add.
+- When it's time to customize your runtime, refer to the ["Adding custom native code"](https://docs.expo.io/workflow/customizing/) guide!
 
 ## Publishing
 
@@ -40,4 +34,4 @@ This project can be run from a web browser or the Expo client app. You may find 
 
 - Learn more about [Universal React](https://docs.expo.io/).
 - See what API and components are [available in the React runtimes](https://docs.expo.io/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.io/guides/).
+- Find out more about developing apps and websites: [Official guides](https://docs.expo.io/guides/).
