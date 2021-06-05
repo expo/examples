@@ -1,4 +1,4 @@
-# [TypeScript Example](https://www.typescriptlang.org/)
+# TypeScript Example
 
 <p>
   <!-- iOS -->
@@ -20,7 +20,7 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 #### Creating a new project
 
 - Install the CLI: `npm i -g expo-cli`
-- Create a project: `expo init --template expo-template-blank-typescript`
+- Create a project: `npx create-react-native-app -t with-typescript`
 - `cd` into the project
 
 ### Adding TypeScript to existing projects
@@ -28,6 +28,8 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 - Create a blank TypeScript config: `touch tsconfig.json`
 - Run `expo start` to automatically configure TypeScript
 - Rename files to TypeScript, `.tsx` for React components and `.ts` for plain typescript files
+
+> 💡 You can disable the TypeScript setup in Expo CLI with the environment variable `EXPO_NO_TYPESCRIPT_SETUP=1 expo start`
 
 ## 📝 Notes
 
