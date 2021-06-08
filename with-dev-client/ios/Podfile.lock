@@ -23,24 +23,32 @@ PODS:
   - EXPermissions (12.0.1):
     - UMCore
     - UMPermissionsInterface
-  - expo-dev-client (0.1.0):
+  - expo-dev-client (0.1.3):
     - expo-dev-launcher
     - expo-dev-menu
     - expo-dev-menu-interface
-  - expo-dev-launcher (0.3.1):
+  - expo-dev-launcher (0.3.4):
+    - expo-dev-launcher/Main (= 0.3.4)
     - expo-dev-menu-interface
     - React
-  - expo-dev-menu (0.5.0):
+  - expo-dev-launcher/Main (0.3.4):
+    - expo-dev-launcher/Unsafe
     - expo-dev-menu-interface
-    - expo-dev-menu/Main (= 0.5.0)
     - React
-  - expo-dev-menu-interface (0.3.0):
+  - expo-dev-launcher/Unsafe (0.3.4):
+    - expo-dev-menu-interface
     - React
-  - expo-dev-menu/Main (0.5.0):
+  - expo-dev-menu (0.5.2):
+    - expo-dev-menu-interface
+    - expo-dev-menu/Main (= 0.5.2)
+    - React
+  - expo-dev-menu-interface (0.3.1):
+    - React
+  - expo-dev-menu/Main (0.5.2):
     - expo-dev-menu-interface
     - expo-dev-menu/Vendored
     - React
-  - expo-dev-menu/Vendored (0.5.0):
+  - expo-dev-menu/Vendored (0.5.2):
     - expo-dev-menu-interface
     - React
   - EXSplashScreen (0.10.2):
@@ -545,10 +553,10 @@ SPEC CHECKSUMS:
   EXImageLoader: da941c9399e01ec28f2d5b270bdd21f2c8ca596c
   EXKeepAwake: d4e4a3ed8c1c4fd940dd62fc5a8be2a190371fd4
   EXPermissions: 8f8c1c05580c4e02d4ee2c8dd74bfe173ff6a723
-  expo-dev-client: e7b6c924dad57d75ae7e0fd18f7dca2d8fb1118a
-  expo-dev-launcher: 376a9eb204ac817b4ccc67e80ffa65ceb53cd0e4
-  expo-dev-menu: b19010122456fed28f8198b7b845671c3ac88dd5
-  expo-dev-menu-interface: 3ed7da6749d50a969a36d93ae39b4e4a748af849
+  expo-dev-client: 296d3325042cedc1d2044c0f5379f20fce2cc78d
+  expo-dev-launcher: b41e94b29714dc550b7cf08300d7fe3dc60b9732
+  expo-dev-menu: 7ad848104f908589ee1d8ce2023b632207408c5d
+  expo-dev-menu-interface: 4fda2fa6d974a518e546ca1193340513b0a8b0e8
   EXSplashScreen: a9baaf4fa866003884c90ba049f18760d6a8ce39
   EXStructuredHeaders: be834496a4d9fd0069cd12ec1cc57b31c6d3b256
   EXUpdates: efe0e8c514dcff06a8fd0b63be6019a6365fb9c7
