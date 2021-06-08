@@ -1,5 +1,5 @@
 {
-  "main": "__generated__/AppEntry.js",
+  "main": "index.js",
   "name": "@expo/second-app",
   "version": "1.0.0",
   "scripts": {
