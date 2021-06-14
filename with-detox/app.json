@@ -12,9 +12,9 @@
       "bundleIdentifier": "com.bacon.withdetox"
     },
     "plugins": [
-      "expo-detox-plugin",
+      "@config-plugins/detox",
       [
-        "expo-detox-plugin/withGradleProperties",
+        "./withGradleProperties",
         {
           "org.gradle.jvmargs": "-Xmx2048m -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
         }

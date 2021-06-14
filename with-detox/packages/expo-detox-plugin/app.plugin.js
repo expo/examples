@@ -1,1 +1,1 @@
-module.exports = require('./plugin/build/withDetox');
+module.exports = require("./build/withDetox");

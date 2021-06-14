@@ -1,11 +1,11 @@
-# expo-detox-plugin
+# config-plugins/detox
 
-Config plugin to auto configure Detox when the native code is generated (`expo eject`).
+Config plugin to auto configure Detox when the native code is generated (`expo prebuild`).
 
 ### Add the package to your npm dependencies
 
 ```
-npm install expo-detox-plugin
+npm install @config-plugins/detox
 ```
 
 # Contributing

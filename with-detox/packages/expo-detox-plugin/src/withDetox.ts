@@ -11,8 +11,6 @@ import withKotlinGradle from "./withKotlinGradle";
 import { withNetworkSecurityConfigManifest } from "./withNetworkSecurityConfig";
 import withProguardGradle from "./withProguardGradle";
 
-const pkg = require("expo-detox-plugin/package.json");
-
 const withDetox: ConfigPlugin<{
   /**
    * Disable adding proguard minification to the `app/build.gradle`.
@@ -50,5 +48,14 @@ const withDetox: ConfigPlugin<{
     ].filter(Boolean) as ([ConfigPlugin, any] | ConfigPlugin)[]
   );
 };
+
+let pkg: { name: string; version?: string } = {
+  name: "detox",
+  // UNVERSIONED...
+};
+try {
+  const detoxPkg = require("detox/package.json");
+  pkg = detoxPkg;
+} catch {}
 
 export default createRunOncePlugin(withDetox, pkg.name, pkg.version);

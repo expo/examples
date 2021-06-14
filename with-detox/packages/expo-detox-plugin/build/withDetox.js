@@ -10,7 +10,6 @@ const withDetoxTestClass_1 = require("./withDetoxTestClass");
 const withKotlinGradle_1 = __importDefault(require("./withKotlinGradle"));
 const withNetworkSecurityConfig_1 = require("./withNetworkSecurityConfig");
 const withProguardGradle_1 = __importDefault(require("./withProguardGradle"));
-const pkg = require("expo-detox-plugin/package.json");
 const withDetox = (config, { skipProguard, subdomains } = {}) => {
     return config_plugins_1.withPlugins(config, [
         // 3.
@@ -31,4 +30,12 @@ const withDetox = (config, { skipProguard, subdomains } = {}) => {
         !skipProguard && withProguardGradle_1.default,
     ].filter(Boolean));
 };
+let pkg = {
+    name: "detox",
+};
+try {
+    const detoxPkg = require("detox/package.json");
+    pkg = detoxPkg;
+}
+catch (_a) { }
 exports.default = config_plugins_1.createRunOncePlugin(withDetox, pkg.name, pkg.version);
