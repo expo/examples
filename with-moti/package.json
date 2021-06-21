@@ -1,8 +1,7 @@
 {
   "dependencies": {
     "expo": "~41.0.0",
-    "framer-motion": "^3.3.0",
-    "moti": "^0.4.1",
+    "moti": "^0.11.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
