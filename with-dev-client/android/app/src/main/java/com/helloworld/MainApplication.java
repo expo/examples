@@ -1,36 +1,29 @@
 package com.helloworld;
-import expo.modules.devlauncher.DevLauncherController;
 
 import android.app.Application;
 import android.content.Context;
-import android.net.Uri;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
-import com.facebook.react.shell.MainReactPackage;
+import com.facebook.react.bridge.JSIModulePackage;
 import com.facebook.soloader.SoLoader;
 import com.helloworld.generated.BasePackageList;
-
-import org.unimodules.adapters.react.ReactAdapterPackage;
-import org.unimodules.adapters.react.ModuleRegistryAdapter;
-import org.unimodules.adapters.react.ReactModuleRegistryProvider;
-import org.unimodules.core.interfaces.Package;
-import org.unimodules.core.interfaces.SingletonModule;
-import expo.modules.constants.ConstantsPackage;
-import expo.modules.permissions.PermissionsPackage;
-import expo.modules.filesystem.FileSystemPackage;
-import expo.modules.updates.UpdatesController;
-
-import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 
+import org.unimodules.adapters.react.ModuleRegistryAdapter;
+import org.unimodules.adapters.react.ReactModuleRegistryProvider;
+
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.List;
+
 import javax.annotation.Nullable;
+
+import expo.modules.devlauncher.DevLauncherController;
+import expo.modules.updates.UpdatesController;
+import expo.modules.updates.UpdatesDevLauncherController;
 
 public class MainApplication extends Application implements ReactApplication {
   private final ReactModuleRegistryProvider mModuleRegistryProvider = new ReactModuleRegistryProvider(
@@ -40,7 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
+      return DevLauncherController.getInstance().getUseDeveloperSupport();
     }
 
     @Override
@@ -87,13 +80,14 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
-    DevLauncherController.initialize(this, getReactNativeHost());
     SoLoader.init(this, /* native exopackage */ false);
 
     if (!BuildConfig.DEBUG) {
       UpdatesController.initialize(this);
     }
 
+    DevLauncherController.initialize(this, getReactNativeHost());
+    DevLauncherController.getInstance().setUpdatesInterface(UpdatesDevLauncherController.initialize(this));
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
