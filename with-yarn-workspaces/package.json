@@ -2,8 +2,7 @@
   "private": true,
   "scripts": {
     "postinstall": "expo-yarn-workspaces check-workspace-dependencies",
-    "first-app": "yarn workspace @expo/first-app expo start",
-    "second-app": "yarn workspace @expo/second-app expo start"
+    "app": "yarn workspace @expo/app expo start"
   },
   "workspaces": [
     "apps/*",

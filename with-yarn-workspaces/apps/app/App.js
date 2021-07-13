@@ -1,15 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import FirstPackage from "first-package";
-import secondMessage from "second-package";
+import { MyView } from "expo-custom";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello from the first application</Text>
-      <FirstPackage />
-      <Text>{secondMessage}</Text>
+      <Text>Hello from the application</Text>
+      <MyView />
       <StatusBar style="auto" />
     </View>
   );

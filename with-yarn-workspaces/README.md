@@ -22,25 +22,19 @@ This example installs a monorepo with two applications, both using two separate 
 
 - Create a new monorepo with `npx create-react-native-app --template with-yarn-workspaces`.
   - Packages will be automatically installed via the `postinstall` script in `package.json`
-- Run `yarn first-app` or `yarn second-app` to start one of the apps.
+- Run `yarn app` to start the app.
 
 ### 📁 File Structure
 
 ```
 ├── apps
-│   ├── first-app
-│   │   ├── App.tsx ➡️ Entry Point for first application
-│   │   ├── package.json ➡️ contains configuration required by expo-yarn-workspaces
-│   │   ├── metro.config.js ➡️ required by expo-yarn-workspaces
-│   └── second-app
-│       ├── App.tsx ➡️ Entry Point for second application
+│   └── app
+│       ├── App.js ➡️ Entry Point for the app
 │       ├── package.json ➡️ contains configuration required by expo-yarn-workspaces
 │       └── metro.config.js ➡️ required by expo-yarn-workspaces
 ├── packages
-│   ├── first-package
-│   │   ├── index.js ➡️ exports first package message which is imported and displayed in both applications
-│   └── second-package
-│       └── index.js ➡️ exports second package message which is imported and displayed in both applications
+│   └── expo-custom
+│       └── src/index.tsx ➡️ exports a custom message which is imported and displayed in the app
 ├── package.json ➡️ contains the `postinstall` script and scripts with yarn commands to run applications
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 ```
