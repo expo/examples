@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "~41.0.0",
-    "expo-auth-session": "~3.2.3",
+    "expo": "~42.0.0",
+    "expo-auth-session": "~3.3.0",
     "expo-random": "~11.1.2",
     "jwt-decode": "2.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
