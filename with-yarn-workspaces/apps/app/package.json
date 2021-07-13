@@ -2,7 +2,7 @@
   "name": "app",
   "version": "1.0.0",
   "private": true,
-  "main": "__generated__/AppEntry.js",
+  "main": "./__generated__/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
