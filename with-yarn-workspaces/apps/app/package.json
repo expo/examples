@@ -19,5 +19,30 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
+  },
+  "expo-yarn-workspaces": {
+    "symlinks": [
+      "expo-constants",
+      "expo-updates"
+    ]
+  },
+  "react-native-unimodules": {
+    "android": {
+      "modulesPaths": [
+        "../../../../",
+        "../../../../packages"
+      ],
+      "configuration": "api",
+      "target": "react-native"
+    },
+    "ios": {
+      "modules_paths": [
+        "../../../",
+        "../../../packages"
+      ],
+      "flags": {
+        "inhibit_warnings": false
+      }
+    }
   }
 }
