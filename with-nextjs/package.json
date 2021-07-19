@@ -1,15 +1,17 @@
 {
   "dependencies": {
     "expo": "~42.0.0",
-    "next": "9.3.5",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "^0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "~7.9.0",
-    "@expo/next-adapter": "~2.1.52"
+    "@babel/core": "^7.14.6",
+    "@expo/next-adapter": "^3.0.1",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^8.0.0"
   },
   "scripts": {
     "start": "next dev",
