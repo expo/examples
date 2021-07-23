@@ -1,14 +1,14 @@
 {
-  "name": "app",
+  "name": "mobile",
   "version": "1.0.0",
   "private": true,
-  "main": "./__generated__/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
+    "build": "echo 'Nothing to build'",
     "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
@@ -25,8 +25,23 @@
   },
   "expo-yarn-workspaces": {
     "symlinks": [
+      "@unimodules/core",
+      "@unimodules/react-native-adapter",
+      "expo-application",
+      "expo-asset",
       "expo-constants",
-      "expo-updates"
+      "expo-error-recovery",
+      "expo-file-system",
+      "expo-font",
+      "expo-image-loader",
+      "expo-keep-awake",
+      "expo-modules-core",
+      "expo-splash-screen",
+      "expo-structured-headers",
+      "expo-updates-interface",
+      "expo-updates",
+      "unimodules-app-loader",
+      "unimodules-task-manager-interface"
     ]
   },
   "react-native-unimodules": {
