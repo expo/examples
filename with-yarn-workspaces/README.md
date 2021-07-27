@@ -28,17 +28,25 @@ This example installs a monorepo with two applications, both using two separate 
 
 ```
 ├── apps
-│   └── app
-│       ├── App.js ➡️ Entry Point for the app
+│   └── mobile
+│       ├── index.js ➡️ Entry point for the app
+│       ├── App.js ➡️ App root component
 │       ├── package.json ➡️ contains configuration required by expo-yarn-workspaces
 │       └── metro.config.js ➡️ required by expo-yarn-workspaces
 ├── packages
 │   └── expo-custom
 │       └── src/index.tsx ➡️ exports a custom message which is imported and displayed in the app
+│       └── src/tsconfig.json ➡️ default TypeScript configuration for expo-module-scripts
 ├── package.json ➡️ contains the `postinstall` script and scripts with yarn commands to run applications
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 ```
 
 ## 📝 Notes
 
-- [expo-yarn-workspaces](https://github.com/expo/expo/tree/master/packages/expo-yarn-workspaces)
+This example uses [expo-yarn-workspaces](https://github.com/expo/expo/tree/master/packages/expo-yarn-workspaces) to facilitate running the app inside of a monorepo. It also uses [expo-module-scripts](https://github.com/expo/expo/tree/master/packages/expo-module-scripts) to build the library in `packages/expo-custom`. An alternative to expo-module-scripts is [react-native-builder-bob](https://github.com/callstack/react-native-builder-bob).
+
+Please note that there are currently a few of quirks with using monorepos with EAS Build and with `expo prebuild` / `expo run:[ios|android]`. This example handles those automatically, but you need to be aware of them.
+
+1. Expo SDK packages should be added to the `"symlinks"` list in `package.json`.
+2. `index.js` is used instead of expo-yarn-workspaces' default `__generated__/AppEntry.js` because React Native's `bundle` command does not respect the `"main"` field in `package.json`, so we can't use it here.
+3. `metro.config.js` must extend `expo-yarn-workspaces`'s default configuration. This automatically extends `@expo/metro-config`. [Learn about customizing metro.config.js](https://docs.expo.io/guides/customizing-metro/).

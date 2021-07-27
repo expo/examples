@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "expo-yarn-workspaces check-workspace-dependencies",
+    "postinstall": "expo-yarn-workspaces check-workspace-dependencies && yarn workspaces run build",
     "app": "yarn workspace @expo/app expo start"
   },
   "workspaces": [
