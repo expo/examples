@@ -32,8 +32,8 @@ The service worker is disabled in development and requires that you build the ap
 - Check to make sure you are invoking `serviceWorkerRegistration.register();` and not `serviceWorkerRegistration.unregister();` in your `./App.js`.
 
 - `expo build:web`
-- Ensure you have serve installed globally: `npm i -g serve`
-- `serve web-build`
+- Host the files locally with `yarn serve`
+  - This uses serve CLI to host your `/web-build` folder.
 - Open: http://localhost:5000/
 - In chrome, you can hard reset the service workers with <kbd>⌘+shift+R</kbd>
 
