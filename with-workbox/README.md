@@ -37,7 +37,7 @@ The service worker is disabled in development and requires that you build the ap
 - Open: http://localhost:5000/
 - In chrome, you can hard reset the service workers with <kbd>⌘+shift+R</kbd>
 
-Service workers are disabled in development in three places:
+**Service workers are disabled in development in three places:**
 
 - The custom Webpack dev server adds a noop service worker on `/service-worker.js` to prevent collisions from other projects on your computer.
 - The `webpack.config.js` skips adding the injection plugin unless the environment is production (`expo build:web`)
