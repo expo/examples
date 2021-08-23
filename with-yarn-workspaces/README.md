@@ -10,7 +10,7 @@
     <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
   </a>
   <!-- Web -->
-  <a href="https://docs.expo.io/workflow/web/">
+  <a href="https://docs.expo.dev/workflow/web/">
     <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
   </a>
 </p>
@@ -49,4 +49,4 @@ Please note that there are currently a few of quirks with using monorepos with E
 
 1. Expo SDK packages should be added to the `"symlinks"` list in `package.json`.
 2. `index.js` is used instead of expo-yarn-workspaces' default `__generated__/AppEntry.js` because React Native's `bundle` command does not respect the `"main"` field in `package.json`, so we can't use it here.
-3. `metro.config.js` must extend `expo-yarn-workspaces`'s default configuration. This automatically extends `@expo/metro-config`. [Learn about customizing metro.config.js](https://docs.expo.io/guides/customizing-metro/).
+3. `metro.config.js` must extend `expo-yarn-workspaces`'s default configuration. This automatically extends `@expo/metro-config`. [Learn about customizing metro.config.js](https://docs.expo.dev/guides/customizing-metro/).

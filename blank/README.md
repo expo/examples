@@ -10,7 +10,7 @@
     <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
   </a>
   <!-- Web -->
-  <a href="https://docs.expo.io/workflow/web/">
+  <a href="https://docs.expo.dev/workflow/web/">
     <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
   </a>
 </p>
@@ -34,11 +34,11 @@ This project can be run from a web browser or the Expo client app. You may find 
 
 ## Publishing
 
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.io/distribution/app-stores/).
-- Deploy the website using this guide: [Web deployment](https://docs.expo.io/distribution/publishing-websites/).
+- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
+- Deploy the website using this guide: [Web deployment](https://docs.expo.dev/distribution/publishing-websites/).
 
 ## 📝 Notes
 
-- Learn more about [Universal React](https://docs.expo.io/).
-- See what API and components are [available in the React runtimes](https://docs.expo.io/versions/latest/).
-- Find out more about developing apps and websites: [Guides](https://docs.expo.io/guides/).
+- Learn more about [Universal React](https://docs.expo.dev/).
+- See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
+- Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).

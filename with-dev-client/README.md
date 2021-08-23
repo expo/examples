@@ -32,8 +32,8 @@ To build the app with the dev client, just run `eas build --profile with-dev-cli
 
 > **Note**: the `with-dev-client` uses the **internal distribution** on **iOS**. That's why, you need to add your device to be able to install the built app. To do it, you can use `eas device:create`.
 
-**For more information about EAS, check out [documentation](https://docs.expo.io/eas/).**
+**For more information about EAS, check out [documentation](https://docs.expo.dev/eas/).**
 
 ## 📝 Notes
 
-- [Development Client docs](https://docs.expo.io/clients/introduction/)
+- [Development Client docs](https://docs.expo.dev/clients/introduction/)

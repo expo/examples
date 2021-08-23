@@ -12,11 +12,11 @@ This example demonstrates how you can upload images (and other files) to Firebas
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
+- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 - Take a new picture or upload one from your library
 - See the image being rendered from Firebase
 
 ## 📝 Notes
 
 - [Firebase Storage API](https://firebase.google.com/docs/storage/web/upload-files)
-- [Expo Firebase guide](https://docs.expo.io/versions/latest/guides/using-firebase/)
+- [Expo Firebase guide](https://docs.expo.dev/versions/latest/guides/using-firebase/)

@@ -10,7 +10,7 @@
     <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
   </a>
   <!-- Web -->
-  <a href="https://docs.expo.io/workflow/web/">
+  <a href="https://docs.expo.dev/workflow/web/">
     <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
   </a>
 </p>
@@ -29,4 +29,4 @@ This example shows how to take a picture and display it.
 
 ## 📝 Notes
 
-- Learn more about [Expo Camera](https://docs.expo.io/versions/latest/sdk/camera).
+- Learn more about [Expo Camera](https://docs.expo.dev/versions/latest/sdk/camera).

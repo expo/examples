@@ -15,7 +15,7 @@ Experiment with Reanimated 2 (rc) in SDK 40.
 > `npx create-react-native-app my-app -t with-reanimated2`
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
+- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ## 📝 Notes
 
