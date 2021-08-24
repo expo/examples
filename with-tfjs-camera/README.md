@@ -20,4 +20,4 @@ Identify objects in real time using `@tensorflow/tfjs`, `expo-camera`, and `expo
 
 - [TFJS Expo API reference](https://js.tensorflow.org/api_react_native/latest/#Media-Camera)
 - [`@tensorflow/tfjs-react-native` package](https://www.npmjs.com/package/@tensorflow/tfjs-react-native)
-- [Expo Camera docs](https://docs.expo.io/versions/latest/sdk/camera/)
+- [Expo Camera docs](https://docs.expo.dev/versions/latest/sdk/camera/)

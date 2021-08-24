@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://expo.io/">
+  <a href="https://expo.dev/">
     <img alt="expo examples" height="128" src="./.gh-assets/banner.png">
     <h1 align="center">Expo Examples</h1>
   </a>
@@ -9,7 +9,7 @@
   <a aria-label="SDK version" href="https://www.npmjs.com/package/expo" target="_blank">
     <img alt="Expo SDK version" src="https://img.shields.io/npm/v/expo.svg?style=flat-square&label=SDK&labelColor=000000&color=4630EB">
   </a>
-  <a aria-label="Join our forums" href="https://forums.expo.io" target="_blank">
+  <a aria-label="Join our forums" href="https://forums.expo.dev" target="_blank">
     <img alt="" src="https://img.shields.io/badge/Ask%20Questions%20-blue.svg?style=flat-square&logo=discourse&logoWidth=15&labelColor=000000&color=4630EB">
   </a>
   <a aria-label="PRs Welcome" href="http://makeapullrequest.com" target="_blank">

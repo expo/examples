@@ -28,10 +28,10 @@ This project can be run from Expo client app. You may find that you want to add 
 
 ## Publishing
 
-- Configure your app to be able to use react-native-maps in production using this guide : [MapView configuration](https://docs.expo.io/versions/v38.0.0/sdk/map-view/#configuration)
-- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.io/distribution/app-stores/).
+- Configure your app to be able to use react-native-maps in production using this guide : [MapView configuration](https://docs.expo.dev/versions/v38.0.0/sdk/map-view/#configuration)
+- Deploy the native app to the App store and Play store using this guide: [Deployment](https://docs.expo.dev/distribution/app-stores/).
 
 ## 📝 Notes
 
-- Learn more about [MapView](https://docs.expo.io/versions/v38.0.0/sdk/map-view).
+- Learn more about [MapView](https://docs.expo.dev/versions/v38.0.0/sdk/map-view).
 - Learn more about [react-native-maps](https://github.com/react-native-community/react-native-maps).

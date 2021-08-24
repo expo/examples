@@ -11,7 +11,7 @@ Using Next.js with Expo will enable you to [server side render](https://nextjs.o
 
 ### ⚽️ Running in the browser
 
-For the most updated guide you should refer to the Expo docs: [Using Next.js](https://docs.expo.io/versions/latest/guides/using-nextjs/). Here are the [latest docs on master](https://github.com/expo/expo/blob/master/docs/pages/guides/using-nextjs.md).
+For the most updated guide you should refer to the Expo docs: [Using Next.js](https://docs.expo.dev/versions/latest/guides/using-nextjs/). Here are the [latest docs on master](https://github.com/expo/expo/blob/master/docs/pages/guides/using-nextjs.md).
 
 In this approach you would be using SSR for web in your universal project. This is the recommended path because it gives you full access to the features of Expo and Next.js.
 

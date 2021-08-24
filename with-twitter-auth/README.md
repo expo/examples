@@ -30,7 +30,7 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 
 - Install with `yarn` or `npm install`
 - Open `App.js` and replace `requestTokenURL` and `accessTokenURL` with your backend URLs
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out
+- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out
 
 ### 📁 File Structure
 
@@ -42,7 +42,7 @@ Expo Twitter Auth
 
 ## 📝 Notes
 
-- [Expo AuthSession docs](https://docs.expo.io/versions/latest/sdk/auth-session/)
+- [Expo AuthSession docs](https://docs.expo.dev/versions/latest/sdk/auth-session/)
 - [Twitter Lite docs](https://github.com/draftbit/twitter-lite)
 - [Login with Twitter guide](https://developer.twitter.com/en/docs/basics/authentication/guides/log-in-with-twitter)
 - [Twitter authentication best practices](https://developer.twitter.com/en/docs/basics/authentication/guides/authentication-best-practices)
@@ -53,4 +53,4 @@ The AuthSession helps you with browser authentication, without the need of an ad
 
 Each Expo user has it's own URL for different projects, the basic structure of this URL is `https://auth.expo.io/@your-username/your-expo-app-slug`. If you are signed in as `awesome-ppl`, and your app is called `meme-explorer`, your URL looks like `https://auth.expo.io/@awesome-ppl/meme-explorer`.
 
-> [Read more about AuthSession here](https://docs.expo.io/versions/latest/sdk/auth-session/)
+> [Read more about AuthSession here](https://docs.expo.dev/versions/latest/sdk/auth-session/)

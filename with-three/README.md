@@ -12,9 +12,9 @@
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
-- Run [`expo start`](https://docs.expo.io/versions/latest/workflow/expo-cli/), try it out.
+- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ## 📝 Notes
 
-- [Expo GL docs](https://docs.expo.io/versions/latest/sdk/gl-view/)
+- [Expo GL docs](https://docs.expo.dev/versions/latest/sdk/gl-view/)
 - [Three.js docs](https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene)
