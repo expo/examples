@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "expo": "~42.0.0",
+    "expo-linking": "~2.3.1",
+    "expo-web-browser": "~9.2.0",
+    "firebase": "8.2.3",
+    "react": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0"
+  }
+}
