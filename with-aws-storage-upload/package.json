@@ -1,8 +1,11 @@
 {
   "dependencies": {
-    "@aws-amplify/auth": "^3.2.13",
-    "@aws-amplify/core": "^3.3.3",
-    "@aws-amplify/storage": "^3.2.6",
+    "@aws-amplify/auth": "^4.3.11",
+    "@aws-amplify/core": "^4.3.3",
+    "@aws-amplify/storage": "^4.4.4",
+    "@react-native-async-storage/async-storage": "~1.15.0",
+    "@react-native-community/netinfo": "6.0.2",
+    "aws-amplify": "^4.3.3",
     "expo": "^43.0.0",
     "expo-clipboard": "~2.0.3",
     "expo-constants": "~12.1.3",
