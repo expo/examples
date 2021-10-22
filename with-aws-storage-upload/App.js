@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Clipboard, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
+import * as Clipboard from 'expo-clipboard';
 import Auth from '@aws-amplify/auth';
 import Storage from '@aws-amplify/storage';
 import Amplify from '@aws-amplify/core';
 import awsconfig from './aws-exports';
+
 Amplify.configure(awsconfig);
 
 export default function App() {
