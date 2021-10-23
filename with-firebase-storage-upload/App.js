@@ -1,5 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
-import * as firebase from "firebase";
+import { getApps, initializeApp } from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import React from "react";
 import {
   ActivityIndicator,
@@ -24,8 +25,8 @@ const firebaseConfig = {
 };
 
 // Editing this file with fast refresh will reinitialize the app on every refresh, let's not do that
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
 }
 
 // Firebase sets some timeers for a long period, which will trigger some warnings. Let's turn that off for this example
@@ -206,11 +207,11 @@ async function uploadImageAsync(uri) {
     xhr.send(null);
   });
 
-  const ref = firebase.storage().ref().child(uuid.v4());
-  const snapshot = await ref.put(blob);
+  const fileRef = ref(getStorage(), uuid.v4());
+  const result = await uploadBytes(fileRef, blob);
 
   // We're done with the blob, close and release it
   blob.close();
 
-  return await snapshot.ref.getDownloadURL();
+  return await getDownloadURL(fileRef);
 }
