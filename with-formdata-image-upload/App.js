@@ -1,14 +1,5 @@
 import * as React from "react";
-import {
-  ActivityIndicator,
-  Button,
-  Image,
-  Share,
-  StatusBar,
-  Text,
-  View,
-} from "react-native";
-import * as Clipboard from "expo-clipboard";
+import { ActivityIndicator, Button, Image, StatusBar, Text, View } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 export default class App extends React.Component {
@@ -42,7 +33,7 @@ export default class App extends React.Component {
 
   _maybeRenderUploadingIndicator = () => {
     if (this.state.uploading) {
-      return <ActivityIndicator animating size="large" />;
+      return <ActivityIndicator animating size="large" color="#0000ee" />;
     }
   };
 
@@ -92,29 +83,13 @@ export default class App extends React.Component {
             />
           </View>
 
-          <Text
-            onPress={this._copyToClipboard}
-            onLongPress={this._share}
+          <Image
             style={{ paddingVertical: 10, paddingHorizontal: 10 }}
-          >
-            {this.state.image}
-          </Text>
+            source={{ uri: this.state.image }}
+          />
         </View>
       );
     }
-  };
-
-  _share = () => {
-    Share.share({
-      message: this.state.image,
-      title: "Check out this photo",
-      url: this.state.image,
-    });
-  };
-
-  _copyToClipboard = () => {
-    Clipboard.setString(this.state.image);
-    alert("Copied image URL to clipboard");
   };
 
   _askPermission = async (failureMessage) => {
@@ -166,7 +141,7 @@ export default class App extends React.Component {
         uploadResponse = await uploadImageAsync(pickerResult.uri);
         uploadResult = await uploadResponse.json();
         console.log({ uploadResult });
-        this.setState({ image: uploadResult.location });
+        this.setState({ image: uploadResult.files.photo });
       }
     } catch (e) {
       console.log({ uploadResponse });
@@ -180,8 +155,7 @@ export default class App extends React.Component {
 }
 
 async function uploadImageAsync(uri) {
-  let apiUrl =
-    "https://file-upload-example-backend-dkhqoilqqn.vercel.app/upload";
+  let apiUrl = "https://httpbin.org/post";
 
   // Note:
   // Uncomment this if you want to experiment with local server
