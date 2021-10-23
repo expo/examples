@@ -23,6 +23,7 @@ const firebaseConfig = {
   messagingSenderId: "506017999540",
 };
 
+// Editing this file with fast refresh will reinitialize the app on every refresh, let's not do that
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
