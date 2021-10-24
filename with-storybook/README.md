@@ -36,7 +36,7 @@ This method runs your Expo components in a Storybook-React environment. This is 
   };
   ```
 
-- Run `yarn storybook` to try it out!
+- Run `yarn build-storybook` to try it out!
   - The example should open to `http://localhost:6006/`
 - You may also want to add `storybook-static` to your `.gitignore`
 
