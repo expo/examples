@@ -2,18 +2,23 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-app.get('/', function(req, res){
-  res.sendfile('index.html');
+// Add messages when sockets open and close connections
+io.on('connection', socket => {
+  console.log(`[${socket.id}] socket connected`);
+  socket.on('disconnect', reason => {
+    console.log(`[${socket.id}] socket disconnected - ${reason}`);
+  });
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-
+// Broadcast the current server time as global message, every 1s
 setInterval(() => {
-  io.emit('ping', { data: (new Date())/1});
+  io.sockets.emit('time-msg', { time: new Date().toISOString() });
 }, 1000);
 
+// Show the index.html by default
+app.get('/', (req, res) => res.sendFile('index.html'));
+
+// Start the express server
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
