@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "expo": "^43.0.0",
-    "moti": "^0.11.0",
+    "moti": "^0.16.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
