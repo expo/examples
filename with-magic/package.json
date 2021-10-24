@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@magic-sdk/react-native": "^2.5.0",
+    "@magic-sdk/react-native": "^6.2.0",
     "expo": "^43.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",

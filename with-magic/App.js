@@ -1,17 +1,17 @@
-import * as React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Keyboard, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Magic } from '@magic-sdk/react-native';
 
-const MAGIC_KEY = 'pk_test_4210A822FBFD3437';
-const magic = new Magic(MAGIC_KEY);
+// Add your own key here
+const magic = new Magic('pk_test_4210A822FBFD3437');
 
 export default function App() {
-  const [loading, setLoading] = React.useState(false);
-  const [user, setUser] = React.useState(null);
-  const [email, setEmail] = React.useState('');
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [email, setEmail] = useState('');
 
   // Check if we are logged in and fetch the user info
-  const onCheck = React.useCallback(async () => {
+  const onMagicCheck = useCallback(async () => {
     setLoading(true);
     try {
       if (await magic.user.isLoggedIn()) {
@@ -23,7 +23,7 @@ export default function App() {
   }, []);
 
   // Login with a Magic link and dismiss keyboard
-  const onLogin = React.useCallback(async () => {
+  const onMagicLogin = useCallback(async () => {
     Keyboard.dismiss();
     setLoading(true);
     try {
@@ -35,7 +35,7 @@ export default function App() {
   }, [email]);
 
   // Log out and restore the initial state to show the login form
-  const onLogout = React.useCallback(async () => {
+  const onMagicLogout = useCallback(async () => {
     setLoading(true);
     try {
       await magic.user.logout();
@@ -47,8 +47,8 @@ export default function App() {
   }, []);
 
   // When the app loads, check if we have an existing session
-  React.useEffect(() => {
-    onCheck();
+  useEffect(function didMount() {
+    onMagicCheck();
   }, []);
 
   return (
@@ -59,7 +59,7 @@ export default function App() {
           <>
             <Text style={styles.paragraph}>Hi {user.email}!</Text>
             <Text style={styles.code}>{JSON.stringify(user, null, 2)}</Text>
-            <Button disabled={loading} title={loading ? 'loading...' : 'logout'} onPress={onLogout} />
+            <Button disabled={loading} title={loading ? 'loading...' : 'logout'} onPress={onMagicLogout} />
           </>
         )}
         {!user && (
@@ -67,7 +67,7 @@ export default function App() {
           <>
             <Text style={styles.paragraph}>Enter your email to authenticate</Text>
             <TextInput style={styles.input} value={email} onChangeText={setEmail} textContentType="emailAddress" />
-            <Button disabled={loading} title={loading ? 'loading...' : 'login'} onPress={onLogin} />
+            <Button disabled={loading} title={loading ? 'loading...' : 'login'} onPress={onMagicLogin} />
           </>
         )}
       </View>
