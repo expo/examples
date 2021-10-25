@@ -24,7 +24,7 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
   ```
 - Each example can be used as a template in `create-react-native-app` so try to consider what a fresh template should look like:
   - No **TODO**, **NOTE()**, or otherwise.
-  - No personal references to your name or other contextual info that might end up in someones project.
+  - No personal references to your name or other contextual info in comments.
 
 ## Format
 
