@@ -1,11 +1,12 @@
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-export function LoadingView({ children }) {
+export function LoadingView({ children, message = '' }) {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row" }}>
-        <Text style={styles.text}>{children}</Text>
+        {!!message && <Text style={styles.text}>{message}</Text>}
+        {children}
         <ActivityIndicator />
       </View>
     </View>

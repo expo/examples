@@ -13,7 +13,7 @@ export function ModelView() {
   const [predictions, setPredictions] = React.useState([]);
 
   if (!model) {
-    return <LoadingView>Loading TensorFlow model</LoadingView>;
+    return <LoadingView message="Loading TensorFlow model" />;
   }
 
   return (
