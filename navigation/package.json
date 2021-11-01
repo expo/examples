@@ -13,19 +13,16 @@
     "expo-splash-screen": "~0.13.4",
     "expo-status-bar": "~1.1.0",
     "expo-web-browser": "~10.0.3",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "~17.0.1",
+    "react-dom": "~17.0.1",
     "react-native": "0.64.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
-    "react-native-web": "0.17.1"
+    "react-native-web": "~0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
-    "typescript": "~4.3.5"
+    "@babel/core": "^7.12.9"
   }
 }
