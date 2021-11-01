@@ -1,4 +1,3 @@
-// Import third-party dependencies
 import React from 'react'
 import { View, Button, LogBox, StyleSheet, Text } from 'react-native'
 import * as WebBrowser from 'expo-web-browser';
