@@ -6,9 +6,10 @@ import * as Linking from 'expo-linking';
 
 import firebase from 'firebase'
 
-const firebaseConfig = {// !!!!!PUT YOUR FIREBASE CONFIG HERE!!!!!
-  apiKey: "AIzaSyAlZruO2T_JNOWn4ysfX6AryR6Dzm_VVaA",
-  authDomain: "blobtest-36ff6.firebaseapp.com"
+// Add Firebase configuration here: [LINK TO GET ONE]
+const firebaseConfig = {
+  // apiKey: "XXXX",
+  // authDomain: "XXXX.firebaseapp.com"
 };
 
 if (!firebase.apps.length) {
