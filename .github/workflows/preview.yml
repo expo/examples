@@ -61,5 +61,3 @@ jobs:
         run: echo '{"expo":{"owner":"examples"}}' > app.json
       - name: 🚀 Publish preview
         run: expo publish
-
-          
