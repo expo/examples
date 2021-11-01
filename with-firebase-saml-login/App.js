@@ -11,6 +11,8 @@ const firebaseConfig = {// !!!!!PUT YOUR FIREBASE CONFIG HERE!!!!!
   authDomain: "blobtest-36ff6.firebaseapp.com"
 };
 
+const backendUrl = "https://www.example.com/firebase-wrapper-app.html";
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
@@ -77,7 +79,7 @@ export default class App extends React.Component {
   _openAuthSessionAsync = async () => {
     try {
       let result = await WebBrowser.openAuthSessionAsync(
-        `https://www.example.com/firebase-wrapper-app.html?linkingUri=${Linking.makeUrl(// !!!!!PUT YOUR OWN WEB SERVER HERE!!!!!
+        backendUrl + `?linkingUri=${Linking.makeUrl(
           "/saml-authenticate"
         )}&apiKey=${firebaseConfig["apiKey"]}&authDomain=${
           firebaseConfig["authDomain"]
