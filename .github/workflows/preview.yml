@@ -18,8 +18,7 @@ jobs:
           filters: |
             examples:
               - blank/**
-              - navigation/**
-              - with-**
+              - with-!(dev-client|yarn-workspaces)/?**
       - id: find
         name: 📱 Find changed examples
         uses: actions/github-script@v5
