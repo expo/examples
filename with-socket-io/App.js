@@ -1,38 +1,49 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import io from 'socket.io-client';
 
-const io = require('socket.io-client');
+// Replace this URL with your own socket-io host, or start the backend locally
+const socketEndpoint = 'http://localhost:3000';
 
-// Replace this URL with your own, if you want to run the backend locally!
-const SocketEndpoint = 'https://socket-io-expo-backend-dtyxsdtzxb.now.sh';
+export default function App() {
+  const [hasConnection, setConnection] = useState(false);
+  const [time, setTime] = useState(null);
 
-export default class App extends React.Component {
-  state = {
-    isConnected: false,
-    data: null,
-  };
-  componentDidMount() {
-    const socket = io(SocketEndpoint, {
+  useEffect(function didMount() {
+    const socket = io(socketEndpoint, {
       transports: ['websocket'],
     });
 
-    socket.on('connect', () => {
-      this.setState({ isConnected: true });
-    });
+    socket.io.on('open', () => setConnection(true));
+    socket.io.on('close', () => setConnection(false));
 
-    socket.on('ping', (data) => {
-      this.setState(data);
+    socket.on('time-msg', (data) => {
+      setTime(new Date(data.time).toString());
     });
-  }
+    
+    return function didUnmount() {
+      socket.disconnect();
+      socket.removeAllListeners();
+    };
+  }, []);
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>connected: {this.state.isConnected ? 'true' : 'false'}</Text>
-        {this.state.data && <Text>ping response: {this.state.data}</Text>}
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      {!hasConnection && (
+        <>
+          <Text style={styles.paragraph}>Connecting to {socketEndpoint}...</Text>
+          <Text style={styles.footnote}>Make sure the backend is started and reachable</Text>
+        </>
+      )}
+
+      {hasConnection && (
+        <>
+          <Text style={[styles.paragraph, { fontWeight: 'bold'}]}>Server time</Text>
+          <Text style={styles.paragraph}>{time}</Text> 
+        </>
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -42,4 +53,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  paragraph: {
+    fontSize: 16,
+  },
+  footnote: {
+    fontSize: 14,
+    fontStyle: 'italic',
+  }
 });
