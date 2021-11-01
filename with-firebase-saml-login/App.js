@@ -5,13 +5,13 @@ import * as Linking from 'expo-linking';
 
 import firebase from 'firebase'
 
-// Add Firebase configuration here: [LINK TO GET ONE]
+// Add Firebase configuration here: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
   // apiKey: "XXXX",
   // authDomain: "XXXX.firebaseapp.com"
 };
 
-const backendUrl = "https://www.example.com/firebase-wrapper-app.html";
+const backendUrl = " /*www.example.com*/ "; //The url where you are hosting your implementation of 'with-firebase-saml-login\backend\firebase-wrapper-app.html'
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
