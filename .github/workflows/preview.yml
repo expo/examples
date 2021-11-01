@@ -17,8 +17,8 @@ jobs:
           list-files: json
           filters: |
             examples:
-              - blank
-              - navigation
+              - blank/**
+              - navigation/**
               - with-**
       - id: find
         name: 📱 Find changed examples
