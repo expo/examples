@@ -1,6 +1,6 @@
 import * as ImagePicker from "expo-image-picker";
 import React from "react";
-import { Button, Image, StyleSheet, Text, View, Platform } from "react-native";
+import { Button, Image, Linking, StyleSheet, Text, View } from "react-native";
 
 const API_KEY = "<YOUR_API_KEY_HERE>";
 const API_URL = `https://vision.googleapis.com/v1/images:annotate?key=${API_KEY}`;
@@ -37,38 +37,10 @@ async function callGoogleVisionAsync(image) {
   return parsed.responses[0].labelAnnotations[0].description;
 }
 
-export default function App() {
+function VisionScreen() {
   const [image, setImage] = React.useState(null);
   const [status, setStatus] = React.useState(null);
-  const [isPermissionsGranted, setIsPermissionsGranted] = React.useState(
-    undefined
-  );
 
-  React.useEffect(() => {
-    (async () => {
-      if (Platform.OS !== "web") {
-        const {
-          status,
-        } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-        setIsPermissionsGranted(true);
-        if (status !== "granted") {
-          setIsPermissionsGranted(false);
-          alert("Sorry, we need camera roll permissions to make this work!");
-        }
-      }
-    })();
-  }, []);
-
-  if (isPermissionsGranted === false) {
-    return (
-      <View style={styles.container}>
-        <Text>
-          You have not granted permission to use the camera on this device!
-        </Text>
-      </View>
-    );
-  }
   const takePictureAsync = async () => {
     const { cancelled, uri, base64 } = await ImagePicker.launchCameraAsync({
       base64: true,
@@ -96,6 +68,47 @@ export default function App() {
       <Button onPress={takePictureAsync} title="Take a Picture" />
     </View>
   );
+}
+
+export default function App() {
+  const [permission, request] = ImagePicker.useCameraPermissions({
+    get: true,
+  });
+
+  const requestPermission = async () => {
+    if (permission.status === "denied") {
+      Linking.openSettings();
+    } else {
+      request();
+    }
+  };
+
+  if (API_KEY === "<YOUR_API_KEY_HERE>") {
+    return (
+      <View style={styles.container}>
+        <Text>
+          You have not setup the API yet. Please add your API key to App.js
+        </Text>
+      </View>
+    );
+  }
+
+  if (!permission) {
+    return null;
+  }
+
+  if (!permission.granted) {
+    return (
+      <View style={styles.container}>
+        <Text>
+          You have not granted permission to use the camera on this device!
+        </Text>
+        <Button onPress={requestPermission} title="Request Permission" />
+      </View>
+    );
+  }
+
+  return <VisionScreen />;
 }
 
 const styles = StyleSheet.create({
