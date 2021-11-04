@@ -1,0 +1,62 @@
+name: Expo Preview
+on:
+  push:
+    branches: [master, main]
+jobs:
+  changed:
+    name: Find changed apps
+    runs-on: ubuntu-latest
+    outputs:
+      exampleChanged: ${{ steps.filter.outputs.examples == 'true' }}
+      exampleNames: ${{ steps.find.outputs.result }}
+    steps:
+      - id: filter
+        name: 🕵️ Detect changes
+        uses: dorny/paths-filter@v2
+        with:
+          list-files: json
+          filters: |
+            examples:
+              - blank/**
+              - with-!(dev-client|yarn-workspaces)/?**
+      - id: find
+        name: 📱 Find changed examples
+        uses: actions/github-script@v5
+        if: steps.filter.outputs.examples == 'true'
+        with:
+          script: |
+            // Load all changed files to dynamically fetch the app names
+            const path = require('path')
+            const changes = ${{ steps.filter.outputs.examples_files }}
+            // Iterate through all changes and keep unique app names
+            return [...new Set(changes.map(file => path.dirname(file).split('/', 1)[0]))]
+  publish:
+    needs: changed
+    if: needs.changed.outputs.exampleChanged
+    name: Publish
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        example: ${{ fromJSON(needs.changed.outputs.exampleNames) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.example }}
+    steps:
+      - name: 🏗️ Setup repo
+        uses: actions/checkout@v2
+      - name: 🏗️ Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: 🏗️ Setup Expo
+        uses: expo/expo-github-action@v6
+        with:
+          expo-version: 4.x
+          expo-cache: true
+          token: ${{ secrets.EXPO_TOKEN }}
+      - name: 📋 Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts --check-files
+      - name: ⚙️ Setup manifest
+        run: echo '{"expo":{"owner":"examples"}}' > app.json
+      - name: 🚀 Publish preview
+        run: expo publish
