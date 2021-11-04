@@ -8,8 +8,9 @@ As this example relies on Firebase authentication you must have a Firebase proje
 2. Go to [Firebase's website](https://firebase.google.com/products-build)
 3. Follow Firebase's instructions for setting up your project
 4. Enable SMAL in the Google Cloud console as shown [here](https://cloud.google.com/identity-platform/docs/web/saml) (Firebase is run in the backend by Google cloud, we have to use the Google Cloud console because Firebase does not expose this option)
-5. Get your [Firebase configuration](https://firebase.google.com/docs/web/learn-more#config-object)
-6. Add that configuration to App.js (as outlined in the comments at the top of the file)
+5. Use the Provider ID you got in the last step to replace the example ID in backend/firebase-wrapper-app.html on the line that says "!!!!!PUT YOUR PROVIDER ID HERE!!!!!"
+6. Get your [Firebase configuration](https://firebase.google.com/docs/web/learn-more#config-object)
+7. Add that configuration to App.js (as outlined in the comments at the top of the file)
 
 ## Running the app
 
