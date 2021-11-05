@@ -7,7 +7,7 @@ jobs:
     name: Find changed apps
     runs-on: ubuntu-latest
     outputs:
-      exampleChanged: ${{ steps.filter.outputs.examples == 'true' }}
+      exampleChanged: ${{ steps.filter.outputs.examples }}
       exampleNames: ${{ steps.find.outputs.result }}
     steps:
       - name: 🏗️ Setup repo
@@ -24,7 +24,7 @@ jobs:
       - id: find
         name: 📱 Find changed examples
         uses: actions/github-script@v5
-        if: steps.filter.outputs.examples == 'true'
+        if: ${{ steps.filter.outputs.examples == 'true' }}
         with:
           script: |
             // Load all changed files to dynamically fetch the app names
@@ -34,12 +34,12 @@ jobs:
             return [...new Set(changes.map(file => path.dirname(file).split('/', 1)[0]))]
   publish:
     needs: changed
-    if: needs.changed.outputs.exampleChanged
+    if: ${{ needs.changed.outputs.exampleChanged == 'true' }}
     name: Publish
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        example: ${{ fromJSON(needs.changed.outputs.exampleNames) }}
+        example: ${{ fromJSON(needs.changed.outputs.exampleNames || '[]') }}
     defaults:
       run:
         working-directory: ${{ matrix.example }}
