@@ -10,6 +10,8 @@ jobs:
       exampleChanged: ${{ steps.filter.outputs.examples == 'true' }}
       exampleNames: ${{ steps.find.outputs.result }}
     steps:
+      - name: 🏗️ Setup repo
+        uses: actions/checkout@v2
       - id: filter
         name: 🕵️ Detect changes
         uses: dorny/paths-filter@v2
