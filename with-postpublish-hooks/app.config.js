@@ -1,4 +1,5 @@
-export default {
+export default ({ config }) => ({
+  ...config,
   hooks: {
     postPublish: [
       {
@@ -15,4 +16,4 @@ export default {
       },
     ],
   },
-};
+});
