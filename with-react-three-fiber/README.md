@@ -20,6 +20,5 @@ Create Three.js projects using React components and props!
 
 ## 📝 Notes
 
-- [react-three-fiber docs](https://github.com/react-spring/react-three-fiber)
+- [react-three-fiber docs](https://docs.pmnd.rs/react-three-fiber)
 - [three.js docs](https://threejs.org/docs/)
-- [expo-three docs](https://github.com/expo/expo-three)

@@ -1,14 +1,12 @@
 {
   "dependencies": {
     "expo": "^43.0.0",
-    "expo-gl": "~11.0.3",
-    "expo-three": "~5.7.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "18.0.0-beta-24dd07bd2-20211208",
+    "react-dom": "18.0.0-beta-24dd07bd2-20211208",
     "react-native": "0.64.3",
     "react-native-web": "0.17.1",
-    "react-three-fiber": "^5.3.19",
-    "three": "^0.122.0"
+    "react-three-fiber": "^8.0.0-beta-02",
+    "three": "^0.133.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
