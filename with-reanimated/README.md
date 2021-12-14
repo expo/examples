@@ -1,4 +1,4 @@
-# Reanimated v2 (release candidate) example
+# Reanimated example
 
 <p>
   <!-- iOS -->
@@ -8,15 +8,13 @@
   <!-- Web -->
 </p>
 
-Experiment with Reanimated 2 (rc) in SDK 40.
-
 ## 🚀 How to use
 
-> `npx create-react-native-app my-app -t with-reanimated2`
+> `npx create-react-native-app my-app -t with-reanimated`
 
 - Run `yarn` or `npm install`
 - Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ## 📝 Notes
 
-- [react-native-reanimated v2 docs](https://docs.swmansion.com/react-native-reanimated/)
+- [`react-native-reanimated` docs](https://docs.swmansion.com/react-native-reanimated/)
