@@ -17,8 +17,6 @@
 
 Example demonstrating use of the [`react-native-elements`][rne] library in Expo.
 
-![Simulator Example](https://i.imgur.com/CDrXKzV.png)
-
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
