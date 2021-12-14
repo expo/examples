@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@expo/vector-icons": "^12.0.0",
+    "expo": "^43.0.0",
+    "expo-app-loading": "~1.2.1",
+    "expo-font": "~10.0.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-native": "0.64.3",
+    "react-native-elements": "^3.4.2",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-web": "0.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9"
+  }
+}
