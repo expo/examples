@@ -11,7 +11,8 @@ const firebaseConfig = {
   // authDomain: "XXXX.firebaseapp.com"
 };
 
-const backendUrl = " /*www.example.com*/ "; //The url where you are hosting your implementation of 'with-firebase-saml-login\backend\firebase-wrapper-app.html'
+// URL to the location of the server code found in './backend/firebase-wrapper-app.html'
+const backendUrl = "www.example.com";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
