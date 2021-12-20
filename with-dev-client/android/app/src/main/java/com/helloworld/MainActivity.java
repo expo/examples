@@ -1,38 +1,26 @@
 package com.helloworld;
 import expo.modules.devmenu.react.DevMenuAwareReactActivity;
-import expo.modules.devlauncher.DevLauncherController;
-import android.content.res.Configuration;
 import android.content.Intent;
+import expo.modules.devlauncher.DevLauncherController;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
-import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 
 import expo.modules.ReactActivityDelegateWrapper;
-
 
 public class MainActivity extends DevMenuAwareReactActivity {
 
   @Override
   public void onNewIntent(Intent intent) {
-      if (DevLauncherController.tryToHandleIntent(this, intent)) {
-         return;
-      }
-      super.onNewIntent(intent);
-  }
-
-
-    // Added automatically by Expo Config
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        Intent intent = new Intent("onConfigurationChanged");
-        intent.putExtra("newConfig", newConfig);
-        sendBroadcast(intent);
+    if (DevLauncherController.tryToHandleIntent(this, intent)) {
+      return;
     }
+    super.onNewIntent(intent);
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +42,28 @@ public class MainActivity extends DevMenuAwareReactActivity {
 
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
-    return DevLauncherController.wrapReactActivityDelegate(this, () -> new ReactActivityDelegateWrapper(
-      this,
-      new ReactActivityDelegate(this, getMainComponentName()) {
-      @Override
-      protected ReactRootView createRootView() {
-        return new RNGestureHandlerEnabledRootView(MainActivity.this);
+    return DevLauncherController.wrapReactActivityDelegate(this, () -> new ReactActivityDelegateWrapper(this,
+      new ReactActivityDelegate(this, getMainComponentName())
+    ));
+  }
+
+  /**
+   * Align the back button behavior with Android S
+   * where moving root activities to background instead of finishing activities.
+   * @see <a href="https://developer.android.com/reference/android/app/Activity#onBackPressed()">onBackPressed</a>
+   */
+  @Override
+  public void invokeDefaultOnBackPressed() {
+    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
+      if (!moveTaskToBack(false)) {
+        // For non-root activities, use the default implementation to finish them.
+        super.invokeDefaultOnBackPressed();
       }
-    }));
+      return;
+    }
+
+    // Use the default back button implementation on Android S
+    // because it's doing more than {@link Activity#moveTaskToBack} in fact.
+    super.invokeDefaultOnBackPressed();
   }
 }
