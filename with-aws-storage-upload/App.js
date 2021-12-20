@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';
-import Constants from 'expo-constants';
-import * as Clipboard from 'expo-clipboard';
-import Auth from '@aws-amplify/auth';
-import Storage from '@aws-amplify/storage';
-import Amplify from '@aws-amplify/core';
-import awsconfig from './aws-exports';
+import Auth from "@aws-amplify/auth";
+import Amplify from "@aws-amplify/core";
+import Storage from "@aws-amplify/storage";
+import * as Clipboard from "expo-clipboard";
+import Constants from "expo-constants";
+import * as ImagePicker from "expo-image-picker";
+import { useEffect, useState } from "react";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
+
+import awsconfig from "./aws-exports";
 
 Amplify.configure(awsconfig);
 
@@ -17,13 +18,14 @@ export default function App() {
   useEffect(() => {
     (async () => {
       if (Constants.platform.ios) {
-        const cameraRollStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        const cameraRollStatus =
+          await ImagePicker.requestMediaLibraryPermissionsAsync();
         const cameraStatus = await ImagePicker.requestCameraPermissionsAsync();
         if (
-          cameraRollStatus.status !== 'granted' ||
-          cameraStatus.status !== 'granted'
+          cameraRollStatus.status !== "granted" ||
+          cameraStatus.status !== "granted"
         ) {
-          alert('Sorry, we need these permissions to make this work!');
+          alert("Sorry, we need these permissions to make this work!");
         }
       }
     })();
@@ -31,7 +33,7 @@ export default function App() {
 
   const takePhoto = async () => {
     let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: 'Images',
+      mediaTypes: "Images",
       aspect: [4, 3],
     });
 
@@ -40,7 +42,7 @@ export default function App() {
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: 'Images',
+      mediaTypes: "Images",
       aspect: [4, 3],
       quality: 1,
     });
@@ -51,25 +53,25 @@ export default function App() {
   handleImagePicked = async (pickerResult) => {
     try {
       if (pickerResult.cancelled) {
-        alert('Upload cancelled');
+        alert("Upload cancelled");
         return;
       } else {
         setPercentage(0);
         const img = await fetchImageFromUri(pickerResult.uri);
-        const uploadUrl = await uploadImage('demo.jpg', img);
+        const uploadUrl = await uploadImage("demo.jpg", img);
         downloadImage(uploadUrl);
       }
     } catch (e) {
       console.log(e);
-      alert('Upload failed');
+      alert("Upload failed");
     }
   };
 
   uploadImage = (filename, img) => {
     Auth.currentCredentials();
     return Storage.put(filename, img, {
-      level: 'public',
-      contentType: 'image/jpeg',
+      level: "public",
+      contentType: "image/jpeg",
       progressCallback(progress) {
         setLoading(progress);
       },
@@ -106,7 +108,7 @@ export default function App() {
 
   const copyToClipboard = () => {
     Clipboard.setString(image);
-    alert('Copied image URL to clipboard');
+    alert("Copied image URL to clipboard");
   };
 
   return (
@@ -126,8 +128,8 @@ export default function App() {
         </View>
       )}
 
-      <Button onPress={pickImage} title='Pick an image from camera roll' />
-      <Button onPress={takePhoto} title='Take a photo' />
+      <Button onPress={pickImage} title="Pick an image from camera roll" />
+      <Button onPress={takePhoto} title="Take a photo" />
     </View>
   );
 }
@@ -135,14 +137,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
   },
   title: {
     fontSize: 20,
     marginBottom: 20,
-    textAlign: 'center',
+    textAlign: "center",
     marginHorizontal: 15,
   },
   percentage: {
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   info: {
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 20,
   },
 });

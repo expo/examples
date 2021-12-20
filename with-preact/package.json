@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "expo": "^43.0.0",
+    "expo": "^44.0.0",
     "preact": "10.4.1",
     "preact-responder-event-plugin": "1.0.16",
     "react": "17.0.1",
@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@expo/webpack-config": "^0.16.2",
+    "@expo/webpack-config": "~0.16.2",
     "webpack-bundle-analyzer": "3.7.0"
   }
 }

@@ -1,5 +1,5 @@
 import * as ImagePicker from "expo-image-picker";
-import React from "react";
+import { useState } from "react";
 import { Button, Image, Linking, StyleSheet, Text, View } from "react-native";
 
 const API_KEY = "<YOUR_API_KEY_HERE>";
@@ -38,8 +38,8 @@ async function callGoogleVisionAsync(image) {
 }
 
 function VisionScreen() {
-  const [image, setImage] = React.useState(null);
-  const [status, setStatus] = React.useState(null);
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState(null);
 
   const takePictureAsync = async () => {
     const { cancelled, uri, base64 } = await ImagePicker.launchCameraAsync({

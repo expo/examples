@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Platform,
   ScrollView,
@@ -29,9 +29,9 @@ function openDatabase() {
 const db = openDatabase();
 
 function Items({ done: doneHeading, onPressItem }) {
-  const [items, setItems] = React.useState(null);
+  const [items, setItems] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
         `select * from items where done = ?;`,
@@ -69,10 +69,10 @@ function Items({ done: doneHeading, onPressItem }) {
 }
 
 export default function App() {
-  const [text, setText] = React.useState(null);
+  const [text, setText] = useState(null);
   const [forceUpdate, forceUpdateId] = useForceUpdate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     db.transaction((tx) => {
       tx.executeSql(
         "create table if not exists items (id integer primary key not null, done int, value text);"

@@ -3,7 +3,7 @@ import { Asset } from "expo-asset";
 import Constants from "expo-constants";
 import * as SplashScreen from "expo-splash-screen";
 import * as Updates from "expo-updates";
-import React from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Animated,
   Button,
@@ -27,15 +27,15 @@ export default function App() {
 }
 
 function AnimatedAppLoader({ children, image }) {
-  const [isSplashReady, setSplashReady] = React.useState(false);
+  const [isSplashReady, setSplashReady] = useState(false);
 
-  const startAsync = React.useMemo(
+  const startAsync = useCallback(
     // If you use a local image with require(...), use `Asset.fromModule`
-    () => () => Asset.fromURI(image).downloadAsync(),
+    () => Asset.fromURI(image).downloadAsync(),
     [image]
   );
 
-  const onFinish = React.useMemo(() => setSplashReady(true), []);
+  const onFinish = useCallback(() => setSplashReady(true), []);
 
   if (!isSplashReady) {
     return (
@@ -53,13 +53,11 @@ function AnimatedAppLoader({ children, image }) {
 }
 
 function AnimatedSplashScreen({ children, image }) {
-  const animation = React.useMemo(() => new Animated.Value(1), []);
-  const [isAppReady, setAppReady] = React.useState(false);
-  const [isSplashAnimationComplete, setAnimationComplete] = React.useState(
-    false
-  );
+  const animation = useMemo(() => new Animated.Value(1), []);
+  const [isAppReady, setAppReady] = useState(false);
+  const [isSplashAnimationComplete, setAnimationComplete] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isAppReady) {
       Animated.timing(animation, {
         toValue: 0,
@@ -69,7 +67,7 @@ function AnimatedSplashScreen({ children, image }) {
     }
   }, [isAppReady]);
 
-  const onImageLoaded = React.useMemo(() => async () => {
+  const onImageLoaded = useCallback(async () => {
     try {
       await SplashScreen.hideAsync();
       // Load stuff
@@ -79,7 +77,7 @@ function AnimatedSplashScreen({ children, image }) {
     } finally {
       setAppReady(true);
     }
-  });
+  }, []);
 
   return (
     <View style={{ flex: 1 }}>
@@ -117,13 +115,13 @@ function AnimatedSplashScreen({ children, image }) {
 }
 
 function MainScreen() {
-  function onReloadPress() {
+  const onReloadPress = useCallback(() => {
     if (Platform.OS === "web") {
       location.reload();
     } else {
       Updates.reloadAsync();
     }
-  }
+  }, []);
 
   return (
     <View
