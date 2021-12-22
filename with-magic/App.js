@@ -1,14 +1,21 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Keyboard, StyleSheet, Text, TextInput, View } from 'react-native';
-import { Magic } from '@magic-sdk/react-native';
+import { Magic } from "@magic-sdk/react-native";
+import { useCallback, useEffect, useState } from "react";
+import {
+  Button,
+  Keyboard,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 
 // Add your own key here
-const magic = new Magic('pk_test_4210A822FBFD3437');
+const magic = new Magic("pk_test_4210A822FBFD3437");
 
 export default function App() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
 
   // Check if we are logged in and fetch the user info
   const onMagicCheck = useCallback(async () => {
@@ -40,7 +47,7 @@ export default function App() {
     try {
       await magic.user.logout();
       setUser(null);
-      setEmail('');
+      setEmail("");
     } finally {
       setLoading(false);
     }
@@ -59,15 +66,30 @@ export default function App() {
           <>
             <Text style={styles.paragraph}>Hi {user.email}!</Text>
             <Text style={styles.code}>{JSON.stringify(user, null, 2)}</Text>
-            <Button disabled={loading} title={loading ? 'loading...' : 'logout'} onPress={onMagicLogout} />
+            <Button
+              disabled={loading}
+              title={loading ? "loading..." : "logout"}
+              onPress={onMagicLogout}
+            />
           </>
         )}
         {!user && (
           // User is not authenticated, show login form
           <>
-            <Text style={styles.paragraph}>Enter your email to authenticate</Text>
-            <TextInput style={styles.input} value={email} onChangeText={setEmail} textContentType="emailAddress" />
-            <Button disabled={loading} title={loading ? 'loading...' : 'login'} onPress={onMagicLogin} />
+            <Text style={styles.paragraph}>
+              Enter your email to authenticate
+            </Text>
+            <TextInput
+              style={styles.input}
+              value={email}
+              onChangeText={setEmail}
+              textContentType="emailAddress"
+            />
+            <Button
+              disabled={loading}
+              title={loading ? "loading..." : "login"}
+              onPress={onMagicLogin}
+            />
           </>
         )}
       </View>
@@ -80,9 +102,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ecf0f1',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ecf0f1",
   },
   content: {
     padding: 8,
@@ -91,8 +113,8 @@ const styles = StyleSheet.create({
   paragraph: {
     margin: 24,
     fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
   },
   code: {
     margin: 16,
@@ -100,6 +122,6 @@ const styles = StyleSheet.create({
   input: {
     marginVertical: 16,
     padding: 12,
-    backgroundColor: '#e5e5e5',
+    backgroundColor: "#e5e5e5",
   },
 });

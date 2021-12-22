@@ -1,6 +1,5 @@
-import * as React from 'react';
-import { View } from 'react-native';
-import MapView from 'react-native-maps';
+import { View } from "react-native";
+import MapView from "react-native-maps";
 
 export default function App() {
   return (
@@ -11,10 +10,12 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <MapView style={{
-        width: "100%",
-        height: "100%",
-      }} />
+      <MapView
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      />
     </View>
   );
 }

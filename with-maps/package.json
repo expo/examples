@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "expo": "^43.0.0",
+    "expo": "^44.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-maps": "0.28.0",
+    "react-native-maps": "0.29.4",
     "react-native-web": "0.17.1"
   },
   "devDependencies": {

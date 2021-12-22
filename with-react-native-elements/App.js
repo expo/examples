@@ -1,14 +1,14 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
-import React from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
 
 export default function AppContainer() {
-  const [ready, setReady] = React.useState(false);
+  const [ready, setReady] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
       try {
         await Font.loadAsync(MaterialIcons.font);
@@ -27,7 +27,7 @@ export default function AppContainer() {
 }
 
 function App() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   return (
     <View style={styles.container}>

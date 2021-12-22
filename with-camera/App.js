@@ -1,6 +1,12 @@
-import React, { useState, useRef } from "react";
-import { Button, Text, View, TouchableOpacity, ImageBackground } from "react-native";
 import { Camera } from "expo-camera";
+import { useRef, useState } from "react";
+import {
+  Button,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 export default function App() {
   const [status, requestPermission] = Camera.useCameraPermissions();
@@ -10,8 +16,12 @@ export default function App() {
 
   if (!status?.granted) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignContent: 'center' }}>
-        <Text style={{ textAlign: 'center' }}>We need access to your camera</Text>
+      <View
+        style={{ flex: 1, justifyContent: "center", alignContent: "center" }}
+      >
+        <Text style={{ textAlign: "center" }}>
+          We need access to your camera
+        </Text>
         <Button onPress={requestPermission} title="Grant permission" />
       </View>
     );
@@ -95,9 +105,7 @@ export default function App() {
             }
           }}
         >
-          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>
-            📸
-          </Text>
+          <Text style={{ fontSize: 30, padding: 10, color: "white" }}>📸</Text>
         </TouchableOpacity>
       </View>
     </Camera>
