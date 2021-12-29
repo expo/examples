@@ -1,6 +1,6 @@
 import { GLView } from "expo-gl";
 import { Renderer, TextureLoader } from "expo-three";
-import * as React from "react";
+import { useEffect } from "react";
 import {
   AmbientLight,
   BoxBufferGeometry,
@@ -17,7 +17,7 @@ import {
 export default function App() {
   let timeout;
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Clear the animation loop when the component unmounts
     return () => clearTimeout(timeout);
   }, []);

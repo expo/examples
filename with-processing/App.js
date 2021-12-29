@@ -1,4 +1,3 @@
-import React from "react";
 import { ProcessingView } from "expo-processing";
 
 const sketch = (p) => {
