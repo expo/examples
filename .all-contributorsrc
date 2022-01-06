@@ -115,6 +115,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "takameyer",
+      "name": "Andrew Meyer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/164606?v=4",
+      "profile": "http://www.takameyer.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
