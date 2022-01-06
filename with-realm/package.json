@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "@realm/react": "^0.1.0",
+    "expo": "^44.0.3",
+    "expo-dev-client": "~0.8.0",
+    "react-native-get-random-values": "~1.7.2",
+    "realm": "^10.11.0"
+  }
+}
