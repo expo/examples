@@ -1,0 +1,7 @@
+{
+  "expo": {
+    "plugins": [
+      "@config-plugins/react-native-webrtc"
+    ]
+  }
+}
