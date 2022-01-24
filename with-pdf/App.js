@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, useWindowDimensions } from "react-native";
+import { SafeAreaView, useWindowDimensions } from "react-native";
 import Pdf from "react-native-pdf";
 
 const source = {
@@ -10,7 +10,7 @@ export default function App() {
   const { width, height } = useWindowDimensions();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Pdf
         source={source}
         onLoadComplete={(numberOfPages, filePath) => {
@@ -30,11 +30,3 @@ export default function App() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-});

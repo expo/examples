@@ -6,7 +6,7 @@
   },
   "dependencies": {
     "expo": "^44.0.3",
-    "expo-dev-client": "~0.8.0",
+    "expo-dev-client": "~0.8.2",
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
     "fbjs": "^3.0.2",
