@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "react-native-webrtc": "^1.94.1",
+    "expo": "^44.0.3",
+    "expo-dev-client": "~0.8.0"
+  },
+  "devDependencies": {
+    "@config-plugins/react-native-webrtc": "^2.0.0"
+  }
+}
