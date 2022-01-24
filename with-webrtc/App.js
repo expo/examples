@@ -1,12 +1,18 @@
-import { useState } from 'react';
-import { Button, SafeAreaView, StatusBar, StyleSheet, View } from 'react-native';
-import { mediaDevices, RTCView } from 'react-native-webrtc';
+import { useState } from "react";
+import {
+  Button,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  View,
+} from "react-native";
+import { mediaDevices, RTCView } from "react-native-webrtc";
 
 function App() {
   const [stream, setStream] = useState(null);
 
   const start = async () => {
-    console.log('start');
+    console.log("start");
     if (!stream) {
       let s;
       try {
@@ -19,7 +25,7 @@ function App() {
   };
 
   const stop = () => {
-    console.log('stop');
+    console.log("stop");
     if (stream) {
       stream.release();
       setStream(null);
@@ -27,30 +33,17 @@ function App() {
   };
 
   return (
-    <SafeAreaView style={StyleSheet.absoluteFillObject}>
+    <SafeAreaView style={{ flex: 1 }}>
       <StatusBar barStyle="dark-content" />
-      {
-        stream &&
-        <RTCView
-          streamURL={stream.toURL()}
-          style={{ flex: 1 }} />
-      }
-      <View
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0
-        }}>
-        <Button
-          title="Start"
-          onPress={start} />
-        <Button
-          title="Stop"
-          onPress={stop} />
+      <View style={{ flex: 1 }}>
+        {stream && <RTCView streamURL={stream.toURL()} style={{ flex: 1 }} />}
+      </View>
+      <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
+        <Button title="Start" onPress={start} />
+        <Button title="Stop" onPress={stop} />
       </View>
     </SafeAreaView>
   );
-};
+}
 
 export default App;

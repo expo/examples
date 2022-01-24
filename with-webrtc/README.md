@@ -18,17 +18,9 @@ npx create-react-native-app -t with-webrtc
 ## 🏃 How to build and run locally
 
 - [Setup development Environment](https://reactnative.dev/docs/environment-setup)
-- Build/Run on iOS 🍎
-
-```
-yarn ios
-```
-
-- Build/Run on Android 🤖
-
-```
-yarn android
-```
+- 🍎 Build/Run on iOS `yarn ios`.
+  - WebRTC doesn't work in the iOS Simulator since there is no camera. Run `expo run:ios -d` to select a connected iOS device.
+- 🤖 Build/Run on Android `yarn android`.
 
 ## 📝 Notes
 
