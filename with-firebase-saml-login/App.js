@@ -1,101 +1,113 @@
-import React, { useState } from 'react'
-import { View, Button, LogBox, StyleSheet, Text } from 'react-native'
-import * as WebBrowser from 'expo-web-browser';
-import * as Linking from 'expo-linking';
+import React, { useEffect, useState } from "react";
+import { View, Button, LogBox, StyleSheet, Text } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import * as Linking from "expo-linking";
+import Constants from 'expo-constants';
 
-import firebase from 'firebase'
+
+import { initializeApp, getApps } from "firebase/app";
+import {
+  getAdditionalUserInfo,
+  getAuth,
+  onAuthStateChanged,
+  SAMLAuthProvider,
+  signInWithCredential,
+} from "firebase/auth";
 
 // Add Firebase configuration here: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
-  // apiKey: "XXXX",
-  // authDomain: "XXXX.firebaseapp.com"
+  apiKey: "AIzaSyDIOW4mnUoM568wgxQP9MOtP6-vLZZruy8",
+  authDomain: "react-danceblue.firebaseapp.com",
+  databaseURL: "https://react-danceblue.firebaseio.com",
+  projectId: "react-danceblue",
+  storageBucket: "react-danceblue.appspot.com",
+  messagingSenderId: "480114538491",
+  appId: "1:480114538491:web:2d534667a63c9867a2bd5e",
+  measurementId: "G-BP0CDEHW3B",
 };
 
 // URL to the location of the server code found in './backend/firebase-wrapper-app.html'
-const backendUrl = "www.example.com";
+const backendUrl = "https://app.danceblue.org/saml-relay.html";
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+// Initialize the firebase app if no app exists
+if (!getApps().length) {
+  initializeApp(firebaseConfig);
 }
 
-// Firebase sets some timeers for a long period, which will trigger some warnings. Let's turn that off for this example
+// Firebase sets some timers for a long period, which will trigger some warnings. Let's turn that off for this example
 LogBox.ignoreLogs([`Setting a timer for a long period`]);
 
 const App = () => {
-  const [redirectData, setRedirectData] = useState(null)
-  const [userCredential, setUserCredential] = useState(null)
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [redirectData, setRedirectData] = useState(null);
+  const [additionalUserInfo, setAdditionalUserInfo] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  _openAuthSessionAsync = async () => {
+  // Set a listener for when the user's login state changes which will unsubscribe when the app unmounts
+  useEffect(
+    onAuthStateChanged(getAuth(), (newUser) => {
+      if (newUser) {
+        setUser(newUser);
+        setLoggedIn(true);
+      } else {
+        setUser(null);
+        setLoggedIn(false);
+      }
+    }),
+    []
+  );
+
+  // When redirectData is updated, check to see if it exists, if so try to sign in using it
+  useEffect(() => {
+    if (redirectData?.queryParams?.credential) {
+      const authCredential = SAMLAuthProvider.credentialFromJSON(
+        JSON.parse(redirectData.queryParams.credential)
+      );
+      signInWithCredential(getAuth(), authCredential)
+        .then((uCredential) => {
+          setAdditionalUserInfo(getAdditionalUserInfo(uCredential));
+        })
+        .catch(alert);
+    }
+  }, [redirectData]);
+
+  const _openAuthSessionAsync = async () => {
     try {
       let result = await WebBrowser.openAuthSessionAsync(
-        backendUrl + `?linkingUri=${Linking.makeUrl(
-          "/saml-authenticate"
-        )}&apiKey=${firebaseConfig["apiKey"]}&authDomain=${
-          firebaseConfig["authDomain"]
-        }`
+        backendUrl +
+          `?linkingUri=${Linking.createURL("/saml-sign-in")}&apiKey=${
+            firebaseConfig["apiKey"]
+          }&authDomain=${firebaseConfig["authDomain"]}`,
+          Constants.linkingUri, // This should not be required, but there is some longstanding weird behavior with WebBrowser, see https://github.com/expo/expo/issues/6679#issuecomment-637032717
+        { dismissButtonStyle: "cancel", enableDefaultShareMenuItem: false }
       );
-      let redirectData;
-      if (result.url) {
-        redirectData = Linking.parse(result.url);
+      console.log(result.type);
+      if (result?.url) {
+        // You can check why no url would have been returned with result.type
+        setRedirectData(Linking.parse(result.url));
       }
-      this.setState({ result, redirectData });
     } catch (error) {
       alert(error);
       console.log(error);
     }
-  
-    if (!this.state.redirectData) {
-      return;
-    }
-  
-    firebase
-      .auth()
-      .signInWithCredential(
-        firebase.auth.AuthCredential.fromJSON(
-          JSON.parse(this.state.redirectData.queryParams.credential)
-        )
-      )
-      .then((uCredential) => {
-        this.setState({ userCredential: uCredential });
-        this.setState({loggedIn: true})
-      });
   };
 
   return (
     <View style={styles.container}>
       {loggedIn && (
         <>
+          <Text>{"Profile object: " + additionalUserInfo.profile}</Text>
           <Text>
-            {"Profile object: " + userCredential.additionalUserInfo.profile}
+            {"Is this the first time firebase has seen this user: " +
+              additionalUserInfo.isNewUser}
           </Text>
-          <Text>
-            {"Is this the first time firebase has seen this user: " + userCredential.additionalUserInfo.isNewUser}
-          </Text>
-          <Text>
-            {"Provider ID: " + userCredential.additionalUserInfo.providerId}
-          </Text>
-          <Text>
-            {"Username: " + userCredential.additionalUserInfo.username}
-          </Text>
-          <Text>
-            {"Operation type (should be 'login' or similar): " + userCredential.operationType}
-          </Text>
-          <Text>
-            {"Display name: " + userCredential.user.displayName}
-          </Text>
-          <Text>
-            {"Email: " + userCredential.user.email}
-          </Text>
-          <Text>
-            {"SSO Metadata: " + userCredential.user.metadata}
-          </Text>
-          <Text>
-            {"Provider data: " + userCredential.user.providerData}
-          </Text>
-          <Text>
-            {"UID: " + userCredential.user.uid}
-          </Text>
+          <Text>{"Provider ID: " + additionalUserInfo.providerId}</Text>
+          <Text>{"Username: " + additionalUserInfo.username}</Text>
+          <Text>{"Display name: " + user.displayName}</Text>
+          <Text>{"Email: " + user.email}</Text>
+          <Text>{"SSO Metadata: " + user.metadata}</Text>
+          <Text>{"Provider data: " + user.providerData}</Text>
+          <Text>{"UID: " + user.uid}</Text>
         </>
       )}
       {!loggedIn && (
@@ -106,7 +118,7 @@ const App = () => {
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
