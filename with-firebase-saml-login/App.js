@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { View, Button, LogBox, StyleSheet, Text } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as WebBrowser from "expo-web-browser";
 import * as Linking from "expo-linking";
-import Constants from 'expo-constants';
-
-
+import Constants from "expo-constants";
 import { initializeApp, getApps } from "firebase/app";
 import {
   getAdditionalUserInfo,
@@ -12,7 +11,9 @@ import {
   onAuthStateChanged,
   SAMLAuthProvider,
   signInWithCredential,
+  initializeAuth,
 } from "firebase/auth";
+import { getReactNativePersistence } from "firebase/auth/react-native";
 
 // Add Firebase configuration here: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
@@ -29,9 +30,16 @@ const firebaseConfig = {
 // URL to the location of the server code found in './backend/firebase-wrapper-app.html'
 const backendUrl = "https://app.danceblue.org/saml-relay.html";
 
+let auth;
 // Initialize the firebase app if no app exists
 if (!getApps().length) {
-  initializeApp(firebaseConfig);
+  const firebaseApp = initializeApp(firebaseConfig);
+  // Required to use the community AsyncStorage package
+  auth = initializeAuth(firebaseApp, {
+    persistence: getReactNativePersistence(AsyncStorage),
+  });
+} else {
+  auth = getAuth();
 }
 
 // Firebase sets some timers for a long period, which will trigger some warnings. Let's turn that off for this example
@@ -45,7 +53,7 @@ const App = () => {
 
   // Set a listener for when the user's login state changes which will unsubscribe when the app unmounts
   useEffect(
-    onAuthStateChanged(getAuth(), (newUser) => {
+    onAuthStateChanged(auth, (newUser) => {
       if (newUser) {
         setUser(newUser);
         setLoggedIn(true);
@@ -63,7 +71,7 @@ const App = () => {
       const authCredential = SAMLAuthProvider.credentialFromJSON(
         JSON.parse(redirectData.queryParams.credential)
       );
-      signInWithCredential(getAuth(), authCredential)
+      signInWithCredential(auth, authCredential)
         .then((uCredential) => {
           setAdditionalUserInfo(getAdditionalUserInfo(uCredential));
         })
@@ -78,7 +86,7 @@ const App = () => {
           `?linkingUri=${Linking.createURL("/saml-sign-in")}&apiKey=${
             firebaseConfig["apiKey"]
           }&authDomain=${firebaseConfig["authDomain"]}`,
-          Constants.linkingUri, // This should not be required, but there is some longstanding weird behavior with WebBrowser, see https://github.com/expo/expo/issues/6679#issuecomment-637032717
+        Constants.linkingUri, // This should not be required, but there is some longstanding weird behavior with WebBrowser, see https://github.com/expo/expo/issues/6679#issuecomment-637032717
         { dismissButtonStyle: "cancel", enableDefaultShareMenuItem: false }
       );
       console.log(result.type);
@@ -96,13 +104,28 @@ const App = () => {
     <View style={styles.container}>
       {loggedIn && (
         <>
-          <Text>{"Profile object: " + additionalUserInfo.profile}</Text>
-          <Text>
-            {"Is this the first time firebase has seen this user: " +
-              additionalUserInfo.isNewUser}
-          </Text>
-          <Text>{"Provider ID: " + additionalUserInfo.providerId}</Text>
-          <Text>{"Username: " + additionalUserInfo.username}</Text>
+          {!!additionalUserInfo && (
+            <>
+              <Text>{"Profile object: " + additionalUserInfo.profile}</Text>
+              <Text>
+                {"Is this the first time firebase has seen this user: " +
+                  additionalUserInfo.isNewUser}
+              </Text>
+              <Text>{"Provider ID: " + additionalUserInfo.providerId}</Text>
+              <Text>{"Username: " + additionalUserInfo.username}</Text>
+            </>
+          )}
+          {!additionalUserInfo && (
+            <>
+              <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                AdditionalUserInfo is not persisted in the user object and therefore is only shown here after you log in the first time, you must implement a way
+                store it separately yourself
+              </Text>
+              <Text style={{ textAlign: "center", paddingBottom: 15}}>
+                Reset AsyncStorage and reload to log in again
+              </Text>
+            </>
+          )}
           <Text>{"Display name: " + user.displayName}</Text>
           <Text>{"Email: " + user.email}</Text>
           <Text>{"SSO Metadata: " + user.metadata}</Text>
@@ -116,6 +139,10 @@ const App = () => {
           <Button onPress={_openAuthSessionAsync} title="SSO Login" />
         </>
       )}
+      <Button
+        onPress={() => AsyncStorage.clear()}
+        title="Reset AsyncStorage"
+      />
     </View>
   );
 };
