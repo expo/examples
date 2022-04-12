@@ -31,11 +31,12 @@
 
     // Set up firebase variables
     const app = firebase.initializeApp({
-      apiKey: "AIzaSyDxKegAvCRvnZR-FQxl2EKBQoZr04TfCyc",
-      authDomain: "react-danceblue.firebaseapp.com",
+      // Add Firebase configuration here: https://firebase.google.com/docs/web/learn-more#config-object
+      apiKey: "", 
+      authDomain: "",
     });
     const provider = new firebase.auth.SAMLAuthProvider(
-      "saml.danceblue-firebase-linkblue-saml"
+      "!!!!!PUT YOUR PROVIDER ID HERE!!!!!"
     );
 
     if (params["linkingUri"].includes("saml-sign-in")) {
