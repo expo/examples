@@ -27,8 +27,8 @@ const firebaseConfig = {
   measurementId: "",
 };
 
-// URL to the location of the server code found in './backend/firebase-wrapper-app.html'
-const backendUrl = "https://app.danceblue.org/saml-relay.html";
+// URL to the location of the server code found in './backend/firebase-wrapper-app.html', pre-set to the URL npm serve will host the page on by default
+const backendUrl = "http://localhost:3000";
 
 let auth;
 // Initialize the firebase app if no app exists

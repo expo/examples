@@ -25,7 +25,7 @@ page, and then pass the auth token back to our app. Using that token we can then
 
 ### Caveat
 
-Because the request must be made from a dummy webpage you need to host the page found in the example's 'backend' directory on a public webserver. As you are already using Firebase, it may be easiest to use [Firebase Hosting](https://firebase.google.com/docs/hosting), otherwise you can use a web host of your choice.
+Because the request must be made from a dummy webpage you need to host the page found in the example's 'backend' directory on a public webserver. As you are already using Firebase, it may be easiest to use [Firebase Hosting](https://firebase.google.com/docs/hosting), otherwise you can use a web host of your choice. During development however you can run the `serve` script defined in package.json using `npm serve` or `yarn serve`
 
 ### Supported platforms
 
