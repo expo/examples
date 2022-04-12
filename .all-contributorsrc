@@ -124,6 +124,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "tajetaje",
+      "name": "Tag Howard",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29828269?v=4",
+      "profile": "http://cs.uky.edu/~jtho264/index.html",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
