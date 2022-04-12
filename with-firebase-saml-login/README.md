@@ -15,7 +15,7 @@ As this example relies on Firebase authentication you must have a Firebase proje
 ## Running the app
 
 - Run `yarn` or `npm install`
-- Open `app` with [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `expo start` in the root directory to start the development server.
 
 ## The idea behind the example
 
