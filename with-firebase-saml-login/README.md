@@ -15,11 +15,11 @@ As this example relies on Firebase authentication you must have a Firebase proje
 ## Running the app
 
 - Run `yarn` or `npm install`
-- Open `app` with [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `expo start` in the root directory to start the development server.
 
 ## The idea behind the example
 
-Firebase does not support SAML (or any popup/redirect) login on react native, nor in any webview components. However through
+Firebase does not support SAML (or any popup/redirect) login in React Native, nor in any webview components. However through
 the use of a web server and dummy page we can give firebase the https protocol it is looking for, authenticate the user in that
 page, and then pass the auth token back to our app. Using that token we can then log the user in.
 
@@ -29,4 +29,4 @@ Because the request must be made from a dummy webpage you need to host the page 
 
 ### Supported platforms
 
-Tested on Expo:Go ios and an Android emulator and theoretically could be modified to work web as well
+Tested on the Expo Go app for iOS and in an Android emulator. This example could theoretically be modified to work on the web as well.

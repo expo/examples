@@ -45,7 +45,7 @@ if (!getApps().length) {
 // Firebase sets some timers for a long period, which will trigger some warnings. Let's turn that off for this example
 LogBox.ignoreLogs([`Setting a timer for a long period`]);
 
-const App = () => {
+function App() {
   const [redirectData, setRedirectData] = useState(null);
   const [additionalUserInfo, setAdditionalUserInfo] = useState(null);
   const [user, setUser] = useState(null);
