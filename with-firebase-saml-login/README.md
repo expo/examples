@@ -29,4 +29,4 @@ Because the request must be made from a dummy webpage you need to host the page 
 
 ### Supported platforms
 
-Tested on Expo:Go ios and an Android emulator and theoretically could be modified to work web as well
+Tested on the Expo Go app for iOS and in an Android emulator. This example could theoretically be modified to work on the web as well.
