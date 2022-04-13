@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head> </head>
+
+<body>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script>
+    // Utility functions
+    function setCookie(cName, cValue, expMinutes) {
+      let date = new Date();
+      date.setTime(date.getTime() + expMinutes * 60 * 1000);
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+    }
+    function getCookie(cName) {
+      const name = cName + "=";
+      const cDecoded = decodeURIComponent(document.cookie); //to be careful
+      const cArr = cDecoded.split("; ");
+      let res;
+      cArr.forEach((val) => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+      });
+      return res;
+    }
+
+    // Get URL Query Parameters
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+
+    // Set up firebase variables
+    const app = firebase.initializeApp({
+      // Add Firebase configuration here: https://firebase.google.com/docs/web/learn-more#config-object
+      apiKey: "", 
+      authDomain: "",
+    });
+    const provider = new firebase.auth.SAMLAuthProvider(
+      "!!!!!PUT YOUR PROVIDER ID HERE!!!!!"
+    );
+
+    if (params["linkingUri"].includes("saml-sign-in")) {
+      // Are we logging a user in?
+      if (getCookie("redirecting") === "true") {
+        // Has firebase redirected back here from an SSO page?
+        setCookie("redirecting", "false", 5); // Reset the redirect cookie in case the user comes back within 5 minutes (cookie expiration)
+        app
+          .auth()
+          .getRedirectResult() // Get the auth token generated from the SAML login page
+          .then(
+            function (result) {
+              let credential = result.credential;
+              let credentialJSON = JSON.stringify(credential.toJSON()); // Convert the auth token into a string so it can be passed back
+              setTimeout(function () {
+                window.location.replace(
+                  params["linkingUri"] + "?credential=" + credentialJSON
+                ); // Redirect back to the app
+              }, 200);
+            },
+            function (error) {
+              alert("error code: " + error.code + ": " + error);
+            }
+          );
+      } else {
+        setTimeout(function () {
+          setCookie("redirecting", "true", 5); // Remember that it is a redirect once the user signs in
+          app.auth().signInWithRedirect(provider); // Go to the sign in page
+        }, 200);
+      }
+    } else if (params["linkingUri"].includes("saml-reauth")) {
+      // Are we reauthenticating?
+      if (getCookie("redirecting") === "true") {
+        // Has firebase redirected back here from an SSO page?
+        setCookie("redirecting", "false", 5); // Reset the redirect cookie in case the user comes back withing 5 minutes (cookie expiration)
+        // !!! Implement this if you need it, implementation will vary based on use case, but for SSO you generally don't need it !!!
+        setTimeout(function () {
+          window.location.replace(
+            params["linkingUri"] + "?credential=" + credentialJSON
+          ); // Redirect back to the app
+        }, 200);
+      } else {
+        setTimeout(function () {
+          setCookie("redirecting", "true", 5); // Remember that it is a redirect once the user signs in
+          app.auth().reauthenticateWithRedirect(provider); // Go to the sign in page
+        }, 200);
+      }
+    }
+  </script>
+  <p>You should be redirected in a moment, if you are not redirected after a second, reload the page</p>
+</body>
+
+</html>
