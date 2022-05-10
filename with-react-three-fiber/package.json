@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "^44.0.0",
-    "expo-gl": "~11.1.1",
+    "expo": "^45.0.0",
+    "expo-gl": "~11.3.0",
     "expo-three": "~5.7.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-web": "0.17.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native": "0.68.1",
+    "react-native-web": "0.17.7",
     "react-three-fiber": "^5.3.19",
     "three": "^0.122.0"
   },
