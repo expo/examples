@@ -1,4 +1,4 @@
-export default ({ ...config }) => ({
+export default ({ config }) => ({
   ...config,
   splash: {
     image:

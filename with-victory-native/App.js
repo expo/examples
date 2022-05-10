@@ -1,4 +1,3 @@
-import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
 import { StyleSheet, View } from "react-native";
 import { VictoryBar, VictoryChart } from "victory-native";
@@ -16,7 +15,7 @@ export default function App() {
   });
 
   if (!isLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   return (
