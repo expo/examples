@@ -4,7 +4,7 @@
     "expo-image-picker": "~13.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-native": "0.68.1",
+    "react-native": "0.68.2",
     "react-native-web": "0.17.7"
   },
   "devDependencies": {

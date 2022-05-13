@@ -9,7 +9,7 @@
     "expo-web-browser": "~10.2.0",
     "firebase": "^9.6.9",
     "react": "17.0.2",
-    "react-native": "0.68.1"
+    "react-native": "0.68.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
