@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "expo": "^44.0.0",
+    "expo": "^45.0.0",
     "moti": "^0.11.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.3",
-    "react-native-reanimated": "~2.3.1",
-    "react-native-web": "0.17.1"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-reanimated": "~2.8.0",
+    "react-native-web": "0.17.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@expo/webpack-config": "~0.16.2"
+    "@expo/webpack-config": "~0.16.21"
   }
 }
