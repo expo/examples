@@ -7,7 +7,7 @@
   <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
 </p>
 
-Experiment with Development Client in SDK 40.
+Experiment with Development Client in SDK 45.
 
 ## 🚀 How to use
 
