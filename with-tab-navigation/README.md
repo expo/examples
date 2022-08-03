@@ -9,6 +9,10 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
+```sh
+npx create-react-native-app -t with-tab-navigation
+```
+
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
