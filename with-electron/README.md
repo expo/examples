@@ -11,6 +11,10 @@
 
 For more info [check out the latest docs!](https://github.com/expo/expo/blob/master/docs/pages/guides/using-electron.md)
 
+```sh
+npx create-react-native-app -t with-electron
+```
+
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
