@@ -15,6 +15,10 @@
   </a>
 </p>
 
+```sh
+npx create-react-native-app -t with-camera
+```
+
 This example shows how to take a picture and display it.
 
 ## 🚀 How to use
