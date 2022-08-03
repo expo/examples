@@ -4,6 +4,10 @@
 
 Try it at https://expo.dev/@community/with-facebook-auth
 
+```sh
+npx create-react-native-app -t with-facebook-auth
+```
+
 ## How to use
 
 ### Running the app
