@@ -11,6 +11,10 @@
 
 The package `@expo/vector-icons` enables you to use most popular icon sets in a universal app. For more information please refer to the docs: [Expo Icons](https://docs.expo.dev/versions/latest/guides/icons/).
 
+```sh
+npx create-react-native-app -t with-icons
+```
+
 ## 🚀 How to use
 
 #### Creating a new project**
