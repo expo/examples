@@ -6,6 +6,10 @@ This example demonstrates how to use the AWS Amplify to provision and use the AP
 
 Try it at https://exp.host/@ykbryan/aws-storage-upload
 
+```sh
+npx create-react-native-app -t with-aws-storage-upload
+```
+
 ## How to use
 
 ### Setup AWS account
