@@ -15,6 +15,10 @@
   </a>
 </p>
 
+```sh
+npx create-react-native-app -t with-formik
+```
+
 ## 🚀 How to use
 
 - Install packages with `yarn` or `npm install`.
