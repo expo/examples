@@ -11,6 +11,10 @@
 
 This example shows you how to create an animated splash screen for your app. It uses the app loading to load the assets required for the animation. Once that's loaded, it replaces the app loading with a custom component that loads the rest of your app. When all of this is finished, it uses an outro animation and renders the app.
 
+```sh
+npx create-react-native-app -t with-splash-screen
+```
+
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
