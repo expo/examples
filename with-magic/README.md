@@ -7,6 +7,10 @@
   <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
 </p>
 
+```sh
+npx create-react-native-app -t with-magic
+```
+
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
