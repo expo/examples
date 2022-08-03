@@ -13,6 +13,10 @@ This example demonstrates how to implement a "login with Twitter" button, using 
 
 The purpose of the backend is to store the Twitter API keys without leaking this in your app. It also uses a node Twitter library called "[Twitter Lite](https://github.com/draftbit/twitter-lite)" to simplify the API calls.
 
+```sh
+npx create-react-native-app -t with-twitter-auth
+```
+
 ## 🚀 How to use
 
 - Create your own [Twitter app](https://developer.twitter.com/en/apps/create)
