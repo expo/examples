@@ -6,18 +6,18 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^45.0.0",
-    "expo-dev-client": "~0.9.5",
-    "expo-splash-screen": "~0.15.1",
-    "expo-status-bar": "~1.3.0",
-    "expo-updates": "~0.13.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "0.68.2",
-    "react-native-web": "0.17.7"
+    "expo": "^46.0.0",
+    "expo-dev-client": "~1.1.1",
+    "expo-splash-screen": "~0.16.1",
+    "expo-status-bar": "~1.4.0",
+    "expo-updates": "~0.14.3",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.3",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.18.6"
   },
   "name": "with-dev-client",
   "version": "1.0.0"

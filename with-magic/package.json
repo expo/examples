@@ -1,14 +1,14 @@
 {
   "dependencies": {
     "@magic-sdk/react-native": "^6.2.0",
-    "expo": "^45.0.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "0.68.2",
-    "react-native-web": "0.17.7",
-    "react-native-webview": "11.18.1"
+    "expo": "^46.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.3",
+    "react-native-web": "~0.18.7",
+    "react-native-webview": "11.23.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.18.6"
   }
 }
