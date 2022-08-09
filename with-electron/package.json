@@ -9,7 +9,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/electron-adapter": "~0.0.3",
+    "@expo/electron-adapter": "~0.0.55",
     "@expo/webpack-config": "^0.17.0",
     "electron": "20.0.0",
     "expo": "^46.0.0",
