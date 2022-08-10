@@ -52,7 +52,7 @@ if [ "$1" == "--run-fix-dependencies" ]; then
     (cd $DIRNAME && expo doctor --fix-dependencies)
   done
 
-  echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
+  echo "Dependency fixes complete!"
   exit 0
 fi
 
