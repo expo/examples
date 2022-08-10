@@ -46,6 +46,12 @@ if [ "$1" == "--run-fix-dependencies" ]; then
     (cd $DIRNAME && expo doctor --fix-dependencies)
   done
 
+  echo "Fixing dependencies on apps inside with-yarn-workspaces..."
+  mkdir ./.sdk-upgrade-logs/with-yarn-workspaces
+  for d in  with-yarn-workspaces/apps/*/ ; do
+    (cd $DIRNAME && expo doctor --fix-dependencies)
+  done
+
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
   exit 0
 fi
