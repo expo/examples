@@ -31,8 +31,6 @@ if [ "$1" == "--run-expo-upgrade" ]; then
   done
 
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
-  # TODO: should be possible to work around the latter two, at least. Need special logic for workspaces
-  echo "with-yarn-workspaces, and with-gatsby have issues that may prevent this script from working properly!"
   exit 0
 fi
 
