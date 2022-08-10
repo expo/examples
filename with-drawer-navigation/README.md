@@ -18,3 +18,4 @@
 
 - This is a very basic example from the [react navigation](https://reactnavigation.org/) docs.
 - [Drawer navigation documentation](https://reactnavigation.org/docs/drawer-based-navigation).
+- [Reanimated Babel plugin may be required](https://github.com/software-mansion/react-native-reanimated/issues/3410)
