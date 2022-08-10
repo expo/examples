@@ -14,7 +14,7 @@
 ## 🚀 How to use
 
 - Install packages with `yarn` or `npm install`.
-- Run `yarn start` or `npm start` to start the bundler.
+- Run `expo start` or `npm start` to start the bundler.
 - Open the project in a React runtime to try it:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
@@ -23,7 +23,7 @@
 
 This project can be run from Expo client app. You may find that you want to add more native code later on. You can do this by ejecting the project and rebuilding it yourself.
 
-- Run `yarn eject` to create the native projects.
+- Run `expo eject` to create the native projects.
 - You can still run your project on Expo client, you just won't be able to access any new native modules you add.
 
 ## Publishing

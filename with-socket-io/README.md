@@ -27,7 +27,7 @@ This example shows how to connect and interact with socket-io backends.
 
 ### Running the server
 
-- `cd` into the `backend` directory and run `yarn` or `npm install`, then run `yarn start`
+- `cd` into the `backend` directory and run `yarn` or `npm install`, then run `expo start`
 - Install [ngrok](https://ngrok.com/download) and run `ngrok http 3000` and copy the https url that looks something like this `https://f7333e87.ngrok.io`.
 
 ## 📝 Notes
