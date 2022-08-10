@@ -5,7 +5,7 @@
     "expo-font": "~10.2.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-native": "0.69.3",
+    "react-native": "0.69.4",
     "react-native-svg": "12.3.0",
     "react-native-web": "~0.18.7",
     "victory-native": "^35.5.5"
