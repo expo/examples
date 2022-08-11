@@ -15,7 +15,7 @@ As this example relies on Firebase authentication you must have a Firebase proje
 ## Running the app
 
 - Run `yarn` or `npm install`
-- Run `expo start` in the root directory to start the development server.
+- Run `npx expo start` in the root directory to start the development server.
 
 ## The idea behind the example
 

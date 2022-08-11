@@ -3,14 +3,14 @@
 if [ "$1" == "" ] || [ "$1" == "--help" ]; then
   echo "Available flags:"
   echo "--help"
-  echo "--run-expo-upgrade - run yarn and expo upgrade to update to latest SDK on all examples"
-  echo "--run-fix-dependencies - run expo doctor --fix-dependencies on all repos"
+  echo "--run-expo-upgrade - run yarn and expo-cli upgrade to update to latest SDK on all examples"
+  echo "--run-fix-dependencies - run npx expo install --fix on all repos"
   exit 0
 fi
 
 if [ "$1" == "--run-expo-upgrade" ]; then
   echo "Upgrading all projects to the latest SDK..."
-  echo "For each example, this will run `yarn` and then run `expo upgrade`, accepting all defaults."
+  echo "For each example, this will run `yarn` and then run `expo-cli upgrade`, accepting all defaults."
   echo "Upgrade logs will be written to .sdk-upgrade-logs."
 
   mkdir ./.sdk-upgrade-logs
@@ -20,14 +20,14 @@ if [ "$1" == "--run-expo-upgrade" ]; then
     echo "• Run yarn"
     (cd $DIRNAME && yarn --silent) # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
     echo "• Run expo upgrade"
-    (cd $DIRNAME && echo y | expo upgrade > ../.sdk-upgrade-logs/$DIRNAME.txt)
+    (cd $DIRNAME && echo y | expo-cli upgrade > ../.sdk-upgrade-logs/$DIRNAME.txt)
   done
 
   # yarn workspaces has example(s) inside of app folder
   echo "• Run expo upgrade on apps inside with-yarn-workspaces"
   mkdir ./.sdk-upgrade-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
-    (cd $DIRNAME && echo y | expo upgrade > ../.sdk-upgrade-logs/$DIRNAME.txt)
+    (cd $DIRNAME && echo y | expo-cli upgrade > ../.sdk-upgrade-logs/$DIRNAME.txt)
   done
 
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
@@ -41,13 +41,13 @@ if [ "$1" == "--run-fix-dependencies" ]; then
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Fixing dependencies on $DIRNAME..."
-    (cd $DIRNAME && expo doctor --fix-dependencies)
+    (cd $DIRNAME && npx expo install --fix)
   done
 
   echo "Fixing dependencies on apps inside with-yarn-workspaces..."
   mkdir ./.sdk-upgrade-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
-    (cd $DIRNAME && expo doctor --fix-dependencies)
+    (cd $DIRNAME && npx expo install --fix)
   done
 
   echo "Dependency fixes complete!"

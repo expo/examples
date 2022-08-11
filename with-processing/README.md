@@ -20,7 +20,7 @@ Example demonstrating use of the [`processing-js`](https://github.com/processing
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ## 📝 Notes
 

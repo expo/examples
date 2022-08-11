@@ -23,11 +23,11 @@ This example shows how to connect and interact with socket-io backends.
 
 - Run `yarn` or `npm install`
 - Open `App.js` and change the `socketEndpoint` at the top of the file to point to your endpoint.
-- Open `app` with [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Open `app` with [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ### Running the server
 
-- `cd` into the `backend` directory and run `yarn` or `npm install`, then run `expo start`
+- `cd` into the `backend` directory and run `yarn` or `npm install`, then run `npx expo start`
 - Install [ngrok](https://ngrok.com/download) and run `ngrok http 3000` and copy the https url that looks something like this `https://f7333e87.ngrok.io`.
 
 ## 📝 Notes

@@ -16,7 +16,7 @@ Create Three.js projects using React components and props!
 > `npx create-react-native-app my-app -t with-react-three-fiber`
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
 
 ## 📝 Notes
 

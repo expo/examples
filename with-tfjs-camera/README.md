@@ -13,7 +13,7 @@ Identify objects in real time using `@tensorflow/tfjs`, `expo-camera`, and `expo
 
 > `npx create-react-native-app my-app -t with-tfjs-camera`
 
-- Run `expo start`, open on a native device (simulator, emulator, and browser are not supported).
+- Run `npx expo start`, open on a native device (simulator, emulator, and browser are not supported).
 - You can swap out `@tensorflow-models/mobilenet` for another [TensorFlow model](https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md) to achieve different results.
 
 ## 📝 Notes

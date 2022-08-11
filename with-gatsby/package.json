@@ -3,7 +3,6 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject",
     "web": "gatsby develop",
     "build:web": "gatsby build",
     "serve:web": "gatsby serve"
