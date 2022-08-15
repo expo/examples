@@ -27,7 +27,7 @@
 
 ## Running/Modifying Native Code
 
-You can generate native iOS and android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
+You can generate native iOS and Android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
 
 > 💡 Learn more about [native code in Expo](https://docs.expo.dev/workflow/customizing/)
 
