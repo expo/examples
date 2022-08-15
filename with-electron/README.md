@@ -20,6 +20,6 @@ For more info [check out the latest docs!](https://github.com/expo/expo/blob/mas
 ## 📝 Notes
 
 - [Known issue with app entry](https://github.com/expo/expo-cli/issues/1385)
-- [background on 'require not defined' error](https://github.com/electron/electron-quick-start/issues/463#issuecomment-869219170). If needed, this fix can be applied after running `yarn expo-electron customize` to allow customization of additional electron files.
+- [Background on 'require not defined' error](https://github.com/electron/electron-quick-start/issues/463#issuecomment-869219170). If needed, this fix can be applied after running `yarn expo-electron customize` to allow customization of additional electron files.
 
 [electron]: https://www.electronjs.org/
