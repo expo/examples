@@ -19,7 +19,7 @@
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
 
-## Running/ Modifying Native Code
+## Running/Modifying Native Code
 
 You can generate native iOS and android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
 
