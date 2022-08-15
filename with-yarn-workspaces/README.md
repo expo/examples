@@ -16,7 +16,7 @@
 </p>
 
 Demonstrates the use of a Yarn Workspace Monorepo with Expo.
-This example installs a monorepo with an application using a separate custom packages.
+This example installs a monorepo with an application using a separate custom package.
 
 ## 🚀 How to use
 
