@@ -37,7 +37,7 @@ Moti is built with TypeScript and has first-class support. Here's how to add TS 
 
 > 💡 Learn more about [TypeScript in Expo](https://docs.expo.dev/guides/typescript/)
 
-## Running/ Modifying Native Code
+## Running/Modifying Native Code
 
 You can generate native iOS and Android projects from your Expo config file (**app.json**/ **app.config.js**) by runnning `npx expo prebuild`. These native projects can then be compiled and run via XCode and Android Studio.
 
