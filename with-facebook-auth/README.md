@@ -9,7 +9,7 @@ Try it at https://expo.dev/@community/with-facebook-auth
 ### Running the app
 
 - Run `yarn` or `npm install`
-- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 - Press "Open FB Auth" in the app and then check your logs. Take the `redirectUrl` that was logged and enter it into the "Valid OAuth redirect URIs" in your Facebook app configuration step below.
 
 ### Setting up the Facebook app

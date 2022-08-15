@@ -30,7 +30,7 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 
 - Install with `yarn` or `npm install`
 - Open `App.js` and replace `requestTokenURL` and `accessTokenURL` with your backend URLs
-- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out
+- Run `yarn start` or `npm run start` to try it out
 
 ### 📁 File Structure
 

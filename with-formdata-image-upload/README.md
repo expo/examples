@@ -3,7 +3,7 @@
 ### Running the app
 
 - Run `yarn` or `npm install`
-- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ### Running the server
 

@@ -105,7 +105,7 @@ export const text = () => ( /_ Example JSX _/ );
 
 ```
 
-- Now run `npx expo start` to see it in action!
+- Now run `yarn start` or `npm run start` to see it in action!
 
 ### 📁 File Structure
 

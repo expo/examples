@@ -14,7 +14,7 @@ This example shows you how to create an animated splash screen for your app. It 
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
-- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 - Wait until the app is built and downloaded. Press "run again" to reload the app and splash screen.
 
 ## 📝 Notes

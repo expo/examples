@@ -6,5 +6,5 @@ Video backgrounds are common in mobile apps. This shows you how to do it univers
 
 - Install: `yarn`
 
-- Run Project Locally: `npx expo start`
+- Run Project Locally: `yarn start` or `npm run start`
 

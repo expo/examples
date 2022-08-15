@@ -18,7 +18,7 @@
 ## 🚀 How to use
 
 - Install packages with `yarn` or `npm install`.
-- Run `npx expo start` to try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 

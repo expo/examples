@@ -12,7 +12,7 @@
 - Install with `yarn` or `npm install`.
 - Create your own app on [Magic.link](https://magic.link).
 - Open `App.js` and replace `MAGIC_KEY` with your publishable key.
-- Run [`npx expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 

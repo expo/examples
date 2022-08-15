@@ -21,7 +21,7 @@
 
 - Install packages with `yarn` or `npm install`.
   - If you have native iOS code run `npx pod-install`
-- Run `npx expo start` to start the bundler.
+- Run `yarn start` or `npm run start` to start the bundler.
 - Open the project in a React runtime to try it:
   - iOS: [Client iOS](https://itunes.apple.com/app/apple-store/id982107779)
   - Android: [Client Android](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=blankexample)
@@ -33,7 +33,7 @@
 Moti is built with TypeScript and has first-class support. Here's how to add TS support to your project:
 
 - Rename `App.js` ➜ `App.tsx`
-- Run `npx expo start` -- TypeScript will be automatically configured.
+- Run `yarn start` or `npm run start` -- TypeScript will be automatically configured.
 
 > 💡 Learn more about [TypeScript in Expo](https://docs.expo.dev/guides/typescript/)
 
