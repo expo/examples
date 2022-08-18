@@ -13,7 +13,7 @@ Experiment with Development Client in SDK 40.
 
 > `npx create-react-native-app my-app -t with-dev-client`
 
-- Run `expo start --dev-client`, try it out.
+- Run `expo start --dev-client` to try it out.
 
 ## 🏗 Build with EAS
 

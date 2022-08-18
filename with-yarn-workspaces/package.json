@@ -1,14 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "expo-yarn-workspaces check-workspace-dependencies && yarn workspaces run build",
-    "app": "yarn workspace @expo/app expo start"
+    "start-app": "yarn workspace mobile start",
+    "watch-packages": "yarn workspaces run build"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "devDependencies": {
-    "expo-yarn-workspaces": "^1.5.0"
-  }
+  ]
 }

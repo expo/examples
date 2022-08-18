@@ -18,4 +18,4 @@ It's common to need to perform a set of tasks once you publish an update to your
 #### Running the app
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.

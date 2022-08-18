@@ -4,7 +4,7 @@
 
 2. Fill in your AWS credentials in `.env`
 
-3. `npm start`
+3. `npm run start`
 
 4. Update the `apiUrl` in `frontend` to point to the server.
 

@@ -12,7 +12,7 @@
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
-- Run `expo start` to try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 

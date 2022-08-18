@@ -2,65 +2,24 @@
   "name": "mobile",
   "version": "1.0.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject",
-    "build": "echo 'Nothing to build'",
-    "postinstall": "expo-yarn-workspaces postinstall"
+    "build": "echo 'Nothing to build'"
   },
   "dependencies": {
-    "expo": "^45.0.0",
+    "expo": "^46.0.0",
     "expo-custom": "*",
-    "expo-status-bar": "~1.3.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "0.68.2",
-    "react-native-web": "0.17.7"
+    "expo-status-bar": "~1.4.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.4",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
-  },
-  "expo-yarn-workspaces": {
-    "symlinks": [
-      "@unimodules/core",
-      "@unimodules/react-native-adapter",
-      "expo-application",
-      "expo-asset",
-      "expo-constants",
-      "expo-error-recovery",
-      "expo-file-system",
-      "expo-font",
-      "expo-image-loader",
-      "expo-keep-awake",
-      "expo-modules-core",
-      "expo-splash-screen",
-      "expo-structured-headers",
-      "expo-updates-interface",
-      "expo-updates",
-      "unimodules-app-loader",
-      "unimodules-task-manager-interface"
-    ]
-  },
-  "react-native-unimodules": {
-    "android": {
-      "modulesPaths": [
-        "../../../../",
-        "../../../../packages"
-      ],
-      "configuration": "api",
-      "target": "react-native"
-    },
-    "ios": {
-      "modules_paths": [
-        "../../../",
-        "../../../packages"
-      ],
-      "flags": {
-        "inhibit_warnings": false
-      }
-    }
   }
 }

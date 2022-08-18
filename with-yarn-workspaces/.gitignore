@@ -50,3 +50,6 @@ xcuserdata
 
 # VSCode
 .history/
+
+# packages
+packages/*/build

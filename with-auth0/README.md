@@ -15,7 +15,7 @@
 - Create your own app on [Auth0](https://auth0.com).
 - Add the `AuthSession` auth URL to `Allowed Callback URLs` on Auth0.
 - Open `App.js` and replace `auth0ClientId` and `auth0Domain` with your app settings.
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 #### AuthSession callback URL
 
