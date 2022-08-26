@@ -16,7 +16,7 @@ npx create-react-native-app -t with-three
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out **on a device** (this will not work on the iOS simulator).
 
 ## 📝 Notes
 

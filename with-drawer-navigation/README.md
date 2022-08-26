@@ -16,9 +16,10 @@ npx create-react-native-app -t with-drawer-navigation
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
-- Run `expo start` to try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 
 - This is a very basic example from the [react navigation](https://reactnavigation.org/) docs.
 - [Drawer navigation documentation](https://reactnavigation.org/docs/drawer-based-navigation).
+- [Reanimated Babel plugin may be required](https://github.com/software-mansion/react-native-reanimated/issues/3410)

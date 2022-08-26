@@ -6,6 +6,9 @@ Using Gatsby with Expo will enable you to [prerender](https://www.netlify.com/bl
 
 > Notice: Prerendering is an experimental feature with Expo so modules might not be fully optimized for Gatsby. If you find bugs please report them on the [Expo repo](https://github.com/expo/expo/issues) with the `[Gatsby]` tag in the title.
 
+### Prerequisites
+- May need to install `libjpeg` and `libvips` on Apple Silicon prior to running `yarn` (`brew install libjpeg; brew install libvips`).
+
 ### ⚽️ Running in the browser
 
 - Create Expo project `expo init`

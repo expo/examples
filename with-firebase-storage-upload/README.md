@@ -16,7 +16,7 @@ npx create-react-native-app -t with-firebase-storage-upload
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 - Take a new picture or upload one from your library
 - See the image being rendered from Firebase
 

@@ -34,7 +34,7 @@ npx create-react-native-app -t with-twitter-auth
 
 - Install with `yarn` or `npm install`
 - Open `App.js` and replace `requestTokenURL` and `accessTokenURL` with your backend URLs
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out
+- Run `yarn start` or `npm run start` to try it out
 
 ### 📁 File Structure
 

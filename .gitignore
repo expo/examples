@@ -28,3 +28,6 @@ with-nextjs/out
 
 .DS_Store
 report.html
+
+# Maintenance logs
+.sdk-upgrade-logs

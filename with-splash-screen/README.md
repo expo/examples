@@ -18,11 +18,10 @@ npx create-react-native-app -t with-splash-screen
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Run `yarn start` or `npm run start` to try it out.
 - Wait until the app is built and downloaded. Press "run again" to reload the app and splash screen.
 
 ## 📝 Notes
 
-- [Expo AppLoading docs](https://docs.expo.dev/versions/latest/sdk/app-loading/)
 - [Expo Assets guide](https://docs.expo.dev/versions/latest/guides/assets/)
 - [Expo Splash Screen guide](https://docs.expo.dev/versions/latest/guides/splash-screens/)
