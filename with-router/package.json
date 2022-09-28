@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "expo": "~46.0.13",
-    "expo-router": "~0.0.15",
+    "expo-router": "~0.0.19",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
@@ -23,7 +23,7 @@
     "metro": "^0.72.3"
   },
   "overrides": {
-    "metro": "0.72.3"
+    "metro": "^0.72.3"
   },
   "name": "with-router",
   "version": "1.0.0"
