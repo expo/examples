@@ -20,12 +20,12 @@
     "@babel/core": "^7.18.6"
   },
   "resolutions": {
-    "metro": "^0.72.3",
-    "metro-resolver": "^0.72.3"
+    "metro": "^0.73.1",
+    "metro-resolver": "^0.73.1"
   },
   "overrides": {
-    "metro": "^0.72.3",
-    "metro-resolver": "^0.72.3"
+    "metro": "^0.73.1",
+    "metro-resolver": "^0.73.1"
   },
   "name": "with-router",
   "version": "1.0.0"
