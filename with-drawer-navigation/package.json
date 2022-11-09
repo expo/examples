@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "@react-native-community/masked-view": "^0.1.11",
     "@react-native-masked-view/masked-view": "0.2.8",
-    "@react-navigation/bottom-tabs": "^6.3.2",
-    "@react-navigation/drawer": "^6.4.3",
-    "@react-navigation/native": "^6.0.11",
+    "@react-navigation/bottom-tabs": "^6.4.0",
+    "@react-navigation/drawer": "^6.5.0",
+    "@react-navigation/native": "^6.0.13",
     "expo": "^47.0.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
