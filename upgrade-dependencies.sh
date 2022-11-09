@@ -31,6 +31,7 @@ if [ "$1" == "--run-expo-upgrade" ]; then
   done
 
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
+  echo "WARNING: with-dev-client has native project files that need to be upgraded manually!"
   exit 0
 fi
 
