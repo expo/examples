@@ -5,26 +5,26 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "^46.0.0",
-    "expo-constants": "~13.2.3",
-    "expo-font": "~10.2.0",
-    "expo-linear-gradient": "~11.4.0",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.4",
+    "expo": "^47.0.0",
+    "expo-constants": "~14.0.2",
+    "expo-font": "~11.0.1",
+    "expo-linear-gradient": "~12.0.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6",
-    "@expo/webpack-config": "^0.17.0",
+    "@babel/core": "^7.19.3",
+    "@expo/webpack-config": "^0.17.2",
     "@storybook/addon-actions": "~5.2.1",
     "@storybook/addon-links": "~5.2.1",
     "@storybook/addons": "~5.2.1",
     "@storybook/react": "~5.2.1",
     "@storybook/react-native": "~5.3.19",
-    "@types/react": "~18.0.0",
-    "@types/react-dom": "~18.0.0",
-    "@types/react-native": "~0.69.1",
+    "@types/react": "~18.0.24",
+    "@types/react-dom": "~18.0.8",
+    "@types/react-native": "~0.70.6",
     "babel-loader": "^8.0.6",
     "typescript": "^4.6.3"
   }

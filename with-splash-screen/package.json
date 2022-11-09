@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "expo": "^46.0.0",
-    "expo-asset": "~8.6.1",
-    "expo-constants": "~13.2.3",
-    "expo-splash-screen": "~0.16.1",
-    "expo-updates": "~0.14.3",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.4",
+    "expo": "^47.0.0",
+    "expo-asset": "~8.6.2",
+    "expo-constants": "~14.0.2",
+    "expo-splash-screen": "~0.17.4",
+    "expo-updates": "~0.15.4",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6"
+    "@babel/core": "^7.19.3"
   }
 }
