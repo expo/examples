@@ -32,6 +32,8 @@ if [ "$1" == "--run-expo-upgrade" ]; then
 
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
   echo "WARNING: with-dev-client has native project files that need to be upgraded manually!"
+  echo "Deleting ios/android folders and running prebuild will regenerate them, applying the proper URL schemes."
+  echo "https://docs.expo.dev/development/installation/ has more info on how a bare dev client project is setup."
   exit 0
 fi
 
