@@ -142,6 +142,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "AviAvinav",
+      "name": "Avi Avinav",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54372449?v=4",
+      "profile": "https://aviavinav.tech",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -149,5 +158,6 @@
   "projectOwner": "expo",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
