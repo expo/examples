@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "expo": "^46.0.0",
-    "expo-gl": "~11.4.0",
+    "expo": "^47.0.0",
+    "expo-gl": "~12.0.0",
     "expo-processing": "^2.0.6",
     "processing-js": "^1.6.6",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.4",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-native": "0.70.5",
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.6"
+    "@babel/core": "^7.19.3"
   }
 }
