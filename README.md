@@ -54,7 +54,7 @@ npx create-react-native-app -t with-typescript
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-17-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 If you'd like to contribute something, please check out our [contributing guide](./contributing.md)!
@@ -87,6 +87,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center"><a href="https://github.com/kbrandwijk"><img src="https://avatars.githubusercontent.com/u/852069?v=4?s=100" width="100px;" alt="Kim Brandwijk"/><br /><sub><b>Kim Brandwijk</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=kbrandwijk" title="Code">💻</a></td>
       <td align="center"><a href="https://aviavinav.tech"><img src="https://avatars.githubusercontent.com/u/54372449?v=4?s=100" width="100px;" alt="Avi Avinav"/><br /><sub><b>Avi Avinav</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=AviAvinav" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/keith-kurak"><img src="https://avatars.githubusercontent.com/u/8053974?v=4?s=100" width="100px;" alt="Keith Kurak"/><br /><sub><b>Keith Kurak</b></sub></a><br /><a href="https://github.com/expo/examples/commits?author=keith-kurak" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
