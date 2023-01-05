@@ -4,13 +4,13 @@ const { withExpo } = require("@expo/next-adapter");
 const nextConfig = withExpo({
   reactStrictMode: true,
   swcMinify: true,
+  transpilePackages: [
+    "react-native",
+    "expo",
+    // Add more React Native / Expo packages here...
+  ],
   experimental: {
     forceSwcTransforms: true,
-    transpilePackages: [
-      "react-native-web",
-      "expo",
-      // Add more React Native / Expo packages here...
-    ],
   },
 });
 
