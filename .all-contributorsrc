@@ -142,6 +142,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "AviAvinav",
+      "name": "Avi Avinav",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54372449?v=4",
+      "profile": "https://aviavinav.tech",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "keith-kurak",
+      "name": "Keith Kurak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8053974?v=4",
+      "profile": "https://github.com/keith-kurak",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -149,5 +167,6 @@
   "projectOwner": "expo",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
