@@ -6,7 +6,7 @@
     "expo": "~47.0.3",
     "expo-constants": "~14.0.2",
     "expo-linking": "~3.2.3",
-    "expo-router": "~0.0.41",
+    "expo-router": "^1.0.0-rc1",
     "expo-splash-screen": "~0.17.4",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
