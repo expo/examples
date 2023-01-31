@@ -160,6 +160,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "nandorojo",
+      "name": "Fernando Rojo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13172299?v=4",
+      "profile": "http://wearpatos.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
