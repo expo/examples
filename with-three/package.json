@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "expo": "^47.0.0",
-    "expo-asset": "~8.6.2",
-    "expo-file-system": "~15.1.1",
-    "expo-gl": "~12.0.0",
-    "expo-modules-core": "~1.0.2",
-    "expo-three": "^6.2.0",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
+    "expo": "^48.0.7",
+    "expo-asset": "~8.9.1",
+    "expo-file-system": "~15.2.2",
+    "expo-gl": "~12.4.0",
+    "expo-modules-core": "~1.2.4",
+    "expo-three": "^7.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-web": "~0.18.7",
     "three": "^0.145.0"
   },

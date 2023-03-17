@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@expo/webpack-config": "^0.17.2",
-    "expo": "^47.0.0",
-    "expo-font": "~11.0.1",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
+    "@expo/webpack-config": "^18.0.1",
+    "expo": "^48.0.7",
+    "expo-font": "~11.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.7",
     "victory-native": "^35.5.5"

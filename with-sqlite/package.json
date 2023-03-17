@@ -6,11 +6,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^47.0.0",
-    "expo-sqlite": "~11.0.0",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
+    "expo": "^48.0.7",
+    "expo-sqlite": "~11.1.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {

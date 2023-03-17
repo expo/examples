@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "@expo/html-elements": "^0.3.0",
-    "expo": "^46.0.0",
+    "expo": "^48.0.7",
     "nativewind": "^2.0.10",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-native": "0.69.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-web": "~0.18.7"
   },
   "devDependencies": {
