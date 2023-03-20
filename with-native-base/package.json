@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "expo": "^47.0.0",
-    "native-base": "^3.4.21",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
-    "react-native-safe-area-context": "4.4.1",
+    "expo": "^48.0.7",
+    "native-base": "^3.4.28",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
+    "react-native-safe-area-context": "4.5.0",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.7"
   },

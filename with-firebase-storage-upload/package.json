@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "^47.0.0",
-    "expo-clipboard": "~4.0.1",
-    "expo-image-picker": "~14.0.1",
+    "expo": "^48.0.7",
+    "expo-clipboard": "~4.1.2",
+    "expo-image-picker": "~14.1.1",
     "firebase": "^9.6.9",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
-    "react-native": "0.70.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
     "react-native-web": "~0.18.7",
     "uuid": "3.4.0"
   },
