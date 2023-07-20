@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "^48.0.7",
-    "expo-linking": "~4.0.1",
-    "expo-web-browser": "~12.1.1",
+    "expo": "^49.0.3",
+    "expo-linking": "~5.0.2",
+    "expo-web-browser": "~12.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.3",
-    "react-native-web": "~0.18.7"
+    "react-native": "0.72.3",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
