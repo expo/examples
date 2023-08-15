@@ -5,14 +5,14 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "expo": "^48.0.7",
-    "expo-constants": "~14.2.1",
-    "expo-font": "~11.1.1",
-    "expo-linear-gradient": "~12.1.2",
+    "expo": "^49.0.3",
+    "expo-constants": "~14.4.2",
+    "expo-font": "~11.4.0",
+    "expo-linear-gradient": "~12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.71.3",
-    "react-native-web": "~0.18.7"
+    "react-native": "0.72.3",
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -22,10 +22,10 @@
     "@storybook/addons": "~5.2.1",
     "@storybook/react": "~5.2.1",
     "@storybook/react-native": "~5.3.19",
-    "@types/react": "~18.0.24",
+    "@types/react": "~18.2.14",
     "@types/react-dom": "~18.0.8",
     "@types/react-native": "~0.70.6",
     "babel-loader": "^8.0.6",
-    "typescript": "^4.6.3"
+    "typescript": "^5.1.3"
   }
 }
