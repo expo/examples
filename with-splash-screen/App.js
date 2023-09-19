@@ -19,7 +19,7 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 
 export default function App() {
   return (
-    <AnimatedAppLoader image={{ uri: Constants.manifest.splash.image }}>
+    <AnimatedAppLoader image={{ uri: Constants.expoConfig.splash.image }}>
       <MainScreen />
     </AnimatedAppLoader>
   );
@@ -80,7 +80,7 @@ function AnimatedSplashScreen({ children, image }) {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: Constants.manifest.splash.backgroundColor,
+              backgroundColor: Constants.expoConfig.splash.backgroundColor,
               opacity: animation,
             },
           ]}
@@ -89,7 +89,7 @@ function AnimatedSplashScreen({ children, image }) {
             style={{
               width: "100%",
               height: "100%",
-              resizeMode: Constants.manifest.splash.resizeMode || "contain",
+              resizeMode: Constants.expoConfig.splash.resizeMode || "contain",
               transform: [
                 {
                   scale: animation,
