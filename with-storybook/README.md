@@ -18,7 +18,7 @@ This method runs your Expo components in a Storybook-React environment. This is 
 - Create Expo project `npx create expo my-project`
   - You can use any template, we'll use the managed blank TypeScript project for this example.
 - `cd` into the project and run `npx sb init --type react`, and select Webpack 5 to bootstrap a new React project.
-- Install the requisite dependencies `npx expo add react-dom react-native-web @storybook/addon-react-native-web @expo/webpack-config`
+- Install the requisite dependencies `npx expo add react-dom react-native-web @storybook/addon-react-native-web expo-pwa`
 - The contents of `.storybook/main.js` have been modified to support loading the Expo config for the `expo-constants` libraries.
 - Run `yarn build-storybook` to try it out!
   - The example should open to `http://localhost:6006/`

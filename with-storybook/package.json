@@ -12,7 +12,7 @@
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
-    "@expo/webpack-config": "^19.0.0",
+    "expo-pwa": "^0.0.127",
     "@storybook/addon-react-native-web": "^0.0.21",
     "@babel/core": "^7.20.0",
     "@storybook/addon-essentials": "^7.4.6",

@@ -1,6 +1,6 @@
+import { getConfigForPWA } from "expo-pwa";
 import path from "path";
 import { DefinePlugin } from "webpack";
-import { getConfig } from "@expo/webpack-config/env";
 
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
@@ -34,12 +34,7 @@ const config = {
       // Used for surfacing information related to constants
       new DefinePlugin({
         "process.env.APP_MANIFEST": JSON.stringify(
-          sanitizeConfig(
-            getConfig({
-              mode: config.mode,
-              projectRoot: path.join(__dirname, ".."),
-            })
-          )
+          sanitizeConfig(getConfigForPWA(path.join(__dirname, "..")))
         ),
       })
     );
