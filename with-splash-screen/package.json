@@ -1,9 +1,4 @@
 {
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios"
-  },
   "dependencies": {
     "expo": "^49.0.3",
     "expo-asset": "~8.10.1",
