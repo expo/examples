@@ -60,9 +60,9 @@ app.get('/request-token', (req, res) => {
  */
 app.get('/access-token', (req, res) => {
   const options = {
-    key: req.query.oauth_token,
-    secret: req.query.oauth_token_secret,
-    verifier: req.query.oauth_verifier,
+    oauth_token: req.query.oauth_token,
+    oauth_token_secret: req.query.oauth_token_secret,
+    oauth_verifier: req.query.oauth_verifier,
   };
 
   twitter.getAccessToken(options)

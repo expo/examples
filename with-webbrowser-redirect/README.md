@@ -3,7 +3,7 @@
 ### Running the app
 
 - Run `yarn` or `npm install`
-- Open `app` with [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+- Open `app` with `yarn start` or `npm run start` to try it out.
 
 ## The idea behind the example
 

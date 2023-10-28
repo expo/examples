@@ -12,7 +12,7 @@
 npx create-react-native-app -t with-native-base
 ```
 
-- Run `expo start`, try it out.
+- Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 

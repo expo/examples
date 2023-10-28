@@ -30,7 +30,7 @@ The purpose of the backend is to store the Twitter API keys without leaking this
 
 - Install with `yarn` or `npm install`
 - Open `App.js` and replace `requestTokenURL` and `accessTokenURL` with your backend URLs
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out
+- Run `yarn start` or `npm run start` to try it out
 
 ### 📁 File Structure
 
@@ -51,6 +51,6 @@ Expo Twitter Auth
 
 The AuthSession helps you with browser authentication, without the need of an additional server or website. To use this with Twitter authentication flows, we need to tell Twitter that the callback URLs are allowed.
 
-Each Expo user has it's own URL for different projects, the basic structure of this URL is `https://auth.expo.io/@your-username/your-expo-app-slug`. If you are signed in as `awesome-ppl`, and your app is called `meme-explorer`, your URL looks like `https://auth.expo.io/@awesome-ppl/meme-explorer`.
+Each Expo user has it's own URL for different projects, the basic structure of this URL is `https://auth.expo.io/@your-username/your-expo-app-slug`. If you are signed in as `awesome-ppl`, and your app is called `meme-explorer`, your URL looks like `https://auth.expo.io/@awesome-ppl/meme-explorer`. Additionally, you may need to also add `exp://` as a Callback URL in your project's General Authentication Settings in the Twitter Developer Portal.
 
 > [Read more about AuthSession here](https://docs.expo.dev/versions/latest/sdk/auth-session/)

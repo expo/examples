@@ -133,6 +133,42 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kbrandwijk",
+      "name": "Kim Brandwijk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/852069?v=4",
+      "profile": "https://github.com/kbrandwijk",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "AviAvinav",
+      "name": "Avi Avinav",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54372449?v=4",
+      "profile": "https://aviavinav.tech",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "keith-kurak",
+      "name": "Keith Kurak",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8053974?v=4",
+      "profile": "https://github.com/keith-kurak",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nandorojo",
+      "name": "Fernando Rojo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13172299?v=4",
+      "profile": "http://wearpatos.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -140,5 +176,6 @@
   "projectOwner": "expo",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }

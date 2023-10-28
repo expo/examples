@@ -1,4 +1,3 @@
-import AppLoading from "expo-app-loading";
 import { Asset } from "expo-asset";
 import Constants from "expo-constants";
 import * as SplashScreen from "expo-splash-screen";
@@ -20,7 +19,7 @@ SplashScreen.preventAutoHideAsync().catch(() => {
 
 export default function App() {
   return (
-    <AnimatedAppLoader image={{ uri: Constants.manifest.splash.image }}>
+    <AnimatedAppLoader image={{ uri: Constants.expoConfig.splash.image }}>
       <MainScreen />
     </AnimatedAppLoader>
   );
@@ -29,24 +28,17 @@ export default function App() {
 function AnimatedAppLoader({ children, image }) {
   const [isSplashReady, setSplashReady] = useState(false);
 
-  const startAsync = useCallback(
-    // If you use a local image with require(...), use `Asset.fromModule`
-    () => Asset.fromURI(image).downloadAsync(),
-    [image]
-  );
+  useEffect(() => {
+    async function prepare() {
+      await Asset.fromURI(image.uri).downloadAsync();
+      setSplashReady(true);
+    }
 
-  const onFinish = useCallback(() => setSplashReady(true), []);
+    prepare();
+  }, [image]);
 
   if (!isSplashReady) {
-    return (
-      <AppLoading
-        // Instruct SplashScreen not to hide yet, we want to do this manually
-        autoHideSplash={false}
-        startAsync={startAsync}
-        onError={console.error}
-        onFinish={onFinish}
-      />
-    );
+    return null;
   }
 
   return <AnimatedSplashScreen image={image}>{children}</AnimatedSplashScreen>;
@@ -61,7 +53,7 @@ function AnimatedSplashScreen({ children, image }) {
     if (isAppReady) {
       Animated.timing(animation, {
         toValue: 0,
-        duration: 200,
+        duration: 1000,
         useNativeDriver: true,
       }).start(() => setAnimationComplete(true));
     }
@@ -88,7 +80,7 @@ function AnimatedSplashScreen({ children, image }) {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: Constants.manifest.splash.backgroundColor,
+              backgroundColor: Constants.expoConfig.splash.backgroundColor,
               opacity: animation,
             },
           ]}
@@ -97,7 +89,7 @@ function AnimatedSplashScreen({ children, image }) {
             style={{
               width: "100%",
               height: "100%",
-              resizeMode: Constants.manifest.splash.resizeMode || "contain",
+              resizeMode: Constants.expoConfig.splash.resizeMode || "contain",
               transform: [
                 {
                   scale: animation,
