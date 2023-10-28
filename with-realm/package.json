@@ -5,12 +5,12 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "@realm/react": "^0.1.0",
+    "@realm/react": "^0.4.3",
     "expo": "^49.0.3",
     "expo-dev-client": "~2.4.6",
     "react": "18.2.0",
     "react-native": "0.72.3",
     "react-native-get-random-values": "~1.8.0",
-    "realm": "^10.11.0"
+    "realm": "^11.7.0"
   }
 }
