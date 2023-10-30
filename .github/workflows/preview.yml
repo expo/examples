@@ -1,7 +1,7 @@
 name: Expo Preview
 on:
   push:
-    branches: [master, main]
+    branches: []
 jobs:
   changed:
     name: Find changed apps
