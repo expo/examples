@@ -17,7 +17,7 @@ export default function Page() {
 
   const [input, setInput] = React.useState("");
 
-  const generateBio = async () => {
+  const generateContent = async () => {
     setState({
       content: null,
       loading: true,
@@ -72,7 +72,7 @@ export default function Page() {
 
         <Button
           disabled={loading}
-          onPress={() => generateBio()}
+          onPress={() => generateContent()}
           title={loading ? "Loading..." : "Generate"}
         />
 
