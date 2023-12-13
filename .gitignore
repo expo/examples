@@ -26,6 +26,10 @@ with-nextjs/out
 # Websockets
 */backend/.env
 
+# local env files
+*/.env*.local
+
+
 .DS_Store
 report.html
 

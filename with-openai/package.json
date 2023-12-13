@@ -1,0 +1,27 @@
+{
+  "name": "with-openai",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start"
+  },
+  "dependencies": {
+    "expo": "^50.0.0-preview.1",
+    "expo-constants": "~15.4.0",
+    "expo-linking": "~6.2.1",
+    "expo-router": "~3.3.0",
+    "expo-splash-screen": "~0.26.0",
+    "expo-status-bar": "~1.11.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.73.0",
+    "react-native-safe-area-context": "4.7.4",
+    "react-native-screens": "~3.27.0",
+    "react-native-web": "~0.19.6"
+  },
+  "devDependencies": {
+    "@types/react": "~18.2.14",
+    "typescript": "^5.3.0",
+    "@babel/core": "^7.20.0"
+  }
+}
