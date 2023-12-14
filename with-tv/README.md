@@ -2,7 +2,7 @@
 
 Creates a project that can build for Apple TV and Android TV targets.
 
-> **Note**: This example is still at an experimental stage, and is based on SDK 50 alpha packages which are not yet part of any supported Expo SDK release.
+> **Note**: This example is still at an experimental stage, and is based on SDK 50 beta release.
 
 This project uses
 
