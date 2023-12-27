@@ -13,7 +13,7 @@
 
 - Install with `yarn` or `npm install`.
 - Create your own project on [Descope](https://www.descope.com/sign-up).
-- Open `App.js` and replace `descopeProjectId` with your Descope settings.
+- Open `App.js` and replace `descopeProjectId` with your [Descope Project ID](#descope-project-id).
 - Run `yarn start` or `npm run start` to try it out.
 
 #### AuthSession callback URL
@@ -24,13 +24,13 @@ Each Expo user has it's own URL for different projects, the basic structure of t
 
 > [Read more about AuthSession here](https://docs.expo.dev/versions/latest/sdk/auth-session/)
 
-#### Auth0 app settings
+#### Descope Project ID
 
-Both the `auth0ClientId` and `auth0Domain` needs to match your Auth0 app settings.
+You can retrieve your Descope Project ID, from the [Project Settings](https://app.descope.com/settings/project) page in the Descope Console.
 
-![Application Settings](https://i.imgur.com/Io9I4qg.jpg)
+![Project Settings](https://imgur.com/a/MsjbBIO)
 
 ## 📝 Notes
 
 - [Expo AuthSession docs](https://docs.expo.dev/versions/latest/sdk/auth-session/)
-- [Auth0 React/SPA quickstart guide](https://auth0.com/docs/quickstart/spa/react)
+- [Descope React Quickstart Guide](https://docs.descope.com/build/guides/gettingstarted/)
