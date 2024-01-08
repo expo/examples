@@ -1,0 +1,68 @@
+name: Expo Dependencies
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: Are we upgrading to `expo@latest`, or just fixing dependencies?
+        required: true
+        default: fix-dependencies
+        options:
+          - upgrade-expo
+          - fix-dependencies
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: 🏗️ Setup repo
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: 📦 Upgrade Expo SDK
+        if: ${{ inputs.mode == 'upgrade-expo' }}
+        run: bash ./upgrade-dependencies.sh --upgrade-expo
+
+      - name: 💬 Create new upgrade PR
+        if: ${{ inputs.mode == 'upgrade-expo' }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: automated-upgrade
+          reviewers: |
+            byCedric
+            keith-kurak
+          title: Upgraded Expo SDK to `expo@latest`
+          body: |
+            This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
+            Please review the changes and merge it when you're ready.
+
+      - name: 👷 Fix Expo dependencies
+        if: ${{ inputs.mode == 'fix-dependencies' }}
+        run: bash ./upgrade-dependencies.sh --fix-dependencies
+
+      - name: 💬 Create new fix PR
+        if: ${{ inputs.mode == 'fix-dependencies' }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: automated-fix
+          reviewers: |
+            byCedric
+            keith-kurak
+          title: Fixed all Expo SDK dependencies
+          body: |
+            This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
+            Please review the changes and merge it when you're ready.
+
+      - name: 📋 Uploading logs
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            .sdk-upgrade-logs
+            .sdk-fix-logs
