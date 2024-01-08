@@ -21,21 +21,25 @@ if [ "$1" == "--upgrade-expo" ]; then
     echo "Upgrading $DIRNAME..."
 
     if [ -z ${CI} ]; then
-      echo "::group::• Run $manager install";
-      (cd $DIRNAME && $manager install --ignore-scripts)
-      echo "::endgroup::"
-    else
       echo "• Run $manager install";
       (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE")
+    else
+      echo "::group::• Run $manager install";
+      (cd $DIRNAME && $manager install --ignore-scripts)
+      exitCode=$?
+      echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
 
     if [ -z ${CI} ]; then
-      echo "::group::• Run expo upgrade";
-      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix)
-      echo "::endgroup::"
-    else
       echo "• Run expo upgrade";
       (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
+    else
+      echo "::group::• Run expo upgrade";
+      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix)
+      exitCode=$?
+      echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
   done
 
@@ -44,21 +48,25 @@ if [ "$1" == "--upgrade-expo" ]; then
   mkdir -p ./.sdk-upgrade-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
     if [ -z ${CI} ]; then
-      echo "::group::• Run yarn install";
-      (cd $DIRNAME && yarn install)
-      echo "::endgroup::"
-    else
       echo "• Run yarn install";
       (cd $DIRNAME && yarn install &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-install.txt || echo "FAILURE")
+    else
+      echo "::group::• Run yarn install";
+      (cd $DIRNAME && yarn install)
+      exitCode=$?
+      echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
 
     if [ -z ${CI} ]; then
-      echo "::group::• Run expo upgrade";
-      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix)
-      echo "::endgroup::"
-    else
       echo "• Run expo upgrade";
       (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt || echo "FAILURE")
+    else
+      echo "::group::• Run expo upgrade";
+      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix)
+      exitCode=$?
+      echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
   done
 
@@ -83,7 +91,9 @@ if [ "$1" == "--fix-dependencies" ]; then
     else
       echo "::group::• Run $manager install";
       (cd $DIRNAME && $manager install --ignore-scripts)
+      exitCode=$?
       echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -92,7 +102,9 @@ if [ "$1" == "--fix-dependencies" ]; then
     else
       echo "::group::• Run expo fix";
       (cd $DIRNAME && $manager expo install --fix)
+      exitCode=$?
       echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
   done
 
@@ -107,7 +119,9 @@ if [ "$1" == "--fix-dependencies" ]; then
     else
       echo "::group::• Run yarn install";
       (cd $DIRNAME && yarn install)
+      exitCode=$?
       echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -116,7 +130,9 @@ if [ "$1" == "--fix-dependencies" ]; then
     else
       echo "::group::• Run expo fix";
       (cd $DIRNAME && yarn expo install --fix)
+      exitCode=$?
       echo "::endgroup::"
+      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
     fi
   done
 
