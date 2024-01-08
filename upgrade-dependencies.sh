@@ -20,7 +20,7 @@ if [ "$1" == "--upgrade-expo" ]; then
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
     echo "• Run $manager install"
-    (cd $DIRNAME && $manager install &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
+    (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
     echo "• Run expo upgrade"
     (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
   done
@@ -50,7 +50,7 @@ if [ "$1" == "--fix-dependencies" ]; then
     DIRNAME=${d%/}
     echo "Fixing dependencies on $DIRNAME..."
     echo "• Run $manager install"
-    (cd $DIRNAME && $manager install --silent &> ../.sdk-fix-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
+    (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-fix-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
     echo "• Run expo fix"
     (cd $DIRNAME && $manager expo install --fix &> ../.sdk-fix-logs/$DIRNAME-fix.txt)
   done
