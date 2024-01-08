@@ -51,7 +51,8 @@ jobs:
           title: Upgraded Expo SDK to `expo@latest`
           body: |
             This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
-            Please review the changes and merge it when you're ready.
+
+            > ⚠️ Review the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) before merging
 
       - name: 👷 Fix Expo dependencies
         if: ${{ inputs.mode == 'fix-dependencies' }}
@@ -69,4 +70,5 @@ jobs:
           title: Fixed all Expo SDK dependencies
           body: |
             This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
-            Please review the changes and merge it when you're ready.
+
+            > ⚠️ Review the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) before merging
