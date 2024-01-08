@@ -12,6 +12,9 @@ on:
           - upgrade-expo
           - fix-dependencies
 
+env:
+  EXPO_PACKAGE_MANAGER: bun
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -25,6 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
+
+      - name: 🏗️ Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
 
       - name: 📦 Upgrade Expo SDK
         if: ${{ inputs.mode == 'upgrade-expo' }}
