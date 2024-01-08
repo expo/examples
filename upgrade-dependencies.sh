@@ -13,7 +13,7 @@ if [ "$1" == "--upgrade-expo" ]; then
   echo "For each example, this will run `yarn` to add latest Expo and then run `npx expo install --fix`, accepting all defaults."
   echo "Upgrade logs will be written to .sdk-upgrade-logs."
 
-  mkdir ./.sdk-upgrade-logs
+  mkdir -p ./.sdk-upgrade-logs
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
@@ -25,7 +25,7 @@ if [ "$1" == "--upgrade-expo" ]; then
 
   # yarn workspaces has example(s) inside of app folder
   echo "• Run expo upgrade on apps inside with-yarn-workspaces"
-  mkdir ./.sdk-upgrade-logs/with-yarn-workspaces
+  mkdir -p ./.sdk-upgrade-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
     (cd $DIRNAME && yarn add expo@latest && npx expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt)
   done
@@ -40,18 +40,18 @@ fi
 if [ "$1" == "--fix-dependencies" ]; then
   echo "Fixing dependencies on all examples..."
 
-  mkdir ./.sdk-fix-logs
+  mkdir -p ./.sdk-fix-logs
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Fixing dependencies on $DIRNAME..."
     echo "• Run yarn"
-    (cd $DIRNAME && yarn install --silent &> ../.sdk-fix-logs/with-yarn-workspaces/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
+    (cd $DIRNAME && yarn install --silent &> ../.sdk-fix-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
     echo "• Run fix"
     (cd $DIRNAME && npx expo install --fix &> ../.sdk-fix-logs/$DIRNAME-fix.txt)
   done
 
   echo "Fixing dependencies on apps inside with-yarn-workspaces..."
-  mkdir ./.sdk-fix-logs/with-yarn-workspaces
+  mkdir -p ./.sdk-fix-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
     echo "• Fixing dependencies on apps inside with-yarn-workspaces"
     echo "• Run yarn"
