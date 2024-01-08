@@ -38,6 +38,7 @@ jobs:
           reviewers: |
             byCedric
             keith-kurak
+          commit-message: 'chore: upgrade expo to `latest`'
           title: Upgraded Expo SDK to `expo@latest`
           body: |
             This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
@@ -55,6 +56,7 @@ jobs:
           reviewers: |
             byCedric
             keith-kurak
+          commit-message: 'chore: fix expo dependencies'
           title: Fixed all Expo SDK dependencies
           body: |
             This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
