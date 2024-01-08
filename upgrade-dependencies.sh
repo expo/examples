@@ -28,7 +28,7 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && $manager install --ignore-scripts)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -39,7 +39,7 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
   done
 
@@ -55,7 +55,7 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && yarn install)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -66,7 +66,7 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
   done
 
@@ -93,7 +93,7 @@ if [ "$1" == "--fix-dependencies" ]; then
       (cd $DIRNAME && $manager install --ignore-scripts)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -104,7 +104,7 @@ if [ "$1" == "--fix-dependencies" ]; then
       (cd $DIRNAME && $manager expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
   done
 
@@ -121,7 +121,7 @@ if [ "$1" == "--fix-dependencies" ]; then
       (cd $DIRNAME && yarn install)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
 
     if [ -z ${CI} ]; then
@@ -132,7 +132,7 @@ if [ "$1" == "--fix-dependencies" ]; then
       (cd $DIRNAME && yarn expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo "FAILURE"; fi
+      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
     fi
   done
 
