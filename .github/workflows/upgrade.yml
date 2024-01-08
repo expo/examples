@@ -70,10 +70,3 @@ jobs:
           body: |
             This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
             Please review the changes and merge it when you're ready.
-
-      - name: 📋 Uploading logs
-        uses: actions/upload-artifact@v4
-        with:
-          path: |
-            .sdk-upgrade-logs
-            .sdk-fix-logs

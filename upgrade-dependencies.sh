@@ -19,20 +19,47 @@ if [ "$1" == "--upgrade-expo" ]; then
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
-    echo "• Run $manager install"
-    (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
-    echo "• Run expo upgrade"
-    (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
+
+    if [ -z ${CI} ]; then
+      echo "::group::• Run $manager install";
+      (cd $DIRNAME && $manager install --ignore-scripts)
+      echo "::endgroup::"
+    else
+      echo "• Run $manager install";
+      (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE")
+    fi
+
+    if [ -z ${CI} ]; then
+      echo "::group::• Run expo upgrade";
+      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix)
+      echo "::endgroup::"
+    else
+      echo "• Run expo upgrade";
+      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
+    fi
   done
 
   # yarn workspaces has example(s) inside of app folder
   echo "• Run expo upgrade on apps inside with-yarn-workspaces"
   mkdir -p ./.sdk-upgrade-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
-    echo "• Run yarn install"
-    (cd $DIRNAME && yarn install &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-install.txt || echo "FAILURE")
-    echo "• Run expo upgrade"
-    (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt)
+    if [ -z ${CI} ]; then
+      echo "::group::• Run yarn install";
+      (cd $DIRNAME && yarn install)
+      echo "::endgroup::"
+    else
+      echo "• Run yarn install";
+      (cd $DIRNAME && yarn install &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-install.txt || echo "FAILURE")
+    fi
+
+    if [ -z ${CI} ]; then
+      echo "::group::• Run expo upgrade";
+      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix)
+      echo "::endgroup::"
+    else
+      echo "• Run expo upgrade";
+      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt || echo "FAILURE")
+    fi
   done
 
   echo "Upgrades complete! Check .sdk-upgrade-logs for results. Be sure to correct any errors or warnings."
@@ -49,21 +76,48 @@ if [ "$1" == "--fix-dependencies" ]; then
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Fixing dependencies on $DIRNAME..."
-    echo "• Run $manager install"
-    (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-fix-logs/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
-    echo "• Run expo fix"
-    (cd $DIRNAME && $manager expo install --fix &> ../.sdk-fix-logs/$DIRNAME-fix.txt)
+
+    if [ -z ${CI} ]; then
+      echo "• Run $manager install";
+      (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-fix-logs/$DIRNAME-install.txt || echo "FAILURE")
+    else
+      echo "::group::• Run $manager install";
+      (cd $DIRNAME && $manager install --ignore-scripts)
+      echo "::endgroup::"
+    fi
+
+    if [ -z ${CI} ]; then
+      echo "• Run expo upgrade";
+      (cd $DIRNAME && $manager expo install --fix &> ../.sdk-fix-logs/$DIRNAME-fix.txt || echo "FAILURE")
+    else
+      echo "::group::• Run expo fix";
+      (cd $DIRNAME && $manager expo install --fix)
+      echo "::endgroup::"
+    fi
   done
 
   echo "Fixing dependencies on apps inside with-yarn-workspaces..."
   mkdir -p ./.sdk-fix-logs/with-yarn-workspaces
   for d in  with-yarn-workspaces/apps/*/ ; do
     echo "• Fixing dependencies on apps inside with-yarn-workspaces"
-    echo "• Run yarn install"
-    (cd $DIRNAME && yarn install &> ../.sdk-fix-logs/with-yarn-workspaces/$DIRNAME-install.txt || echo "FAILURE") # If yarn fails spectacularly, we'll see evidence in the logs for expo upgrade
-    echo "• Run expo fix"
-    (cd $DIRNAME && yarn expo install --fix &> ../.sdk-fix-logs/with-yarn-workspaces/$DIRNAME-fix.txt || echo "FAILURE")
 
+    if [ -z ${CI} ]; then
+      echo "• Run yarn install";
+      (cd $DIRNAME && yarn install --ignore-scripts &> ../.sdk-fix-logs/with-yarn-workspaces/$DIRNAME-install.txt  || echo "FAILURE")
+    else
+      echo "::group::• Run yarn install";
+      (cd $DIRNAME && yarn install)
+      echo "::endgroup::"
+    fi
+
+    if [ -z ${CI} ]; then
+      echo "• Run expo fix";
+      (cd $DIRNAME && yarn expo install --fix &> ../.sdk-fix-logs/with-yarn-workspaces/$DIRNAME-fix.txt || echo "FAILURE")
+    else
+      echo "::group::• Run expo fix";
+      (cd $DIRNAME && yarn expo install --fix)
+      echo "::endgroup::"
+    fi
   done
 
   echo "Dependency fixes complete!"
