@@ -35,3 +35,4 @@ report.html
 
 # Maintenance logs
 .sdk-upgrade-logs
+.sdk-fix-logs
