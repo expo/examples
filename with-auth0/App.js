@@ -1,4 +1,5 @@
 import * as AuthSession from "expo-auth-session";
+import * as WebBrowser from "expo-web-browser"
 import jwtDecode from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Alert, Button, Platform, StyleSheet, Text, View } from "react-native";
@@ -16,6 +17,10 @@ const authorizationEndpoint = "https://arielweinberger.eu.auth0.com/authorize";
 
 const useProxy = Platform.select({ web: false, default: true });
 const redirectUri = AuthSession.makeRedirectUri({ useProxy });
+
+// Allow Auth0 pop-up window to redirect to redirectUri on web
+// https://docs.expo.dev/versions/latest/sdk/webbrowser/#webbrowsermaybecompleteauthsessionoptions
+WebBrowser.maybeCompleteAuthSession();
 
 export default function App() {
   const [name, setName] = useState(null);

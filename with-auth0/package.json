@@ -3,6 +3,7 @@
     "expo": "^49.0.3",
     "expo-auth-session": "~5.0.2",
     "expo-random": "~13.2.0",
+    "expo-web-browser": "~12.3.2",
     "jwt-decode": "2.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
