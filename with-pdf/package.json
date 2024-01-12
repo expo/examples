@@ -5,15 +5,15 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "expo": "^47.0.0",
-    "expo-dev-client": "~2.0.0",
-    "expo-splash-screen": "~0.17.4",
-    "expo-status-bar": "~1.4.2",
+    "expo": "^49.0.3",
+    "expo-dev-client": "~2.4.6",
+    "expo-splash-screen": "~0.20.4",
+    "expo-status-bar": "~1.6.0",
     "fbjs": "^3.0.2",
-    "react": "18.1.0",
-    "react-native": "0.70.5",
+    "react": "18.2.0",
+    "react-native": "0.72.6",
     "react-native-blob-util": "^0.13.18",
-    "react-native-pdf": "^6.4.0"
+    "react-native-pdf": "^6.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

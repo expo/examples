@@ -3,13 +3,13 @@
     "serve": "serve ./backend/firebase-wrapper-app.html"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "~1.17.3",
-    "expo": "^47.0.0",
-    "expo-linking": "~3.2.3",
-    "expo-web-browser": "~12.0.0",
+    "@react-native-async-storage/async-storage": "1.18.2",
+    "expo": "^49.0.3",
+    "expo-linking": "~5.0.2",
+    "expo-web-browser": "~12.3.2",
     "firebase": "^9.6.9",
-    "react": "18.1.0",
-    "react-native": "0.70.5"
+    "react": "18.2.0",
+    "react-native": "0.72.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

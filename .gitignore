@@ -1,6 +1,7 @@
 .expo
 .vscode
 node_modules
+bun.lockb
 yarn-error.log
 yarn.lock
 package-lock.json
@@ -26,8 +27,13 @@ with-nextjs/out
 # Websockets
 */backend/.env
 
+# local env files
+*/.env*.local
+
+
 .DS_Store
 report.html
 
 # Maintenance logs
 .sdk-upgrade-logs
+.sdk-fix-logs

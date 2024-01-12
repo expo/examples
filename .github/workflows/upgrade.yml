@@ -1,0 +1,74 @@
+name: Expo Dependencies
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: Are we upgrading to `expo@latest`, or just fixing dependencies?
+        required: true
+        default: fix-dependencies
+        options:
+          - upgrade-expo
+          - fix-dependencies
+
+env:
+  EXPO_PACKAGE_MANAGER: bun
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: 🏗️ Setup repo
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
+      - name: 🏗️ Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📦 Upgrade Expo SDK
+        if: ${{ inputs.mode == 'upgrade-expo' }}
+        run: bash ./upgrade-dependencies.sh --upgrade-expo
+
+      - name: 💬 Create new upgrade PR
+        if: ${{ inputs.mode == 'upgrade-expo' }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: automated-upgrade
+          reviewers: |
+            byCedric
+            keith-kurak
+          commit-message: 'chore: upgrade expo to `latest`'
+          title: Upgraded Expo SDK to `expo@latest`
+          body: |
+            This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
+
+            > ⚠️ Review the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) before merging
+
+      - name: 👷 Fix Expo dependencies
+        if: ${{ inputs.mode == 'fix-dependencies' }}
+        run: bash ./upgrade-dependencies.sh --fix-dependencies
+
+      - name: 💬 Create new fix PR
+        if: ${{ inputs.mode == 'fix-dependencies' }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: automated-fix
+          reviewers: |
+            byCedric
+            keith-kurak
+          commit-message: 'chore: fix expo dependencies'
+          title: Fixed all Expo SDK dependencies
+          body: |
+            This PR was automatically created by the [upgrade workflow](./.github/workflows/upgrade.yml).
+
+            > ⚠️ Review the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) before merging
