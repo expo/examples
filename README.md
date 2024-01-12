@@ -41,7 +41,7 @@
 
 ## Usage
 
-Use this repo to create new React Native projects with [**create-react-native-app**](https://github.com/expo/create-react-native-app).
+Use this repo to create new React/React Native projects with [**create-expo-app**](https://www.npmjs.com/package/create-expo-app) and [**create-react-native-app**](https://github.com/expo/create-react-native-app).
 
 ```sh
 npx create-react-native-app --template <Example>
@@ -51,7 +51,7 @@ npx create-react-native-app --template <Example>
 npx create-react-native-app -t with-typescript
 ```
 
-Or new Expo projects using [**create-expo-app**](https://docs.expo.dev/workflow/glossary-of-terms/#create-expo-app):
+Or new Expo projects using [**create-expo-app**](https://www.npmjs.com/package/create-expo-app):
 
 ```sh
 npx create-expo-app --example <Example>
