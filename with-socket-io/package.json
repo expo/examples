@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "expo": "^49.0.3",
+    "expo": "^50.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.73.2",
     "react-native-web": "~0.19.6",
     "socket.io-client": "^4.3.2"
   },
