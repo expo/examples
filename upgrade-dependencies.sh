@@ -15,7 +15,13 @@ if [ "$1" == "--upgrade-expo" ]; then
   echo "For each example, this will run `yarn` to add latest Expo and then run `npx expo install --fix`, accepting all defaults."
   echo "Upgrade logs will be written to .sdk-upgrade-logs."
 
+  # Resolve the "latest" Expo version, avoiding adding `"expo": "latest"` to the package.json files
+  expoVersion="^$(npm info expo@latest version)"
+
+  echo "Resolved latest Expo version: $expoVersion"
+
   mkdir -p ./.sdk-upgrade-logs
+
   for d in */ ; do
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
@@ -33,10 +39,10 @@ if [ "$1" == "--upgrade-expo" ]; then
 
     if [ -z ${CI} ]; then
       echo "• Run expo upgrade";
-      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
+      (cd $DIRNAME && $manager add expo@$expoVersion && $manager expo install --fix &> ../.sdk-upgrade-logs/$DIRNAME-upgrade.txt || echo "FAILURE")
     else
       echo "::group::• Run expo upgrade";
-      (cd $DIRNAME && $manager add expo@latest && $manager expo install --fix)
+      (cd $DIRNAME && $manager add expo@$expoVersion && $manager expo install --fix)
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
@@ -60,10 +66,10 @@ if [ "$1" == "--upgrade-expo" ]; then
 
     if [ -z ${CI} ]; then
       echo "• Run expo upgrade";
-      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt || echo "FAILURE")
+      (cd $DIRNAME && yarn add expo@$expoVersion && yarn expo install --fix &> ../.sdk-upgrade-logs/with-yarn-workspaces/$DIRNAME-upgrade.txt || echo "FAILURE")
     else
       echo "::group::• Run expo upgrade";
-      (cd $DIRNAME && yarn add expo@latest && yarn expo install --fix)
+      (cd $DIRNAME && yarn add expo@$expoVersion && yarn expo install --fix)
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
