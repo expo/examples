@@ -1,13 +1,13 @@
 {
   "dependencies": {
-    "expo": "^49.0.3",
-    "expo-asset": "~8.10.1",
-    "expo-constants": "~14.4.2",
-    "expo-splash-screen": "~0.20.4",
-    "expo-updates": "~0.18.10",
+    "expo": "^50.0.1",
+    "expo-asset": "~9.0.2",
+    "expo-constants": "~15.4.5",
+    "expo-splash-screen": "~0.26.3",
+    "expo-updates": "~0.24.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.73.2",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
