@@ -22,3 +22,7 @@ npx expo prebuild
 yarn ios # Build for Apple TV
 yarn android # Build for Android TV
 ```
+
+#### TV specific file extensions
+
+This project contains an [example Metro configuration](./metro.config.js) that allows Metro to resolve application source files with TV-specific code, indicated by specific file extensions (`*.ios.tv.tsx`, `*.android.tv.tsx`, `*.tv.tsx`).  This config is not enabled by default, since it will impact bundling performance, but is available for developers who need this capability.
