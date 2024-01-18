@@ -8,7 +8,7 @@
     "serve:web": "gatsby serve"
   },
   "dependencies": {
-    "expo": "^47.0.0",
+    "expo": "latest",
     "gatsby": "^2.17.6",
     "gatsby-image": "^2.2.30",
     "gatsby-plugin-manifest": "^2.2.25",

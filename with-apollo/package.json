@@ -2,12 +2,12 @@
   "dependencies": {
     "@apollo/client": "^3.4.16",
     "@apollo/link-context": "^2.0.0-beta.3",
-    "@react-native-picker/picker": "2.4.10",
-    "expo": "^49.0.3",
+    "@react-native-picker/picker": "2.6.1",
+    "expo": "latest",
     "graphql": "^15.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.73.2",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {

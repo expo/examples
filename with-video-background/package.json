@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "expo": "^49.0.3",
-    "expo-av": "~13.4.1",
+    "expo": "latest",
+    "expo-av": "~13.10.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.73.2",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {

@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "expo": "^49.0.3",
+    "expo": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
-    "react-native-svg": "13.9.0",
+    "react-native": "0.73.2",
+    "react-native-svg": "14.1.0",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@expo/metro-config": "~0.10.0",
+    "@expo/metro-config": "~0.17.1",
     "@expo/webpack-config": "^19.0.0",
     "@svgr/webpack": "^5.5.0"
   }

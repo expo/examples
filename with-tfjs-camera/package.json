@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "@react-native-async-storage/async-storage": "1.18.2",
+    "@react-native-async-storage/async-storage": "1.21.0",
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.10.0",
     "@tensorflow/tfjs-react-native": "^0.7.0",
-    "expo": "^49.0.3",
-    "expo-camera": "~13.4.2",
-    "expo-gl": "~13.0.1",
+    "expo": "latest",
+    "expo-camera": "~14.0.1",
+    "expo-gl": "~13.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.73.2",
     "react-native-fs": "^2.16.6",
     "react-native-web": "~0.19.6"
   },

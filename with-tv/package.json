@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@react-native-tvos/config-tv": "~0.0.4",
-    "expo": "^50.0.0",
+    "expo": "latest",
     "expo-splash-screen": "~0.26.3",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
