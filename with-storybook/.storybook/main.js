@@ -18,7 +18,6 @@ const config = {
       options: {
         modulesToTranspile: [],
         projectRoot: "../",
-        babelPlugins: ["@babel/plugin-proposal-export-namespace-from"],
       },
     },
   ],
