@@ -6,7 +6,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~49.0.15",
+    "expo": "~50.0.4",
     "expo-auth-session": "~5.0.2",
     "expo-random": "~13.2.0",
     "jwt-decode": "^4.0.0",
