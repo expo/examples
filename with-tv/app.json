@@ -1,12 +1,7 @@
 {
   "expo": {
     "plugins": [
-      [
-        "@react-native-tvos/config-tv",
-        {
-          "showVerboseWarnings": true
-        }
-      ]
+      "@react-native-tvos/config-tv"
     ]
   }
 }
