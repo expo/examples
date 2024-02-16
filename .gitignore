@@ -37,3 +37,7 @@ report.html
 # Maintenance logs
 .sdk-upgrade-logs
 .sdk-fix-logs
+
+# Zeego demo
+/with-zeego/ios
+/with-zeego/android
