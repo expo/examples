@@ -1,11 +1,5 @@
 {
   "expo": {
-    "platforms": ["web", "ios", "android"],
-    "ios": {
-      "bundleIdentifier": "com.bacon.with-zeego"
-    },
-    "android": {
-      "package": "com.bacon.withzeego"
-    }
+    "platforms": ["web", "ios", "android"]
   }
 }
