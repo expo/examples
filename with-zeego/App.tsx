@@ -106,7 +106,10 @@ function SortMenu({ children }: { children: React.ReactElement }) {
             value={value === sort}
             onValueChange={(next) => next && setSort(value)}
           >
-            <Menu.ItemIndicator />
+            <Menu.ItemIndicator>
+              <Ionicons name="checkmark" color="black" size={16} />
+            </Menu.ItemIndicator>
+
             <Menu.ItemTitle>{label}</Menu.ItemTitle>
           </Menu.CheckboxItem>
         ))}
@@ -118,7 +121,10 @@ function SortMenu({ children }: { children: React.ReactElement }) {
               value={value === display}
               onValueChange={(next) => next && setDisplay(value)}
             >
-              <Menu.ItemIndicator />
+              <Menu.ItemIndicator>
+                <Ionicons name="checkmark" color="black" size={16} />
+              </Menu.ItemIndicator>
+
               <Menu.ItemTitle>{label}</Menu.ItemTitle>
             </Menu.CheckboxItem>
           ))}
