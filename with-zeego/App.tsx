@@ -191,7 +191,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
                 </Menu.Item>
               ))}
             </Menu.Group>
-            <Menu.Item key={"types-new"}>
+            <Menu.Item key="types-new">
               <Menu.ItemTitle>New Type</Menu.ItemTitle>
               <Menu.ItemIcon ios={{ name: "plus" }} />
             </Menu.Item>
@@ -212,7 +212,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
               ))}
             </Menu.Group>
 
-            <Menu.Item key={"spacing-new"}>
+            <Menu.Item key="spacing-new">
               <Menu.ItemTitle>New Spacing</Menu.ItemTitle>
               <Menu.ItemIcon ios={{ name: "plus" }} />
             </Menu.Item>
@@ -226,7 +226,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
           </Menu.SubTrigger>
           <Menu.SubContent>
             <Menu.Group>
-              <Menu.Item key={"top-gradient"}>
+              <Menu.Item key="top-gradient">
                 <Menu.ItemTitle>Top Gradient</Menu.ItemTitle>
                 <Menu.ItemIcon
                   ios={{
@@ -234,7 +234,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
                   }}
                 />
               </Menu.Item>
-              <Menu.Item key={"bottom-gradient"}>
+              <Menu.Item key="bottom-gradient">
                 <Menu.ItemTitle>Bottom Gradient</Menu.ItemTitle>
                 <Menu.ItemIcon
                   ios={{
@@ -244,7 +244,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
               </Menu.Item>
             </Menu.Group>
 
-            <Menu.Item key={"gradient-new"}>
+            <Menu.Item key="gradient-new">
               <Menu.ItemTitle>New Gradient</Menu.ItemTitle>
               <Menu.ItemIcon ios={{ name: "plus" }} />
             </Menu.Item>
@@ -274,7 +274,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
               ))}
             </Menu.Group>
 
-            <Menu.Item key={"colors-new"}>
+            <Menu.Item key="colors-new">
               <Menu.ItemTitle>New Color</Menu.ItemTitle>
               <Menu.ItemIcon ios={{ name: "plus" }} />
             </Menu.Item>
@@ -463,11 +463,7 @@ function PageMenu({
     <Menu.Root>
       <Menu.Trigger>
         <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
-          <Ionicons
-            name="arrow-down-circle-outline"
-            color={"black"}
-            size={24}
-          />
+          <Ionicons name="arrow-down-circle-outline" color="black" size={24} />
           <Text style={{ fontWeight: "bold" }}>
             {pages.find((page) => page.isSelected).title}
           </Text>
@@ -552,7 +548,7 @@ function PageMenu({
           )}
 
           {/*  */}
-          <Menu.Item key={"page-new"}>
+          <Menu.Item key="page-new">
             <Menu.ItemTitle>New Page</Menu.ItemTitle>
             <Menu.ItemIcon ios={{ name: "plus" }} />
           </Menu.Item>
