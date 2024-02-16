@@ -392,7 +392,11 @@ function MoreMenu({ children }: { children?: React.ReactElement }) {
   );
 }
 
+const TOGGLES = ["character", "sun.max", "moon"] as const;
+
 function UISettingsMenu({ children }: { children?: React.ReactElement }) {
+  const [toggleIndex, setIndex] = React.useState(0);
+
   return (
     <Menu.Root>
       <Menu.Trigger>{children}</Menu.Trigger>
@@ -414,15 +418,22 @@ function UISettingsMenu({ children }: { children?: React.ReactElement }) {
         </Menu.Group>
 
         <Menu.Group horizontal>
-          <Menu.Item key="character" textValue="">
-            <Menu.ItemIcon ios={{ name: "character" }} />
-          </Menu.Item>
-          <Menu.Item key="appearance" textValue="">
-            <Menu.ItemIcon ios={{ name: "sun.max" }} />
-          </Menu.Item>
-          <Menu.Item key="paste" textValue="">
-            <Menu.ItemIcon ios={{ name: "moon" }} />
-          </Menu.Item>
+          {TOGGLES.map((toggle, index) => (
+            <Menu.Item
+              key={toggle}
+              textValue={toggle}
+              onSelect={() => setIndex(index)}
+              shouldDismissMenuOnSelect={false}
+            >
+              <Menu.ItemIcon
+                ios={{
+                  name: toggle,
+                  hierarchicalColor:
+                    index === toggleIndex ? "black" : "rgba(0,0,0,0.3)",
+                }}
+              />
+            </Menu.Item>
+          ))}
         </Menu.Group>
       </Menu.Content>
     </Menu.Root>
