@@ -1,7 +1,8 @@
+import "@expo/metro-runtime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { SafeAreaView, Text, View } from "react-native";
-import * as DropdownMenu from "zeego/dropdown-menu";
+import * as Menu from "zeego/dropdown-menu";
 
 export default function App() {
   return (
@@ -27,7 +28,7 @@ function Header() {
       }}
     >
       <SortMenu>
-        <Ionicons name="options" color={"black"} size={24} />
+        <Ionicons name="options" color="black" size={24} />
       </SortMenu>
 
       <PageMenu
@@ -47,7 +48,7 @@ function Header() {
       />
 
       <MoreMenu>
-        <Ionicons name="menu-outline" color={"black"} size={24} />
+        <Ionicons name="menu-outline" color="black" size={24} />
       </MoreMenu>
     </View>
   );
@@ -66,15 +67,15 @@ function Footer() {
       }}
     >
       <StylesMenu>
-        <Ionicons name="options" color={"black"} size={24} />
+        <Ionicons name="options" color="black" size={24} />
       </StylesMenu>
 
       <UISettingsMenu>
-        <Ionicons name="settings-outline" color={"black"} size={24} />
+        <Ionicons name="settings-outline" color="black" size={24} />
       </UISettingsMenu>
 
       <ShareMenu>
-        <Ionicons name="share-outline" color={"black"} size={24} />
+        <Ionicons name="share-outline" color="black" size={24} />
       </ShareMenu>
     </View>
   );
@@ -95,37 +96,35 @@ function SortMenu({ children }: { children: React.ReactElement }) {
   ];
 
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>{children}</DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>{children}</Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Group>
-          {SORT_FILTERS.map(({ value, label }) => (
-            <DropdownMenu.CheckboxItem
-              key={value}
-              value={value === sort}
-              onValueChange={(next) => next && setSort(value)}
-            >
-              <DropdownMenu.ItemIndicator />
-              <DropdownMenu.ItemTitle>{label}</DropdownMenu.ItemTitle>
-            </DropdownMenu.CheckboxItem>
-          ))}
-        </DropdownMenu.Group>
+      <Menu.Content>
+        {SORT_FILTERS.map(({ value, label }) => (
+          <Menu.CheckboxItem
+            key={value}
+            value={value === sort}
+            onValueChange={(next) => next && setSort(value)}
+          >
+            <Menu.ItemIndicator />
+            <Menu.ItemTitle>{label}</Menu.ItemTitle>
+          </Menu.CheckboxItem>
+        ))}
 
-        <DropdownMenu.Group>
+        <Menu.Group>
           {DISPLAY_FILTERS.map(({ value, label }) => (
-            <DropdownMenu.CheckboxItem
+            <Menu.CheckboxItem
               key={value}
               value={value === display}
               onValueChange={(next) => next && setDisplay(value)}
             >
-              <DropdownMenu.ItemIndicator />
-              <DropdownMenu.ItemTitle>{label}</DropdownMenu.ItemTitle>
-            </DropdownMenu.CheckboxItem>
+              <Menu.ItemIndicator />
+              <Menu.ItemTitle>{label}</Menu.ItemTitle>
+            </Menu.CheckboxItem>
           ))}
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+        </Menu.Group>
+      </Menu.Content>
+    </Menu.Root>
   );
 }
 
@@ -145,7 +144,9 @@ const FIGMA_DEFAULT_COLORS: { hex: string; name: string }[] = [
   { hex: "#8E8E93", name: "Gray" },
   { hex: "#111827", name: "Black" },
 ];
+
 const SPACINGS = [0, 1, 2, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128];
+
 const TYPES = [
   { name: "Large Title", weight: "Regular", size: "34/41" },
   { name: "Title 1", weight: "Regular", size: "28/34" },
@@ -162,308 +163,286 @@ const TYPES = [
 
 function StylesMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>{children}</DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>{children}</Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Label>Styles</DropdownMenu.Label>
+      <Menu.Content>
+        <Menu.Label>Styles</Menu.Label>
 
-        <DropdownMenu.Sub key="types-menu">
-          <DropdownMenu.SubTrigger key="types-trigger">
-            <DropdownMenu.ItemTitle>Type</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "textformat" }} />
-          </DropdownMenu.SubTrigger>
-          <DropdownMenu.SubContent>
-            <DropdownMenu.Group>
+        <Menu.Sub key="types-menu">
+          <Menu.SubTrigger key="types-trigger">
+            <Menu.ItemTitle>Type</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "textformat" }} />
+          </Menu.SubTrigger>
+          <Menu.SubContent>
+            <Menu.Group>
               {TYPES.map((typeItem) => (
-                <DropdownMenu.Item key={typeItem.name}>
-                  <DropdownMenu.ItemTitle>
-                    {typeItem.name}
-                  </DropdownMenu.ItemTitle>
-                  <DropdownMenu.ItemSubtitle>
+                <Menu.Item key={typeItem.name}>
+                  <Menu.ItemTitle>{typeItem.name}</Menu.ItemTitle>
+                  <Menu.ItemSubtitle>
                     {`${typeItem.size}, ${typeItem.weight}`}
-                  </DropdownMenu.ItemSubtitle>
-                </DropdownMenu.Item>
+                  </Menu.ItemSubtitle>
+                </Menu.Item>
               ))}
-            </DropdownMenu.Group>
-            <DropdownMenu.Item key={"types-new"}>
-              <DropdownMenu.ItemTitle>New Type</DropdownMenu.ItemTitle>
-              <DropdownMenu.ItemIcon ios={{ name: "plus" }} />
-            </DropdownMenu.Item>
-          </DropdownMenu.SubContent>
-        </DropdownMenu.Sub>
+            </Menu.Group>
+            <Menu.Item key={"types-new"}>
+              <Menu.ItemTitle>New Type</Menu.ItemTitle>
+              <Menu.ItemIcon ios={{ name: "plus" }} />
+            </Menu.Item>
+          </Menu.SubContent>
+        </Menu.Sub>
 
-        <DropdownMenu.Sub key="spacing-menu">
-          <DropdownMenu.SubTrigger key="spacing-trigger">
-            <DropdownMenu.ItemTitle>Spacing</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "arrow.left.and.right" }} />
-          </DropdownMenu.SubTrigger>
-          <DropdownMenu.SubContent>
-            <DropdownMenu.Group>
+        <Menu.Sub key="spacing-menu">
+          <Menu.SubTrigger key="spacing-trigger">
+            <Menu.ItemTitle>Spacing</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "arrow.left.and.right" }} />
+          </Menu.SubTrigger>
+          <Menu.SubContent>
+            <Menu.Group>
               {SPACINGS.map((spacing) => (
-                <DropdownMenu.Item key={String(spacing)}>
-                  <DropdownMenu.ItemTitle>
-                    {String(spacing)}
-                  </DropdownMenu.ItemTitle>
-                </DropdownMenu.Item>
+                <Menu.Item key={String(spacing)}>
+                  <Menu.ItemTitle>{String(spacing)}</Menu.ItemTitle>
+                </Menu.Item>
               ))}
-            </DropdownMenu.Group>
+            </Menu.Group>
 
-            <DropdownMenu.Item key={"spacing-new"}>
-              <DropdownMenu.ItemTitle>New Spacing</DropdownMenu.ItemTitle>
-              <DropdownMenu.ItemIcon ios={{ name: "plus" }} />
-            </DropdownMenu.Item>
-          </DropdownMenu.SubContent>
-        </DropdownMenu.Sub>
+            <Menu.Item key={"spacing-new"}>
+              <Menu.ItemTitle>New Spacing</Menu.ItemTitle>
+              <Menu.ItemIcon ios={{ name: "plus" }} />
+            </Menu.Item>
+          </Menu.SubContent>
+        </Menu.Sub>
 
-        <DropdownMenu.Sub key="gradient-menu">
-          <DropdownMenu.SubTrigger key="gradient-trigger">
-            <DropdownMenu.ItemTitle>Gradients</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "circle.lefthalf.fill" }} />
-          </DropdownMenu.SubTrigger>
-          <DropdownMenu.SubContent>
-            <DropdownMenu.Group>
-              <DropdownMenu.Item key={"top-gradient"}>
-                <DropdownMenu.ItemTitle>Top Gradient</DropdownMenu.ItemTitle>
-                <DropdownMenu.ItemIcon
+        <Menu.Sub key="gradient-menu">
+          <Menu.SubTrigger key="gradient-trigger">
+            <Menu.ItemTitle>Gradients</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "circle.lefthalf.fill" }} />
+          </Menu.SubTrigger>
+          <Menu.SubContent>
+            <Menu.Group>
+              <Menu.Item key={"top-gradient"}>
+                <Menu.ItemTitle>Top Gradient</Menu.ItemTitle>
+                <Menu.ItemIcon
                   ios={{
                     name: "circle.bottomhalf.fill",
                   }}
                 />
-              </DropdownMenu.Item>
-              <DropdownMenu.Item key={"bottom-gradient"}>
-                <DropdownMenu.ItemTitle>Bottom Gradient</DropdownMenu.ItemTitle>
-                <DropdownMenu.ItemIcon
+              </Menu.Item>
+              <Menu.Item key={"bottom-gradient"}>
+                <Menu.ItemTitle>Bottom Gradient</Menu.ItemTitle>
+                <Menu.ItemIcon
                   ios={{
                     name: "circle.tophalf.fill",
                   }}
                 />
-              </DropdownMenu.Item>
-            </DropdownMenu.Group>
+              </Menu.Item>
+            </Menu.Group>
 
-            <DropdownMenu.Item key={"gradient-new"}>
-              <DropdownMenu.ItemTitle>New Gradient</DropdownMenu.ItemTitle>
-              <DropdownMenu.ItemIcon ios={{ name: "plus" }} />
-            </DropdownMenu.Item>
-          </DropdownMenu.SubContent>
-        </DropdownMenu.Sub>
+            <Menu.Item key={"gradient-new"}>
+              <Menu.ItemTitle>New Gradient</Menu.ItemTitle>
+              <Menu.ItemIcon ios={{ name: "plus" }} />
+            </Menu.Item>
+          </Menu.SubContent>
+        </Menu.Sub>
 
-        <DropdownMenu.Sub key="colors-menu">
-          <DropdownMenu.SubTrigger key="colors-trigger">
-            <DropdownMenu.ItemTitle>Colors</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "eyedropper" }} />
-          </DropdownMenu.SubTrigger>
-          <DropdownMenu.SubContent>
-            <DropdownMenu.Group>
+        <Menu.Sub key="colors-menu">
+          <Menu.SubTrigger key="colors-trigger">
+            <Menu.ItemTitle>Colors</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "eyedropper" }} />
+          </Menu.SubTrigger>
+          <Menu.SubContent>
+            <Menu.Group>
               {FIGMA_DEFAULT_COLORS.map((color) => (
-                <DropdownMenu.Item key={color.name}>
-                  <DropdownMenu.ItemTitle>{color.name}</DropdownMenu.ItemTitle>
-                  <DropdownMenu.ItemSubtitle>
-                    {color.hex}
-                  </DropdownMenu.ItemSubtitle>
+                <Menu.Item key={color.name}>
+                  <Menu.ItemTitle>{color.name}</Menu.ItemTitle>
+                  <Menu.ItemSubtitle>{color.hex}</Menu.ItemSubtitle>
 
-                  <DropdownMenu.ItemIcon
+                  <Menu.ItemIcon
                     ios={{
                       name: "circle.fill",
                       // Requires iOS 15+
                       hierarchicalColor: color.hex,
                     }}
                   />
-                </DropdownMenu.Item>
+                </Menu.Item>
               ))}
-            </DropdownMenu.Group>
+            </Menu.Group>
 
-            <DropdownMenu.Item key={"colors-new"}>
-              <DropdownMenu.ItemTitle>New Color</DropdownMenu.ItemTitle>
-              <DropdownMenu.ItemIcon ios={{ name: "plus" }} />
-            </DropdownMenu.Item>
-          </DropdownMenu.SubContent>
-        </DropdownMenu.Sub>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+            <Menu.Item key={"colors-new"}>
+              <Menu.ItemTitle>New Color</Menu.ItemTitle>
+              <Menu.ItemIcon ios={{ name: "plus" }} />
+            </Menu.Item>
+          </Menu.SubContent>
+        </Menu.Sub>
+      </Menu.Content>
+    </Menu.Root>
   );
 }
 
 function MoreMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>{children}</DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>{children}</Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Group>
+      <Menu.Content>
+        <Menu.Group>
           {/* TODO: Horizontal picker: | A | B | C | D | */}
 
-          <DropdownMenu.Sub key="project-options">
-            <DropdownMenu.SubTrigger key="project-trigger">
-              <DropdownMenu.ItemTitle>Share</DropdownMenu.ItemTitle>
-              <DropdownMenu.ItemIcon ios={{ name: "square.and.arrow.up" }} />
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              {getShareOptions()}
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
-        </DropdownMenu.Group>
+          <Menu.Sub key="project-options">
+            <Menu.SubTrigger key="project-trigger">
+              <Menu.ItemTitle>Share</Menu.ItemTitle>
+              <Menu.ItemIcon ios={{ name: "square.and.arrow.up" }} />
+            </Menu.SubTrigger>
+            <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
+          </Menu.Sub>
+        </Menu.Group>
         {/*  */}
-        <DropdownMenu.Group>
-          <DropdownMenu.Item key="rename">
-            <DropdownMenu.ItemTitle>Rename</DropdownMenu.ItemTitle>
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
+        <Menu.Group>
+          <Menu.Item key="rename">
+            <Menu.ItemTitle>Rename</Menu.ItemTitle>
+          </Menu.Item>
+        </Menu.Group>
         {/*  */}
-        <DropdownMenu.Group>
-          <DropdownMenu.Sub key="properties">
-            <DropdownMenu.SubTrigger key="properties-trigger">
-              <DropdownMenu.ItemTitle>Properties</DropdownMenu.ItemTitle>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.Item key="copy">
-                <DropdownMenu.ItemTitle>
-                  Copy Page Properties
-                </DropdownMenu.ItemTitle>
-              </DropdownMenu.Item>
+        <Menu.Group>
+          <Menu.Sub key="properties">
+            <Menu.SubTrigger key="properties-trigger">
+              <Menu.ItemTitle>Properties</Menu.ItemTitle>
+            </Menu.SubTrigger>
+            <Menu.SubContent>
+              <Menu.Item key="copy">
+                <Menu.ItemTitle>Copy Page Properties</Menu.ItemTitle>
+              </Menu.Item>
 
-              <DropdownMenu.Item key="paste" disabled>
-                <DropdownMenu.ItemTitle>
-                  Paste Properties
-                </DropdownMenu.ItemTitle>
-              </DropdownMenu.Item>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
+              <Menu.Item key="paste" disabled>
+                <Menu.ItemTitle>Paste Properties</Menu.ItemTitle>
+              </Menu.Item>
+            </Menu.SubContent>
+          </Menu.Sub>
 
-          <DropdownMenu.Sub key="stack">
-            <DropdownMenu.SubTrigger key="stack-trigger">
-              <DropdownMenu.ItemTitle>Add to New Stack</DropdownMenu.ItemTitle>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.Item key="stack">
-                <DropdownMenu.ItemTitle>Stack</DropdownMenu.ItemTitle>
-                <DropdownMenu.ItemIcon ios={{ name: "square.2.layers.3d" }} />
-              </DropdownMenu.Item>
+          <Menu.Sub key="stack">
+            <Menu.SubTrigger key="stack-trigger">
+              <Menu.ItemTitle>Add to New Stack</Menu.ItemTitle>
+            </Menu.SubTrigger>
+            <Menu.SubContent>
+              <Menu.Item key="stack">
+                <Menu.ItemTitle>Stack</Menu.ItemTitle>
+                <Menu.ItemIcon ios={{ name: "square.2.layers.3d" }} />
+              </Menu.Item>
 
-              <DropdownMenu.Item key="stack-v">
-                <DropdownMenu.ItemTitle>Stack V</DropdownMenu.ItemTitle>
-                <DropdownMenu.ItemIcon ios={{ name: "arrow.down" }} />
-              </DropdownMenu.Item>
+              <Menu.Item key="stack-v">
+                <Menu.ItemTitle>Stack V</Menu.ItemTitle>
+                <Menu.ItemIcon ios={{ name: "arrow.down" }} />
+              </Menu.Item>
 
-              <DropdownMenu.Item key="stack-h">
-                <DropdownMenu.ItemTitle>Stack H</DropdownMenu.ItemTitle>
-                <DropdownMenu.ItemIcon ios={{ name: "arrow.right" }} />
-              </DropdownMenu.Item>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
+              <Menu.Item key="stack-h">
+                <Menu.ItemTitle>Stack H</Menu.ItemTitle>
+                <Menu.ItemIcon ios={{ name: "arrow.right" }} />
+              </Menu.Item>
+            </Menu.SubContent>
+          </Menu.Sub>
 
-          <DropdownMenu.Sub key="fill">
-            <DropdownMenu.SubTrigger key="fill-trigger">
-              <DropdownMenu.ItemTitle>Auto Fill</DropdownMenu.ItemTitle>
-            </DropdownMenu.SubTrigger>
-            <DropdownMenu.SubContent>
-              <DropdownMenu.Item key="unsplash">
-                <DropdownMenu.ItemTitle>Unsplash</DropdownMenu.ItemTitle>
-              </DropdownMenu.Item>
-              <DropdownMenu.Item key="assets">
-                <DropdownMenu.ItemTitle>My Assets</DropdownMenu.ItemTitle>
-              </DropdownMenu.Item>
-              <DropdownMenu.Item key="text">
-                <DropdownMenu.ItemTitle>
-                  Placeholder Text
-                </DropdownMenu.ItemTitle>
-              </DropdownMenu.Item>
-            </DropdownMenu.SubContent>
-          </DropdownMenu.Sub>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
+          <Menu.Sub key="fill">
+            <Menu.SubTrigger key="fill-trigger">
+              <Menu.ItemTitle>Auto Fill</Menu.ItemTitle>
+            </Menu.SubTrigger>
+            <Menu.SubContent>
+              <Menu.Item key="unsplash">
+                <Menu.ItemTitle>Unsplash</Menu.ItemTitle>
+              </Menu.Item>
+              <Menu.Item key="assets">
+                <Menu.ItemTitle>My Assets</Menu.ItemTitle>
+              </Menu.Item>
+              <Menu.Item key="text">
+                <Menu.ItemTitle>Placeholder Text</Menu.ItemTitle>
+              </Menu.Item>
+            </Menu.SubContent>
+          </Menu.Sub>
+        </Menu.Group>
+      </Menu.Content>
       {/*  */}
-    </DropdownMenu.Root>
+    </Menu.Root>
   );
 }
 
 function UISettingsMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>{children}</DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>{children}</Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Label>UI Settings</DropdownMenu.Label>
+      <Menu.Content>
+        <Menu.Label>UI Settings</Menu.Label>
         {/* TODO: Horizontal picker: | A | O | C | */}
 
-        <DropdownMenu.Group>
-          <DropdownMenu.Item key="outlines">
-            <DropdownMenu.ItemTitle>Outlines</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "app.dashed" }} />
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-        <DropdownMenu.Group>
-          <DropdownMenu.Item key="touches">
-            <DropdownMenu.ItemTitle>Touch Indicator</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "hand.tap" }} />
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+        <Menu.Group>
+          <Menu.Item key="outlines">
+            <Menu.ItemTitle>Outlines</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "app.dashed" }} />
+          </Menu.Item>
+        </Menu.Group>
+        <Menu.Group>
+          <Menu.Item key="touches">
+            <Menu.ItemTitle>Touch Indicator</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "hand.tap" }} />
+          </Menu.Item>
+        </Menu.Group>
+      </Menu.Content>
+    </Menu.Root>
   );
 }
 
 function getShareOptions() {
   return (
     <>
-      <DropdownMenu.Group>
-        <DropdownMenu.Item key="upgrade">
-          <DropdownMenu.ItemTitle>Upgrade Plan</DropdownMenu.ItemTitle>
-          <DropdownMenu.ItemSubtitle>
+      <Menu.Group>
+        <Menu.Item key="upgrade">
+          <Menu.ItemTitle>Upgrade Plan</Menu.ItemTitle>
+          <Menu.ItemSubtitle>
             Get unlimited projects and App Clips
-          </DropdownMenu.ItemSubtitle>
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
+          </Menu.ItemSubtitle>
+        </Menu.Item>
+      </Menu.Group>
 
-      <DropdownMenu.Group>
-        <DropdownMenu.Item key="editor">
-          <DropdownMenu.ItemTitle>Editor Link</DropdownMenu.ItemTitle>
-          <DropdownMenu.ItemSubtitle>
-            Copy link to Editor
-          </DropdownMenu.ItemSubtitle>
-          <DropdownMenu.ItemIcon ios={{ name: "person.2.fill" }} />
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
+      <Menu.Group>
+        <Menu.Item key="editor">
+          <Menu.ItemTitle>Editor Link</Menu.ItemTitle>
+          <Menu.ItemSubtitle>Copy link to Editor</Menu.ItemSubtitle>
+          <Menu.ItemIcon ios={{ name: "person.2.fill" }} />
+        </Menu.Item>
+      </Menu.Group>
 
-      <DropdownMenu.Group>
-        <DropdownMenu.Item key="more">
-          <DropdownMenu.ItemTitle>More</DropdownMenu.ItemTitle>
-          <DropdownMenu.ItemIcon ios={{ name: "ellipsis" }} />
-        </DropdownMenu.Item>
+      <Menu.Group>
+        <Menu.Item key="more">
+          <Menu.ItemTitle>More</Menu.ItemTitle>
+          <Menu.ItemIcon ios={{ name: "ellipsis" }} />
+        </Menu.Item>
 
-        <DropdownMenu.Item key="app-clip-imessage">
-          <DropdownMenu.ItemTitle>
-            Share Prototype with App Clip
-          </DropdownMenu.ItemTitle>
-          <DropdownMenu.ItemSubtitle>
-            Send with Messages
-          </DropdownMenu.ItemSubtitle>
-          <DropdownMenu.ItemIcon ios={{ name: "message.fill" }} />
-        </DropdownMenu.Item>
+        <Menu.Item key="app-clip-imessage">
+          <Menu.ItemTitle>Share Prototype with App Clip</Menu.ItemTitle>
+          <Menu.ItemSubtitle>Send with Messages</Menu.ItemSubtitle>
+          <Menu.ItemIcon ios={{ name: "message.fill" }} />
+        </Menu.Item>
 
-        <DropdownMenu.Item key="app-clip">
-          <DropdownMenu.ItemTitle>
-            Share Prototype with App Clip
-          </DropdownMenu.ItemTitle>
-          <DropdownMenu.ItemSubtitle>Copy Link</DropdownMenu.ItemSubtitle>
-          <DropdownMenu.ItemIcon ios={{ name: "apple.logo" }} />
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
+        <Menu.Item key="app-clip">
+          <Menu.ItemTitle>Share Prototype with App Clip</Menu.ItemTitle>
+          <Menu.ItemSubtitle>Copy Link</Menu.ItemSubtitle>
+          <Menu.ItemIcon ios={{ name: "apple.logo" }} />
+        </Menu.Item>
+      </Menu.Group>
     </>
   );
 }
 
 function ShareMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>{children}</DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>{children}</Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Label>Share</DropdownMenu.Label>
+      <Menu.Content>
+        <Menu.Label>Share</Menu.Label>
 
         {getShareOptions()}
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+      </Menu.Content>
+    </Menu.Root>
   );
 }
 
@@ -475,8 +454,8 @@ function PageMenu({
   pages: { title: string; isInitial: boolean; isSelected: boolean }[];
 }) {
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger>
+    <Menu.Root>
+      <Menu.Trigger>
         <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
           <Ionicons
             name="arrow-down-circle-outline"
@@ -487,100 +466,92 @@ function PageMenu({
             {pages.find((page) => page.isSelected).title}
           </Text>
         </View>
-      </DropdownMenu.Trigger>
+      </Menu.Trigger>
 
-      <DropdownMenu.Content>
-        <DropdownMenu.Sub key="project-options">
-          <DropdownMenu.SubTrigger key="project-trigger">
-            <DropdownMenu.ItemTitle>{projectName}</DropdownMenu.ItemTitle>
-          </DropdownMenu.SubTrigger>
-          <DropdownMenu.SubContent>
-            <DropdownMenu.Sub key="project-options">
-              <DropdownMenu.SubTrigger key="project-trigger">
-                <DropdownMenu.ItemTitle>Share</DropdownMenu.ItemTitle>
-              </DropdownMenu.SubTrigger>
-              <DropdownMenu.SubContent>
-                {getShareOptions()}
-              </DropdownMenu.SubContent>
-            </DropdownMenu.Sub>
+      <Menu.Content>
+        <Menu.Sub key="project-options">
+          <Menu.SubTrigger key="project-trigger">
+            <Menu.ItemTitle>{projectName}</Menu.ItemTitle>
+          </Menu.SubTrigger>
+          <Menu.SubContent>
+            <Menu.Sub key="project-options">
+              <Menu.SubTrigger key="project-trigger">
+                <Menu.ItemTitle>Share</Menu.ItemTitle>
+              </Menu.SubTrigger>
+              <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
+            </Menu.Sub>
 
-            <DropdownMenu.Item key="project-rename">
-              <DropdownMenu.ItemTitle>Rename</DropdownMenu.ItemTitle>
-            </DropdownMenu.Item>
-          </DropdownMenu.SubContent>
-        </DropdownMenu.Sub>
+            <Menu.Item key="project-rename">
+              <Menu.ItemTitle>Rename</Menu.ItemTitle>
+            </Menu.Item>
+          </Menu.SubContent>
+        </Menu.Sub>
 
-        <DropdownMenu.Group>
+        <Menu.Group>
           {pages.map((page, index) =>
             page.isSelected ? (
-              <DropdownMenu.Sub key={"page-options-" + index}>
-                <DropdownMenu.SubTrigger key="page-trigger">
-                  <DropdownMenu.ItemTitle>{page.title}</DropdownMenu.ItemTitle>
-                  <DropdownMenu.ItemIcon ios={{ name: "ellipsis" }} />
-                </DropdownMenu.SubTrigger>
-                <DropdownMenu.SubContent>
-                  <DropdownMenu.Sub key="page-options">
-                    <DropdownMenu.SubTrigger key="page-trigger">
-                      <DropdownMenu.ItemTitle>Share</DropdownMenu.ItemTitle>
-                      <DropdownMenu.ItemIcon
-                        ios={{ name: "square.and.arrow.up" }}
-                      />
-                    </DropdownMenu.SubTrigger>
-                    <DropdownMenu.SubContent>
-                      {getShareOptions()}
-                    </DropdownMenu.SubContent>
-                  </DropdownMenu.Sub>
+              <Menu.Sub key={"page-options-" + index}>
+                <Menu.SubTrigger key="page-trigger">
+                  <Menu.ItemTitle>{page.title}</Menu.ItemTitle>
+                  <Menu.ItemIcon ios={{ name: "ellipsis" }} />
+                </Menu.SubTrigger>
+                <Menu.SubContent>
+                  <Menu.Sub key="page-options">
+                    <Menu.SubTrigger key="page-trigger">
+                      <Menu.ItemTitle>Share</Menu.ItemTitle>
+                      <Menu.ItemIcon ios={{ name: "square.and.arrow.up" }} />
+                    </Menu.SubTrigger>
+                    <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
+                  </Menu.Sub>
 
-                  <DropdownMenu.Item key="initial" disabled={page.isInitial}>
-                    <DropdownMenu.ItemTitle>
-                      Set as Initial Page
-                    </DropdownMenu.ItemTitle>
-                    <DropdownMenu.ItemIcon
+                  <Menu.Item key="initial" disabled={page.isInitial}>
+                    <Menu.ItemTitle>Set as Initial Page</Menu.ItemTitle>
+                    <Menu.ItemIcon
                       ios={{ name: "house.fill", hierarchicalColor: "#34C760" }}
                     />
-                  </DropdownMenu.Item>
+                  </Menu.Item>
 
-                  <DropdownMenu.Item key="page-rename">
-                    <DropdownMenu.ItemTitle>Rename</DropdownMenu.ItemTitle>
-                  </DropdownMenu.Item>
+                  <Menu.Item key="page-rename">
+                    <Menu.ItemTitle>Rename</Menu.ItemTitle>
+                  </Menu.Item>
 
-                  <DropdownMenu.Item key="page-duplicate">
-                    <DropdownMenu.ItemTitle>Duplicate</DropdownMenu.ItemTitle>
-                  </DropdownMenu.Item>
+                  <Menu.Item key="page-duplicate">
+                    <Menu.ItemTitle>Duplicate</Menu.ItemTitle>
+                  </Menu.Item>
 
-                  <DropdownMenu.Group>
-                    <DropdownMenu.Item
+                  <Menu.Group>
+                    <Menu.Item
                       key="project-delete"
                       disabled={pages.length === 1 || page.isInitial}
                       destructive
                     >
-                      <DropdownMenu.ItemTitle>Delete</DropdownMenu.ItemTitle>
-                    </DropdownMenu.Item>
-                  </DropdownMenu.Group>
-                </DropdownMenu.SubContent>
-              </DropdownMenu.Sub>
+                      <Menu.ItemTitle>Delete</Menu.ItemTitle>
+                    </Menu.Item>
+                  </Menu.Group>
+                </Menu.SubContent>
+              </Menu.Sub>
             ) : (
-              <DropdownMenu.Item key={"page-" + index}>
-                <DropdownMenu.ItemTitle>{page.title}</DropdownMenu.ItemTitle>
+              <Menu.Item key={"page-" + index}>
+                <Menu.ItemTitle>{page.title}</Menu.ItemTitle>
                 {page.isInitial && (
-                  <DropdownMenu.ItemIcon
+                  <Menu.ItemIcon
                     ios={{
                       name: "house.fill",
                       hierarchicalColor: "#34C760",
                     }}
                   />
                 )}
-              </DropdownMenu.Item>
+              </Menu.Item>
             )
           )}
 
           {/*  */}
-          <DropdownMenu.Item key={"page-new"}>
-            <DropdownMenu.ItemTitle>New Page</DropdownMenu.ItemTitle>
-            <DropdownMenu.ItemIcon ios={{ name: "plus" }} />
-          </DropdownMenu.Item>
-        </DropdownMenu.Group>
-      </DropdownMenu.Content>
-    </DropdownMenu.Root>
+          <Menu.Item key={"page-new"}>
+            <Menu.ItemTitle>New Page</Menu.ItemTitle>
+            <Menu.ItemIcon ios={{ name: "plus" }} />
+          </Menu.Item>
+        </Menu.Group>
+      </Menu.Content>
+    </Menu.Root>
   );
 }
