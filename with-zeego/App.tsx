@@ -1,8 +1,41 @@
 import "@expo/metro-runtime";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { Alert, SafeAreaView, Text, View } from "react-native";
 import * as Menu from "zeego/dropdown-menu";
+
+const COLORS: { hex: string; name: string }[] = [
+  { hex: "#FF3B31", name: "Red" },
+  { hex: "#FF9501", name: "Orange" },
+  { hex: "#FFCC01", name: "Yellow" },
+  { hex: "#34C760", name: "Green" },
+  { hex: "#00C7BF", name: "Mint" },
+  { hex: "#30B0C8", name: "Teal" },
+  { hex: "#32ADE5", name: "Cyan" },
+  { hex: "#107AFF", name: "Blue" },
+  { hex: "#5956D6", name: "Indigo" },
+  { hex: "#AF51DE", name: "Purple" },
+  { hex: "#FF2C55", name: "Pink" },
+  { hex: "#A2835E", name: "Brown" },
+  { hex: "#8E8E93", name: "Gray" },
+  { hex: "#111827", name: "Black" },
+];
+
+const SPACINGS = [0, 1, 2, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128];
+
+const TYPES = [
+  { name: "Large Title", weight: "Regular", size: "34/41" },
+  { name: "Title 1", weight: "Regular", size: "28/34" },
+  { name: "Title 2", weight: "Regular", size: "22/28" },
+  { name: "Title 3", weight: "Regular", size: "20/24" },
+  { name: "Headline", weight: "Semi Bold", size: "17/22" },
+  { name: "Body", weight: "Regular", size: "17/22" },
+  { name: "Callout", weight: "Regular", size: "16/21" },
+  { name: "Subhead", weight: "Regular", size: "15/20" },
+  { name: "Footnote", weight: "Regular", size: "13/18" },
+  { name: "Caption 1", weight: "Regular", size: "12/16" },
+  { name: "Caption 2", weight: "Regular", size: "11/13" },
+] as const;
 
 export default function App() {
   return (
@@ -134,39 +167,6 @@ function SortMenu({ children }: { children: React.ReactElement }) {
   );
 }
 
-const FIGMA_DEFAULT_COLORS: { hex: string; name: string }[] = [
-  { hex: "#FF3B31", name: "Red" },
-  { hex: "#FF9501", name: "Orange" },
-  { hex: "#FFCC01", name: "Yellow" },
-  { hex: "#34C760", name: "Green" },
-  { hex: "#00C7BF", name: "Mint" },
-  { hex: "#30B0C8", name: "Teal" },
-  { hex: "#32ADE5", name: "Cyan" },
-  { hex: "#107AFF", name: "Blue" },
-  { hex: "#5956D6", name: "Indigo" },
-  { hex: "#AF51DE", name: "Purple" },
-  { hex: "#FF2C55", name: "Pink" },
-  { hex: "#A2835E", name: "Brown" },
-  { hex: "#8E8E93", name: "Gray" },
-  { hex: "#111827", name: "Black" },
-];
-
-const SPACINGS = [0, 1, 2, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128];
-
-const TYPES = [
-  { name: "Large Title", weight: "Regular", size: "34/41" },
-  { name: "Title 1", weight: "Regular", size: "28/34" },
-  { name: "Title 2", weight: "Regular", size: "22/28" },
-  { name: "Title 3", weight: "Regular", size: "20/24" },
-  { name: "Headline", weight: "Semi Bold", size: "17/22" },
-  { name: "Body", weight: "Regular", size: "17/22" },
-  { name: "Callout", weight: "Regular", size: "16/21" },
-  { name: "Subhead", weight: "Regular", size: "15/20" },
-  { name: "Footnote", weight: "Regular", size: "13/18" },
-  { name: "Caption 1", weight: "Regular", size: "12/16" },
-  { name: "Caption 2", weight: "Regular", size: "11/13" },
-] as const;
-
 function StylesMenu({ children }: { children?: React.ReactElement }) {
   return (
     <Menu.Root>
@@ -258,7 +258,7 @@ function StylesMenu({ children }: { children?: React.ReactElement }) {
           </Menu.SubTrigger>
           <Menu.SubContent>
             <Menu.Group>
-              {FIGMA_DEFAULT_COLORS.map((color) => (
+              {COLORS.map((color) => (
                 <Menu.Item key={color.name}>
                   <Menu.ItemTitle>{color.name}</Menu.ItemTitle>
                   <Menu.ItemSubtitle>{color.hex}</Menu.ItemSubtitle>
@@ -292,8 +292,21 @@ function MoreMenu({ children }: { children?: React.ReactElement }) {
 
       <Menu.Content>
         <Menu.Group>
-          {/* TODO: Horizontal picker: | A | B | C | D | */}
-
+          {/* TODO: Combine the horizontal group with the share button */}
+          <Menu.Group horizontal>
+            <Menu.Item key="cut" disabled textValue="">
+              <Menu.ItemIcon ios={{ name: "scissors" }} />
+            </Menu.Item>
+            <Menu.Item key="copy" textValue="">
+              <Menu.ItemIcon ios={{ name: "doc.on.doc" }} />
+            </Menu.Item>
+            <Menu.Item key="paste" disabled textValue="">
+              <Menu.ItemIcon ios={{ name: "doc.on.clipboard" }} />
+            </Menu.Item>
+            <Menu.Item key="view" textValue="">
+              <Menu.ItemIcon ios={{ name: "eye" }} />
+            </Menu.Item>
+          </Menu.Group>
           <Menu.Sub key="project-options">
             <Menu.SubTrigger key="project-trigger">
               <Menu.ItemTitle>Share</Menu.ItemTitle>
@@ -304,7 +317,16 @@ function MoreMenu({ children }: { children?: React.ReactElement }) {
         </Menu.Group>
         {/*  */}
         <Menu.Group>
-          <Menu.Item key="rename">
+          <Menu.Item
+            key="rename"
+            onSelect={() => {
+              Alert.prompt("Rename", "Enter a new name", (newName) => {
+                if (newName) {
+                  Alert.alert("Renamed", `Renamed to ${newName}`);
+                }
+              });
+            }}
+          >
             <Menu.ItemTitle>Rename</Menu.ItemTitle>
           </Menu.Item>
         </Menu.Group>
@@ -377,7 +399,6 @@ function UISettingsMenu({ children }: { children?: React.ReactElement }) {
 
       <Menu.Content>
         <Menu.Label>UI Settings</Menu.Label>
-        {/* TODO: Horizontal picker: | A | O | C | */}
 
         <Menu.Group>
           <Menu.Item key="outlines">
@@ -389,6 +410,18 @@ function UISettingsMenu({ children }: { children?: React.ReactElement }) {
           <Menu.Item key="touches">
             <Menu.ItemTitle>Touch Indicator</Menu.ItemTitle>
             <Menu.ItemIcon ios={{ name: "hand.tap" }} />
+          </Menu.Item>
+        </Menu.Group>
+
+        <Menu.Group horizontal>
+          <Menu.Item key="character" textValue="">
+            <Menu.ItemIcon ios={{ name: "character" }} />
+          </Menu.Item>
+          <Menu.Item key="appearance" textValue="">
+            <Menu.ItemIcon ios={{ name: "sun.max" }} />
+          </Menu.Item>
+          <Menu.Item key="paste" textValue="">
+            <Menu.ItemIcon ios={{ name: "moon" }} />
           </Menu.Item>
         </Menu.Group>
       </Menu.Content>
@@ -483,7 +516,16 @@ function PageMenu({
               <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
             </Menu.Sub>
 
-            <Menu.Item key="project-rename">
+            <Menu.Item
+              key="rename"
+              onSelect={() => {
+                Alert.prompt("Rename", "Enter a new name", (newName) => {
+                  if (newName) {
+                    Alert.alert("Renamed", `Renamed to ${newName}`);
+                  }
+                });
+              }}
+            >
               <Menu.ItemTitle>Rename</Menu.ItemTitle>
             </Menu.Item>
           </Menu.SubContent>
@@ -513,7 +555,16 @@ function PageMenu({
                     />
                   </Menu.Item>
 
-                  <Menu.Item key="page-rename">
+                  <Menu.Item
+                    key="rename"
+                    onSelect={() => {
+                      Alert.prompt("Rename", "Enter a new name", (newName) => {
+                        if (newName) {
+                          Alert.alert("Renamed", `Renamed to ${newName}`);
+                        }
+                      });
+                    }}
+                  >
                     <Menu.ItemTitle>Rename</Menu.ItemTitle>
                   </Menu.Item>
 
