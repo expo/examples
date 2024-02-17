@@ -1,12 +1,9 @@
 // A cross between zeego and Shadcn UI:
 // https://github.com/shadcn-ui/ui/blob/0fae3fd93ae749aca708bdfbbbeddc5d576bfb2e/apps/www/registry/new-york/ui/dropdown-menu.tsx#L1
-
-import * as React from "react";
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
-import CheckIcon from "@radix-ui/react-icons/dist/CheckIcon";
-import ChevronRightIcon from "@radix-ui/react-icons/dist/ChevronRightIcon";
-
 import { cn } from "@/lib/utils";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import { CheckIcon, ChevronRightIcon } from "@radix-ui/react-icons";
+import * as React from "react";
 import { View } from "react-native";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
