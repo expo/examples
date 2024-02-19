@@ -2,6 +2,7 @@ import "../global.css";
 
 import { Header } from "@/components/header";
 import { MoreMenu, PageMenu, SortMenu } from "@/components/menus";
+import { useProject } from "@/data/project";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
@@ -14,6 +15,7 @@ export const unstable_settings = {
 };
 
 export default function Layout() {
+  const { project } = useProject();
   const [isLoaded] = useFonts({
     ...Ionicons.font,
     ...MaterialIcons.font,
@@ -33,7 +35,7 @@ export default function Layout() {
         <Stack.Screen
           name="index"
           options={{
-            title: "My New Draft",
+            title: project.projectName,
             headerTitleAlign: "center",
             headerLargeTitle: true,
             headerLeft() {
@@ -49,22 +51,8 @@ export default function Layout() {
             },
             headerRight() {
               return (
-                <View className="flex flex-row gap-4">
-                  <PageMenu
-                    projectName="My New Draft"
-                    pages={[
-                      {
-                        title: "Page 1",
-                        isInitial: true,
-                        isSelected: false,
-                      },
-                      {
-                        title: "Page 2",
-                        isInitial: false,
-                        isSelected: true,
-                      },
-                    ]}
-                  />
+                <View className="flex flex-row justify-end gap-4">
+                  <PageMenu />
                   <MoreMenu>
                     <MaterialIcons
                       name="dots-horizontal"

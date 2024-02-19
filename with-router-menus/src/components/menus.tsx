@@ -1,4 +1,5 @@
 import * as Menu from "@/components/dropdown-menu";
+import { useProject } from "@/data/project";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useRouter } from "expo-router";
@@ -201,6 +202,8 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
 }
 
 export function MoreMenu({ children }: { children?: React.ReactElement }) {
+  const { project, renamePage } = useProject();
+  const page = project.pages.find((page) => page.id === project.selectedPage);
   return (
     <Menu.Root>
       <Menu.Trigger className="flex justify-center align-center">
@@ -248,7 +251,15 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
         </Menu.Group>
         {/*  */}
         <Menu.Group>
-          <Menu.Item key="rename" onSelect={onRename}>
+          <Menu.Item
+            key={"rename-page-top-" + page.id}
+            onSelect={async () => {
+              const name = await onRename();
+              if (name) {
+                renamePage(page.id, name);
+              }
+            }}
+          >
             <Menu.ItemTitle>Rename</Menu.ItemTitle>
           </Menu.Item>
         </Menu.Group>
@@ -452,34 +463,48 @@ export function ShareMenu({ children }: { children?: React.ReactElement }) {
   );
 }
 
-function onRename() {
+async function onRename(): Promise<string | null> {
   if (Platform.OS !== "web") {
-    Alert.prompt("Rename", "Enter a new name", (newName) => {
-      if (newName) {
-        Alert.alert("Renamed", `Renamed to ${newName}`);
-      }
+    return new Promise<string>((resolve) => {
+      Alert.prompt("Rename", "Enter a new name", (newName) => {
+        if (newName) {
+          Alert.alert("Renamed", `Renamed to ${newName}`);
+          resolve(newName);
+        } else {
+          resolve(null);
+        }
+      });
     });
   }
+  return null;
 }
 
-export function PageMenu({
-  projectName,
-  pages,
-}: {
-  projectName: string;
-  pages: { title: string; isInitial: boolean; isSelected: boolean }[];
-}) {
+export function PageMenu() {
+  const {
+    project,
+    addPage,
+    selectPage,
+    setInitialPage,
+    renamePage,
+    renameProject,
+    duplicatePage,
+    removePage,
+  } = useProject();
+
   return (
     <Menu.Root>
       <Menu.Trigger>
-        <View className="flex-row gap-1 items-center">
+        <View className="flex flex-row gap-1 items-center justify-end">
           <MaterialIcons
             name="arrow-down-thin-circle-outline"
             color="black"
             size={24}
           />
           <Text className="font-bold">
-            {pages.find((page) => page.isSelected).title}
+            {
+              project.pages.find((page) => page.id === project.selectedPage)
+                .title
+            }
           </Text>
         </View>
       </Menu.Trigger>
@@ -487,7 +512,7 @@ export function PageMenu({
       <Menu.Content>
         <Menu.Sub key="project-options">
           <Menu.SubTrigger key="project-trigger">
-            <Menu.ItemTitle>{projectName}</Menu.ItemTitle>
+            <Menu.ItemTitle>{project.projectName}</Menu.ItemTitle>
           </Menu.SubTrigger>
           <Menu.SubContent>
             <Menu.Sub key="project-options">
@@ -497,15 +522,23 @@ export function PageMenu({
               <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
             </Menu.Sub>
 
-            <Menu.Item key="rename" onSelect={onRename}>
+            <Menu.Item
+              key="rename-project"
+              onSelect={async () => {
+                const name = await onRename();
+                if (name) {
+                  renameProject(name);
+                }
+              }}
+            >
               <Menu.ItemTitle>Rename</Menu.ItemTitle>
             </Menu.Item>
           </Menu.SubContent>
         </Menu.Sub>
 
         <Menu.Group>
-          {pages.map((page, index) =>
-            page.isSelected ? (
+          {project.pages.map((page, index) =>
+            page.id === project.selectedPage ? (
               <Menu.Sub key={"page-options-" + index}>
                 <Menu.SubTrigger key="page-trigger">
                   <Menu.ItemIcon ios={{ name: "ellipsis" }}>
@@ -528,7 +561,13 @@ export function PageMenu({
                     <Menu.SubContent>{getShareOptions()}</Menu.SubContent>
                   </Menu.Sub>
 
-                  <Menu.Item key="initial" disabled={page.isInitial}>
+                  <Menu.Item
+                    key="initial"
+                    disabled={page.id === project.initialPage}
+                    onSelect={() => {
+                      setInitialPage(page.id);
+                    }}
+                  >
                     <Menu.ItemIcon
                       ios={{ name: "house.fill", hierarchicalColor: "#34C760" }}
                     >
@@ -537,19 +576,57 @@ export function PageMenu({
                     <Menu.ItemTitle>Set as Initial Page</Menu.ItemTitle>
                   </Menu.Item>
 
-                  <Menu.Item key="rename" onSelect={onRename}>
+                  <Menu.Item
+                    key={"rename-page-" + page.id}
+                    onSelect={async () => {
+                      const name = await onRename();
+                      if (name) {
+                        renamePage(page.id, name);
+                      }
+                    }}
+                  >
                     <Menu.ItemTitle>Rename</Menu.ItemTitle>
                   </Menu.Item>
 
-                  <Menu.Item key="page-duplicate">
+                  <Menu.Item
+                    key="page-duplicate"
+                    onSelect={() => {
+                      duplicatePage(page.id);
+                    }}
+                  >
                     <Menu.ItemTitle>Duplicate</Menu.ItemTitle>
                   </Menu.Item>
 
                   <Menu.Group>
                     <Menu.Item
                       key="project-delete"
-                      disabled={pages.length === 1 || page.isInitial}
+                      disabled={
+                        project.pages.length === 1 ||
+                        page.id === project.initialPage
+                      }
                       destructive
+                      onSelect={() => {
+                        // TODO: Web requires a custom prompt
+                        if (Platform.OS !== "web") {
+                          Alert.alert(
+                            "Delete Page",
+                            `Are you sure you want to delete ${page.title}?`,
+                            [
+                              {
+                                text: "Cancel",
+                                style: "cancel",
+                              },
+                              {
+                                text: "Delete",
+                                style: "destructive",
+                                onPress: () => {
+                                  removePage(page.id);
+                                },
+                              },
+                            ]
+                          );
+                        }
+                      }}
                     >
                       <Menu.ItemTitle>Delete</Menu.ItemTitle>
                     </Menu.Item>
@@ -557,8 +634,13 @@ export function PageMenu({
                 </Menu.SubContent>
               </Menu.Sub>
             ) : (
-              <Menu.Item key={"page-" + index}>
-                {page.isInitial && (
+              <Menu.Item
+                key={"page-" + index}
+                onSelect={() => {
+                  selectPage(page.id);
+                }}
+              >
+                {page.id === project.initialPage && (
                   <Menu.ItemIcon
                     ios={{
                       name: "house.fill",
@@ -574,7 +656,12 @@ export function PageMenu({
           )}
 
           {/*  */}
-          <Menu.Item key="page-new">
+          <Menu.Item
+            key="page-new"
+            onSelect={() => {
+              addPage(`New Page ${project.pages.length + 1}`);
+            }}
+          >
             <Menu.ItemIcon ios={{ name: "plus" }}>
               <Ionicons name="add" color="black" size={16} />
             </Menu.ItemIcon>

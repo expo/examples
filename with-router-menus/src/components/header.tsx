@@ -8,21 +8,7 @@ export function Header() {
         <MaterialIcons name="sort-ascending" color="black" size={24} />
       </SortMenu>
 
-      <PageMenu
-        projectName="My New Draft"
-        pages={[
-          {
-            title: "Page 1",
-            isInitial: true,
-            isSelected: false,
-          },
-          {
-            title: "Page 2",
-            isInitial: false,
-            isSelected: true,
-          },
-        ]}
-      />
+      <PageMenu />
 
       <MoreMenu>
         <MaterialIcons name="dots-horizontal" color="black" size={24} />
