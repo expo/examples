@@ -4,7 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Alert, Platform, Text, View } from "react-native";
+import { Alert, Platform, Text, View, Share } from "react-native";
 
 const COLORS: { hex: string; name: string }[] = [
   { hex: "#FF3B31", name: "Red" },
@@ -420,24 +420,38 @@ export function getShareOptions() {
       </Menu.Group>
 
       <Menu.Group>
-        <Menu.Item key="editor">
-          <Menu.ItemIcon ios={{ name: "person.2.fill" }}>
-            <MaterialIcons name="account-supervisor" color="black" size={16} />
+        <Menu.Item key="share-copy">
+          <Menu.ItemIcon ios={{ name: "link.badge.plus" }}>
+            <MaterialIcons name="link" color="black" size={16} />
           </Menu.ItemIcon>
-          <Menu.ItemTitle>Editor Link</Menu.ItemTitle>
-          <Menu.ItemSubtitle>Copy link to Editor</Menu.ItemSubtitle>
+          <Menu.ItemTitle>Copy Link</Menu.ItemTitle>
+          <Menu.ItemSubtitle>Get a URL to the prototype</Menu.ItemSubtitle>
         </Menu.Item>
       </Menu.Group>
 
       <Menu.Group>
-        <Menu.Item key="more">
+        <Menu.Item
+          key="share-more"
+          onSelect={() => {
+            Share.share({
+              message: "Check out my prototype",
+              url: "https://expo.dev",
+            });
+          }}
+        >
           <Menu.ItemIcon ios={{ name: "ellipsis" }}>
             <MaterialIcons name="dots-horizontal" color="black" size={16} />
           </Menu.ItemIcon>
           <Menu.ItemTitle>More</Menu.ItemTitle>
         </Menu.Item>
 
-        <Menu.Item key="app-clip-imessage">
+        <Menu.Item
+          key="app-clip-imessage"
+          onSelect={() => {
+            // Open the native messenger with some text
+            router.push("sms://?body=Check out my prototype https://expo.dev");
+          }}
+        >
           <Menu.ItemIcon ios={{ name: "message.fill" }}>
             <MaterialIcons name="message" color="black" size={16} />
           </Menu.ItemIcon>
