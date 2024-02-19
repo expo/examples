@@ -37,3 +37,7 @@ report.html
 # Maintenance logs
 .sdk-upgrade-logs
 .sdk-fix-logs
+
+
+/with-router-menus/ios
+/with-router-menus/android
