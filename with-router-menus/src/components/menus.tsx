@@ -520,7 +520,7 @@ export function PageMenu() {
       <Menu.Content>
         <Menu.Sub key="project-options">
           <Menu.SubTrigger key="project-trigger">
-            <Menu.ItemTitle>{project.projectName}</Menu.ItemTitle>
+            <Menu.ItemTitle>{project.title}</Menu.ItemTitle>
           </Menu.SubTrigger>
           <Menu.SubContent>
             <Menu.Sub key="project-options">
@@ -533,7 +533,7 @@ export function PageMenu() {
             <Menu.Item
               key="rename-project"
               onSelect={async () => {
-                const name = await onRename(project.projectName);
+                const name = await onRename(project.title);
                 if (name) {
                   renameProject(name);
                 }

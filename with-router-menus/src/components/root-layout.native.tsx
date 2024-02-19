@@ -19,7 +19,7 @@ export default function NativeRootLayout() {
         <Stack.Screen
           name="index"
           options={{
-            title: project.projectName,
+            title: project.title,
             headerTitleAlign: "center",
             headerLargeTitle: true,
             headerLeft() {

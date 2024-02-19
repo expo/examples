@@ -8,7 +8,7 @@ export type PageContext = {
 };
 
 export type ProjectContext = {
-  projectName: string;
+  title: string;
   initialPage: string;
   selectedPage: string;
   pages: PageContext[];
@@ -27,7 +27,7 @@ export const useProject = create(
   }>(
     (set) => ({
       project: {
-        projectName: "My New Draft",
+        title: "My New Draft",
         initialPage: "1",
         selectedPage: "2",
         pages: [
@@ -101,7 +101,7 @@ export const useProject = create(
           ...state,
           project: {
             ...project,
-            projectName: title,
+            title: title,
           },
         })),
       duplicatePage: (id) =>
@@ -123,6 +123,7 @@ export const useProject = create(
     }),
     {
       name: "useProject",
+      version: 1,
       // Persist the store to AsyncStorage
       storage: createJSONStorage(() => AsyncStorage),
     }
