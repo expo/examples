@@ -1,7 +1,7 @@
 import * as Menu from "@/components/dropdown-menu";
 import { useProject } from "@/data/project";
 
-import { useRouter } from "expo-router";
+import { router, useRouter } from "expo-router";
 import React from "react";
 import {
   Alert,
@@ -200,7 +200,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
 }
 
 export function MoreMenu({ children }: { children?: React.ReactElement }) {
-  const { project, renamePage } = useProject();
+  const { project, reset, renamePage } = useProject();
   const page = project.pages.find((page) => page.id === project.selectedPage);
   return (
     <Menu.Root>
@@ -318,6 +318,16 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
               </Menu.Item>
             </Menu.SubContent>
           </Menu.Sub>
+
+          <Menu.Item
+            key="reset-project"
+            destructive
+            onSelect={() => {
+              reset();
+            }}
+          >
+            <Menu.ItemTitle>Reset Project</Menu.ItemTitle>
+          </Menu.Item>
         </Menu.Group>
       </Menu.Content>
       {/*  */}
@@ -395,7 +405,6 @@ export function UISettingsMenu({
 }
 
 export function getShareOptions() {
-  const router = useRouter();
   return (
     <>
       <Menu.Group>
@@ -503,6 +512,16 @@ export function PageMenu() {
     removePage,
   } = useProject();
 
+  const homeIcon = (
+    <Menu.ItemIcon
+      ios={{
+        name: "house.fill",
+        hierarchicalColor: "#34C760",
+      }}
+    >
+      <MaterialIcons name="home" color="#34C760" size={16} />
+    </Menu.ItemIcon>
+  );
   return (
     <Menu.Root>
       <Menu.Trigger>
@@ -549,9 +568,13 @@ export function PageMenu() {
             page.id === project.selectedPage ? (
               <Menu.Sub key={"page-options-" + index}>
                 <Menu.SubTrigger key="page-trigger">
-                  <Menu.ItemIcon ios={{ name: "ellipsis" }}>
-                    <MaterialIcons name="dots-horizontal" size={16} />
-                  </Menu.ItemIcon>
+                  {page.id === project.initialPage ? (
+                    homeIcon
+                  ) : (
+                    <Menu.ItemIcon ios={{ name: "ellipsis" }}>
+                      <MaterialIcons name="dots-horizontal" size={16} />
+                    </Menu.ItemIcon>
+                  )}
                   <Menu.ItemTitle>{page.title}</Menu.ItemTitle>
                 </Menu.SubTrigger>
                 <Menu.SubContent>
@@ -572,11 +595,7 @@ export function PageMenu() {
                       setInitialPage(page.id);
                     }}
                   >
-                    <Menu.ItemIcon
-                      ios={{ name: "house.fill", hierarchicalColor: "#34C760" }}
-                    >
-                      <MaterialIcons name="home" color="#34C760" size={16} />
-                    </Menu.ItemIcon>
+                    {homeIcon}
                     <Menu.ItemTitle>Set as Initial Page</Menu.ItemTitle>
                   </Menu.Item>
 
@@ -645,16 +664,7 @@ export function PageMenu() {
                   selectPage(page.id);
                 }}
               >
-                {page.id === project.initialPage && (
-                  <Menu.ItemIcon
-                    ios={{
-                      name: "house.fill",
-                      hierarchicalColor: "#34C760",
-                    }}
-                  >
-                    <MaterialIcons name="home" color="#34C760" size={16} />
-                  </Menu.ItemIcon>
-                )}
+                {page.id === project.initialPage && homeIcon}
                 <Menu.ItemTitle>{page.title}</Menu.ItemTitle>
               </Menu.Item>
             )
@@ -663,6 +673,7 @@ export function PageMenu() {
           {/*  */}
           <Menu.Item
             key="page-new"
+            shouldDismissMenuOnSelect={false}
             onSelect={() => {
               addPage(`New Page ${project.pages.length + 1}`);
             }}

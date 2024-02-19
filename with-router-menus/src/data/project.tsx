@@ -17,6 +17,7 @@ export type ProjectContext = {
 export const useProject = create(
   persist<{
     project: ProjectContext;
+    reset: () => void;
     renameProject: (title: string) => void;
     addPage: (title: string) => void;
     removePage: (id: string) => void;
@@ -36,7 +37,19 @@ export const useProject = create(
         ],
       },
       // Actions
-      resetAchievements: () => set((state) => ({ ...state, achievements: {} })),
+      reset: () =>
+        set((state) => ({
+          ...state,
+          project: {
+            title: "My New Draft",
+            initialPage: "1",
+            selectedPage: "2",
+            pages: [
+              { id: "1", title: "Page 1" },
+              { id: "2", title: "Page 2" },
+            ],
+          },
+        })),
       addPage: (val) =>
         set(({ project, ...state }) => ({
           ...state,
