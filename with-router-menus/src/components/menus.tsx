@@ -1,10 +1,17 @@
 import * as Menu from "@/components/dropdown-menu";
 import { useProject } from "@/data/project";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import MaterialIcons from "@expo/vector-icons/MaterialCommunityIcons";
+
 import { useRouter } from "expo-router";
 import React from "react";
-import { Alert, Platform, Text, View, Share } from "react-native";
+import {
+  Alert,
+  Platform,
+  Text,
+  View,
+  Share,
+  useColorScheme,
+} from "react-native";
+import { MaterialIcons, Ionicons } from "@/components/icons";
 
 const COLORS: { hex: string; name: string }[] = [
   { hex: "#FF3B31", name: "Red" },
@@ -53,7 +60,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
               ios={{ name: "textformat" }}
               androidIconName="ic_launcher_round"
             >
-              <MaterialIcons name="text" color="black" size={16} />
+              <MaterialIcons name="text" size={16} />
             </Menu.ItemIcon>
 
             <Menu.ItemTitle>Type</Menu.ItemTitle>
@@ -72,7 +79,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
             </Menu.Group>
             <Menu.Item key="types-new">
               <Menu.ItemIcon ios={{ name: "plus" }}>
-                <Ionicons name="add" color="black" size={16} />
+                <Ionicons name="add" size={16} />
               </Menu.ItemIcon>
               <Menu.ItemTitle>New Type</Menu.ItemTitle>
             </Menu.Item>
@@ -82,7 +89,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
         <Menu.Sub key="spacing-menu">
           <Menu.SubTrigger key="spacing-trigger">
             <Menu.ItemIcon ios={{ name: "arrow.left.and.right" }}>
-              <Ionicons name="resize" color="black" size={16} />
+              <Ionicons name="resize" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>Spacing</Menu.ItemTitle>
           </Menu.SubTrigger>
@@ -98,7 +105,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
 
             <Menu.Item key="spacing-new">
               <Menu.ItemIcon ios={{ name: "plus" }}>
-                <Ionicons name="add" color="black" size={16} />
+                <Ionicons name="add" size={16} />
               </Menu.ItemIcon>
               <Menu.ItemTitle>New Spacing</Menu.ItemTitle>
             </Menu.Item>
@@ -108,11 +115,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
         <Menu.Sub key="gradient-menu">
           <Menu.SubTrigger key="gradient-trigger">
             <Menu.ItemIcon ios={{ name: "circle.lefthalf.fill" }}>
-              <MaterialIcons
-                name="gradient-horizontal"
-                color="black"
-                size={16}
-              />
+              <MaterialIcons name="gradient-horizontal" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>Gradients</Menu.ItemTitle>
           </Menu.SubTrigger>
@@ -127,7 +130,6 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
                   <MaterialIcons
                     className="transform rotate-180"
                     name="gradient-vertical"
-                    color="black"
                     size={16}
                   />
                 </Menu.ItemIcon>
@@ -139,11 +141,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
                     name: "circle.tophalf.fill",
                   }}
                 >
-                  <MaterialIcons
-                    name="gradient-vertical"
-                    color="black"
-                    size={16}
-                  />
+                  <MaterialIcons name="gradient-vertical" size={16} />
                 </Menu.ItemIcon>
                 <Menu.ItemTitle>Bottom Gradient</Menu.ItemTitle>
               </Menu.Item>
@@ -151,7 +149,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
 
             <Menu.Item key="gradient-new">
               <Menu.ItemIcon ios={{ name: "plus" }}>
-                <Ionicons name="add" color="black" size={16} />
+                <Ionicons name="add" size={16} />
               </Menu.ItemIcon>
               <Menu.ItemTitle>New Gradient</Menu.ItemTitle>
             </Menu.Item>
@@ -161,7 +159,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
         <Menu.Sub key="colors-menu">
           <Menu.SubTrigger key="colors-trigger">
             <Menu.ItemIcon ios={{ name: "eyedropper" }}>
-              <MaterialIcons name="eyedropper" color="black" size={16} />
+              <MaterialIcons name="eyedropper" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>Colors</Menu.ItemTitle>
           </Menu.SubTrigger>
@@ -190,7 +188,7 @@ export function StylesMenu({ children }: { children?: React.ReactElement }) {
 
             <Menu.Item key="colors-new">
               <Menu.ItemIcon ios={{ name: "plus" }}>
-                <Ionicons name="add" color="black" size={16} />
+                <Ionicons name="add" size={16} />
               </Menu.ItemIcon>
               <Menu.ItemTitle>New Color</Menu.ItemTitle>
             </Menu.Item>
@@ -216,33 +214,29 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
           <Menu.Group horizontal>
             <Menu.Item key="cut" disabled textValue="">
               <Menu.ItemIcon ios={{ name: "scissors" }}>
-                <MaterialIcons name="content-cut" color="black" size={16} />
+                <MaterialIcons name="content-cut" size={16} />
               </Menu.ItemIcon>
             </Menu.Item>
             <Menu.Item key="copy" textValue="">
               <Menu.ItemIcon ios={{ name: "doc.on.doc" }}>
-                <MaterialIcons name="content-copy" color="black" size={16} />
+                <MaterialIcons name="content-copy" size={16} />
               </Menu.ItemIcon>
             </Menu.Item>
             <Menu.Item key="paste" disabled textValue="">
               <Menu.ItemIcon ios={{ name: "doc.on.clipboard" }}>
-                <MaterialIcons
-                  name="file-document-multiple"
-                  color="black"
-                  size={16}
-                />
+                <MaterialIcons name="file-document-multiple" size={16} />
               </Menu.ItemIcon>
             </Menu.Item>
             <Menu.Item key="view" textValue="">
               <Menu.ItemIcon ios={{ name: "eye" }}>
-                <MaterialIcons name="eye" color="black" size={16} />
+                <MaterialIcons name="eye" size={16} />
               </Menu.ItemIcon>
             </Menu.Item>
           </Menu.Group>
           <Menu.Sub key="project-options">
             <Menu.SubTrigger key="project-trigger">
               <Menu.ItemIcon ios={{ name: "square.and.arrow.up" }}>
-                <MaterialIcons name="share" color="black" size={16} />
+                <MaterialIcons name="share" size={16} />
               </Menu.ItemIcon>
               <Menu.ItemTitle>Share</Menu.ItemTitle>
             </Menu.SubTrigger>
@@ -287,25 +281,21 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
             <Menu.SubContent>
               <Menu.Item key="stack">
                 <Menu.ItemIcon ios={{ name: "square.2.layers.3d" }}>
-                  <MaterialIcons
-                    name="layers-outline"
-                    color="black"
-                    size={16}
-                  />
+                  <MaterialIcons name="layers-outline" size={16} />
                 </Menu.ItemIcon>
                 <Menu.ItemTitle>Stack</Menu.ItemTitle>
               </Menu.Item>
 
               <Menu.Item key="stack-v">
                 <Menu.ItemIcon ios={{ name: "arrow.down" }}>
-                  <MaterialIcons name="arrow-down" color="black" size={16} />
+                  <MaterialIcons name="arrow-down" size={16} />
                 </Menu.ItemIcon>
                 <Menu.ItemTitle>Stack V</Menu.ItemTitle>
               </Menu.Item>
 
               <Menu.Item key="stack-h">
                 <Menu.ItemIcon ios={{ name: "arrow.right" }}>
-                  <MaterialIcons name="arrow-right" color="black" size={16} />
+                  <MaterialIcons name="arrow-right" size={16} />
                 </Menu.ItemIcon>
                 <Menu.ItemTitle>Stack H</Menu.ItemTitle>
               </Menu.Item>
@@ -347,6 +337,7 @@ export function UISettingsMenu({
   children?: React.ReactElement;
 }) {
   const [toggleIndex, setIndex] = React.useState(0);
+  const isDark = useColorScheme() === "dark";
 
   return (
     <Menu.Root>
@@ -358,11 +349,7 @@ export function UISettingsMenu({
         <Menu.Group>
           <Menu.Item key="outlines">
             <Menu.ItemIcon ios={{ name: "app.dashed" }}>
-              <MaterialIcons
-                name="application-outline"
-                color="black"
-                size={16}
-              />
+              <MaterialIcons name="application-outline" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>Outlines</Menu.ItemTitle>
           </Menu.Item>
@@ -370,7 +357,7 @@ export function UISettingsMenu({
         <Menu.Group>
           <Menu.Item key="touches">
             <Menu.ItemIcon ios={{ name: "hand.tap" }}>
-              <Ionicons name="add" color="black" size={16} />
+              <Ionicons name="add" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>Touch Indicator</Menu.ItemTitle>
           </Menu.Item>
@@ -388,10 +375,16 @@ export function UISettingsMenu({
                 ios={{
                   name: toggle.ios,
                   hierarchicalColor:
-                    index === toggleIndex ? "black" : "rgba(0,0,0,0.3)",
+                    index === toggleIndex
+                      ? isDark
+                        ? "white"
+                        : "black"
+                      : isDark
+                      ? "rgba(255,255,255,0.3)"
+                      : "rgba(0,0,0,0.3)",
                 }}
               >
-                <MaterialIcons name={toggle.default} color="black" size={16} />
+                <MaterialIcons name={toggle.default} size={16} />
               </Menu.ItemIcon>
             </Menu.Item>
           ))}
@@ -422,7 +415,7 @@ export function getShareOptions() {
       <Menu.Group>
         <Menu.Item key="share-copy">
           <Menu.ItemIcon ios={{ name: "link.badge.plus" }}>
-            <MaterialIcons name="link" color="black" size={16} />
+            <MaterialIcons name="link" size={16} />
           </Menu.ItemIcon>
           <Menu.ItemTitle>Copy Link</Menu.ItemTitle>
           <Menu.ItemSubtitle>Get a URL to the prototype</Menu.ItemSubtitle>
@@ -440,7 +433,7 @@ export function getShareOptions() {
           }}
         >
           <Menu.ItemIcon ios={{ name: "ellipsis" }}>
-            <MaterialIcons name="dots-horizontal" color="black" size={16} />
+            <MaterialIcons name="dots-horizontal" size={16} />
           </Menu.ItemIcon>
           <Menu.ItemTitle>More</Menu.ItemTitle>
         </Menu.Item>
@@ -453,7 +446,7 @@ export function getShareOptions() {
           }}
         >
           <Menu.ItemIcon ios={{ name: "message.fill" }}>
-            <MaterialIcons name="message" color="black" size={16} />
+            <MaterialIcons name="message" size={16} />
           </Menu.ItemIcon>
           <Menu.ItemTitle>Share Prototype</Menu.ItemTitle>
           <Menu.ItemSubtitle>Send with Messages</Menu.ItemSubtitle>
@@ -508,13 +501,9 @@ export function PageMenu() {
   return (
     <Menu.Root>
       <Menu.Trigger>
-        <View className="flex flex-row gap-1 items-center justify-end">
-          <MaterialIcons
-            name="arrow-down-thin-circle-outline"
-            color="black"
-            size={24}
-          />
-          <Text className="font-bold">
+        <View className="flex flex-row gap-2 items-center justify-end">
+          <MaterialIcons name="arrow-down-thin-circle-outline" size={24} />
+          <Text className="font-bold text-black dark:text-white">
             {
               project.pages.find((page) => page.id === project.selectedPage)
                 .title
@@ -556,11 +545,7 @@ export function PageMenu() {
               <Menu.Sub key={"page-options-" + index}>
                 <Menu.SubTrigger key="page-trigger">
                   <Menu.ItemIcon ios={{ name: "ellipsis" }}>
-                    <MaterialIcons
-                      name="dots-horizontal"
-                      color="black"
-                      size={16}
-                    />
+                    <MaterialIcons name="dots-horizontal" size={16} />
                   </Menu.ItemIcon>
                   <Menu.ItemTitle>{page.title}</Menu.ItemTitle>
                 </Menu.SubTrigger>
@@ -568,7 +553,7 @@ export function PageMenu() {
                   <Menu.Sub key="page-options">
                     <Menu.SubTrigger key="page-trigger">
                       <Menu.ItemIcon ios={{ name: "square.and.arrow.up" }}>
-                        <MaterialIcons name="share" color="black" size={16} />
+                        <MaterialIcons name="share" size={16} />
                       </Menu.ItemIcon>
                       <Menu.ItemTitle>Share</Menu.ItemTitle>
                     </Menu.SubTrigger>
@@ -677,7 +662,7 @@ export function PageMenu() {
             }}
           >
             <Menu.ItemIcon ios={{ name: "plus" }}>
-              <Ionicons name="add" color="black" size={16} />
+              <Ionicons name="add" size={16} />
             </Menu.ItemIcon>
             <Menu.ItemTitle>New Page</Menu.ItemTitle>
           </Menu.Item>
