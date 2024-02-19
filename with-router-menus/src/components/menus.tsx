@@ -1,7 +1,7 @@
 import * as Menu from "@/components/dropdown-menu";
 import { useProject } from "@/data/project";
 
-import { router, useRouter } from "expo-router";
+import { router } from "expo-router";
 import React from "react";
 import {
   Alert,
@@ -48,8 +48,15 @@ const TYPES = [
 
 export function StylesMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <Menu.Root>
-      <Menu.Trigger>{children}</Menu.Trigger>
+    <Menu.Root
+      style={{ flexGrow: 1, alignItems: "center", justifyContent: "center" }}
+    >
+      <Menu.Trigger
+        asChild={Platform.OS !== "web"}
+        className="flex flex-1 outline-none items-center justify-center"
+      >
+        {children}
+      </Menu.Trigger>
 
       <Menu.Content>
         <Menu.Label>Styles</Menu.Label>
@@ -204,7 +211,7 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
   const page = project.pages.find((page) => page.id === project.selectedPage);
   return (
     <Menu.Root>
-      <Menu.Trigger className="flex justify-center align-center">
+      <Menu.Trigger className="flex justify-center align-center outline-none">
         {children}
       </Menu.Trigger>
 
@@ -350,8 +357,15 @@ export function UISettingsMenu({
   const isDark = useColorScheme() === "dark";
 
   return (
-    <Menu.Root>
-      <Menu.Trigger>{children}</Menu.Trigger>
+    <Menu.Root
+      style={{ flexGrow: 1, alignItems: "center", justifyContent: "center" }}
+    >
+      <Menu.Trigger
+        asChild={Platform.OS !== "web"}
+        className="flex flex-1 outline-none items-center justify-center"
+      >
+        {children}
+      </Menu.Trigger>
 
       <Menu.Content>
         <Menu.Label>UI Settings</Menu.Label>
@@ -467,8 +481,15 @@ export function getShareOptions() {
 
 export function ShareMenu({ children }: { children?: React.ReactElement }) {
   return (
-    <Menu.Root>
-      <Menu.Trigger>{children}</Menu.Trigger>
+    <Menu.Root
+      style={{ flexGrow: 1, alignItems: "center", justifyContent: "center" }}
+    >
+      <Menu.Trigger
+        asChild={Platform.OS !== "web"}
+        className="flex flex-1 outline-none items-center justify-center"
+      >
+        {children}
+      </Menu.Trigger>
 
       <Menu.Content>
         <Menu.Label>Share</Menu.Label>
@@ -524,7 +545,7 @@ export function PageMenu() {
   );
   return (
     <Menu.Root>
-      <Menu.Trigger>
+      <Menu.Trigger className="outline-none">
         <View className="flex flex-row gap-2 items-center justify-end">
           <MaterialIcons name="arrow-down-thin-circle-outline" size={24} />
           <Text className="font-bold text-black dark:text-white">
@@ -705,7 +726,7 @@ export function SortMenu({ children }: { children: React.ReactElement }) {
 
   return (
     <Menu.Root>
-      <Menu.Trigger className="flex justify-center align-center">
+      <Menu.Trigger className="flex justify-center align-center outline-none">
         {children}
       </Menu.Trigger>
 
