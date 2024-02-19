@@ -248,7 +248,7 @@ export function MoreMenu({ children }: { children?: React.ReactElement }) {
           <Menu.Item
             key={"rename-page-top-" + page.id}
             onSelect={async () => {
-              const name = await onRename();
+              const name = await onRename(page.title);
               if (name) {
                 renamePage(page.id, name);
               }
@@ -470,17 +470,22 @@ export function ShareMenu({ children }: { children?: React.ReactElement }) {
   );
 }
 
-async function onRename(): Promise<string | null> {
+async function onRename(defaultValue?: string): Promise<string | null> {
   if (Platform.OS !== "web") {
     return new Promise<string>((resolve) => {
-      Alert.prompt("Rename", "Enter a new name", (newName) => {
-        if (newName) {
-          Alert.alert("Renamed", `Renamed to ${newName}`);
-          resolve(newName);
-        } else {
-          resolve(null);
-        }
-      });
+      Alert.prompt(
+        "Rename",
+        "Enter a new name",
+        (newName) => {
+          if (newName) {
+            resolve(newName);
+          } else {
+            resolve(null);
+          }
+        },
+        "plain-text",
+        defaultValue
+      );
     });
   }
   return null;
@@ -528,7 +533,7 @@ export function PageMenu() {
             <Menu.Item
               key="rename-project"
               onSelect={async () => {
-                const name = await onRename();
+                const name = await onRename(project.projectName);
                 if (name) {
                   renameProject(name);
                 }
@@ -578,7 +583,7 @@ export function PageMenu() {
                   <Menu.Item
                     key={"rename-page-" + page.id}
                     onSelect={async () => {
-                      const name = await onRename();
+                      const name = await onRename(page.title);
                       if (name) {
                         renamePage(page.id, name);
                       }
@@ -635,6 +640,7 @@ export function PageMenu() {
             ) : (
               <Menu.Item
                 key={"page-" + index}
+                shouldDismissMenuOnSelect={false}
                 onSelect={() => {
                   selectPage(page.id);
                 }}

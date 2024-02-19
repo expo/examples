@@ -23,16 +23,14 @@ export default function NativeRootLayout() {
             headerTitleAlign: "center",
             headerLargeTitle: true,
             headerLeft() {
-              return (
-                <SortMenu>
-                  <MaterialIcons name="sort-ascending" size={24} />
-                </SortMenu>
-              );
+              return <PageMenu />;
             },
             headerRight() {
               return (
                 <View className="flex flex-row justify-end gap-4">
-                  <PageMenu />
+                  <SortMenu>
+                    <MaterialIcons name="sort-ascending" size={24} />
+                  </SortMenu>
                   <MoreMenu>
                     <MaterialIcons name="information-variant" size={24} />
                   </MoreMenu>

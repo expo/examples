@@ -53,6 +53,8 @@ export const useProject = create(
           ...state,
           project: {
             ...project,
+            selectedPage:
+              project.selectedPage === id ? "1" : project.selectedPage,
             pages: project.pages.filter((page) => page.id !== id),
           },
         })),
