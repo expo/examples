@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "with-canary-new-arch",
+    "slug": "with-canary-new-arch",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.with-new-arch"
+    },
+    "android": {
+      "package": "com.example.withnewarch"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
+          }
+        }
+      ]
+    ]
+  }
+}
