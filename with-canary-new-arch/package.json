@@ -9,9 +9,9 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^51.0.0-canary-20240327-a7302d9",
-    "expo-build-properties": "0.0.1-canary-20240327-a7302d9",
-    "expo-status-bar": "0.0.1-canary-20240327-a7302d9",
+    "expo": "^51.0.0-canary-20240328-24ecc5e",
+    "expo-build-properties": "0.0.1-canary-20240328-24ecc5e",
+    "expo-status-bar": "0.0.1-canary-20240328-24ecc5e",
     "react": "18.2.0",
     "react-native": "0.74.0-rc.5"
   },
