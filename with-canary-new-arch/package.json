@@ -13,7 +13,7 @@
     "expo-build-properties": "0.0.1-canary-20240411-33a7dc1",
     "expo-status-bar": "0.0.1-canary-20240411-33a7dc1",
     "react": "18.2.0",
-    "react-native": "0.74.0-rc.6"
+    "react-native": "0.74.0-rc.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
