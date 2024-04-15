@@ -9,11 +9,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^51.0.0-canary-20240411-55a0085",
-    "expo-build-properties": "0.0.1-canary-20240411-55a0085",
-    "expo-status-bar": "0.0.1-canary-20240411-55a0085",
+    "expo": "^51.0.0-canary-20240415-cca04d8",
+    "expo-build-properties": "0.0.1-canary-20240415-cca04d8",
+    "expo-status-bar": "0.0.1-canary-20240415-cca04d8",
     "react": "18.2.0",
-    "react-native": "0.74.0-rc.8"
+    "react-native": "0.74.0-rc.9"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
