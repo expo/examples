@@ -2,17 +2,17 @@
   "name": "with-canary-new-arch-tv",
   "version": "1.0.0",
   "dependencies": {
-    "expo": "^51.0.0-canary-20240328-24ecc5e",
-    "expo-build-properties": "0.0.1-canary-20240328-24ecc5e",
-    "expo-splash-screen": "0.0.1-canary-20240328-24ecc5e",
-    "expo-status-bar": "0.0.1-canary-20240328-24ecc5e",
+    "expo": "51.0.0-preview.0",
+    "expo-build-properties": "~0.12.0",
+    "expo-splash-screen": "~0.27.0",
+    "expo-status-bar": "~1.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "npm:react-native-tvos@^0.74.0-0rc1"
+    "react-native": "npm:react-native-tvos@^0.74.0-0rc2"
   },
   "devDependencies": {
     "@babel/core": "~7.20.0",
-    "@react-native-tvos/config-tv": "^0.0.8",
+    "@react-native-tvos/config-tv": "^0.0.9",
     "@types/react": "~18.2.45",
     "typescript": "^5.3.0"
   },
