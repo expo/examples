@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "expo": "^50.0.1",
+    "expo": "^51.0.0",
     "moti": "~0.22.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.73.2",
-    "react-native-reanimated": "~3.6.0",
+    "react-native": "0.74.1",
+    "react-native-reanimated": "3.10.0",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {

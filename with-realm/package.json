@@ -6,11 +6,11 @@
   },
   "dependencies": {
     "@realm/react": "^0.4.3",
-    "expo": "^50.0.1",
-    "expo-dev-client": "~3.3.6",
+    "expo": "^51.0.0",
+    "expo-dev-client": "~4.0.10",
     "react": "18.2.0",
-    "react-native": "0.73.2",
-    "react-native-get-random-values": "~1.8.0",
+    "react-native": "0.74.1",
+    "react-native-get-random-values": "~1.11.0",
     "realm": "^11.7.0"
   }
 }
