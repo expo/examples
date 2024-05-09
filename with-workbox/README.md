@@ -21,7 +21,6 @@ This example is based on the [create-react-app](https://create-react-app.dev/doc
 
 #### Creating a new project
 
-- Install the CLI: `npm i -g expo-cli`
 - Create a project: `npx create-expo --example with-workbox`
 - `cd` into the project
 
