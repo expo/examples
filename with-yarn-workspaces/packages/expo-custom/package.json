@@ -13,9 +13,6 @@
     "prepublishOnly": "expo-module prepublishOnly",
     "postinstall": "yarn run build"
   },
-  "jest": {
-    "preset": "expo-module-scripts"
-  },
   "dependencies": {},
   "devDependencies": {
     "expo-module-scripts": "^3.4.0"
