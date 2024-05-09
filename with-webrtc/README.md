@@ -8,7 +8,7 @@ Use `react-native-webrtc` in a custom [Expo Dev Client](https://docs.expo.dev/cl
 ## 🚀 How to use
 
 ```sh
-npx create-react-native-app -t with-webrtc
+npx create-expo --example with-webrtc
 ```
 
 ## ☁️ Build in the cloud

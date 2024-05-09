@@ -33,7 +33,7 @@
   <a aria-label="Follow @expo on Twitter" href="https://twitter.com/intent/follow?screen_name=expo" target="_blank">
     <img  alt="Twitter: expo" src="https://img.shields.io/twitter/follow/expo.svg?style=flat-square&label=Follow%20%40expo&logo=TWITTER&logoColor=FFFFFF&labelColor=00aced&logoWidth=15&color=lightgray" />
   </a>
-  
+
   <a aria-label="Star expo examples on Github" href="https://github.com/expo/examples">
     <img aria-label="Star the repo" align="right" alt="Star expo-examples on Github" src="https://img.shields.io/github/stars/expo/examples.svg?style=flat-square&label=Star%20on%20Github&logo=GITHUB&logoColor=FFFFFF&labelColor=24292e&logoWidth=15&color=lightgray" />
   </a>
@@ -41,26 +41,18 @@
 
 ## Usage
 
-Use this repo to create new React/React Native projects with [**create-expo-app**](https://github.com/expo/expo/tree/main/packages/create-expo#readme) or [**create-react-native-app**](https://github.com/expo/create-react-native-app).
+Use this repo to create new React/React Native projects with [**create-expo**](https://github.com/expo/expo/tree/main/packages/create-expo#readme) or [**create-react-native-app**](https://github.com/expo/create-react-native-app).
 
 ```sh
 npm create expo ./<path> --example <Example>
+npx create-expo ./<path> --example <Example>
 npx create-react-native-app --template <Example>
 
 # Example - typescript
 
 npm create expo ./typescript-app --example with-typescript
+npx create-expo ./typescript-app --example with-typescript
 npx create-react-native-app -t with-typescript
-```
-
-Or new Expo projects using [**create-expo-app**](https://www.npmjs.com/package/create-expo-app):
-
-```sh
-npx create-expo-app --example <Example>
-
-# Example - typescript
-
-npx create-expo-app -e with-typescript
 ```
 
 ## Contributors ✨

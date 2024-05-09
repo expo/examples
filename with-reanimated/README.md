@@ -10,7 +10,7 @@
 
 ## 🚀 How to use
 
-> `npx create-react-native-app my-app -t with-reanimated`
+> `npx create-expo my-app --example with-reanimated`
 
 - Run `yarn` or `npm install`
 - Run `yarn start` or `npm run start` to try it out.

@@ -20,7 +20,7 @@ This example installs a monorepo with an application using a separate custom pac
 
 ## 🚀 How to use
 
-- Create a new monorepo with `npx create-react-native-app --template with-yarn-workspaces`.
+- Create a new monorepo with `npx create-expo --example with-yarn-workspaces`.
 - Run `yarn watch-packages` to build and watch the packages.
 - Run `yarn start-app` to start the app.
 - Edit the code in **packages/expo-custom/src** and watch it live-reload in the app!

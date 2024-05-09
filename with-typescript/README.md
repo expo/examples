@@ -10,7 +10,7 @@
 </p>
 
 ```sh
-npx create-react-native-app -t with-typescript
+npx create-expo --example with-typescript
 ```
 
 TypeScript is a superset of JavaScript which gives you static types and powerful tooling in Visual Studio Code including autocompletion and useful inline warnings for type errors.
@@ -20,7 +20,7 @@ TypeScript is a superset of JavaScript which gives you static types and powerful
 #### Creating a new project
 
 - Install the CLI: `npm i -g expo-cli`
-- Create a project: `npx create-react-native-app -t with-typescript`
+- Create a project: `npx create-expo --example with-typescript`
 - `cd` into the project
 
 ### Adding TypeScript to existing projects

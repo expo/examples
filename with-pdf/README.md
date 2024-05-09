@@ -8,7 +8,7 @@ Use `react-native-pdf` in a custom [Expo Dev Client](https://docs.expo.dev/clien
 ## 🚀 How to use
 
 ```sh
-npx create-react-native-app -t with-pdf
+npx create-expo --example with-pdf
 ```
 
 ## ☁️ Build in the cloud
