@@ -17,7 +17,7 @@
 
 ## 🚀 How to use
 
-> `npx create-react-native-app -t with-moti`
+> `npx create-expo --example with-moti`
 
 - Install packages with `yarn` or `npm install`.
   - If you have native iOS code run `npx pod-install`

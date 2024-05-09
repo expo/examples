@@ -12,7 +12,7 @@ Simple Expo template to quickly get started with Realm.
 ## 🚀 How to use
 
 ```
-npx create-react-native-app MyAwesomeRealmApp -t with-realm
+npx create-expo MyAwesomeRealmApp --example with-realm
 ```
 
 ## ☁️ Build in the cloud
