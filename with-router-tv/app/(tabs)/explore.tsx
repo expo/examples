@@ -30,10 +30,15 @@ export default function ExploreScreen() {
       </ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
-          This app has two screens:{' '}
+          This app has three screens:{' '}
           <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{' '}
-          and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+          (the home screen),{' '}
+          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>{' '}
+          (the "Explore" screen), and{' '}
+          <ThemedText type="defaultSemiBold">
+            app/(tabs)/tv_focus.tsx
+          </ThemedText>{' '}
+          (the TV event demo screen).
         </ThemedText>
         <ThemedText>
           The layout file in{' '}
