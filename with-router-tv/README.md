@@ -1,6 +1,7 @@
 # Expo Router TV demo 👋
 
-![Simulator Screenshot - Apple TV 15 - 2024-05-07 at 19 09 03](https://github.com/douglowder/ExpoRouterTV/assets/6577821/9093c116-1abe-4e50-ad68-99bf0c556ea7)
+![Apple TV screen shot](https://github.com/douglowder/examples/assets/6577821/a881466f-a7a0-4c66-b1fc-33235c466997)
+![Android TV screen shot](https://github.com/douglowder/examples/assets/6577821/815c8e01-8275-4cc1-bd57-b9c8bce1fb02) 
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
