@@ -32,7 +32,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         tabBarStyle: {
           height: textStyles.title.lineHeight * 2,
-          marginBottom: textStyles.title.lineHeight,
+          marginBottom: 0,
         },
         headerShown: false,
       }}

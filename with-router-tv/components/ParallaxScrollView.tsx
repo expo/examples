@@ -8,8 +8,7 @@ import Animated, {
 } from 'react-native-reanimated';
 
 import { ThemedView } from '@/components/ThemedView';
-
-const HEADER_HEIGHT = 250;
+import { useScale } from '@/hooks/useScale';
 
 type Props = PropsWithChildren<{
   headerImage: ReactElement;
@@ -24,6 +23,10 @@ export default function ParallaxScrollView({
   const colorScheme = useColorScheme() ?? 'light';
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
+  const scale = useScale();
+  const styles = useParallaxScrollViewStyles();
+
+  const HEADER_HEIGHT = 125 * scale;
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     return {
@@ -32,11 +35,15 @@ export default function ParallaxScrollView({
           translateY: interpolate(
             scrollOffset.value,
             [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
-            [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75]
+            [-HEADER_HEIGHT / 2, 0, HEADER_HEIGHT * 0.75],
           ),
         },
         {
-          scale: interpolate(scrollOffset.value, [-HEADER_HEIGHT, 0, HEADER_HEIGHT], [2, 1, 1]),
+          scale: interpolate(
+            scrollOffset.value,
+            [-HEADER_HEIGHT, 0, HEADER_HEIGHT],
+            [2, 1, 1],
+          ),
         },
       ],
     };
@@ -50,7 +57,8 @@ export default function ParallaxScrollView({
             styles.header,
             { backgroundColor: headerBackgroundColor[colorScheme] },
             headerAnimatedStyle,
-          ]}>
+          ]}
+        >
           {headerImage}
         </Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
@@ -59,18 +67,21 @@ export default function ParallaxScrollView({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    height: 250,
-    overflow: 'hidden',
-  },
-  content: {
-    flex: 1,
-    padding: 32,
-    gap: 16,
-    overflow: 'hidden',
-  },
-});
+const useParallaxScrollViewStyles = function () {
+  const scale = useScale();
+  return StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    header: {
+      height: 125 * scale,
+      overflow: 'hidden',
+    },
+    content: {
+      flex: 1,
+      padding: 32 * scale,
+      gap: 16 * scale,
+      overflow: 'hidden',
+    },
+  });
+};
