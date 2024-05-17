@@ -26,7 +26,7 @@ function Content() {
               Welcome to Project ACME
             </Text>
             <Text className="mx-auto max-w-[700px] text-lg text-center text-gray-500 md:text-xl dark:text-gray-400">
-              Discover and collaborate on amce. Explore our services now.
+              Discover and collaborate on acme. Explore our services now.
             </Text>
 
             <View className="gap-4">
