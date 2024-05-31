@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "next dev",
+    "web": "next",
     "build": "next build"
   }
 }
