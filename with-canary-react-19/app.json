@@ -1,31 +1,18 @@
 {
-  "expo": {
-    "name": "with-canary-new-arch",
-    "slug": "with-canary-new-arch",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "experiments": {
-      "reactCanary": true
-    },
-    "plugins": [
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "newArchEnabled": true
-          },
-          "android": {
-            "newArchEnabled": true
-          }
+  "experiments": {
+    "reactCanary": true
+  },
+  "plugins": [
+    [
+      "expo-build-properties",
+      {
+        "ios": {
+          "newArchEnabled": true
+        },
+        "android": {
+          "newArchEnabled": true
         }
-      ]
+      }
     ]
-  }
+  ]
 }
