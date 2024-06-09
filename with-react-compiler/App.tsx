@@ -12,6 +12,7 @@ function Expensive() {
 
 export default function Page() {
   const [index, setIndex] = useState(0);
+
   return (
     <>
       <Text onPress={() => setIndex((i) => i + 1)}>Increment {index}</Text>
