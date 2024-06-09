@@ -1,18 +1,20 @@
 {
-  "experiments": {
-    "reactCanary": true
-  },
-  "plugins": [
-    [
-      "expo-build-properties",
-      {
-        "ios": {
-          "newArchEnabled": true
-        },
-        "android": {
-          "newArchEnabled": true
+  "expo": {
+    "experiments": {
+      "reactCanary": true
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "newArchEnabled": true
+          },
+          "android": {
+            "newArchEnabled": true
+          }
         }
-      }
+      ]
     ]
-  ]
+  }
 }
