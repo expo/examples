@@ -11,6 +11,8 @@
 
 ## 🚀 How to use
 
+> React Compiler support is experimental and shouldn't be used in production until at least React 19 is stable in Expo.
+
 - Install with `yarn` or `npm install`.
 - Run `yarn start` or `npm run start` to try it out.
 
