@@ -9,7 +9,7 @@
 - Create a new project with the following command:
 
 ```sh
-npx create-react-native-app -t with-native-base
+npx create-expo --example with-native-base
 ```
 
 - Run `yarn start` or `npm run start` to try it out.

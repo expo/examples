@@ -10,16 +10,11 @@
     "clean": "expo-module clean",
     "lint": "expo-module lint",
     "test": "expo-module test",
-    "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
-    "expo-module": "expo-module"
+    "postinstall": "yarn run build"
   },
-  "jest": {
-    "preset": "expo-module-scripts"
-  },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "expo-module-scripts": "^2.0.0"
+    "expo-module-scripts": "^3.4.0"
   }
 }

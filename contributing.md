@@ -8,7 +8,7 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
   - Start with the [blank example](./blank).
   - We use a unified [`.gitignore`](./.gitignore)
   - No `package.json` or `app.config.js` values that aren't completely necessary
-    - Avoid `scripts` as these get added by `create-react-native-app`.
+    - Avoid `scripts` as these get added by `create-expo`.
   - Use the new `app.config.js` instead of `app.json`
   - Do not include an `app.config.js` unless it has values that are relevant to the example
   - Use remote files for the default assets in the `app.config.js`:
@@ -19,10 +19,10 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
   - Limit package versions to patches only in the `package.json`:
   ```diff
   + "expo-three": "~1.0.0"
-  
+
   - "expo-three": "^1.0.0"
   ```
-- Each example can be used as a template in `create-react-native-app` so try to consider what a fresh template should look like:
+- Each example can be used as example in `create-expo` so try to consider what a fresh template should look like:
   - No **TODO**, **NOTE()**, or otherwise.
   - No personal references to your name or other contextual info in comments.
 

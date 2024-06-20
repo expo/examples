@@ -13,7 +13,7 @@ Create Three.js projects using React components and props!
 
 ## 🚀 How to use
 
-> `npx create-react-native-app my-app -t with-react-three-fiber`
+> `npx create-expo my-app --example with-react-three-fiber`
 
 - Run `yarn` or `npm install`
 - Run `yarn start` or `npm run start` to try it out.

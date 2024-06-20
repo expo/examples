@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "expo": "^49.0.3",
-    "expo-gl": "~13.0.1",
+    "expo": "^51.0.0",
+    "expo-gl": "~14.0.2",
     "expo-processing": "^2.0.6",
     "processing-js": "^1.6.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.72.3",
+    "react-native": "0.74.1",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {

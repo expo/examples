@@ -15,8 +15,7 @@ The package `@expo/vector-icons` enables you to use most popular icon sets in a 
 
 #### Creating a new project**
 
-- Install the CLI: `npm i -g expo-cli`
-- Create a project: `expo init `
+- Create a project: `npx create-expo my-app --example with-icons`
 - `cd` into the project
 
 ### Using Icons

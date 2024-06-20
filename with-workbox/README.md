@@ -10,7 +10,7 @@
 </p>
 
 ```sh
-npx create-react-native-app -t with-workbox
+npx create-expo --example with-workbox
 ```
 
 [Workbox](https://developers.google.com/web/tools/workbox) is a collection of libraries for creating and managing powerful web service workers. Service workers can be used to add offline support to websites.
@@ -21,8 +21,7 @@ This example is based on the [create-react-app](https://create-react-app.dev/doc
 
 #### Creating a new project
 
-- Install the CLI: `npm i -g expo-cli`
-- Create a project: `npx create-react-native-app -t with-workbox`
+- Create a project: `npx create-expo --example with-workbox`
 - `cd` into the project
 
 ### Testing the service worker

@@ -1,6 +1,7 @@
 .expo
 .vscode
 node_modules
+bun.lockb
 yarn-error.log
 yarn.lock
 package-lock.json
@@ -35,3 +36,10 @@ report.html
 
 # Maintenance logs
 .sdk-upgrade-logs
+.sdk-fix-logs
+
+
+/with-router-menus/ios
+/with-router-menus/android
+/with-canary-react-19/ios
+/with-canary-react-19/android

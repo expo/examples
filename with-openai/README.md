@@ -21,11 +21,14 @@ Replace `origin` in the `app.json` with the URL to your [production API Routes](
 ```json
 {
   "expo": {
-    "extra": {
-      "api": {
-        "origin": "https://my-expo-website.com"
-      }
-    }
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://my-expo-website.com"
+        }
+      ]
+    ]
   }
 }
 ```

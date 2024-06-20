@@ -2,18 +2,18 @@
   "name": "with-tv",
   "version": "1.0.0",
   "dependencies": {
-    "@react-native-tvos/config-tv": "~0.0.4",
-    "expo": "^50.0.0-preview.4",
-    "expo-splash-screen": "~0.26.0",
-    "expo-status-bar": "~1.11.0",
+    "expo": "~51.0.13",
+    "expo-splash-screen": "~0.27.5",
+    "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "npm:react-native-tvos@~0.73.1-0"
+    "react-native": "npm:react-native-tvos@~0.74.2-0"
   },
   "devDependencies": {
-    "@babel/core": "~7.20.0",
-    "@types/react": "~18.2.14",
-    "typescript": "~5.2.2"
+    "@babel/core": "^7.24.0",
+    "@react-native-tvos/config-tv": "^0.0.10",
+    "@types/react": "~18.2.45",
+    "typescript": "~5.3.3"
   },
   "expo": {
     "install": {

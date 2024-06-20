@@ -11,7 +11,7 @@ Experiment with Development Client in SDK 40.
 
 ## 🚀 How to use
 
-> `npx create-react-native-app my-app -t with-dev-client`
+> `npx create-expo my-app --example with-dev-client`
 
 - Run `expo start --dev-client` to try it out.
 
