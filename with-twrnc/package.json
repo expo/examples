@@ -12,11 +12,11 @@
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
     "react-native-web": "~0.19.6",
-    "tailwindcss": "~3.4.4",
     "twrnc": "~4.3.0",
     "typescript": "~5.3.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3"
+    "@babel/core": "^7.19.3",
+    "tailwindcss": "~3.4.4"
   }
 }
