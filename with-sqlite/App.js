@@ -22,7 +22,12 @@ function openDatabase() {
     };
   }
 
-  const db = SQLite.openDatabase("db.db");
+  const db = SQLite.openDatabaseSync("db.db");
+  db.withTransactionSync(() => {
+    db.runSync(
+      `create table if not exists items (id integer primary key not null, done int, value text);`
+    );
+  });
   return db;
 }
 
@@ -32,11 +37,12 @@ function Items({ done: doneHeading, onPressItem }) {
   const [items, setItems] = useState(null);
 
   useEffect(() => {
-    db.transaction((tx) => {
-      tx.executeSql(
-        `select * from items where done = ?;`,
-        [doneHeading ? 1 : 0],
-        (_, { rows: { _array } }) => setItems(_array)
+    db.withTransactionSync(() => {
+      setItems(
+        db.getAllSync(
+          `select * from items where done = ?;`,
+          doneHeading ? 1 : 0
+        )
       );
     });
   }, []);
@@ -72,30 +78,17 @@ export default function App() {
   const [text, setText] = useState(null);
   const [forceUpdate, forceUpdateId] = useForceUpdate();
 
-  useEffect(() => {
-    db.transaction((tx) => {
-      tx.executeSql(
-        "create table if not exists items (id integer primary key not null, done int, value text);"
-      );
-    });
-  }, []);
-
   const add = (text) => {
     // is text empty?
     if (text === null || text === "") {
       return false;
     }
 
-    db.transaction(
-      (tx) => {
-        tx.executeSql("insert into items (done, value) values (0, ?)", [text]);
-        tx.executeSql("select * from items", [], (_, { rows }) =>
-          console.log(JSON.stringify(rows))
-        );
-      },
-      null,
-      forceUpdate
-    );
+    db.withTransactionSync(() => {
+      db.runSync(`insert into items (done, value) values (0, ?)`, text);
+      console.log(JSON.stringify(db.getAllSync(`select * from items`)));
+      forceUpdate();
+    });
   };
 
   return (
@@ -129,28 +122,20 @@ export default function App() {
               key={`forceupdate-todo-${forceUpdateId}`}
               done={false}
               onPressItem={(id) =>
-                db.transaction(
-                  (tx) => {
-                    tx.executeSql(`update items set done = 1 where id = ?;`, [
-                      id,
-                    ]);
-                  },
-                  null,
-                  forceUpdate
-                )
+                db.withTransactionSync(() => {
+                  db.runSync(`update items set done = 1 where id = ?;`, id);
+                  forceUpdate();
+                })
               }
             />
             <Items
               done
               key={`forceupdate-done-${forceUpdateId}`}
               onPressItem={(id) =>
-                db.transaction(
-                  (tx) => {
-                    tx.executeSql(`delete from items where id = ?;`, [id]);
-                  },
-                  null,
-                  forceUpdate
-                )
+                db.withTransactionSync(() => {
+                  db.runSync(`delete from items where id = ?;`, id);
+                  forceUpdate();
+                })
               }
             />
           </ScrollView>
