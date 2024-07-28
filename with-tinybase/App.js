@@ -78,14 +78,17 @@ const Todo = ({ id }) => {
 };
 
 // A list component to show all the todos.
-const Todos = () => (
-  <FlatList
-    data={useSortedRowIds(TODO_TABLE, DONE_CELL)}
-    renderItem={({ item: id }) => <Todo id={id} />}
-    style={styles.todos}
-  />
-);
+const Todos = () => {
+  const renderItem = ({ item: id }) => <Todo id={id} />;
 
+  return (
+    <FlatList
+      data={useSortedRowIds(TODO_TABLE, DONE_CELL)}
+      renderItem={renderItem}
+      style={styles.todos}
+    />
+  );
+};
 // A button component to delete all the todos, only shows when there are some.
 const ClearTodos = () => {
   const handlePress = useDelTableCallback(TODO_TABLE);
