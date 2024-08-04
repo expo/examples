@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
 import {
   FlatList,
   Platform,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { createStore } from 'tinybase';
 import { createLocalPersister } from 'tinybase/persisters/persister-browser';
 import { createExpoSqlitePersister } from 'tinybase/persisters/persister-expo-sqlite';
@@ -80,7 +79,6 @@ const Todo = ({ id }) => {
 // A list component to show all the todos.
 const Todos = () => {
   const renderItem = ({ item: id }) => <Todo id={id} />;
-
   return (
     <FlatList
       data={useSortedRowIds(TODO_TABLE, DONE_CELL)}
@@ -89,6 +87,7 @@ const Todos = () => {
     />
   );
 };
+
 // A button component to delete all the todos, only shows when there are some.
 const ClearTodos = () => {
   const handlePress = useDelTableCallback(TODO_TABLE);
@@ -106,14 +105,17 @@ const App = () => {
   useAndStartPersister(store);
 
   return (
-    // Wrap the app in TinyBase context, so the store is default throughout.
+    // Wrap the app in TinyBase context, so the store is default throughout and
+    // a SafeAreaProvider/SafeAreaView so it fits the screen.
     <Provider store={store}>
-      <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>TinyBase Example</Text>
-        <NewTodo />
-        <Todos />
-        <ClearTodos />
-      </SafeAreaView>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <Text style={styles.heading}>TinyBase Example</Text>
+          <NewTodo />
+          <Todos />
+          <ClearTodos />
+        </SafeAreaView>
+      </SafeAreaProvider>
     </Provider>
   );
 };
@@ -136,7 +138,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     margin: 16,
-    marginTop: Constants.statusBarHeight + 16,
   },
   heading: {
     fontSize: 24,
