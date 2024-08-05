@@ -1,21 +1,19 @@
 import { useState } from 'react';
-import Constants from 'expo-constants';
 import * as SQLite from 'expo-sqlite';
 import {
+  FlatList,
   Platform,
-  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { createStore } from 'tinybase';
 import { createLocalPersister } from 'tinybase/persisters/persister-browser';
 import { createExpoSqlitePersister } from 'tinybase/persisters/persister-expo-sqlite';
 import {
   Provider,
-  SortedTableView,
   useAddRowCallback,
   useCreatePersister,
   useCreateStore,
@@ -23,6 +21,7 @@ import {
   useHasTable,
   useRow,
   useSetCellCallback,
+  useSortedRowIds,
 } from 'tinybase/ui-react';
 
 // The TinyBase table contains the todos, with 'text' and 'done' cells.
@@ -56,17 +55,17 @@ const NewTodo = () => {
 };
 
 // A single todo component, either 'not done' or 'done': press to toggle.
-const Todo = ({ rowId }) => {
-  const { text, done } = useRow(TODO_TABLE, rowId);
+const Todo = ({ id }) => {
+  const { text, done } = useRow(TODO_TABLE, id);
   const handlePress = useSetCellCallback(
     TODO_TABLE,
-    rowId,
+    id,
     DONE_CELL,
     () => (done) => !done
   );
   return (
     <TouchableOpacity
-      key={rowId}
+      key={id}
       onPress={handlePress}
       style={[styles.todo, done ? styles.done : null]}
     >
@@ -74,6 +73,18 @@ const Todo = ({ rowId }) => {
         {done ? DONE_ICON : NOT_DONE_ICON} {text}
       </Text>
     </TouchableOpacity>
+  );
+};
+
+// A list component to show all the todos.
+const Todos = () => {
+  const renderItem = ({ item: id }) => <Todo id={id} />;
+  return (
+    <FlatList
+      data={useSortedRowIds(TODO_TABLE, DONE_CELL)}
+      renderItem={renderItem}
+      style={styles.todos}
+    />
   );
 };
 
@@ -94,20 +105,17 @@ const App = () => {
   useAndStartPersister(store);
 
   return (
-    // Wrap the app in TinyBase context, so the store is default throughout.
+    // Wrap the app in TinyBase context, so the store is default throughout and
+    // a SafeAreaProvider/SafeAreaView so it fits the screen.
     <Provider store={store}>
-      <View style={styles.container}>
-        <Text style={styles.heading}>TinyBase Example</Text>
-        <NewTodo />
-        <ScrollView style={styles.todos}>
-          <SortedTableView
-            tableId={TODO_TABLE}
-            rowComponent={Todo}
-            cellId={DONE_CELL}
-          />
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <Text style={styles.heading}>TinyBase Example</Text>
+          <NewTodo />
+          <Todos />
           <ClearTodos />
-        </ScrollView>
-      </View>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </Provider>
   );
 };
@@ -129,8 +137,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    marginTop: Constants.statusBarHeight,
-    padding: 16,
+    margin: 16,
   },
   heading: {
     fontSize: 24,
@@ -165,6 +172,7 @@ const styles = StyleSheet.create({
   },
   clearTodos: {
     margin: 16,
+    flex: 0,
     textAlign: 'center',
     fontSize: 16,
   },
