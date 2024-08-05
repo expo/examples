@@ -1,6 +1,13 @@
 {
   "name": "with-tv",
   "version": "1.0.0",
+  "scripts": {
+    "start": "EXPO_TV=1 expo start",
+    "android": "EXPO_TV=1 expo run:android",
+    "ios": "EXPO_TV=1 expo run:ios",
+    "web": "expo start --web",
+    "prebuild": "EXPO_TV=1 expo prebuild --clean"
+  },
   "dependencies": {
     "expo": "~51.0.13",
     "expo-splash-screen": "~0.27.5",

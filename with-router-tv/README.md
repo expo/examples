@@ -1,7 +1,7 @@
 # Expo Router TV demo 👋
 
 ![Apple TV screen shot](https://github.com/douglowder/examples/assets/6577821/a881466f-a7a0-4c66-b1fc-33235c466997)
-![Android TV screen shot](https://github.com/douglowder/examples/assets/6577821/815c8e01-8275-4cc1-bd57-b9c8bce1fb02) 
+![Android TV screen shot](https://github.com/douglowder/examples/assets/6577821/815c8e01-8275-4cc1-bd57-b9c8bce1fb02)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
@@ -20,6 +20,10 @@ yarn prebuild # Executes Expo prebuild with TV modifications
 yarn ios # Build and run for Apple TV
 yarn android # Build for Android TV
 ```
+
+> **_NOTE:_**
+> Setting the environment variable `EXPO_TV=1` enables the `@react-native-tvos/config-tv` plugin to modify the project for TV.
+> This can also be done by setting the parameter `isTV` to true in the `app.json`.
 
 ## Development
 
