@@ -7,7 +7,6 @@
     "lint": "expo lint"
   },
   "dependencies": {
-    "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
     "expo": "^51.0.0",
     "react": "18.2.0",
     "react-native": "0.74.2"
@@ -17,7 +16,8 @@
     "@types/react": "~18.2.79",
     "eslint": "^8.57.0",
     "eslint-config-expo": "^7.0.0",
-    "eslint-plugin-react-compiler": "^0.0.0-experimental-51a85ea-20240601",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-9ed098e-20240725",
+    "babel-plugin-react-compiler": "0.0.0-experimental-334f00b-20240725",
     "typescript": "~5.3.3"
   }
 }

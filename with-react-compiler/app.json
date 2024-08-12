@@ -1,7 +1,5 @@
 {
-  "expo": {
-    "experiments": {
-      "reactCompiler": true
-    }
+  "experiments": {
+    "reactCompiler": true
   }
 }
