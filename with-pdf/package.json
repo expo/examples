@@ -11,7 +11,7 @@
     "expo-status-bar": "~1.12.1",
     "fbjs": "^3.0.2",
     "react": "18.2.0",
-    "react-native": "0.74.1",
+    "react-native": "0.74.5",
     "react-native-blob-util": "^0.13.18",
     "react-native-pdf": "^6.6.2"
   },

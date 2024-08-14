@@ -23,7 +23,7 @@
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.74.1",
+    "react-native": "0.74.5",
     "react-native-ios-context-menu": "^2.4.2",
     "react-native-ios-utilities": "^4.3.2",
     "react-native-reanimated": "3.10.0",

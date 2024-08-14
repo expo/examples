@@ -10,7 +10,7 @@
     "expo-camera": "~15.0.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.74.1",
+    "react-native": "0.74.5",
     "react-native-web": "~0.19.6",
     "typescript": "~5.3.3",
     "@types/react": "~18.2.79",

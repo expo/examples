@@ -11,7 +11,7 @@
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "0.74.1",
+    "react-native": "0.74.5",
     "react-native-web": "~0.19.6",
     "react-native-webrtc": "^106.0.6"
   },
