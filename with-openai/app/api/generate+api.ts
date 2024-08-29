@@ -1,8 +1,6 @@
-import { ExpoRequest, ExpoResponse } from "expo-router/server";
-
 const ENDPOINT = "https://api.openai.com/v1/chat/completions";
 
-export async function POST(req: ExpoRequest): Promise<ExpoResponse> {
+export async function POST(req: Request): Promise<Response> {
   const { prompt } = await req.json();
   console.log("prompt:", prompt);
   const content = `Generate 2 app startup ideas that are optimal for Expo Router where you can develop a native app and website simultaneously with automatic universal links and API routes. Format the response as a JSON array with objects containing a "name" and "description" field, both of type string, with no additional explanation above or below the results. Base it on this context: ${prompt}.`;
@@ -30,14 +28,14 @@ export async function POST(req: ExpoRequest): Promise<ExpoResponse> {
   if (json.choices?.[0]) {
     // Assuming the LLM always returns the data in the expected format.
     const llmResponse = JSON.parse(json.choices[0].message.content.trim());
-    return ExpoResponse.json(llmResponse);
+    return Response.json(llmResponse);
   }
 
   if (json.error) {
-    return new ExpoResponse(json.error.message, { status: 400 });
+    return new Response(json.error.message, { status: 400 });
   }
 
-  return ExpoResponse.json(json);
+  return Response.json(json);
 }
 
 const FIXTURES = {
