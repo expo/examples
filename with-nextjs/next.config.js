@@ -6,6 +6,7 @@ const nextConfig = withExpo({
   swcMinify: true,
   transpilePackages: [
     "react-native",
+    "react-native-web",
     "expo",
     // Add more React Native / Expo packages here...
   ],
