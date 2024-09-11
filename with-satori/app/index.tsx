@@ -1,37 +1,36 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import { Link } from "expo-router";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function Page() {
   return (
-    <View style={styles.container}>{/* TODO: Render remote images */}</View>
+    <View style={styles.container}>
+      {["🚀", "⚡️", "🥓"].map((emoji) => {
+        const url = new URL("/api/icon/" + emoji, window.location).toString();
+
+        return (
+          <View key={emoji} style={{ gap: 12, alignItems: "center" }}>
+            <Image
+              source={{
+                uri: url,
+              }}
+              style={{ width: 200, height: 200, borderRadius: 40 }}
+            />
+            <Link target="_blank" href={url}>
+              {new URL(url).pathname}
+            </Link>
+          </View>
+        );
+      })}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "stretch",
+    alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: "auto",
-  },
-  main: {
-    flex: 1,
-    gap: 8,
-    justifyContent: "center",
-    alignItems: "stretch",
-    maxWidth: 640,
-    paddingHorizontal: 24,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 24,
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+    gap: 24,
+    backgroundColor: "#f0f0f0",
   },
 });

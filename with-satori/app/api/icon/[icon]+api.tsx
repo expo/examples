@@ -1,16 +1,28 @@
-// This example uses image and font assets from the public folder.
+// Generate an iOS app icon from an emoji:
+// Example: `/api/icon/🥓&color=%23ff00ff`
+
+import {
+  containsDoubleByte,
+  resolveEmojiParam,
+  toUnicode,
+} from "../../../utils/emoji";
+
 import React from "react";
-import { Text } from "react-native";
 import satori from "satori";
 
 import { initWasm, Resvg } from "@resvg/resvg-wasm";
 
-function loadFont(req: Request, fontName: string) {
-  return fetch(new URL(fontName, req.url)).then((res) => res.arrayBuffer());
-}
+export async function GET(req: Request, { icon: iconParam }: { icon: string }) {
+  const params = new URL(req.url).searchParams;
+  let icon: string = decodeURIComponent(iconParam);
+  if (containsDoubleByte(iconParam)) {
+    // redirect with icon as unicode
+    icon = toUnicode(iconParam);
+  }
 
-export async function GET(req: Request, { post }: { post: string }) {
-  const postTitle = post;
+  console.log("Icon: %s", icon, iconParam);
+
+  const iconUrl = resolveEmojiParam(icon);
 
   await initWasm(
     fetch("https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm").then((res) =>
@@ -18,43 +30,30 @@ export async function GET(req: Request, { post }: { post: string }) {
     )
   );
 
+  const color = params.get("color")
+    ? decodeURIComponent(params.get("color"))
+    : "white";
+
   const svgString = await satori(
     <div
       style={{
         height: "100%",
         display: "flex",
         flex: 1,
+
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        // Smooth background gradient
+        background: color,
       }}
     >
-      <img
-        width={200}
-        height={200}
-        src={new URL("/bacon-emoji.png", req.url).toString()}
-      />
-      <Text
-        style={{
-          display: "flex",
-          color: "black",
-          fontSize: 24,
-        }}
-      >
-        {postTitle}
-      </Text>
+      <img src={iconUrl} width={1024 / 2} height={1024 / 2} />
     </div>,
     {
       width: 1024,
       height: 1024,
-      fonts: [
-        {
-          name: "custom",
-          data: await loadFont(req, "/custom-font.ttf"),
-          weight: 400,
-          style: "normal",
-        },
-      ],
+      fonts: [],
     }
   );
 
