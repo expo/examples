@@ -9,7 +9,7 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-description
+Example code for Get started tutorial in Expo documentation.
 
 ## 🚀 How to use
 
