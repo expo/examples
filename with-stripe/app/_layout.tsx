@@ -13,6 +13,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="index"
           options={{
+            title: "Stripe Checkout",
             headerLargeTitle: true,
             headerSearchBarOptions: {},
           }}
