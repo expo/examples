@@ -1,9 +1,10 @@
 import { Link } from "expo-router";
-import { Image, StyleSheet, View } from "react-native";
-
+import { StyleSheet, Text, View } from "react-native";
+import { Image } from "expo-image";
 export default function Page() {
   return (
     <View style={styles.container}>
+      <Text>Images generated with React in an API Route</Text>
       {["🚀", "⚡️", "🥓"].map((emoji) => {
         const url = new URL("/api/icon/" + emoji, window.location).toString();
 
@@ -13,7 +14,13 @@ export default function Page() {
               source={{
                 uri: url,
               }}
-              style={{ width: 200, height: 200, borderRadius: 40 }}
+              style={{
+                borderColor: "#f0f0f0",
+                borderWidth: 2,
+                width: 200,
+                height: 200,
+                borderRadius: 40,
+              }}
             />
             <Link target="_blank" href={url}>
               {new URL(url).pathname}
@@ -31,6 +38,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 24,
-    backgroundColor: "#f0f0f0",
   },
 });

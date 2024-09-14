@@ -6,9 +6,9 @@
     "start": "expo start"
   },
   "dependencies": {
-    "@resvg/resvg-wasm": "^2.6.2",
     "expo": "^51.0.0",
     "expo-constants": "~16.0.1",
+    "expo-image": "~1.12.15",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.9",
     "expo-splash-screen": "~0.27.4",

@@ -10,8 +10,6 @@ import {
 import React from "react";
 import satori from "satori";
 
-import { initWasm, Resvg } from "@resvg/resvg-wasm";
-
 export async function GET(req: Request, { icon: iconParam }: { icon: string }) {
   const params = new URL(req.url).searchParams;
   let icon: string = decodeURIComponent(iconParam);
@@ -23,12 +21,6 @@ export async function GET(req: Request, { icon: iconParam }: { icon: string }) {
   console.log("Icon: %s", icon, iconParam);
 
   const iconUrl = resolveEmojiParam(icon);
-
-  await initWasm(
-    fetch("https://unpkg.com/@resvg/resvg-wasm/index_bg.wasm").then((res) =>
-      res.arrayBuffer()
-    )
-  );
 
   const color = params.get("color")
     ? decodeURIComponent(params.get("color"))
@@ -57,12 +49,9 @@ export async function GET(req: Request, { icon: iconParam }: { icon: string }) {
     }
   );
 
-  // Convert SVG string to PNG image
-  const image = new Resvg(svgString).render().asPng();
-
-  return new Response(image, {
+  return new Response(svgString, {
     headers: {
-      "Content-Type": "image/png",
+      "Content-Type": "image/svg+xml",
       "cache-control": "public, immutable, no-transform, max-age=31536000",
     },
   });
