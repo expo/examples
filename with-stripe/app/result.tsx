@@ -24,21 +24,13 @@ export default function ResultPage() {
   }
 
   const paymentIntent = data.payment_intent as Stripe.PaymentIntent;
+  const formattedContent = JSON.stringify(data, null, 2);
 
   return (
     <>
       <h2>Status: {paymentIntent.status}</h2>
       <h3>Checkout Session response:</h3>
-      <PrintObject content={data} />
+      <pre>{formattedContent}</pre>
     </>
   );
-}
-
-function PrintObject({
-  content,
-}: {
-  content: Stripe.PaymentIntent | Stripe.Checkout.Session;
-}): JSX.Element {
-  const formattedContent: string = JSON.stringify(content, null, 2);
-  return <pre>{formattedContent}</pre>;
 }
