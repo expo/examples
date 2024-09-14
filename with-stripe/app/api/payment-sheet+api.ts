@@ -6,9 +6,14 @@ import { CURRENCY } from "@/utils/config";
 export async function POST(req: Request) {
   // Use an existing Customer ID if this is a returning customer.
   const customer = await stripe.customers.create();
-  const ephemeralKey = await stripe.ephemeralKeys.create({
-    customer: customer.id,
-  });
+  const ephemeralKey = await stripe.ephemeralKeys.create(
+    {
+      customer: customer.id,
+    },
+    {
+      apiVersion: "2024-06-20",
+    }
+  );
   const paymentIntent = await stripe.paymentIntents.create({
     amount: 1256,
     currency: CURRENCY,
