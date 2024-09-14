@@ -4,7 +4,7 @@ Use [Expo API Routes](https://docs.expo.dev/router/reference/api-routes/) to gen
 
 ## Structure
 
-- `app/api/[post]+api.ts`: [Expo API Route](https://docs.expo.dev/router/reference/api-routes/) that generates images with React components.
+- `app/api/icon/[icon]+api.ts`: [Expo API Route](https://docs.expo.dev/router/reference/api-routes/) that generates images with React components.
 - `app/index.tsx`: Screen that uses the API Route to display the generated image.
 
 ## 🚀 How to use
