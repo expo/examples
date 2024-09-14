@@ -1,3 +1,3 @@
-export default function ExpoStripeProvider(props) {
+export default function ExpoStripeProvider(props: any) {
   return <>{props.children}</>;
 }
