@@ -7,13 +7,15 @@ Local-first Expo App with [Legend-State](https://legendapp.com/open-source/state
 
 ## Setup
 
-- Create Supabase account at [database.new](https://database.new)
-- Create `.env.local` file by running `cp .env.local.example .env.local`
-- Add your credentials from the [Supabase Dashboard](https://supabase.com/dashboard/project/_/settings/api)
+- Create Supabase account at [database.new](https://database.new).
+- Create `.env.local` file by running `cp .env.local.example .env.local`.
+- Add your credentials from the [Supabase Dashboard](https://supabase.com/dashboard/project/_/settings/api).
+- Run `supabase link` to link your local project to your Supabase project.
+- Run `supabase db push` to apply the [init migration](./supabase/migrations/20240902202009_init.sql) to your Supabase database.
 
 ## 🚀 How to run locally
 
-- Run `yarn` or `npm install`
+- Run `yarn` or `npm install`.
 - Run `yarn start` or `npm run start` to try it out.
   - Press a │ open Android
   - Press i │ open iOS simulator
