@@ -4,7 +4,7 @@ import { observable } from '@legendapp/state';
 import { syncedSupabase } from '@legendapp/state/sync-plugins/supabase';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
-import { configureSynced, syncObservable } from '@legendapp/state/sync';
+import { configureSynced } from '@legendapp/state/sync';
 import { observablePersistAsyncStorage } from '@legendapp/state/persist-plugins/async-storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -18,7 +18,7 @@ const generateId = () => uuidv4();
 
 // Create a configured sync function
 const customSynced = configureSynced(syncedSupabase, {
-  // Use react-native-mmkv in React Native
+  // Use React Native Async Storage
   persist: {
     plugin: observablePersistAsyncStorage({
       AsyncStorage,
