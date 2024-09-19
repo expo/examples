@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "android": {
+      "package": "dev.expo.eastestsexample"
+    },
+    "ios": {
+      "bundleIdentifier": "dev.expo.eastestsexample"
+    }
+  }
+}

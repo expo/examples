@@ -1,0 +1,6 @@
+appId: dev.expo.eastestsexample # This is an example app id. Replace it with your app id.
+---
+- launchApp
+- tapOn: 'Explore.*'
+- tapOn: '.*File-based routing'
+- assertVisible: 'This app has two screens.*'
