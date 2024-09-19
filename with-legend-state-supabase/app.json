@@ -1,10 +1,27 @@
 {
-  "name": "expo-supa-legendstate",
-  "slug": "expo-supa-legendstate",
-  "android": {
-    "package": "com.thorwebdev.exposupalegendstate"
-  },
-  "ios": {
-    "bundleIdentifier": "com.thorwebdev.exposupalegendstate"
+  "expo": {
+    "name": "expo-supa-legend-state",
+    "slug": "expo-supa-legend-state",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
   }
 }

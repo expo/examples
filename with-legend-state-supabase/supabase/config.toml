@@ -1,6 +1,6 @@
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "expo-supa-legendstate"
+project_id = "expo-supa-legend-state"
 
 [api]
 enabled = true

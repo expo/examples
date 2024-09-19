@@ -87,7 +87,7 @@ const App = observer(() => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>LegendState Example</Text>
+        <Text style={styles.heading}>Legend-State Example</Text>
         <NewTodo />
         <Todos todos$={_todos$} />
         <ClearTodos />

@@ -1,15 +1,16 @@
-import { createClient } from "@supabase/supabase-js";
-import { Database } from "./database.types";
-import { observable } from "@legendapp/state";
-import { syncedSupabase } from "@legendapp/state/sync-plugins/supabase";
-import "react-native-get-random-values";
-import { v4 as uuidv4 } from "uuid";
-import { configureSynced } from "@legendapp/state/sync";
-import { ObservablePersistMMKV } from "@legendapp/state/persist-plugins/mmkv";
+import { createClient } from '@supabase/supabase-js';
+import { Database } from './database.types';
+import { observable } from '@legendapp/state';
+import { syncedSupabase } from '@legendapp/state/sync-plugins/supabase';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
+import { configureSynced, syncObservable } from '@legendapp/state/sync';
+import { observablePersistAsyncStorage } from '@legendapp/state/persist-plugins/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const supabase = createClient<Database>(
   process.env.EXPO_PUBLIC_SUPABASE_URL,
-  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
+  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY
 );
 
 // Provide a function to generate ids locally
@@ -19,35 +20,36 @@ const generateId = () => uuidv4();
 const customSynced = configureSynced(syncedSupabase, {
   // Use react-native-mmkv in React Native
   persist: {
-    plugin: ObservablePersistMMKV,
+    plugin: observablePersistAsyncStorage({
+      AsyncStorage,
+    }),
   },
   generateId,
   supabase,
-  changesSince: "last-sync",
-  fieldCreatedAt: "created_at",
-  fieldUpdatedAt: "updated_at",
+  changesSince: 'last-sync',
+  fieldCreatedAt: 'created_at',
+  fieldUpdatedAt: 'updated_at',
   // Optionally enable soft deletes
-  fieldDeleted: "deleted",
+  fieldDeleted: 'deleted',
 });
-const uid = "";
 
 export const todos$ = observable(
   customSynced({
     supabase,
-    collection: "todos",
+    collection: 'todos',
     select: (from) =>
-      from.select("id,counter,text,done,created_at,updated_at,deleted"),
-    actions: ["read", "create", "update", "delete"],
+      from.select('id,counter,text,done,created_at,updated_at,deleted'),
+    actions: ['read', 'create', 'update', 'delete'],
     realtime: true,
     // Persist data and pending changes locally
     persist: {
-      name: "todos",
+      name: 'todos',
       retrySync: true, // Persist pending changes and retry
     },
     retry: {
       infinite: true, // Retry changes with exponential backoff
     },
-  }),
+  })
 );
 
 export function addTodo(text: string) {
