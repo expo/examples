@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "dev.expo.eastestsexample",
     "plugins": [
       "expo-router"
     ],
