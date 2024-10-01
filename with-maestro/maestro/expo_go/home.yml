@@ -1,0 +1,4 @@
+appId: host.exp.Exponent # This is the app ID for testing with Expo Go.
+---
+- launchApp
+- assertVisible: 'Welcome!'

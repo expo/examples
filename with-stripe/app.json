@@ -1,27 +1,29 @@
 {
-  "scheme": "myapp",
-  "ios": {
-    "infoPlist": {
-      "NSCameraUsageDescription": "Use the camera to scan cards."
-    }
-  },
-  "web": {
-    "bundler": "metro",
-    "output": "server"
-  },
-  "plugins": [
-    [
-      "expo-router",
-      {
-        "origin": "https://e"
+  "expo": {
+    "scheme": "myapp",
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "Use the camera to scan cards."
       }
-    ],
-    [
-      "@stripe/stripe-react-native",
-      {
-        "merchantIdentifier": "merchant.REPLACE_ME",
-        "publishableKey": "pk_test_qblFNYngBkEdjEZ16jxxoWSM"
-      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "server"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://e"
+        }
+      ],
+      [
+        "@stripe/stripe-react-native",
+        {
+          "merchantIdentifier": "merchant.REPLACE_ME",
+          "publishableKey": "pk_test_qblFNYngBkEdjEZ16jxxoWSM"
+        }
+      ]
     ]
-  ]
+  }
 }
