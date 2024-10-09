@@ -6,11 +6,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~51.0.31",
+    "expo": "~51.0.37",
     "expo-build-properties": "~0.12.5",
-    "expo-image": "~1.12.15",
+    "expo-image": "~1.13.0",
     "expo-linear-gradient": "~13.0.2",
-    "expo-splash-screen": "~0.27.5",
+    "expo-splash-screen": "~0.27.6",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-native": "0.74.5"
