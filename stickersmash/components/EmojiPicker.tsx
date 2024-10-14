@@ -1,11 +1,11 @@
 import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { PropsWithChildren } from "react";
 
-type Props = {
+type Props = PropsWithChildren<{
   isVisible: boolean;
-  children: React.ReactNode;
   onClose: () => void;
-};
+}>;
 
 export default function EmojiPicker({ isVisible, children, onClose }: Props) {
   return (
