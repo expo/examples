@@ -1,4 +1,4 @@
-import { Camera } from "expo-camera";
+import { Camera } from "expo-camera/legacy";
 import React from "react";
 import { Button } from 'react-native';
 
