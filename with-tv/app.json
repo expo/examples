@@ -5,6 +5,7 @@
         "@react-native-tvos/config-tv",
         {
           "androidTVBanner": "./assets/images/icon-400x240.png",
+          "tvosDeploymentTarget": "15.1",
           "appleTVImages": {
             "icon": "./assets/images/icon-1280x768.png",
             "iconSmall": "./assets/images/icon-400x240.png",
@@ -16,6 +17,16 @@
           }
         }
       ]
-    ]
+    ],
+    "android": {
+      "splash": {
+        "image": "./assets/images/icon-1920x720.png"
+      }
+    },
+    "ios": {
+      "splash": {
+        "image": "./assets/images/icon-1920x720.png"
+      }
+    }
   }
 }
