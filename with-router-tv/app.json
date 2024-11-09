@@ -5,6 +5,7 @@
         "@react-native-tvos/config-tv",
         {
           "androidTVBanner": "./assets/tv_icons/icon-400x240.png",
+          "tvosDeploymentTarget": "15.1",
           "appleTVImages": {
             "icon": "./assets/tv_icons/icon-1280x768.png",
             "iconSmall": "./assets/tv_icons/icon-400x240.png",
@@ -16,19 +17,19 @@
           }
         }
       ],
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "newArchEnabled": false
-          },
-          "android": {
-            "newArchEnabled": false
-          }
-        }
-      ],
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
+    "android": {
+      "splash": {
+        "image": "./assets/images/splash.png"
+      }
+    },
+    "ios": {
+      "splash": {
+        "image": "./assets/images/splash.png"
+      }
+    },
     "experiments": {
       "typedRoutes": true
     }
