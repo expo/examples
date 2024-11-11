@@ -32,17 +32,25 @@ export default function FocusDemoScreen() {
       </ThemedText>
       <Collapsible title="How it works">
         <ThemedText>
-          On TV platforms, these components have "onFocus()" and "onBlur()"
+          • On TV platforms, these components have "onFocus()" and "onBlur()"
           props, in addition to the usual "onPress()". These can be used to
           modify the style of the component when it is navigated to or navigated
-          away from by the TV focus engine. In addition, the functional forms of
-          the Pressable style prop and the Pressable content, which in React
-          Native core take a "pressed" boolean parameter, can also take
-          "focused" as a parameter on TV platforms.
+          away from by the TV focus engine.
         </ThemedText>
         <ThemedText>
-          As you use the arrow keys to navigate around the screen, the demo uses
-          the above props to update lists of recent events.
+          • In addition, the functional forms of the Pressable style prop and
+          the Pressable content, which in React Native core take a "pressed"
+          boolean parameter, can also take "focused" as a parameter on TV
+          platforms.
+        </ThemedText>
+        <ThemedText>
+          • As you use the arrow keys to navigate around the screen, the demo
+          uses the above props to update lists of recent events.
+        </ThemedText>
+        <ThemedText>
+          In RNTV 0.76, `Pressable` and `Touchable` components receive "focus",
+          "blur", "pressIn", and "pressOut" events directly from native code,
+          for improved performance when navigating around the screen.
         </ThemedText>
       </Collapsible>
       {Platform.isTV ? (

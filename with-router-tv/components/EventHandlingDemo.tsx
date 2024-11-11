@@ -8,7 +8,6 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
   TouchableOpacity,
-  GestureResponderEvent,
 } from 'react-native';
 import { useState } from 'react';
 
@@ -22,9 +21,9 @@ export function EventHandlingDemo() {
   const [pressableEventLog, setPressableEventLog] = useState<string[]>([]);
 
   const logWithAppendedEntry = (log: string[], entry: string) => {
-    const limit = 3;
-    const newEventLog = log.slice(0, limit - 1);
-    newEventLog.unshift(entry);
+    const limit = 10;
+    const newEventLog = log.slice(log.length === limit ? 1 : 0, limit);
+    newEventLog.push(entry);
     return newEventLog;
   };
 
@@ -50,35 +49,36 @@ export function EventHandlingDemo() {
 
   return (
     <ThemedView style={styles.container}>
-      <PressableButton title="Pressable" log={updatePressableLog} />
-      <TouchableOpacityButton
-        title="TouchableOpacity"
-        log={updatePressableLog}
-      />
-      <TouchableHighlightButton
-        title="TouchableHighlight"
-        log={updatePressableLog}
-      />
-      {Platform.OS === 'android' ? (
-        <TouchableNativeFeedbackButton
-          title="TouchableNativeFeedback"
-          log={updatePressableLog}
-        />
-      ) : null}
-
       <ThemedView style={styles.logContainer}>
         <View>
-          <ThemedText type="defaultSemiBold">Focus/press events</ThemedText>
+          <ThemedText type="defaultSemiBold">TV remote events</ThemedText>
           <ThemedText style={styles.logText}>
             {remoteEventLog.join('\n')}
           </ThemedText>
         </View>
         <View>
-          <ThemedText type="defaultSemiBold">Remote control events</ThemedText>
+          <ThemedText type="defaultSemiBold">Native events</ThemedText>
           <ThemedText style={styles.logText}>
             {pressableEventLog.join('\n')}
           </ThemedText>
         </View>
+      </ThemedView>
+      <ThemedView>
+        <PressableButton title="Pressable" log={updatePressableLog} />
+        <TouchableOpacityButton
+          title="TouchableOpacity"
+          log={updatePressableLog}
+        />
+        <TouchableHighlightButton
+          title="TouchableHighlight"
+          log={updatePressableLog}
+        />
+        {Platform.OS === 'android' ? (
+          <TouchableNativeFeedbackButton
+            title="TouchableNativeFeedback"
+            log={updatePressableLog}
+          />
+        ) : null}
       </ThemedView>
     </ThemedView>
   );
@@ -92,18 +92,12 @@ const PressableButton = (props: {
 
   return (
     <Pressable
-      onFocus={() => props.log(`${props.title} focus`)}
-      onBlur={() => props.log(`${props.title} blur`)}
-      onPress={() => props.log(`${props.title} pressed`)}
-      onLongPress={(
-        event: GestureResponderEvent & { eventKeyAction?: number },
-      ) =>
-        props.log(
-          `${props.title} long press ${
-            event.eventKeyAction === 0 ? 'start' : 'end'
-          }`,
-        )
-      }
+      onFocus={() => props.log(`${props.title} onFocus`)}
+      onBlur={() => props.log(`${props.title} onBlur`)}
+      onPress={() => props.log(`${props.title} onPress`)}
+      onPressIn={() => props.log(`${props.title} onPressIn`)}
+      onPressOut={() => props.log(`${props.title} onPressOut`)}
+      onLongPress={() => props.log(`${props.title} onLongPress`)}
       style={({ pressed, focused }) =>
         pressed || focused ? styles.pressableFocused : styles.pressable
       }
@@ -129,18 +123,11 @@ const TouchableOpacityButton = (props: {
     <TouchableOpacity
       activeOpacity={0.6}
       style={styles.pressable}
-      onFocus={() => props.log(`${props.title} focus`)}
-      onBlur={() => props.log(`${props.title} blur`)}
-      onPress={() => props.log(`${props.title} pressed`)}
-      onLongPress={(
-        event: GestureResponderEvent & { eventKeyAction?: number },
-      ) =>
-        props.log(
-          `${props.title} long press ${
-            event.eventKeyAction === 0 ? 'start' : 'end'
-          }`,
-        )
-      }
+      onFocus={() => props.log(`${props.title} onFocus`)}
+      onBlur={() => props.log(`${props.title} onBlur`)}
+      onPressIn={() => props.log(`${props.title} onPressIn`)}
+      onPressOut={() => props.log(`${props.title} onPressOut`)}
+      onLongPress={() => props.log(`${props.title} onLongPress`)}
     >
       <Text style={styles.pressableText}>{props.title}</Text>
     </TouchableOpacity>
@@ -158,18 +145,11 @@ const TouchableHighlightButton = (props: {
     <TouchableHighlight
       style={styles.pressable}
       underlayColor={underlayColor}
-      onFocus={() => props.log(`${props.title} focus`)}
-      onBlur={() => props.log(`${props.title} blur`)}
-      onPress={() => props.log(`${props.title} pressed`)}
-      onLongPress={(
-        event: GestureResponderEvent & { eventKeyAction?: number },
-      ) =>
-        props.log(
-          `${props.title} long press ${
-            event.eventKeyAction === 0 ? 'start' : 'end'
-          }`,
-        )
-      }
+      onFocus={(event) => props.log(`${props.title} onFocus`)}
+      onBlur={(event) => props.log(`${props.title} onBlur`)}
+      onPressIn={() => props.log(`${props.title} onPressIn`)}
+      onPressOut={() => props.log(`${props.title} onPressOut`)}
+      onLongPress={() => props.log(`${props.title} onLongPress`)}
     >
       <Text style={styles.pressableText}>{props.title}</Text>
     </TouchableHighlight>
@@ -185,18 +165,10 @@ const TouchableNativeFeedbackButton = (props: {
   return (
     <TouchableNativeFeedback
       background={TouchableNativeFeedback.SelectableBackground()}
-      onFocus={() => props.log(`${props.title} focus`)}
-      onBlur={() => props.log(`${props.title} blur`)}
-      onPress={() => props.log(`${props.title} pressed`)}
-      onLongPress={(
-        event: GestureResponderEvent & { eventKeyAction?: number },
-      ) =>
-        props.log(
-          `${props.title} long press ${
-            event.eventKeyAction === 0 ? 'start' : 'end'
-          }`,
-        )
-      }
+      onPress={() => props.log(`${props.title} onPress`)}
+      onPressIn={() => props.log(`${props.title} onPressIn`)}
+      onPressOut={() => props.log(`${props.title} onPressOut`)}
+      onLongPress={() => props.log(`${props.title} onLongPress`)}
     >
       <View style={styles.pressable}>
         <Text style={styles.pressableText}>{props.title}</Text>
@@ -214,7 +186,8 @@ const useDemoStyles = function () {
   return StyleSheet.create({
     container: {
       flex: 1,
-      alignItems: 'center',
+      flexDirection: 'row',
+      alignItems: 'flex-start',
       justifyContent: 'center',
     },
     logContainer: {
@@ -225,10 +198,11 @@ const useDemoStyles = function () {
       justifyContent: 'flex-start',
     },
     logText: {
-      height: 100 * scale,
-      width: 200 * scale,
+      maxHeight: 300 * scale,
+      width: 300 * scale,
       fontSize: 10 * scale,
       margin: 5 * scale,
+      lineHeight: 12 * scale,
       alignSelf: 'flex-start',
       justifyContent: 'flex-start',
     },

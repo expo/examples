@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "routertv",
     "plugins": [
       [
         "@react-native-tvos/config-tv",
