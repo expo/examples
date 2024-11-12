@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@react-native-tvos/config-tv": "^0.0.13",
+    "@react-native-tvos/config-tv": "^0.1.0",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
     "@types/react-test-renderer": "^18.0.7",
