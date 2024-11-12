@@ -16,6 +16,16 @@
           }
         }
       ]
-    ]
+    ],
+    "android": {
+      "splash": {
+        "image": "./assets/images/icon-1920x720.png"
+      }
+    },
+    "ios": {
+      "splash": {
+        "image": "./assets/images/icon-1920x720.png"
+      }
+    }
   }
 }

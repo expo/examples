@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "routertv",
     "plugins": [
       [
         "@react-native-tvos/config-tv",
@@ -16,19 +17,19 @@
           }
         }
       ],
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "newArchEnabled": false
-          },
-          "android": {
-            "newArchEnabled": false
-          }
-        }
-      ],
-      "expo-router"
+      "expo-router",
+      "expo-font"
     ],
+    "android": {
+      "splash": {
+        "image": "./assets/images/splash.png"
+      }
+    },
+    "ios": {
+      "splash": {
+        "image": "./assets/images/splash.png"
+      }
+    },
     "experiments": {
       "typedRoutes": true
     }
