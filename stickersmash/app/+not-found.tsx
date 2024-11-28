@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
   button: {
     fontSize: 20,
     textDecorationLine: "underline",
