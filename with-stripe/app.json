@@ -23,7 +23,8 @@
           "merchantIdentifier": "merchant.REPLACE_ME",
           "publishableKey": "pk_test_qblFNYngBkEdjEZ16jxxoWSM"
         }
-      ]
+      ],
+      "expo-font"
     ]
   }
 }

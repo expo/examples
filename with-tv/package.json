@@ -9,7 +9,7 @@
     "prebuild": "EXPO_TV=1 expo prebuild --clean"
   },
   "dependencies": {
-    "expo": "~52.0.11",
+    "expo": "^52.0.16",
     "expo-splash-screen": "~0.29.13",
     "expo-status-bar": "~2.0.0",
     "react": "18.3.1",
