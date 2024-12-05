@@ -6,7 +6,7 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native": "^7.0.0",
     "@stripe/react-stripe-js": "^2.8.0",
     "@stripe/stripe-js": "^4.4.0",
     "@stripe/stripe-react-native": "^0.38.6",
