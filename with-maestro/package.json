@@ -15,7 +15,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/native": "^7.0.0",
     "expo": "^52.0.16",
     "expo-constants": "~17.0.3",
     "expo-font": "~13.0.1",
