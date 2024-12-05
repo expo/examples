@@ -3,9 +3,14 @@
     "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "orientation": "default",
-    "platforms": ["web"],
+    "platforms": [
+      "web"
+    ],
     "web": {
       "output": "static"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
