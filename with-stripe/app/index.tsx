@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, View } from "react-native";
 export default function DonatePage(): JSX.Element {
   return (
     <ScrollView
-      style={{ flex: 1, maxWidth: 600, paddingBottom: 24 }}
+      style={{ flex: 1, paddingBottom: 24 }}
       contentContainerStyle={{ padding: 16, gap: 8 }}
       contentInsetAdjustmentBehavior="automatic"
     >
