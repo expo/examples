@@ -1,4 +1,5 @@
 import * as ImagePicker from "expo-image-picker";
+import { manipulateAsync, FlipType, SaveFormat } from 'expo-image-manipulator';
 import { getApps, initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import React from "react";
@@ -15,6 +16,7 @@ import {
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import uuid from "uuid";
+import { Platform } from 'react-native'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAlZruO2T_JNOWn4ysfX6AryR6Dzm_VVaA",
@@ -29,7 +31,7 @@ if (!getApps().length) {
   initializeApp(firebaseConfig);
 }
 
-// Firebase sets some timeers for a long period, which will trigger some warnings. Let's turn that off for this example
+// Firebase sets some timers for a long period, which will trigger some warnings. Let's turn that off for this example
 LogBox.ignoreLogs([`Setting a timer for a long period`]);
 
 export default class App extends React.Component {
@@ -174,13 +176,21 @@ export default class App extends React.Component {
   };
 
   _handleImagePicked = async (pickerResult) => {
+    if (pickerResult.canceled) {
+      console.log("Image upload cancelled by user");
+      return;
+    }
+    
+    console.log('Received image to handle', pickerResult)
+
+    manipulatedImage = await this._manipulateImage(pickerResult.assets[0].uri);
+
     try {
       this.setState({ uploading: true });
 
-      if (!pickerResult.cancelled) {
-        const uploadUrl = await uploadImageAsync(pickerResult.uri);
+      const uploadUrl = await uploadImageAsync(manipulatedImage.uri);
         this.setState({ image: uploadUrl });
-      }
+      
     } catch (e) {
       console.log(e);
       alert("Upload failed, sorry :(");
@@ -188,9 +198,23 @@ export default class App extends React.Component {
       this.setState({ uploading: false });
     }
   };
+
+  _manipulateImage = async (uri) => {
+    const manipulatedImageResult = await manipulateAsync(
+      uri,
+      [{ rotate: 90 }, { flip: FlipType.Vertical }],
+      { compress: 0.5, format: SaveFormat.PNG}
+    );
+    console.log('Image manipulated', manipulatedImageResult);
+    
+    return manipulatedImageResult;
+  };
+
 }
 
 async function uploadImageAsync(uri) {
+  console.log('Received uri to upload', uri)
+
   // Why are we using XMLHttpRequest? See:
   // https://github.com/expo/expo/issues/2402#issuecomment-443726662
   const blob = await new Promise((resolve, reject) => {
@@ -206,9 +230,13 @@ async function uploadImageAsync(uri) {
     xhr.open("GET", uri, true);
     xhr.send(null);
   });
+  console.log('Blob created', blob)
 
   const fileRef = ref(getStorage(), uuid.v4());
+  console.log('File reference created', fileRef)
+
   const result = await uploadBytes(fileRef, blob);
+  console.log('Filed uploaded', result)
 
   // We're done with the blob, close and release it
   blob.close();
