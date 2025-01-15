@@ -1,9 +1,10 @@
 {
-  "name": "with-router",
+  "name": "with-rsc",
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start"
+    "start": "expo start",
+    "prepare": "npx patch-package"
   },
   "dependencies": {
     
