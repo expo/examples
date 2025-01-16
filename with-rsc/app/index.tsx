@@ -1,6 +1,7 @@
 /// <reference types="react/canary" />
 
 // This route is a client component.
+import "client-only";
 
 import { StyleSheet, Text, View } from "react-native";
 import { renderHomeAsync } from "../functions/render-home";

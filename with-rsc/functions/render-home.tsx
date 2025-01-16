@@ -2,8 +2,9 @@
 
 // This file runs in the server and can return server components.
 
-// Optionally: You can import "server-only" to ensure this file is ne
+// Optionally: You can import "server-only" to ensure this file is never run on the client.
 import "server-only";
+
 import { Stack } from "expo-router";
 
 import { Image, Text, View } from "react-native";
