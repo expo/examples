@@ -23,8 +23,8 @@ interface ItemEntity {
 }
 
 const libSQLOptions = {
-  url: 'YOUR_LIBSQL_URL',
-  authToken: 'YOUR_LIBSQL_AUTH_TOKEN',
+  url: process.env.EXPO_PUBLIC_LIBSQL_URL,
+  authToken: process.env.EXPO_PUBLIC_LIBSQL_AUTH_TOKEN,
 };
 
 //#region Components

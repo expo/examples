@@ -14,7 +14,7 @@ The app is the same as the [`with-sqlite`](https://github.com/expo/examples/tree
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`.
-- Update App.tsx to use your libSQL URL (`YOUR_LIBSQL_URL`) and AuthToken (`YOUR_LIBSQL_AUTH_TOKEN`).
+- Update `.env` to use your libSQL URL (`EXPO_PUBLIC_LIBSQL_URL`) and AuthToken (`EXPO_PUBLIC_LIBSQL_AUTH_TOKEN`).
 - Run `npx expo run:ios` or `npx expo run:android` to try it out.
 
 ## 📝 Notes
