@@ -1,5 +1,9 @@
 {
   "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
+  },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-collapsible": "^1.1.2",
