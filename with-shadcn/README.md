@@ -11,3 +11,9 @@ New shadcn components can be added [according to the docs](https://ui.shadcn.com
 ```sh
 npx create-expo-app -e with-shadcn
 ```
+
+## Deploy
+
+- Deploy the website using: `eas deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `eas build` — [Learn more](https://expo.dev/eas)
+<!-- - Develop in the browser with [stackblitz](https://stackblitz.com/github/expo/examples/tree/master/with-shadcn). -->
