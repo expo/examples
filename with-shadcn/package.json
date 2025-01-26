@@ -40,7 +40,6 @@
     "@babel/core": "^7.20.0",
     "@types/react": "~18.3.12",
     "autoprefixer": "^10.4.16",
-    "react-server-dom-webpack": "19.0.0-rc-6230622a1a-20240610",
     "postcss": "^8.4.32",
     "typescript": "~5.3.3"
   }
