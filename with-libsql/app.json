@@ -1,0 +1,12 @@
+{
+  "name": "with-libsql",
+  "slug": "with-libsql",
+  "plugins": [
+    [
+      "expo-sqlite",
+      {
+        "useLibSQL": true
+      }
+    ]
+  ]
+}
