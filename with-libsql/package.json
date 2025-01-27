@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
   "dependencies": {
     "@types/react": "~18.3.12",
     "expo": "^52.0.16",
