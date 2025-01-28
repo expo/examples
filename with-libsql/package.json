@@ -6,9 +6,9 @@
   "dependencies": {
     "@types/react": "~18.3.12",
     "expo": "^52.0.16",
-    "expo-sqlite": "~15.1.0",
+    "expo-sqlite": "~15.1.1",
     "react": "18.3.1",
-    "react-native": "0.76.3",
+    "react-native": "0.76.6",
     "typescript": "~5.3.3"
   },
   "devDependencies": {
