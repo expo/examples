@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
   ScrollView,
+  StatusBar,
   StyleSheet,
   Text,
   TextInput,
@@ -25,6 +26,7 @@ interface ItemEntity {
 const libSQLOptions = {
   url: process.env.EXPO_PUBLIC_LIBSQL_URL,
   authToken: process.env.EXPO_PUBLIC_LIBSQL_AUTH_TOKEN,
+  syncInterval: 1, // 1 second
 };
 
 //#region Components
@@ -37,6 +39,7 @@ export default function App() {
       options={{ libSQLOptions }}
     >
       <Main />
+      <StatusBar barStyle="dark-content" />
     </SQLiteProvider>
   );
 }
