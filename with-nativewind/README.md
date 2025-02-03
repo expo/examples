@@ -22,4 +22,4 @@ Style your universal React app with Tailwind CSS classes. [NativeWind](https://w
 
 <!-- Link to related Expo or library docs -->
 
-- This example replicates the [NativeWind Expo Router setup instructions](https://www.nativewind.dev/getting-started/expo-router) for NativeWind v.4.
+- This example replicates the [NativeWind Expo Router setup instructions](https://www.nativewind.dev/getting-started/expo-router) for NativeWind v4.
