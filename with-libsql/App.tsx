@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import {
+  Button,
   ScrollView,
   StatusBar,
   StyleSheet,
+  Switch,
   Text,
   TextInput,
   TouchableOpacity,
@@ -26,7 +28,6 @@ interface ItemEntity {
 const libSQLOptions = {
   url: process.env.EXPO_PUBLIC_LIBSQL_URL,
   authToken: process.env.EXPO_PUBLIC_LIBSQL_AUTH_TOKEN,
-  syncInterval: 1, // 1 second
 };
 
 //#region Components
@@ -49,10 +50,11 @@ function Main() {
   const [text, setText] = useState('');
   const [todoItems, setTodoItems] = useState<ItemEntity[]>([]);
   const [doneItems, setDoneItems] = useState<ItemEntity[]>([]);
+  const [enablePollingSync, setEnablePollingSync] = useState(false);
 
   const refetchItems = useCallback(() => {
     async function refetch() {
-      await db.withExclusiveTransactionAsync(async () => {
+      await db.withTransactionAsync(async () => {
         setTodoItems(
           await db.getAllAsync<ItemEntity>(
             'SELECT * FROM items WHERE done = ?',
@@ -70,13 +72,55 @@ function Main() {
     refetch();
   }, [db]);
 
+  const sync = useCallback(
+    (refetch: boolean) => {
+      db.syncLibSQL();
+      if (refetch) {
+        refetchItems();
+      }
+    },
+    [db]
+  );
+
   useEffect(() => {
     refetchItems();
   }, []);
 
+  useEffect(() => {
+    if (enablePollingSync) {
+      const intervalId = setInterval(() => {
+        sync(true /* refetch */);
+      }, 2000);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, [enablePollingSync]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>SQLite Example</Text>
+      <Text style={styles.heading}>libSQL Example</Text>
+
+      <View style={styles.controlContainer}>
+        <View style={styles.controlRow}>
+          <Text>Manual sync</Text>
+          <Button
+            title="Sync"
+            onPress={() => {
+              sync(true /* refetch */);
+            }}
+          />
+        </View>
+        <View style={styles.controlRow}>
+          <Text>Auto sync for every 2 seconds</Text>
+          <Switch
+            onValueChange={(value) => {
+              setEnablePollingSync(value);
+            }}
+            value={enablePollingSync}
+          />
+        </View>
+      </View>
 
       <View style={styles.flexRow}>
         <TextInput
@@ -170,6 +214,9 @@ async function deleteItemAsync(db: SQLiteDatabase, id: number): Promise<void> {
 }
 
 async function migrateDbIfNeeded(db: SQLiteDatabase) {
+  // Always sync libSQL first to prevent conflicts between local and remote databases
+  await db.syncLibSQL();
+
   const DATABASE_VERSION = 1;
   let { user_version: currentDbVersion } = await db.getFirstAsync<{
     user_version: number;
@@ -208,6 +255,20 @@ const styles = StyleSheet.create({
   },
   flexRow: {
     flexDirection: 'row',
+  },
+  controlContainer: {
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginVertical: 8,
+  },
+  controlRow: {
+    alignSelf: 'stretch',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginHorizontal: 64,
+    paddingVertical: 4,
   },
   input: {
     borderColor: '#4630eb',
