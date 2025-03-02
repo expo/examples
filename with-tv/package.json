@@ -14,7 +14,7 @@
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-native": "npm:react-native-tvos@0.76.6-0"
+    "react-native": "npm:react-native-tvos@0.77.1-0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
