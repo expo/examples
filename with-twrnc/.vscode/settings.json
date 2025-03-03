@@ -1,0 +1,13 @@
+{
+  "tailwindCSS.classAttributes": [
+    "style"
+  ],
+  "tailwindCSS.experimental.configFile": ".config/tailwind.config.ts",
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    [
+      "tw.style\\(([^)]*)\\)",
+      "'([^']*)'"
+    ]
+  ]
+}
