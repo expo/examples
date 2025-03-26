@@ -1,13 +1,14 @@
 {
   "aliases": {
     "with-tab-navigation": {
+      "destination": "with-react-navigation",
+      "message": "This example has been replaced with a more complete navigation example, which also includes tabs."
+    },
+    "navigation": {
       "destination": "with-react-navigation"
     },
     "with-router-tailwind": {
       "destination": "with-tailwindcss"
-    },
-    "with-navigation": {
-      "destination": "with-react-navigation"
     }
   },
   "deprecated": {
@@ -24,12 +25,10 @@
       "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-twitter-auth"
     },
     "with-postpublish-hooks": {
-      "source": "with-postpublish-hooks",
       "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-postpublish-hooks",
       "message": "This feature no longer exists. Refer to EAS Webhooks instead: https://docs.expo.dev/eas/webhooks/"
     },
     "with-native-base": {
-      "source": "with-native-base",
       "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-native-base",
       "message": "NativeBase is no longer maintained. The creators have replaced it with gluestack-ui: https://github.com/gluestack/gluestack-ui"
     }
