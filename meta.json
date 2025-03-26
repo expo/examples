@@ -1,0 +1,38 @@
+{
+  "aliases": {
+    "with-tab-navigation": {
+      "destination": "with-react-navigation"
+    },
+    "with-router-tailwind": {
+      "destination": "with-tailwindcss"
+    },
+    "with-navigation": {
+      "destination": "with-react-navigation"
+    }
+  },
+  "deprecated": {
+    "with-descope": {
+      "source": "with-descope",
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-descope",
+      "message": "Refer to the descope documentation for the latest information about how to use it: https://docs.descope.com/getting-started/react-native"
+    },
+    "with-formik": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-formik",
+      "message": "Formik is a plain-JavaScript library that does not require any specific configuration related to React Native or Expo. Follow the Formik documentation: https://formik.org/"
+    },
+    "with-twitter-auth": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-twitter-auth"
+    },
+    "with-postpublish-hooks": {
+      "source": "with-postpublish-hooks",
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-postpublish-hooks",
+      "message": "This feature no longer exists. Refer to EAS Webhooks instead: https://docs.expo.dev/eas/webhooks/"
+    },
+    "with-native-base": {
+      "source": "with-native-base",
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-native-base",
+      "message": "NativeBase is no longer maintained. The creators have replaced it with gluestack-ui: https://github.com/gluestack/gluestack-ui"
+    }
+  }
+}
+
