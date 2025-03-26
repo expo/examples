@@ -10,7 +10,8 @@ WebBrowser.maybeCompleteAuthSession();
 
 // Replace with your own Descope Project ID
 const descopeProjectId = "<Descope Project ID>";
-const descopeUrl = `https://api.descope.com/${descopeProjectId}`;
+// You can find this under Applications -> Your OIDC Application
+const descopeUrl = "<Descope Discovery URL>";
 const redirectUri = AuthSession.makeRedirectUri();
 
 export default function App() {
