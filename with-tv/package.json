@@ -9,12 +9,12 @@
     "prebuild": "EXPO_TV=1 expo prebuild --clean"
   },
   "dependencies": {
-    "expo": "~52.0.37",
-    "expo-splash-screen": "~0.29.22",
+    "expo": "~52.0.42",
+    "expo-splash-screen": "~0.29.23",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-native": "npm:react-native-tvos@0.77.1-0"
+    "react-native": "npm:react-native-tvos@0.77.2-0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
