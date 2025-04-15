@@ -2,7 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  useTVEventHandler,
   Platform,
   Pressable,
   TouchableHighlight,
@@ -16,6 +15,15 @@ import { ThemedView } from '@/components/ThemedView';
 import { useScale } from '@/hooks/useScale';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
+const useTVEventHandler = Platform.isTV
+  ? require('react-native').useTVEventHandler
+  : (_: any) => {};
+
+/**
+ * Demo of event handling on TV and web.
+ * On TV, the buttons will respond to focus, blur, and press events.
+ * On web, the buttons will respond to focus, blur, press, and hover events.
+ */
 export function EventHandlingDemo() {
   const [remoteEventLog, setRemoteEventLog] = useState<string[]>([]);
   const [pressableEventLog, setPressableEventLog] = useState<string[]>([]);
@@ -31,7 +39,7 @@ export function EventHandlingDemo() {
     setPressableEventLog((log) => logWithAppendedEntry(log, entry));
   };
 
-  useTVEventHandler((event) => {
+  useTVEventHandler((event: any) => {
     const { eventType, eventKeyAction } = event;
     if (eventType !== 'focus' && eventType !== 'blur') {
       setRemoteEventLog((log) =>
@@ -50,12 +58,14 @@ export function EventHandlingDemo() {
   return (
     <ThemedView style={styles.container}>
       <ThemedView style={styles.logContainer}>
-        <View>
-          <ThemedText type="defaultSemiBold">TV remote events</ThemedText>
-          <ThemedText style={styles.logText}>
-            {remoteEventLog.join('\n')}
-          </ThemedText>
-        </View>
+        {Platform.isTV && (
+          <View>
+            <ThemedText type="defaultSemiBold">TV remote events</ThemedText>
+            <ThemedText style={styles.logText}>
+              {remoteEventLog.join('\n')}
+            </ThemedText>
+          </View>
+        )}
         <View>
           <ThemedText type="defaultSemiBold">Native events</ThemedText>
           <ThemedText style={styles.logText}>
@@ -94,18 +104,28 @@ const PressableButton = (props: {
     <Pressable
       onFocus={() => props.log(`${props.title} onFocus`)}
       onBlur={() => props.log(`${props.title} onBlur`)}
+      onHoverIn={() => props.log(`${props.title} onHoverIn`)}
+      onHoverOut={() => props.log(`${props.title} onHoverOut`)}
       onPress={() => props.log(`${props.title} onPress`)}
       onPressIn={() => props.log(`${props.title} onPressIn`)}
       onPressOut={() => props.log(`${props.title} onPressOut`)}
       onLongPress={() => props.log(`${props.title} onLongPress`)}
-      style={({ pressed, focused }) =>
-        pressed || focused ? styles.pressableFocused : styles.pressable
+      style={({ pressed, focused, hovered }) =>
+        pressed || focused || hovered
+          ? styles.pressableFocused
+          : styles.pressable
       }
     >
-      {({ focused }) => {
+      {({ focused, hovered, pressed }) => {
         return (
           <ThemedText style={styles.pressableText}>
-            {focused ? `${props.title} focused` : props.title}
+            {pressed
+              ? `${props.title} pressed`
+              : focused
+              ? `${props.title} focused`
+              : hovered
+              ? `${props.title} hovered`
+              : props.title}
           </ThemedText>
         );
       }}
@@ -199,7 +219,7 @@ const useDemoStyles = function () {
     },
     logText: {
       maxHeight: 300 * scale,
-      width: 300 * scale,
+      width: Platform.isTV || Platform.OS === 'web' ? 300 * scale : 150 * scale,
       fontSize: 10 * scale,
       margin: 5 * scale,
       lineHeight: 12 * scale,
