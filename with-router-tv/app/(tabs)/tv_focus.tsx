@@ -38,28 +38,26 @@ export default function FocusDemoScreen() {
           away from by the TV focus engine.
         </ThemedText>
         <ThemedText>
+          • On web, Pressable has the above handlers, and also has
+          "onHoverIn()", and "onHoverOut()" props.
+        </ThemedText>
+        <ThemedText>
           • In addition, the functional forms of the Pressable style prop and
           the Pressable content, which in React Native core take a "pressed"
           boolean parameter, can also take "focused" as a parameter on TV
-          platforms.
+          platforms, and "hovered" as a parameter on web.
         </ThemedText>
         <ThemedText>
           • As you use the arrow keys to navigate around the screen, the demo
           uses the above props to update lists of recent events.
         </ThemedText>
         <ThemedText>
-          In RNTV 0.76, `Pressable` and `Touchable` components receive "focus",
-          "blur", "pressIn", and "pressOut" events directly from native code,
-          for improved performance when navigating around the screen.
+          In RNTV 0.76 and above, `Pressable` and `Touchable` components receive
+          "focus", "blur", "pressIn", and "pressOut" events directly from native
+          code, for improved performance when navigating around the screen.
         </ThemedText>
       </Collapsible>
-      {Platform.isTV ? (
-        <EventHandlingDemo />
-      ) : (
-        <ThemedText>
-          Run this on Apple TV or Android TV to see the demo.
-        </ThemedText>
-      )}
+      <EventHandlingDemo />
     </ParallaxScrollView>
   );
 }
