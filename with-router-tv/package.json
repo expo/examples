@@ -10,7 +10,8 @@
     "reset-project": "./scripts/reset-project.js",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "prebuild": "EXPO_TV=1 expo prebuild --clean"
+    "prebuild": "EXPO_TV=1 expo prebuild --clean",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "jest": {
     "preset": "jest-expo"
