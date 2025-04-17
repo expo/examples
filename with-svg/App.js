@@ -1,3 +1,5 @@
+import "@expo/metro-runtime";
+
 import { View } from "react-native";
 
 // From https://simpleicons.org/?q=expo
