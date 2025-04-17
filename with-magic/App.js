@@ -9,8 +9,7 @@ import {
   View,
 } from "react-native";
 
-// Add your own key here
-const magic = new Magic("pk_test_4210A822FBFD3437");
+const magic = new Magic(process.env.EXPO_PUBLIC_MAGIC_API_KEY);
 
 export default function App() {
   const [loading, setLoading] = useState(false);
