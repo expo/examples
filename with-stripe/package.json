@@ -3,7 +3,8 @@
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
-    "ios": "expo run:ios"
+    "ios": "expo run:ios",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.0",

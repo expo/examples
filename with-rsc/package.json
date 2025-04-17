@@ -4,7 +4,8 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
-    "prepare": "npx patch-package"
+    "prepare": "npx patch-package",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "dependencies": {
     "@types/react": "~18.3.12",

@@ -1,7 +1,6 @@
 {
   "name": "stickersmash",
   "main": "expo-router/entry",
-  "version": "1.0.0",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -9,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "jest": {
     "preset": "jest-expo"

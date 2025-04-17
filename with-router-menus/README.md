@@ -23,6 +23,13 @@ npx create-expo-app -e with-router-menus
 - Run `npx expo run:ios` or `npx expo run:android` to build the project.
 - Open in the browser with `npx expo --web`.
 
+## Deploy
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## Zeego installation
 
 Run the following to add Zeego to an existing project:

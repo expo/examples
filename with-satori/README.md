@@ -32,6 +32,13 @@ Replace `origin` in the `app.json` with the URL to your [production API Routes](
 
 Ensure you upload your environment variables to wherever you host the web app and API Routes.
 
+## Deploy
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## 📝 Notes
 
 - [Expo Router: API Routes](https://docs.expo.dev/router/reference/api-routes/)

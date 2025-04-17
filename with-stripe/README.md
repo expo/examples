@@ -28,6 +28,13 @@ This example shows how to use Stripe in your app and website.
 - Run `yarn start` or `npm run start` to start the bundler.
 - This example requires Expo API Routes to be deployed.
 
+## Deploy
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## 📝 Notes
 
 - Learn more about [React Native Stripe](https://docs.stripe.com/payments/accept-a-payment?platform=react-native&ui=payment-sheet#react-native-customization).

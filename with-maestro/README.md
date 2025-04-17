@@ -43,6 +43,13 @@
 
 > _Note:_ The Maestro flows in the [maestro/dev_build](./maestro/dev_build) folder must have the app's package name (Android) or bundle identifier (iOS) defined. To make this example work out of the box without changes, the [app.json](./app.json) and the Maestro flows for dev builds are preconfigured with these values set to `dev.expo.eastestsexample`. In your actual development, these should be changed to the correct values for your app.
 
+## Deploy
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## 📝 Further information
 
 - [Expo guide on E2E tests with EAS](https://docs.expo.dev/build-reference/e2e-tests/)
