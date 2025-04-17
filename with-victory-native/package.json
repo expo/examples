@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@expo/webpack-config": "^19.0.0",
     "expo": "^52.0.16",
     "expo-font": "~13.0.1",
     "react": "18.3.1",
@@ -11,6 +10,7 @@
     "victory-native": "^35.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3"
+    "@babel/core": "^7.19.3",
+    "@expo/metro-runtime": "^4.0.1"
   }
 }

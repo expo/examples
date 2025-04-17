@@ -13,8 +13,5 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
-  },
-  "name": "with-libsql",
-  "version": "1.0.0",
-  "private": true
+  }
 }

@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  Button,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Button, SafeAreaView, StatusBar, View } from "react-native";
 import { mediaDevices, RTCView } from "react-native-webrtc";
 
 function App() {
