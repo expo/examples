@@ -21,6 +21,7 @@
       "expo-font"
     ],
     "android": {
+      "edgeToEdgeEnabled": true,
       "splash": {
         "image": "./assets/images/splash.png"
       }
