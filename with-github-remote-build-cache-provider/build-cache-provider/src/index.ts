@@ -1,5 +1,6 @@
 import { ModPlatform } from "@expo/config-plugins";
 import path from "path";
+import fs from "fs-extra";
 
 import { RunOptions } from "./types";
 
@@ -21,6 +22,16 @@ export async function resolveGitHubRemoteBuildCache(
   },
   { owner, repo }: { owner: string; repo: string }
 ): Promise<string | null> {
+  const cachedAppPath = getCachedAppPath({
+    fingerprintHash,
+    platform,
+    projectRoot,
+    runOptions,
+  });
+  if (fs.existsSync(cachedAppPath)) {
+    console.log("Cached build found, skipping download");
+    return cachedAppPath;
+  }
   console.log(`Searching builds with matching fingerprint on Github Releases`);
   try {
     const assets = await getReleaseAssetsByTag({
@@ -35,12 +46,6 @@ export async function resolveGitHubRemoteBuildCache(
     });
 
     const buildDownloadURL = assets[0].browser_download_url;
-    const cachedAppPath = getCachedAppPath({
-      fingerprintHash,
-      platform,
-      projectRoot,
-      runOptions,
-    });
     return await downloadAndMaybeExtractAppAsync(
       buildDownloadURL,
       "ios",
@@ -66,7 +71,7 @@ export async function uploadGitHubRemoteBuildCache(
     runOptions: RunOptions;
   },
   { owner, repo }: { owner: string; repo: string }
-): Promise<void> {
+): Promise<string | null> {
   console.log(`Uploading build to Github Releases`);
   try {
     const result = await createReleaseAndUploadAsset({
@@ -81,13 +86,9 @@ export async function uploadGitHubRemoteBuildCache(
       binaryPath: buildPath,
     });
 
-    console.log("Release created:", {
-      Commit: result.commit,
-      Tag: result.tag,
-      ReleaseID: result.releaseId,
-      AssetID: result.assetId,
-    });
+    return result;
   } catch (error) {
+    console.log("error", error);
     console.error(
       "Release failed:",
       error instanceof Error ? error.message : "Unknown error"

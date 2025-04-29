@@ -140,16 +140,17 @@ async function uploadReleaseAsset(
   }
 ) {
   let filePath = params.binaryPath;
-  const name = path.basename(filePath);
+  let name = path.basename(filePath);
   if ((await fs.stat(filePath)).isDirectory()) {
     await fs.mkdirp(getTmpDirectory());
     const tarPath = path.join(getTmpDirectory(), `${uuidv4()}.tar.gz`);
     const parentPath = path.dirname(filePath);
     await createTar({ cwd: parentPath, file: tarPath, gzip: true }, [name]);
     filePath = tarPath;
+    name = name + ".tar.gz";
   }
 
-  const fileData = await fs.readFile(params.binaryPath);
+  const fileData = await fs.readFile(filePath);
 
   return octokit.rest.repos.uploadReleaseAsset({
     owner: params.owner,
