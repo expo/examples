@@ -8,7 +8,8 @@
     "react-dom": "18.3.1",
     "react-native": "0.76.3",
     "react-native-web": "~0.19.6",
-    "uuid": "3.4.0"
+    "uuid": "3.4.0",
+    "expo-image-manipulator": "~12.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
