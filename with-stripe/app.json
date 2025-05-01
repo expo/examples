@@ -7,7 +7,6 @@
       }
     },
     "web": {
-      "bundler": "metro",
       "output": "server"
     },
     "plugins": [
