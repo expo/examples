@@ -9,6 +9,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "expo": "^52.0.16"
+    "expo": "^53.0.4"
   }
 }
