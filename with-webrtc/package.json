@@ -5,14 +5,14 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "expo": "^52.0.16",
-    "expo-dev-client": "~5.0.5",
-    "expo-splash-screen": "~0.29.13",
-    "expo-status-bar": "~2.0.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.3",
-    "react-native-web": "~0.19.6",
+    "expo": "^53.0.4",
+    "expo-dev-client": "~5.1.7",
+    "expo-splash-screen": "~0.30.7",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.1",
+    "react-native-web": "^0.20.0",
     "react-native-webrtc": "^106.0.6"
   },
   "devDependencies": {
