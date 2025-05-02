@@ -25,7 +25,6 @@ This example shows how to use Stripe in your app and website.
 - Install packages with `yarn` or `npm install`.
   - If you have native iOS code run `npx pod-install`
 - Run `yarn start` or `npm run start` to start the bundler.
-- This example requires Expo API Routes to be deployed.
 
 ## Deploy
 
