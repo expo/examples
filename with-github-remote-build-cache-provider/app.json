@@ -3,7 +3,7 @@
     "experiments": {
       "remoteBuildCache": {
         "provider": {
-          "plugin": "./buildCacheProviderPlugin.js",
+          "plugin": "./provider.plugin.js",
           "options": {
             "repo": "your-repo-name",
             "owner": "your-github-username"

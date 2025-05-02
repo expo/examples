@@ -1,9 +1,8 @@
-import { getPackageJson } from "@expo/config";
+import { getPackageJson, RunOptions } from "@expo/config";
 import envPaths from "env-paths";
 
 const { temp: TEMP_PATH } = envPaths("github-build-cache-provider");
 
-import { type RunOptions } from "./types.js";
 import path from "path";
 
 export function isDevClientBuild({
