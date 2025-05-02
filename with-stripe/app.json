@@ -10,20 +10,15 @@
       "output": "server"
     },
     "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://e"
-        }
-      ],
+      "expo-router",
+      "expo-font",
       [
         "@stripe/stripe-react-native",
         {
           "merchantIdentifier": "merchant.REPLACE_ME",
           "publishableKey": "pk_test_qblFNYngBkEdjEZ16jxxoWSM"
         }
-      ],
-      "expo-font"
+      ]
     ]
   }
 }
