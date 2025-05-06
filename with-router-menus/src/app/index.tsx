@@ -23,7 +23,6 @@ function Footer() {
         justifyContent: "space-between",
         height: 48 + bottom,
         paddingBottom: bottom,
-        backgroundColor: "white",
       }}
       className="flex flex-row items-stretch light:bg-white dark:bg-black"
     >
