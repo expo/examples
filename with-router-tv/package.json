@@ -8,13 +8,9 @@
     "ios": "EXPO_TV=1 expo run:ios",
     "web": "expo start --web",
     "reset-project": "./scripts/reset-project.js",
-    "test": "jest --watchAll",
     "lint": "expo lint",
     "prebuild": "EXPO_TV=1 expo prebuild --clean",
     "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
-  },
-  "jest": {
-    "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
@@ -40,12 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@react-native-tvos/config-tv": "^0.1.1",
-    "@types/jest": "^29.5.14",
     "@types/react": "~19.0.10",
-    "@types/react-test-renderer": "^18.3.1",
-    "jest": "~29.7.0",
-    "jest-expo": "~53.0.1",
-    "react-test-renderer": "^18.3.1",
     "typescript": "~5.8.3"
   },
   "expo": {
