@@ -27,7 +27,13 @@ export default function NativeRootLayout() {
             },
             headerRight() {
               return (
-                <View className="flex flex-row justify-end gap-4">
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-end",
+                    gap: 8,
+                  }}
+                >
                   <SortMenu>
                     <MaterialIcons name="sort-ascending" size={24} />
                   </SortMenu>
