@@ -1,8 +1,8 @@
 import {
-  RemoteBuildCachePlugin,
-  ResolveRemoteBuildCacheProps,
+  BuildCacheProviderPlugin,
+  ResolveBuildCacheProps,
   RunOptions,
-  UploadRemoteBuildCacheProps,
+  UploadBuildCacheProps,
 } from "@expo/config";
 import path from "path";
 import fs from "fs-extra";
@@ -17,7 +17,7 @@ export async function resolveGitHubRemoteBuildCache(
     platform,
     fingerprintHash,
     runOptions,
-  }: ResolveRemoteBuildCacheProps,
+  }: ResolveBuildCacheProps,
   { owner, repo }: { owner: string; repo: string }
 ): Promise<string | null> {
   const cachedAppPath = getCachedAppPath({
@@ -61,7 +61,7 @@ export async function uploadGitHubRemoteBuildCache(
     fingerprintHash,
     runOptions,
     buildPath,
-  }: UploadRemoteBuildCacheProps,
+  }: UploadBuildCacheProps,
   { owner, repo }: { owner: string; repo: string }
 ): Promise<string | null> {
   console.log(`Uploading build to Github Releases`);
@@ -126,9 +126,9 @@ function getCachedAppPath({
   );
 }
 
-const providerPlugin: RemoteBuildCachePlugin = {
-  resolveRemoteBuildCache: resolveGitHubRemoteBuildCache,
-  uploadRemoteBuildCache: uploadGitHubRemoteBuildCache,
+const providerPlugin: BuildCacheProviderPlugin = {
+  resolveBuildCache: resolveGitHubRemoteBuildCache,
+  uploadBuildCache: uploadGitHubRemoteBuildCache,
 };
 
 export default providerPlugin;
