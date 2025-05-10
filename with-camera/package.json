@@ -12,7 +12,8 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-native": "0.79.1",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.20.0",
+    "styleq": "^0.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
