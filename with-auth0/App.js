@@ -1,5 +1,5 @@
 import * as AuthSession from "expo-auth-session";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { Alert, Button, Platform, StyleSheet, Text, View } from "react-native";
 
