@@ -1,5 +1,7 @@
 # Stripe Example
 
+https://github.com/user-attachments/assets/1a008495-8bde-4327-8e4d-1923d5bd2ccb
+
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
@@ -19,12 +21,14 @@ This example shows how to use Stripe in your app and website.
 
 ## 🚀 How to use
 
+```
+npx create-expo -e with-stripe
+```
+
 - Set the app.json `merchantIdentifier` to a value starting with `merchant.`, then run `eas build -p ios` to register the merchant identifier with Apple.
 - Set the `.env` values with your Stripe keys.
 - Follow the setup steps in the [Stripe docs](https://docs.stripe.com/payments/accept-a-payment?platform=react-native&ui=payment-sheet#react-native-customization) to ensure you have Apple configured correctly.
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` or `npm run start` to start the bundler.
+- Start the app with: `npx expo`
 
 ## Deploy
 
