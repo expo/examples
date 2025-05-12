@@ -1,8 +1,8 @@
-import { StyleSheet } from "react-native";
-import { Image, type ImageSource } from "expo-image";
+import { Image } from "expo-image";
+import { ImageSourcePropType, StyleSheet } from "react-native";
 
 type Props = {
-  imgSource: ImageSource;
+  imgSource: ImageSourcePropType;
   selectedImage?: string;
 };
 
