@@ -1,6 +1,6 @@
-import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
-import { PropsWithChildren } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { PropsWithChildren } from "react";
+import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 
 type Props = PropsWithChildren<{
   isVisible: boolean;

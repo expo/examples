@@ -1,5 +1,5 @@
-import { StyleSheet, View, Pressable, Text } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 type Props = {
   label: string;
