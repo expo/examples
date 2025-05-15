@@ -3,7 +3,6 @@
     "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "orientation": "default",
-    "platforms": ["web"],
     "web": {
       "output": "server",
       "favicon": "./assets/favicon.png"
