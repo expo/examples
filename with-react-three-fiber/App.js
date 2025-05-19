@@ -1,3 +1,5 @@
+import "@expo/metro-runtime";
+
 import { useRef, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Canvas, useFrame } from "@react-three/fiber";
