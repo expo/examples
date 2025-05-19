@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "expo": "^53.0.4",
+    "hermes-engine": "^0.11.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.1",
+    "react-native-google-mobile-ads": "^15.2.0",
+    "react-native-web": "^0.20.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@types/react": "~19.0.10",
+    "@types/react-native": "~0.70.6",
+    "typescript": "~5.8.3"
+  },
+  "name": "with-admob",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "eas-cli",
+          "hermes-engine"
+        ],
+        "listUnknownPackages": false
+      }
+    }
+  }
+}
