@@ -16,19 +16,16 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export function Chat() {
-  const messages = WEATHER_FIXTURE;
-  const { error, handleInputChange, input, handleSubmit } = useChat({
-    onError: (error) => console.error(error, "ERROR"),
-
-    // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
-    maxSteps: 5,
-  });
-  //   const { messages, error, handleInputChange, input, handleSubmit } = useChat({
-  //     onError: (error) => console.error(error, "ERROR"),
-
+  // const messages = WEATHER_FIXTURE;
+  //   const { error, handleInputChange, input, handleSubmit } = useChat({
   //     // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
   //     maxSteps: 5,
   //   });
+  const { messages, error, handleInputChange, input, handleSubmit } = useChat({
+    // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
+    maxSteps: 5,
+  });
+  //   console.log(JSON.stringify(messages, null, 2));
 
   const scrollViewRef = useRef<ScrollView>(null);
 
@@ -46,17 +43,16 @@ export function Chat() {
   });
   if (error) return <Text>{error.message}</Text>;
 
-  //   console.log(JSON.stringify(messages, null, 2));
-
   return (
     <View className="flex-1 flex">
       <ScrollView
         ref={scrollViewRef}
         keyboardDismissMode="interactive"
+        showsVerticalScrollIndicator={false}
         automaticallyAdjustContentInsets
         contentInsetAdjustmentBehavior="automatic"
+        contentContainerClassName="gap-2 p-2 pb-8"
         className="flex-1"
-        contentContainerClassName="gap-2"
       >
         {messages.map((m) => {
           const isUser = m.role === "user";
@@ -121,8 +117,15 @@ export function Chat() {
         <Animated.View style={keyboardHeightStyle} />
       </ScrollView>
 
-      <View className="position absolute bottom-0 left-0 right-0">
-        <View className="bg-white rounded-xl m-2">
+      <View
+        className="position absolute bottom-0 left-0 right-0"
+        style={{
+          [process.env.EXPO_OS === "web"
+            ? `backgroundImage`
+            : `experimental_backgroundImage`]: `linear-gradient(to bottom, #F2F2F200, #F2F2F2)`,
+        }}
+      >
+        <View className="bg-white rounded-xl m-3">
           <TextInput
             className="p-4 outline-none"
             style={{ fontSize: 16 }}
