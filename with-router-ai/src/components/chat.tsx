@@ -27,14 +27,6 @@ export function Chat() {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   }, [messages]);
 
-  const { height } = useAnimatedKeyboard();
-  const { bottom } = useSafeAreaInsets();
-
-  const keyboardHeightStyle = useAnimatedStyle(() => {
-    return {
-      height: Math.max(height.value, bottom),
-    };
-  });
   if (error) {
     return (
       <View className="flex-1 items-center justify-center p-4">
@@ -106,7 +98,7 @@ export function Chat() {
         {content}
 
         {/* Spacer so last message is visible above the input */}
-        <Animated.View style={keyboardHeightStyle} />
+        <KeyboardPaddingView />
       </ScrollView>
 
       <View
@@ -145,10 +137,26 @@ export function Chat() {
           />
         </View>
 
-        <Animated.View style={keyboardHeightStyle} />
+        <KeyboardPaddingView />
       </View>
     </>
   );
+}
+
+function KeyboardPaddingView() {
+  if (process.env.EXPO_OS === "web") {
+    return null;
+  }
+
+  const { height } = useAnimatedKeyboard();
+  const { bottom } = useSafeAreaInsets();
+
+  const keyboardHeightStyle = useAnimatedStyle(() => {
+    return {
+      height: Math.max(height.value, bottom),
+    };
+  });
+  return <Animated.View style={keyboardHeightStyle} />;
 }
 
 const WEATHER_FIXTURE = [
