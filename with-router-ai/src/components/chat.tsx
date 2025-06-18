@@ -8,18 +8,62 @@ import Animated, {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { UserMessage } from "./user-message";
 import { CelsiusConvertCard, WeatherCard } from "./tool-cards";
+import { UIMessage } from "ai";
+
+function Message({ message }: { message: UIMessage }) {
+  const isUser = message.role === "user";
+  const content = message.parts
+    .map((part) => {
+      switch (part.type) {
+        case "text": {
+          if (isUser) {
+            return <UserMessage part={part} />;
+          }
+          return <Text className="text-lg">{part.text}</Text>;
+        }
+        case "step-start":
+          return null;
+        case "tool-invocation": {
+          const { toolInvocation } = part;
+
+          if (toolInvocation.state === "result") {
+            if (toolInvocation.toolName === "weather") {
+              return <WeatherCard {...toolInvocation.result} />;
+            } else if (
+              toolInvocation.toolName === "convertFahrenheitToCelsius"
+            ) {
+              return <CelsiusConvertCard {...toolInvocation.result} />;
+            }
+
+            return (
+              <Text>
+                Tool: {toolInvocation.toolName} - Result:{" "}
+                {JSON.stringify(toolInvocation.result, null, 2)}
+              </Text>
+            );
+          }
+          return null;
+        }
+        default:
+          return <Text>{JSON.stringify(part, null, 2)}</Text>;
+      }
+    })
+    .filter(Boolean);
+
+  return (
+    <View className="gap-2">
+      {content.map((jsx, key) => (
+        <Fragment key={key}>{jsx}</Fragment>
+      ))}
+    </View>
+  );
+}
 
 export function Chat() {
-  // const messages = WEATHER_FIXTURE;
-  //   const { error, handleInputChange, input, handleSubmit } = useChat({
-  //     // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
-  //     maxSteps: 5,
-  //   });
   const { messages, error, handleInputChange, input, handleSubmit } = useChat({
     // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
     maxSteps: 5,
   });
-  //   console.log(JSON.stringify(messages, null, 2));
 
   const scrollViewRef = useRef<ScrollView>(null);
 
@@ -35,55 +79,6 @@ export function Chat() {
     );
   }
 
-  const content = messages.map((m) => {
-    const isUser = m.role === "user";
-    const content = m.parts
-      .map((part) => {
-        switch (part.type) {
-          case "text": {
-            if (isUser) {
-              return <UserMessage part={part} />;
-            }
-            return <Text className="text-lg">{part.text}</Text>;
-          }
-          case "step-start":
-            return null;
-          case "tool-invocation": {
-            const { toolInvocation } = part;
-
-            if (toolInvocation.state === "result") {
-              if (toolInvocation.toolName === "weather") {
-                return <WeatherCard {...toolInvocation.result} />;
-              } else if (
-                toolInvocation.toolName === "convertFahrenheitToCelsius"
-              ) {
-                return <CelsiusConvertCard {...toolInvocation.result} />;
-              }
-
-              return (
-                <Text>
-                  Tool: {toolInvocation.toolName} - Result:{" "}
-                  {JSON.stringify(toolInvocation.result, null, 2)}
-                </Text>
-              );
-            }
-            return null;
-          }
-          default:
-            return <Text>{JSON.stringify(part, null, 2)}</Text>;
-        }
-      })
-      .filter(Boolean);
-
-    return (
-      <View key={m.id} className="gap-2">
-        {content.map((jsx, key) => (
-          <Fragment key={key}>{jsx}</Fragment>
-        ))}
-      </View>
-    );
-  });
-
   return (
     <>
       <ScrollView
@@ -95,7 +90,9 @@ export function Chat() {
         contentContainerClassName="gap-4 p-4 pb-8"
         className="flex-1 bg-white/50"
       >
-        {content}
+        {messages.map((m) => (
+          <Message key={m.id} message={m} />
+        ))}
 
         {/* Spacer so last message is visible above the input */}
         <KeyboardPaddingView />
@@ -143,115 +140,17 @@ export function Chat() {
   );
 }
 
-function KeyboardPaddingView() {
-  if (process.env.EXPO_OS === "web") {
-    return null;
-  }
+const KeyboardPaddingView =
+  process.env.EXPO_OS === "web"
+    ? () => null
+    : () => {
+        const { height } = useAnimatedKeyboard();
+        const { bottom } = useSafeAreaInsets();
 
-  const { height } = useAnimatedKeyboard();
-  const { bottom } = useSafeAreaInsets();
-
-  const keyboardHeightStyle = useAnimatedStyle(() => {
-    return {
-      height: Math.max(height.value, bottom),
-    };
-  });
-  return <Animated.View style={keyboardHeightStyle} />;
-}
-
-const WEATHER_FIXTURE = [
-  {
-    id: "BjS3RCjDlZzkzmUW",
-    createdAt: "2025-06-18T18:20:03.815Z",
-    role: "user",
-    content: "What is the temp in Austin in Celsius?",
-    parts: [
-      {
-        type: "text",
-        text: "What is the temp in Austin in Celsius?",
-      },
-    ],
-  },
-  {
-    id: "msg-GGotXhlwP17OhwnJkiMzEVsK",
-    createdAt: "2025-06-18T18:20:05.398Z",
-    role: "assistant",
-    content: "The temperature in Austin is 26°C.",
-    parts: [
-      {
-        type: "step-start",
-      },
-      {
-        type: "tool-invocation",
-        toolInvocation: {
-          state: "result",
-          step: 0,
-          toolCallId: "call_Jxcm7Vh1LHRF4OKD3L35gvEL",
-          toolName: "weather",
-          args: {
-            location: "Austin",
-          },
-          result: {
-            location: "Austin",
-            temperature: 79,
-          },
-        },
-      },
-      {
-        type: "step-start",
-      },
-      {
-        type: "tool-invocation",
-        toolInvocation: {
-          state: "result",
-          step: 1,
-          toolCallId: "call_Jbpnyh79LaVJQYKqpjngaOgj",
-          toolName: "convertFahrenheitToCelsius",
-          args: {
-            temperature: 79,
-          },
-          result: {
-            temperature: 79,
-            celsius: 26,
-          },
-        },
-      },
-      {
-        type: "step-start",
-      },
-      {
-        type: "text",
-        text: "The temperature in Austin is 26°C.",
-      },
-    ],
-    toolInvocations: [
-      {
-        state: "result",
-        step: 0,
-        toolCallId: "call_Jxcm7Vh1LHRF4OKD3L35gvEL",
-        toolName: "weather",
-        args: {
-          location: "Austin",
-        },
-        result: {
-          location: "Austin",
-          temperature: 79,
-        },
-      },
-      {
-        state: "result",
-        step: 1,
-        toolCallId: "call_Jbpnyh79LaVJQYKqpjngaOgj",
-        toolName: "convertFahrenheitToCelsius",
-        args: {
-          temperature: 79,
-        },
-        result: {
-          temperature: 79,
-          celsius: 26,
-        },
-      },
-    ],
-    revisionId: "QsPy6mXYsOac17y0",
-  },
-];
+        const keyboardHeightStyle = useAnimatedStyle(() => {
+          return {
+            height: Math.max(height.value, bottom),
+          };
+        });
+        return <Animated.View style={keyboardHeightStyle} />;
+      };
