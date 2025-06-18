@@ -42,70 +42,77 @@ export function Chat() {
       height: Math.max(height.value, bottom),
     };
   });
-  if (error) return <Text>{error.message}</Text>;
+  if (error) {
+    return (
+      <View className="flex-1 items-center justify-center p-4">
+        <Text className="text-red-500 text-center">{error.message}</Text>
+      </View>
+    );
+  }
+
+  const content = messages.map((m) => {
+    const isUser = m.role === "user";
+    const content = m.parts
+      .map((part) => {
+        switch (part.type) {
+          case "text": {
+            if (isUser) {
+              return <UserMessage part={part} />;
+            }
+            return <Text className="text-lg">{part.text}</Text>;
+          }
+          case "step-start":
+            return null;
+          case "tool-invocation": {
+            const { toolInvocation } = part;
+
+            if (toolInvocation.state === "result") {
+              if (toolInvocation.toolName === "weather") {
+                return <WeatherCard {...toolInvocation.result} />;
+              } else if (
+                toolInvocation.toolName === "convertFahrenheitToCelsius"
+              ) {
+                return <CelsiusConvertCard {...toolInvocation.result} />;
+              }
+
+              return (
+                <Text>
+                  Tool: {toolInvocation.toolName} - Result:{" "}
+                  {JSON.stringify(toolInvocation.result, null, 2)}
+                </Text>
+              );
+            }
+            return null;
+          }
+          default:
+            return <Text>{JSON.stringify(part, null, 2)}</Text>;
+        }
+      })
+      .filter(Boolean);
+
+    return (
+      <View key={m.id} className="gap-2">
+        {content.map((jsx, key) => (
+          <Fragment key={key}>{jsx}</Fragment>
+        ))}
+      </View>
+    );
+  });
 
   return (
-    <View className="flex-1 flex">
+    <>
       <ScrollView
         ref={scrollViewRef}
         keyboardDismissMode="interactive"
         showsVerticalScrollIndicator={false}
         automaticallyAdjustContentInsets
         contentInsetAdjustmentBehavior="automatic"
-        contentContainerClassName="gap-2 p-4 pb-8"
-        className="flex-1"
+        contentContainerClassName="gap-4 p-4 pb-8"
+        className="flex-1 bg-white/50"
       >
-        {messages.map((m) => {
-          const isUser = m.role === "user";
-          const content = m.parts
-            .map((part) => {
-              switch (part.type) {
-                case "step-start":
-                  return null;
-                case "text": {
-                  if (isUser) {
-                    return <UserMessage part={part} />;
-                  }
-                  return (
-                    <View className="flex flex-row justify-start">
-                      <Text className="text-lg">{part.text}</Text>
-                    </View>
-                  );
-                }
-                case "tool-invocation": {
-                  const { toolInvocation } = part;
-                  if (toolInvocation.state === "result") {
-                    if (toolInvocation.toolName === "weather") {
-                      return <WeatherCard {...toolInvocation.result} />;
-                    } else if (
-                      toolInvocation.toolName === "convertFahrenheitToCelsius"
-                    ) {
-                      return <CelsiusConvertCard {...toolInvocation.result} />;
-                    }
+        {content}
 
-                    return (
-                      <Text>
-                        Tool: {toolInvocation.toolName} - Result:{" "}
-                        {JSON.stringify(toolInvocation.result, null, 2)}
-                      </Text>
-                    );
-                  }
-                  return null;
-                }
-                default:
-                  return <Text>{JSON.stringify(part, null, 2)}</Text>;
-              }
-            })
-            .filter(Boolean);
-
-          return (
-            <View key={m.id} className="gap-2">
-              {content.map((jsx, key) => (
-                <Fragment key={key}>{jsx}</Fragment>
-              ))}
-            </View>
-          );
-        })}
+        {/* Spacer so last message is visible above the input */}
         <Animated.View style={keyboardHeightStyle} />
       </ScrollView>
 
@@ -117,7 +124,12 @@ export function Chat() {
             : `experimental_backgroundImage`]: `linear-gradient(to bottom, #F2F2F200, #F2F2F2)`,
         }}
       >
-        <View className="bg-white rounded-xl m-3">
+        <View
+          className="bg-white web:drop-shadow-xl overflow-visible rounded-xl m-3"
+          style={{
+            boxShadow: "0px 5px 13px rgba(0, 0, 0, 0.1)",
+          }}
+        >
           <TextInput
             className="p-4 outline-none"
             style={{ fontSize: 16 }}
@@ -142,7 +154,7 @@ export function Chat() {
 
         <Animated.View style={keyboardHeightStyle} />
       </View>
-    </View>
+    </>
   );
 }
 
