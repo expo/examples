@@ -27,9 +27,13 @@ import {
 } from "@stardazed/streams-text-encoding";
 
 if (!("structuredClone" in global)) {
+  // Pending upstream support in Expo:
+  // https://github.com/expo/expo/pull/37503
   polyfillGlobal("structuredClone", () => structuredClone);
 }
 
+// Pending upstream support in Expo:
+// https://github.com/expo/expo/pull/37507
 polyfillGlobal("TextEncoderStream", () => TextEncoderStream);
 polyfillGlobal("TextDecoderStream", () => TextDecoderStream);
 
