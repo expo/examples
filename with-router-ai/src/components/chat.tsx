@@ -10,6 +10,7 @@ import {
   ViewProps,
 } from "react-native";
 import Animated, {
+  FadeIn,
   useAnimatedKeyboard,
   useAnimatedStyle,
 } from "react-native-reanimated";
@@ -51,66 +52,57 @@ export function Chat() {
         showsVerticalScrollIndicator={false}
         automaticallyAdjustContentInsets
         contentInsetAdjustmentBehavior="automatic"
-        contentContainerClassName="gap-2 p-2 pb-8"
+        contentContainerClassName="gap-2 p-4 pb-8"
         className="flex-1"
       >
         {messages.map((m) => {
           const isUser = m.role === "user";
-          const content = m.parts.map((part) => {
-            switch (part.type) {
-              case "step-start":
-                return null;
-              case "text": {
-                if (isUser) {
-                  return <UserMessage part={part} />;
-                }
-                return (
-                  <View className="flex flex-row justify-start">
-                    <Text className="text-lg">{part.text}</Text>
-                  </View>
-                );
-              }
-              case "tool-invocation": {
-                const { toolInvocation } = part;
-                if (toolInvocation.state === "result") {
-                  if (toolInvocation.toolName === "weather") {
-                    return <WeatherCard {...toolInvocation.result} />;
-                  } else if (
-                    toolInvocation.toolName === "convertFahrenheitToCelsius"
-                  ) {
-                    return <CelsiusConvertCard {...toolInvocation.result} />;
+          const content = m.parts
+            .map((part) => {
+              switch (part.type) {
+                case "step-start":
+                  return null;
+                case "text": {
+                  if (isUser) {
+                    return <UserMessage part={part} />;
                   }
-
                   return (
-                    <Text>
-                      Tool: {toolInvocation.toolName} - Result:{" "}
-                      {JSON.stringify(toolInvocation.result, null, 2)}
-                    </Text>
-                  );
-                } else if (toolInvocation.state === "error") {
-                  return (
-                    <Text>
-                      Tool: {toolInvocation.toolName} - Error:{" "}
-                      {toolInvocation.error}
-                    </Text>
+                    <View className="flex flex-row justify-start">
+                      <Text className="text-lg">{part.text}</Text>
+                    </View>
                   );
                 }
-                return null;
+                case "tool-invocation": {
+                  const { toolInvocation } = part;
+                  if (toolInvocation.state === "result") {
+                    if (toolInvocation.toolName === "weather") {
+                      return <WeatherCard {...toolInvocation.result} />;
+                    } else if (
+                      toolInvocation.toolName === "convertFahrenheitToCelsius"
+                    ) {
+                      return <CelsiusConvertCard {...toolInvocation.result} />;
+                    }
+
+                    return (
+                      <Text>
+                        Tool: {toolInvocation.toolName} - Result:{" "}
+                        {JSON.stringify(toolInvocation.result, null, 2)}
+                      </Text>
+                    );
+                  }
+                  return null;
+                }
+                default:
+                  return <Text>{JSON.stringify(part, null, 2)}</Text>;
               }
-              default:
-                return <Text>{JSON.stringify(part, null, 2)}</Text>;
-            }
-          });
+            })
+            .filter(Boolean);
 
           return (
-            <View key={m.id} className="gap-2 p-2">
-              {m.parts ? (
-                content
-                  .filter(Boolean)
-                  .map((jsx, key) => <Fragment key={key}>{jsx}</Fragment>)
-              ) : (
-                <Text>{m.content}</Text>
-              )}
+            <View key={m.id} className="gap-2">
+              {content.map((jsx, key) => (
+                <Fragment key={key}>{jsx}</Fragment>
+              ))}
             </View>
           );
         })}
@@ -156,20 +148,21 @@ export function Chat() {
 
 function UserMessage({ part }: { part: { type: string; text: string } }) {
   return (
-    <View className="flex flex-row justify-end">
+    <Animated.View entering={FadeIn} className="flex flex-row justify-end">
       <View
         className="p-3 bg-blue-100 rounded-xl rounded-br-md border border-blue-300"
         style={{ borderCurve: "continuous" }}
       >
         <Text className="text-blue-800 text-base">{part.text}</Text>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
 function ToolCard(props: ViewProps) {
   return (
-    <View
+    <Animated.View
+      entering={FadeIn}
       className="p-4 rounded-2xl gap bg-gray-100 border border-gray-300 transition-all duration-200 hover:bg-gray-200"
       style={{ borderCurve: "continuous" }}
       {...props}
