@@ -1,5 +1,6 @@
 import "../global.css";
 import "@/utils/fetch-polyfill";
+
 import { Stack } from "expo-router";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 

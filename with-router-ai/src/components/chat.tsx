@@ -1,13 +1,8 @@
-// import { generateAPIUrl } from '@/utils';
 import { useChat } from "@ai-sdk/react";
-import { fetch as expoFetch } from "expo/fetch";
 import { View, TextInput, ScrollView, Text, SafeAreaView } from "react-native";
 
-// expoFetch("/api/chat");
 export function Chat() {
   const { messages, error, handleInputChange, input, handleSubmit } = useChat({
-    fetch: expoFetch as unknown as typeof globalThis.fetch,
-    api: "http://localhost:8081/api/chat",
     onError: (error) => console.error(error, "ERROR"),
   });
 
