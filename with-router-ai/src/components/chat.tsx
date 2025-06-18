@@ -9,6 +9,11 @@ import {
   SafeAreaView,
   ViewProps,
 } from "react-native";
+import Animated, {
+  useAnimatedKeyboard,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export function Chat() {
   const messages = WEATHER_FIXTURE;
@@ -31,90 +36,96 @@ export function Chat() {
     scrollViewRef.current?.scrollToEnd({ animated: true });
   }, [messages]);
 
+  const { height } = useAnimatedKeyboard();
+  const { bottom } = useSafeAreaInsets();
+
+  const keyboardHeightStyle = useAnimatedStyle(() => {
+    return {
+      height: Math.max(height.value, bottom),
+    };
+  });
   if (error) return <Text>{error.message}</Text>;
 
   //   console.log(JSON.stringify(messages, null, 2));
 
   return (
-    <SafeAreaView style={{ height: "100%" }}>
-      <View
-        style={{
-          height: "95%",
-          display: "flex",
-          flexDirection: "column",
-          paddingHorizontal: 8,
-        }}
+    <View className="flex-1 flex">
+      <ScrollView
+        ref={scrollViewRef}
+        keyboardDismissMode="interactive"
+        automaticallyAdjustContentInsets
+        contentInsetAdjustmentBehavior="automatic"
+        className="flex-1"
+        contentContainerClassName="gap-2"
       >
-        <ScrollView
-          ref={scrollViewRef}
-          className="flex-1"
-          contentContainerClassName="gap-2"
-        >
-          {messages.map((m) => {
-            const isUser = m.role === "user";
-            const content = m.parts.map((part) => {
-              switch (part.type) {
-                case "step-start":
-                  return null;
-                case "text": {
-                  if (isUser) {
-                    return <UserMessage part={part} />;
+        {messages.map((m) => {
+          const isUser = m.role === "user";
+          const content = m.parts.map((part) => {
+            switch (part.type) {
+              case "step-start":
+                return null;
+              case "text": {
+                if (isUser) {
+                  return <UserMessage part={part} />;
+                }
+                return (
+                  <View className="flex flex-row justify-start">
+                    <Text className="text-lg">{part.text}</Text>
+                  </View>
+                );
+              }
+              case "tool-invocation": {
+                const { toolInvocation } = part;
+                if (toolInvocation.state === "result") {
+                  if (toolInvocation.toolName === "weather") {
+                    return <WeatherCard {...toolInvocation.result} />;
+                  } else if (
+                    toolInvocation.toolName === "convertFahrenheitToCelsius"
+                  ) {
+                    return <CelsiusConvertCard {...toolInvocation.result} />;
                   }
+
                   return (
-                    <View className="flex flex-row justify-start">
-                      <Text className="text-lg">{part.text}</Text>
-                    </View>
+                    <Text>
+                      Tool: {toolInvocation.toolName} - Result:{" "}
+                      {JSON.stringify(toolInvocation.result, null, 2)}
+                    </Text>
+                  );
+                } else if (toolInvocation.state === "error") {
+                  return (
+                    <Text>
+                      Tool: {toolInvocation.toolName} - Error:{" "}
+                      {toolInvocation.error}
+                    </Text>
                   );
                 }
-                case "tool-invocation": {
-                  const { toolInvocation } = part;
-                  if (toolInvocation.state === "result") {
-                    if (toolInvocation.toolName === "weather") {
-                      return <WeatherCard {...toolInvocation.result} />;
-                    } else if (
-                      toolInvocation.toolName === "convertFahrenheitToCelsius"
-                    ) {
-                      return <CelsiusConvertCard {...toolInvocation.result} />;
-                    }
-
-                    return (
-                      <Text>
-                        Tool: {toolInvocation.toolName} - Result:{" "}
-                        {JSON.stringify(toolInvocation.result, null, 2)}
-                      </Text>
-                    );
-                  } else if (toolInvocation.state === "error") {
-                    return (
-                      <Text>
-                        Tool: {toolInvocation.toolName} - Error:{" "}
-                        {toolInvocation.error}
-                      </Text>
-                    );
-                  }
-                  return null;
-                }
-                default:
-                  return <Text>{JSON.stringify(part, null, 2)}</Text>;
+                return null;
               }
-            });
+              default:
+                return <Text>{JSON.stringify(part, null, 2)}</Text>;
+            }
+          });
 
-            return (
-              <View key={m.id} className="gap-2 p-2">
-                {m.parts ? (
-                  content
-                    .filter(Boolean)
-                    .map((jsx, key) => <Fragment key={key}>{jsx}</Fragment>)
-                ) : (
-                  <Text>{m.content}</Text>
-                )}
-              </View>
-            );
-          })}
-        </ScrollView>
+          return (
+            <View key={m.id} className="gap-2 p-2">
+              {m.parts ? (
+                content
+                  .filter(Boolean)
+                  .map((jsx, key) => <Fragment key={key}>{jsx}</Fragment>)
+              ) : (
+                <Text>{m.content}</Text>
+              )}
+            </View>
+          );
+        })}
+        <Animated.View style={keyboardHeightStyle} />
+      </ScrollView>
 
-        <View style={{ marginTop: 8 }}>
+      <View className="position absolute bottom-0 left-0 right-0">
+        <View className="bg-white rounded-xl m-2">
           <TextInput
-            style={{ backgroundColor: "white", padding: 8 }}
+            className="p-4 outline-none"
+            style={{ fontSize: 16 }}
             placeholder="Say something..."
             value={input}
             onChange={(e) =>
@@ -133,8 +144,10 @@ export function Chat() {
             autoFocus
           />
         </View>
+
+        <Animated.View style={keyboardHeightStyle} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 

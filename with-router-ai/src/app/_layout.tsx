@@ -22,5 +22,14 @@ const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
       };
 
 export default function Layout() {
-  return <Stack screenOptions={DEFAULT_STACK_HEADER} />;
+  return (
+    <Stack screenOptions={DEFAULT_STACK_HEADER}>
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Chat",
+        }}
+      />
+    </Stack>
+  );
 }
