@@ -9,12 +9,29 @@ export async function POST(req: Request) {
     model: openai("gpt-4o"),
     messages,
   });
-  console.log("results:", result);
 
   return result.toDataStreamResponse({
+    getErrorMessage: __DEV__ ? errorHandler : undefined,
     headers: {
       "Content-Type": "application/octet-stream",
-      "Content-Encoding": "none",
     },
   });
+}
+
+// Prevent cryptic errors in development.
+// https://ai-sdk.dev/docs/troubleshooting/use-chat-an-error-occurred
+function errorHandler(error: unknown) {
+  if (error == null) {
+    return "unknown error";
+  }
+
+  if (typeof error === "string") {
+    return error;
+  }
+
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return JSON.stringify(error);
 }

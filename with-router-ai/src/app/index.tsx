@@ -8,9 +8,6 @@ export default function Page() {
   return (
     <View className="flex flex-1">
       <Chat />
-      <Header />
-      <Content />
-      <Footer />
     </View>
   );
 }

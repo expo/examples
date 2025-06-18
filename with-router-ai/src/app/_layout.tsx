@@ -1,7 +1,9 @@
 import "../global.css";
 import "@/utils/fetch-polyfill";
-import { Slot, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+
+export { ErrorBoundary } from "expo-router";
 
 // These are the default stack options for iOS, they disable on other platforms.
 const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
