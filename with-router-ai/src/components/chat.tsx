@@ -1,20 +1,13 @@
-import { cn } from "@/lib/utils";
 import { useChat } from "@ai-sdk/react";
 import { Fragment, useEffect, useRef } from "react";
-import {
-  View,
-  TextInput,
-  ScrollView,
-  Text,
-  SafeAreaView,
-  ViewProps,
-} from "react-native";
+import { View, TextInput, ScrollView, Text } from "react-native";
 import Animated, {
-  FadeIn,
   useAnimatedKeyboard,
   useAnimatedStyle,
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { UserMessage } from "./user-message";
+import { CelsiusConvertCard, WeatherCard } from "./tool-cards";
 
 export function Chat() {
   // const messages = WEATHER_FIXTURE;
@@ -155,64 +148,6 @@ export function Chat() {
         <Animated.View style={keyboardHeightStyle} />
       </View>
     </>
-  );
-}
-
-function UserMessage({ part }: { part: { type: string; text: string } }) {
-  return (
-    <Animated.View entering={FadeIn} className="flex flex-row justify-end">
-      <View
-        className="p-3 bg-blue-100 rounded-xl rounded-br-md border border-blue-300"
-        style={{ borderCurve: "continuous" }}
-      >
-        <Text className="text-blue-800 text-base">{part.text}</Text>
-      </View>
-    </Animated.View>
-  );
-}
-
-function ToolCard(props: ViewProps) {
-  return (
-    <Animated.View
-      entering={FadeIn}
-      className="p-4 rounded-2xl gap bg-gray-100 border border-gray-300 transition-all duration-200 hover:bg-gray-200"
-      style={{ borderCurve: "continuous" }}
-      {...props}
-    />
-  );
-}
-
-function WeatherCard({
-  location,
-  temperature,
-}: {
-  location: string;
-  temperature: number;
-}) {
-  return (
-    <ToolCard>
-      <Text className="text-lg font-semibold">Weather in {location}</Text>
-      <Text className="text-gray-600">Current temperature:</Text>
-      <Text className="text-xl font-bold">{temperature}°F</Text>
-    </ToolCard>
-  );
-}
-
-function CelsiusConvertCard({
-  celsius,
-  temperature,
-}: {
-  celsius: number;
-  temperature: number;
-}) {
-  return (
-    <ToolCard>
-      <Text className="text-lg font-semibold">Temperature Conversion</Text>
-      <Text className="text-gray-600">
-        Converted {temperature}°F to Celsius:
-      </Text>
-      <Text className="text-xl font-bold">{celsius}°C</Text>
-    </ToolCard>
   );
 }
 
