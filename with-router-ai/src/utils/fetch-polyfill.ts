@@ -47,7 +47,6 @@ export function wrapFetchWithWindowLocation(
   if (fetch[polyfillSymbol]) {
     return fetch;
   }
-  console.log("hey.3", String(window.location), fetch[polyfillSymbol]);
 
   const _fetch = (...props: any[]) => {
     if (props[0] && typeof props[0] === "string" && props[0].startsWith("/")) {
@@ -65,7 +64,6 @@ export function wrapFetchWithWindowLocation(
       }
     }
 
-    console.log("hey.4", props[0]);
     return fetch(...props);
   };
 
@@ -83,7 +81,6 @@ if (extra?.router?.origin === false) {
   );
 }
 
-console.log("hey");
 // Polyfill window.location in native runtimes.
 if (typeof window !== "undefined") {
   if (!window.location) {

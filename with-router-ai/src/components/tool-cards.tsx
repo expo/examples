@@ -5,7 +5,7 @@ function ToolCard(props: ViewProps) {
   return (
     <Animated.View
       entering={FadeIn}
-      className="p-4 rounded-2xl gap bg-gray-100 border border-gray-300 transition-all duration-200 hover:bg-gray-200"
+      className="p-4 rounded-2xl gap bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-300 transition-all duration-200 hover:from-gray-100 hover:to-gray-200"
       style={{ borderCurve: "continuous" }}
       {...props}
     />

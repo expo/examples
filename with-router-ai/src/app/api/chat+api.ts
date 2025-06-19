@@ -10,7 +10,6 @@ export async function POST(req: Request) {
   const result = streamText({
     model: openai("gpt-4o"),
     messages,
-    maxSteps: 5,
     tools: {
       // https://ai-sdk.dev/docs/getting-started/expo#enhance-your-chatbot-with-tools
       weather: tool({
@@ -18,7 +17,7 @@ export async function POST(req: Request) {
         parameters: z.object({
           location: z.string().describe("The location to get the weather for"),
         }),
-        execute: async ({ location }) => {
+        async execute({ location }) {
           const temperature = Math.round(Math.random() * (90 - 32) + 32);
           return {
             location,
@@ -34,7 +33,7 @@ export async function POST(req: Request) {
             .number()
             .describe("The temperature in fahrenheit to convert"),
         }),
-        execute: async ({ temperature }) => {
+        async execute({ temperature }) {
           const celsius = Math.round((temperature - 32) * (5 / 9));
           return {
             temperature,
@@ -48,6 +47,8 @@ export async function POST(req: Request) {
   return result.toDataStreamResponse({
     getErrorMessage: __DEV__ ? errorHandler : undefined,
     headers: {
+      // Issue with iOS NSURLSession that requires Content-Type set in order to enable streaming.
+      // https://github.com/expo/expo/issues/32950#issuecomment-2508297646
       "Content-Type": "application/octet-stream",
     },
   });

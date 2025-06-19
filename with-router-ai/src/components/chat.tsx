@@ -1,63 +1,11 @@
 import { useChat } from "@ai-sdk/react";
-import { Fragment, useEffect, useRef } from "react";
-import { View, TextInput, ScrollView, Text } from "react-native";
-import Animated, {
-  useAnimatedKeyboard,
-  useAnimatedStyle,
-} from "react-native-reanimated";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { UserMessage } from "./user-message";
-import { CelsiusConvertCard, WeatherCard } from "./tool-cards";
 import { UIMessage } from "ai";
+import { Fragment, useEffect, useRef } from "react";
+import { ScrollView, Text, TextInput, View } from "react-native";
 
-function Message({ message }: { message: UIMessage }) {
-  const isUser = message.role === "user";
-  const content = message.parts
-    .map((part) => {
-      switch (part.type) {
-        case "text": {
-          if (isUser) {
-            return <UserMessage part={part} />;
-          }
-          return <Text className="text-lg">{part.text}</Text>;
-        }
-        case "step-start":
-          return null;
-        case "tool-invocation": {
-          const { toolInvocation } = part;
-
-          if (toolInvocation.state === "result") {
-            if (toolInvocation.toolName === "weather") {
-              return <WeatherCard {...toolInvocation.result} />;
-            } else if (
-              toolInvocation.toolName === "convertFahrenheitToCelsius"
-            ) {
-              return <CelsiusConvertCard {...toolInvocation.result} />;
-            }
-
-            return (
-              <Text>
-                Tool: {toolInvocation.toolName} - Result:{" "}
-                {JSON.stringify(toolInvocation.result, null, 2)}
-              </Text>
-            );
-          }
-          return null;
-        }
-        default:
-          return <Text>{JSON.stringify(part, null, 2)}</Text>;
-      }
-    })
-    .filter(Boolean);
-
-  return (
-    <View className="gap-2">
-      {content.map((jsx, key) => (
-        <Fragment key={key}>{jsx}</Fragment>
-      ))}
-    </View>
-  );
-}
+import { KeyboardPaddingView } from "@/components/keyboard-padding";
+import { CelsiusConvertCard, WeatherCard } from "@/components/tool-cards";
+import { UserMessage } from "@/components/user-message";
 
 export function Chat() {
   const { messages, error, handleInputChange, input, handleSubmit } = useChat({
@@ -115,7 +63,7 @@ export function Chat() {
           <TextInput
             className="p-4 outline-none"
             style={{ fontSize: 16 }}
-            placeholder="Say something..."
+            placeholder="Ask about the weather..."
             value={input}
             onChange={(e) =>
               handleInputChange({
@@ -140,17 +88,52 @@ export function Chat() {
   );
 }
 
-const KeyboardPaddingView =
-  process.env.EXPO_OS === "web"
-    ? () => null
-    : () => {
-        const { height } = useAnimatedKeyboard();
-        const { bottom } = useSafeAreaInsets();
+function Message({ message }: { message: UIMessage }) {
+  const isUser = message.role === "user";
 
-        const keyboardHeightStyle = useAnimatedStyle(() => {
-          return {
-            height: Math.max(height.value, bottom),
-          };
-        });
-        return <Animated.View style={keyboardHeightStyle} />;
-      };
+  const content = message.parts
+    .map((part) => {
+      switch (part.type) {
+        case "text": {
+          if (isUser) {
+            return <UserMessage part={part} />;
+          }
+          return <Text className="text-lg">{part.text}</Text>;
+        }
+        case "step-start":
+          return null;
+        case "tool-invocation": {
+          const { toolInvocation } = part;
+
+          if (toolInvocation.state === "result") {
+            if (toolInvocation.toolName === "weather") {
+              return <WeatherCard {...toolInvocation.result} />;
+            } else if (
+              toolInvocation.toolName === "convertFahrenheitToCelsius"
+            ) {
+              return <CelsiusConvertCard {...toolInvocation.result} />;
+            }
+
+            return (
+              <Text>
+                Tool: {toolInvocation.toolName} - Result:{" "}
+                {JSON.stringify(toolInvocation.result, null, 2)}
+              </Text>
+            );
+          }
+          return null;
+        }
+        default:
+          return <Text>{JSON.stringify(part, null, 2)}</Text>;
+      }
+    })
+    .filter(Boolean);
+
+  return (
+    <View className="gap-2">
+      {content.map((jsx, key) => (
+        <Fragment key={key}>{jsx}</Fragment>
+      ))}
+    </View>
+  );
+}
