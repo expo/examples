@@ -65,6 +65,7 @@ export function Chat() {
             style={{ fontSize: 16 }}
             placeholder="Ask about the weather..."
             value={input}
+            placeholderTextColor={"#A0AEC0"}
             onChange={(e) =>
               handleInputChange({
                 ...e,
