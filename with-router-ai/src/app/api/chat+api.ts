@@ -50,6 +50,7 @@ export async function POST(req: Request) {
       // Issue with iOS NSURLSession that requires Content-Type set in order to enable streaming.
       // https://github.com/expo/expo/issues/32950#issuecomment-2508297646
       "Content-Type": "application/octet-stream",
+      "Content-Encoding": "none",
     },
   });
 }

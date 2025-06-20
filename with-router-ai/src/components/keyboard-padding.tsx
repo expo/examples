@@ -8,12 +8,12 @@ export const KeyboardPaddingView =
   process.env.EXPO_OS === "web"
     ? () => null
     : () => {
-        const { height } = useAnimatedKeyboard();
+        const keyboard = useAnimatedKeyboard();
         const { bottom } = useSafeAreaInsets();
 
         const keyboardHeightStyle = useAnimatedStyle(() => {
           return {
-            height: Math.max(height.get(), bottom),
+            height: Math.max(keyboard.height.get(), bottom),
           };
         });
         return <Animated.View style={keyboardHeightStyle} />;
