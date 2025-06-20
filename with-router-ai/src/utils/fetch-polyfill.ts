@@ -50,17 +50,14 @@ export function wrapFetchWithWindowLocation(
 
   const _fetch = (...props: any[]) => {
     if (props[0] && typeof props[0] === "string" && props[0].startsWith("/")) {
-      props[0] = new URL(props[0], window.location?.origin).toString();
+      props[0] = new URL(props[0], getOrigin()).toString();
     } else if (props[0] && typeof props[0] === "object") {
       if (
         props[0].url &&
         typeof props[0].url === "string" &&
         props[0].url.startsWith("/")
       ) {
-        props[0].url = new URL(
-          props[0].url,
-          window.location?.origin
-        ).toString();
+        props[0].url = new URL(props[0].url, getOrigin()).toString();
       }
     }
 
@@ -74,24 +71,32 @@ export function wrapFetchWithWindowLocation(
 
 const extra = manifest?.extra as ExpoExtraRouterConfig | null;
 
-// We use the dev server in development but should attempt to warn early if the origin will be disabled in production.
-if (extra?.router?.origin === false) {
-  throw new Error(
-    "The server origin cannot be false in the app.json. Setup server deployments to ensure production fetch requests work https://docs.expo.dev/router/reference/api-routes/#native-deployment"
-  );
+function getOrigin() {
+  assertOrigin();
+  return window.location?.origin;
 }
+
+function assertOrigin() {
+  // We use the dev server in development but should attempt to warn early if the origin will be disabled in production.
+  if (extra?.router?.origin === false) {
+    throw new Error(
+      "The server origin cannot be false in the app.json. Setup server deployments to ensure production fetch requests work https://docs.expo.dev/router/reference/api-routes/#native-deployment"
+    );
+  }
+  if (typeof window !== "undefined" && !window.location) {
+    throw new Error(
+      "window.location is not defined. Setup server deployments to ensure relative fetch requests work in production https://docs.expo.dev/router/reference/api-routes/#native-deployment"
+    );
+  }
+}
+
+// Defer the assertion in release builds so the app doesn't crash instantly.
+if (__DEV__) assertOrigin();
 
 // Polyfill window.location in native runtimes.
 if (typeof window !== "undefined") {
-  if (!window.location) {
-    throw new Error(
-      "window.location is not defined. Ensure you are using a compatible runtime that supports window.location."
-    );
-  }
-
   // Polyfill native fetch to support relative URLs
   Object.defineProperty(global, "fetch", {
-    // value: fetch,
     value: wrapFetchWithWindowLocation(fetch),
   });
 }
