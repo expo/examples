@@ -9,8 +9,8 @@ export default function App() {
           source={{
             uri: "https://en.gravatar.com/userimage/120276729/078ee8361156d0e1c37b90e7851fed4b.png",
           }}
-          width="384"
-          height="512"
+          width={384}
+          height={512}
         />
         <main className="pt-6 md:p-8 text-center md:text-left space-y-4">
           <p className="text-lg font-medium">
