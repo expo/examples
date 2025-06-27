@@ -14,6 +14,7 @@ import { useColorScheme } from "@/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useGlobals } from "@/lib/useGlobals";
+import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -29,6 +30,21 @@ export {
   ErrorBoundary,
 } from "expo-router";
 
+// These are the default stack options for iOS, they disable on other platforms.
+const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
+  process.env.EXPO_OS !== "ios"
+    ? {}
+    : {
+        headerTransparent: true,
+        headerBlurEffect: "systemChromeMaterial",
+        headerShadowVisible: true,
+        headerLargeTitleShadowVisible: false,
+        headerLargeStyle: {
+          backgroundColor: "transparent",
+        },
+        headerLargeTitle: true,
+      };
+
 export default function RootLayout() {
   useGlobals();
 
@@ -37,7 +53,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-      <Stack>
+      <Stack screenOptions={DEFAULT_STACK_HEADER}>
         <Stack.Screen
           name="index"
           options={{

@@ -23,9 +23,9 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { BodyScrollView } from "@/components/ui/body";
 
-const GITHUB_AVATAR_URI =
-  "https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg";
+const GITHUB_AVATAR_URI = "https://github.com/expo.png";
 
 export default function Screen() {
   const [progress, setProgress] = React.useState(78);
@@ -34,8 +34,11 @@ export default function Screen() {
     setProgress(Math.floor(Math.random() * 100));
   }
   return (
-    <View className="flex-1 justify-center items-center gap-5 p-6 bg-secondary/30">
-      <Card className="w-full max-w-sm p-6 rounded-2xl">
+    <BodyScrollView
+      className="flex-1 bg-secondary/30"
+      contentContainerClassName="gap-4 p-4 sm:px-6 md:gap-8"
+    >
+      <Card className="w-full p-6 rounded-2xl">
         <CardHeader className="items-center">
           <Avatar alt="Rick Sanchez's Avatar" className="w-24 h-24">
             <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
@@ -110,6 +113,44 @@ export default function Screen() {
           </Button>
         </CardFooter>
       </Card>
-    </View>
+
+      <Card className="sm:col-span-2 rounded-2xl">
+        <CardHeader className="pb-3">
+          <CardTitle>Your Orders</CardTitle>
+          <CardDescription className="max-w-lg text-balance leading-relaxed">
+            Introducing Our Dynamic Orders Dashboard for Seamless Management and
+            Insightful Analysis.
+          </CardDescription>
+        </CardHeader>
+
+        <CardFooter>
+          <Button
+            onPress={() => {
+              // TODO...
+              // notify();
+            }}
+          >
+            Create New Order
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card className="sm:col-span-2 rounded-2xl">
+        <CardHeader className="pb-2">
+          <CardDescription>This Month</CardDescription>
+
+          <CardTitle className="text-4xl">$5,329</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Text className="text-xs text-muted-foreground">
+            +10% from last month
+          </Text>
+        </CardContent>
+        <CardFooter className="gap-2 flex-wrap">
+          <Progress value={12} aria-label="12% increase" />
+          <Button onPress={() => {}}>See More</Button>
+        </CardFooter>
+      </Card>
+    </BodyScrollView>
   );
 }

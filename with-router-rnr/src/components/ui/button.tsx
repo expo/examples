@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
-import { Pressable } from "react-native";
+import { Pressable, Text } from "react-native";
 import { TextClassContext } from "@/components/ui/text";
 import { cn } from "@/lib/utils";
 
@@ -62,7 +62,14 @@ const buttonTextVariants = cva(
 type ButtonProps = React.ComponentProps<typeof Pressable> &
   VariantProps<typeof buttonVariants>;
 
-function Button({ ref, className, variant, size, ...props }: ButtonProps) {
+function Button({
+  ref,
+  className,
+  variant,
+  size,
+  children,
+  ...props
+}: ButtonProps) {
   return (
     <TextClassContext
       value={buttonTextVariants({
@@ -79,9 +86,26 @@ function Button({ ref, className, variant, size, ...props }: ButtonProps) {
         ref={ref}
         role="button"
         {...props}
-      />
+      >
+        {wrapChildren(children)}
+      </Pressable>
     </TextClassContext>
   );
+}
+
+import * as AC from "@bacons/apple-colors";
+
+function wrapChildren<T extends any>(children: T): T | React.ReactNode {
+  if (children instanceof Function) {
+    return children;
+  }
+  return React.Children.map(children, (child) => {
+    if (typeof child === "string" || typeof child === "number") {
+      return <Text style={{ color: AC.systemBackground }}>{child}</Text>;
+    }
+
+    return child;
+  });
 }
 
 export { Button, buttonTextVariants, buttonVariants };
