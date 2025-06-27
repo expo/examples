@@ -1,95 +1,115 @@
-import { Link } from "expo-router";
-import React from "react";
-import { Text, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import * as React from "react";
+import { View } from "react-native";
+import Animated, {
+  FadeInUp,
+  FadeOutDown,
+  LayoutAnimationConfig,
+} from "react-native-reanimated";
+import { Info } from "@/lib/icons/Info";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Text } from "@/components/ui/text";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-export default function Page() {
+const GITHUB_AVATAR_URI =
+  "https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg";
+
+export default function Screen() {
+  const [progress, setProgress] = React.useState(78);
+
+  function updateProgressValue() {
+    setProgress(Math.floor(Math.random() * 100));
+  }
   return (
-    <View className="flex flex-1">
-      <Header />
-      <Content />
-      <Footer />
-    </View>
-  );
-}
-
-function Content() {
-  return (
-    <View className="flex-1">
-      <View className="py-12 md:py-24 lg:py-32 xl:py-48">
-        <View className="px-4 md:px-6">
-          <View className="flex flex-col items-center gap-4 text-center">
-            <Text
-              role="heading"
-              className="text-3xl text-center native:text-5xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl"
-            >
-              Welcome to Project ACME
-            </Text>
-            <Text className="mx-auto max-w-[700px] text-lg text-center text-gray-500 md:text-xl dark:text-gray-400">
-              Discover and collaborate on acme. Explore our services now.
-            </Text>
-
-            <View className="gap-4">
-              <Link
-                suppressHighlighting
-                className="flex h-9 items-center justify-center overflow-hidden rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 web:shadow ios:shadow transition-colors hover:bg-gray-900/90 active:bg-gray-400/90 web:focus-visible:outline-none web:focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-                href="/"
-              >
-                Explore
-              </Link>
+    <View className="flex-1 justify-center items-center gap-5 p-6 bg-secondary/30">
+      <Card className="w-full max-w-sm p-6 rounded-2xl">
+        <CardHeader className="items-center">
+          <Avatar alt="Rick Sanchez's Avatar" className="w-24 h-24">
+            <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+            <AvatarFallback>
+              <Text>RS</Text>
+            </AvatarFallback>
+          </Avatar>
+          <View className="p-3" />
+          <CardTitle className="pb-2 text-center">Rick Sanchez</CardTitle>
+          <View className="flex-row">
+            <CardDescription className="text-base font-semibold">
+              Scientist
+            </CardDescription>
+            <Tooltip delayDuration={150}>
+              <TooltipTrigger className="px-2 pb-0.5 active:opacity-50">
+                <Info
+                  size={14}
+                  strokeWidth={2.5}
+                  className="w-4 h-4 text-foreground/70"
+                />
+              </TooltipTrigger>
+              <TooltipContent className="py-2 px-4 shadow">
+                <Text className="native:text-lg">Freelance</Text>
+              </TooltipContent>
+            </Tooltip>
+          </View>
+        </CardHeader>
+        <CardContent>
+          <View className="flex-row justify-around gap-3">
+            <View className="items-center">
+              <Text className="text-sm text-muted-foreground">Dimension</Text>
+              <Text className="text-xl font-semibold">C-137</Text>
+            </View>
+            <View className="items-center">
+              <Text className="text-sm text-muted-foreground">Age</Text>
+              <Text className="text-xl font-semibold">70</Text>
+            </View>
+            <View className="items-center">
+              <Text className="text-sm text-muted-foreground">Species</Text>
+              <Text className="text-xl font-semibold">Human</Text>
             </View>
           </View>
-        </View>
-      </View>
-    </View>
-  );
-}
-
-function Header() {
-  const { top } = useSafeAreaInsets();
-  return (
-    <View style={{ paddingTop: top }}>
-      <View className="px-4 lg:px-6 h-14 flex items-center flex-row justify-between ">
-        <Link className="font-bold flex-1 items-center justify-center" href="/">
-          ACME
-        </Link>
-        <View className="flex flex-row gap-4 sm:gap-6">
-          <Link
-            className="text-md font-medium hover:underline web:underline-offset-4"
-            href="/"
+        </CardContent>
+        <CardFooter className="flex-col gap-3 pb-0">
+          <View className="flex-row items-center overflow-hidden">
+            <Text className="text-sm text-muted-foreground">Productivity:</Text>
+            <LayoutAnimationConfig skipEntering>
+              <Animated.View
+                key={progress}
+                entering={FadeInUp}
+                exiting={FadeOutDown}
+                className="w-11 items-center"
+              >
+                <Text className="text-sm font-bold text-sky-600">
+                  {progress}%
+                </Text>
+              </Animated.View>
+            </LayoutAnimationConfig>
+          </View>
+          <Progress
+            value={progress}
+            className="h-2"
+            indicatorClassName="bg-sky-600"
+          />
+          <View />
+          <Button
+            variant="outline"
+            className="shadow shadow-foreground/5"
+            onPress={updateProgressValue}
           >
-            About
-          </Link>
-          <Link
-            className="text-md font-medium hover:underline web:underline-offset-4"
-            href="/"
-          >
-            Product
-          </Link>
-          <Link
-            className="text-md font-medium hover:underline web:underline-offset-4"
-            href="/"
-          >
-            Pricing
-          </Link>
-        </View>
-      </View>
-    </View>
-  );
-}
-
-function Footer() {
-  const { bottom } = useSafeAreaInsets();
-  return (
-    <View
-      className="flex shrink-0 bg-gray-100 native:hidden"
-      style={{ paddingBottom: bottom }}
-    >
-      <View className="py-6 flex-1 items-start px-4 md:px-6 ">
-        <Text className={"text-center text-gray-700"}>
-          © {new Date().getFullYear()} Me
-        </Text>
-      </View>
+            <Text>Update</Text>
+          </Button>
+        </CardFooter>
+      </Card>
     </View>
   );
 }
