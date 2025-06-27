@@ -57,7 +57,7 @@ function Indicator({
     };
   });
 
-  if (Platform.OS === "web") {
+  if (process.env.EXPO_OS === "web") {
     return (
       <View
         className={cn(

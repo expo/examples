@@ -21,13 +21,15 @@ function TooltipContent({
   return (
     <TooltipPrimitive.Portal hostName={portalHost}>
       <TooltipPrimitive.Overlay
-        style={Platform.OS !== "web" ? StyleSheet.absoluteFill : undefined}
+        style={
+          process.env.EXPO_OS !== "web" ? StyleSheet.absoluteFill : undefined
+        }
       >
         <Animated.View
           entering={Platform.select({ web: undefined, default: FadeIn })}
           exiting={Platform.select({ web: undefined, default: FadeOut })}
         >
-          <TextClassContext.Provider value="text-sm native:text-base text-popover-foreground">
+          <TextClassContext value="text-sm native:text-base text-popover-foreground">
             <TooltipPrimitive.Content
               sideOffset={sideOffset}
               className={cn(
@@ -36,7 +38,7 @@ function TooltipContent({
               )}
               {...props}
             />
-          </TextClassContext.Provider>
+          </TextClassContext>
         </Animated.View>
       </TooltipPrimitive.Overlay>
     </TooltipPrimitive.Portal>

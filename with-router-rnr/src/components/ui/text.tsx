@@ -13,7 +13,7 @@ function Text({
   ref?: React.RefObject<RNText>;
   asChild?: boolean;
 }) {
-  const textClass = React.useContext(TextClassContext);
+  const textClass = React.use(TextClassContext);
   const Component = asChild ? Slot.Text : RNText;
   return (
     <Component

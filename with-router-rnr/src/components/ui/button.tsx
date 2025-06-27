@@ -64,7 +64,7 @@ type ButtonProps = React.ComponentProps<typeof Pressable> &
 
 function Button({ ref, className, variant, size, ...props }: ButtonProps) {
   return (
-    <TextClassContext.Provider
+    <TextClassContext
       value={buttonTextVariants({
         variant,
         size,
@@ -80,7 +80,7 @@ function Button({ ref, className, variant, size, ...props }: ButtonProps) {
         role="button"
         {...props}
       />
-    </TextClassContext.Provider>
+    </TextClassContext>
   );
 }
 

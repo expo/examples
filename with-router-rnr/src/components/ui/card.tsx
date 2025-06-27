@@ -74,9 +74,9 @@ function CardContent({
   ref?: React.RefObject<View>;
 }) {
   return (
-    <TextClassContext.Provider value="text-card-foreground">
+    <TextClassContext value="text-card-foreground">
       <View className={cn("p-6 pt-0", className)} {...props} />
-    </TextClassContext.Provider>
+    </TextClassContext>
   );
 }
 
