@@ -3,7 +3,7 @@ import { Image } from "expo-image";
 export default function App() {
   return (
     <main className="flex-1 items-center justify-center bg-white dark:bg-slate-900 p-4">
-      <article className="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+      <article className="bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
         <Image
           className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
           source={{
