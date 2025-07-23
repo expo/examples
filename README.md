@@ -44,13 +44,17 @@
 Use this repo to create new React/React Native projects with [**create-expo**](https://github.com/expo/expo/tree/main/packages/create-expo#readme).
 
 ```sh
-npm create expo ./<path> --example <Example>
-npx create-expo ./<path> --example <Example>
+npx create-expo-app --example <Example>
+yarn create expo-app --example <Example>
+pnpm create expo-app --example <Example>
+bun create expo-app --example <Example>
 
 # Example - typescript
 
-npm create expo ./typescript-app --example with-typescript
-npx create-expo ./typescript-app --example with-typescript
+npx create-expo-app --example with-typescript
+yarn create expo-app --example with-typescript
+pnpm create expo-app --example with-typescript
+bun create expo-app --example with-typescript
 ```
 
 ## Contributors ✨
