@@ -9,7 +9,7 @@ https://github.com/user-attachments/assets/cca6e654-2862-48b0-9d29-92b5847d4ee9
 Create a new project with this example:
 
 ```sh
-npm create expo --example with-s3
+npx create-expo-app --example with-s3
 ```
 
 You may use credentials for an existing S3 bucket, or create a new one.
