@@ -1,6 +1,10 @@
-# Expo example of uploading an image to S3
+# S3 upload example
 
-This shows an example of how using EAS Hosting to create a signed URL to upload an image to an S3 bucket directly from your device.
+An example of uploading images from iOS, Android or web to an [AWS S3 bucket](https://aws.amazon.com/s3/) using [Expo Router](https://docs.expo.dev/router/introduction/) and [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/).
+
+To upload content to S3 securely, we create an [API route](https://docs.expo.dev/router/reference/api-routes/) which will generate a signed URL which allows the client to upload a file to a specific bucket for a fixed duration. This API route is a **server side function** which will be deployed to EAS Hosting, meaning it is safe to use sensitive environemnt variables such as your S3 bucket credenitals.
+
+https://github.com/user-attachments/assets/64b5470f-2f1c-41d2-ae6b-951eff5b054b
 
 Create a new project with this example:
 
@@ -39,9 +43,6 @@ Now we need to create an IAM user that has permission to upload to your S3 bucke
 
 Login to your AWS account and [create a new bucket](https://console.aws.amazon.com/s3/home). Ensure you uncheck "Block all public access". On your newly created IAM user, click "Create access key". You'll only see these values once: add them to your `env.local` under `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
 
-> [!IMPORTANT]
-> Keep your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` safe, never check them into `.git` or use them in frontend code.
-
 To support web uploads and to be able to view the uploaded image, you also need to add the CORS policy. In your bucket, open Permissions -> Cross-origin resource sharing (CORS) and add the following:
 
 ```json
@@ -64,20 +65,24 @@ To support web uploads and to be able to view the uploaded image, you also need 
 ]
 ```
 
-> [!IMPART]
-> The above setup for S3 creates a highly permissive policy for testing purposes. Ensure you adjust this accordingly to your requirements.
+> [!WARNING]
+> The above setup for S3 creates a highly permissive policy for testing purposes.
+> For production use, ensure you adjust this accordingly to your project requirements.
 
+## Test locally
+
+After completing the above, you should be able to upload images locally on iOS, Android and Web. The API route is running locally at `http://localhost:8081`. When you've confirmed it is working as expected, see the next section about deploying your API routes.
 
 ## Deploy to EAS Hosting
 
-Export the API routes:
+Export the web project:
 
 ```sh
-npx expo export --platform web --no-ssg
+npx expo export --platform web
 ```
 
 > [!NOTE]
-> The `--no-ssg` flag will export the API routes only. Omit this flag if you also want to deploy the web UI
+> If you are looking to implement upload for your iOS and Android projects only, add `--no-ssg` to your export comment. This will create a deployable bundle with only your API routes, without the web UI.
 
 (Optional) upload the env vars to EAS environment variables
 
@@ -86,7 +91,7 @@ npx eas-cli env:push --environment production
 ```
 
 > [!NOTE]
-> The env vars will default to "plain text" visibility on the EAS dashboard. You may change the visibility on the UI, but only use plain text or sensitive (secret env vars cannot be used in local deployments).
+> The environment variables will default to "plain text" visibility on the EAS dashboard. You may change the visibility on the UI, but only use plain text or sensitive (secret env vars cannot be used in local deployments).
 
 Deploy the project:
 
