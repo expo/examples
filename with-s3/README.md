@@ -4,7 +4,7 @@ An example of uploading images from iOS, Android or web to an [AWS S3 bucket](ht
 
 To upload content to S3 securely, we create an [API route](https://docs.expo.dev/router/reference/api-routes/) which will generate a signed URL that allows the client to upload a file to a specific bucket for a fixed duration. This API route is a **server-side function** which will be deployed to EAS Hosting, meaning it is safe to use sensitive environment variables such as your S3 bucket credentials.
 
-https://github.com/user-attachments/assets/64b5470f-2f1c-41d2-ae6b-951eff5b054b
+https://github.com/user-attachments/assets/cca6e654-2862-48b0-9d29-92b5847d4ee9
 
 Create a new project with this example:
 
