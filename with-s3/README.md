@@ -42,6 +42,31 @@ Login to your AWS account and [create a new bucket](https://console.aws.amazon.c
 > [!IMPORTANT]
 > Keep your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` safe, never check them into `.git` or use them in frontend code.
 
+To support web uploads and to be able to view the uploaded image, you also need to add the CORS policy. In your bucket, open Permissions -> Cross-origin resource sharing (CORS) and add the following:
+
+```json
+[
+ {
+     "AllowedHeaders": [
+         "*"
+     ],
+     "AllowedMethods": [
+         "GET",
+         "PUT",
+         "POST",
+         "DELETE"
+     ],
+     "AllowedOrigins": [
+         "*"
+     ],
+     "ExposeHeaders": []
+ }
+]
+```
+
+> [!IMPART]
+> The above setup for S3 creates a highly permissive policy for testing purposes. Ensure you adjust this accordingly to your requirements.
+
 
 ## Deploy to EAS Hosting
 
