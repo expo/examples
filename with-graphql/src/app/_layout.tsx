@@ -1,7 +1,13 @@
 import { Stack } from "expo-router";
-import { Provider as UrqlProvider, Client as UrqlClient, fetchExchange, cacheExchange } from "urql";
+import {
+  Provider as UrqlProvider,
+  Client as UrqlClient,
+  fetchExchange,
+  cacheExchange,
+} from "urql";
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || "http://localhost:8081/api/graphql";
+const API_URL =
+  process.env.EXPO_PUBLIC_API_URL || "http://localhost:8081/api/graphql";
 
 const urqlClient = new UrqlClient({
   url: API_URL,
@@ -9,7 +15,9 @@ const urqlClient = new UrqlClient({
 });
 
 export default function Layout() {
-  return <UrqlProvider value={urqlClient}>
-    <Stack screenOptions={{ headerShown: false }} />
-    </UrqlProvider>;
+  return (
+    <UrqlProvider value={urqlClient}>
+      <Stack screenOptions={{ headerShown: false }} />
+    </UrqlProvider>
+  );
 }

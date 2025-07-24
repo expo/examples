@@ -24,11 +24,10 @@ const schema = createSchema({
   },
 });
 
-
 const { handleRequest } = createYoga<APIContext>({
   schema,
   context: async ({ request }): Promise<APIContext> => {
-    return {}
+    return {};
   },
   graphqlEndpoint: "/api/graphql",
   fetchAPI: { Response },
