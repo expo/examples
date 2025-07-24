@@ -2,6 +2,10 @@
 
 This is an example of setting up a graphQL server in an Expo Router [API route](https://docs.expo.dev/router/reference/api-routes/) and using it in the app and web code. The example also includes automatic type generation powered by [gql.tada](https://gql-tada.0no.co/).
 
+**Deployed demo:** https://with-graphql.expo.app/
+
+<img width="1099" height="416" alt="Screenshot 2025-07-24 at 12 00 05" src="https://github.com/user-attachments/assets/fe2a8d94-30db-45f4-bb22-9a7457c1dbf9" />
+
 ## Tools used
 - [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) - graphQL server
 - [URQL](https://github.com/urql-graphql/urql) - graphQL client ([Apollo Client](https://www.apollographql.com/docs/react) can also be used if preferred)
@@ -77,3 +81,7 @@ To deploy the API including the web UI, export without the `no-ssg` flag:
 npx expo export --platform web
 npx eas-cli deploy --prod
 ```
+
+| iOS      | Android |
+| ----------- | ----------- |
+| <img width="353" height="823" alt="Screenshot 2025-07-24 at 13 42 28" src="https://github.com/user-attachments/assets/e3ab0506-6335-45bb-93f5-6a2695578a0e" />      | <img width="425" height="772" alt="Screenshot 2025-07-24 at 13 42 48" src="https://github.com/user-attachments/assets/2eb29087-635a-44a3-9cdd-667e641757df" />       |
