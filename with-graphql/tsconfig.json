@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {    
+    "plugins": [ 
+      { 
+        "name": "gql.tada/ts-plugin", 
+        "schema": "./src/schema.graphql", 
+        "tadaOutputLocation": "./src/graphql-env.d.ts"
+      } 
+    ] 
+  },
+  "extends": "expo/tsconfig.base",
+}
