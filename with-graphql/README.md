@@ -1,15 +1,10 @@
 # GraphQL example
 
-An example of using a graphQL API in your Expo Router project.
-
-- create a graphQL api in your React Native codebase as an [API route](https://docs.expo.dev/router/reference/api-routes/)
-- automatic type generation with [gql.tada](https://gql-tada.0no.co/)
-- use the API in your frontend code
-- deploy it to EAS Hosting (for production use in your React Native app, website or both)
+This is an example of setting up a graphQL server in an Expo Router [API route](https://docs.expo.dev/router/reference/api-routes/) and using it in the app and web code. The example also includes automatic type generation powered by [gql.tada](https://gql-tada.0no.co/).
 
 ## Tools used
 - [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) - graphQL server
-- [URQL](https://github.com/urql-graphql/urql) - graphQL client (you also use [Apollo Client](https://www.apollographql.com/docs/react) if preferred)
+- [URQL](https://github.com/urql-graphql/urql) - graphQL client ([Apollo Client](https://www.apollographql.com/docs/react) can also be used if preferred)
 - [GraphQL Codegen](https://the-guild.dev/graphql/codegen) - for introspection
 - [gql.tada](https://gql-tada.0no.co/) - for type generation
 - [Expo Router API Route](https://docs.expo.dev/router/reference/api-routes/) - for server-side code
@@ -18,7 +13,7 @@ An example of using a graphQL API in your Expo Router project.
 ## Notable files
 
 - `src/app/api/graphql+api.ts` - this is your graphQL endpoint. It exports a function called `POST`, so all calls to `POST /graphql` will execute this function
-- `src/schema.graphql` - this is your GraphQL schema. It is generated based on the schema in `POST /graphql`. After making changes to the schema, run `npm run sync:schema` to update it
+- `src/schema.graphql` - your GraphQL schema. It is generated based on the schema in `POST /graphql`. After making changes to the schema, run `npm run sync:schema` to update it
 - `src/server` - this is a folder for your server code. With file-based routing, any file in the `/app` folder will become a screen or a route in your app, so this is handy for storing utilities and other necessities for your server code
 - `.vscode/settings.json` - enables automatic type generation in [VSCode](https://gql-tada.0no.co/get-started/installation#vscode-setup)
 - `src/graphql-env.d.ts` - these are your types, auto-generated based on the queries (change the query in `src/queries.ts` to see it change). This file will get automatically updated as you change your queries, but you can also update it manually with `npm run sync:types`
@@ -41,7 +36,8 @@ After making a change in `src/app/api/graphql+api.ts` (e.g. adding a new resolve
 npm run sync:schema
 ```
 
-Note the API must be running at `npx expo start` so the introspection query can call the GraphQL endpoint.
+> [!NOTE]
+> The API must be running at `npx expo start` when running that script, so that the introspection query can call the GraphQL endpoint.
 
 Now add a query anywhere in the `src` folder (the `src/queries.ts` file is a convenience, but not necessary).
 
@@ -53,7 +49,7 @@ npm run sync:types
 
 ## Deploying this example
 
-See a deployed version of this example at `https://with-graphql.expo.app`.
+See a deployed version of this example at https://with-graphql.expo.app.
 
 To deploy the API only (for use in your iOS and Android apps and without the web UI), export the API bundle:
 
