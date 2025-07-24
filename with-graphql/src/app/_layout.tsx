@@ -6,11 +6,10 @@ import {
   cacheExchange,
 } from "urql";
 
-const API_URL =
-  process.env.EXPO_PUBLIC_API_URL || "http://localhost:8081/api/graphql";
+const API_URL = process.env.EXPO_PUBLIC_API_URL || "http://localhost:8081";
 
 const urqlClient = new UrqlClient({
-  url: API_URL,
+  url: API_URL + "/api/graphql",
   exchanges: [cacheExchange, fetchExchange],
 });
 
