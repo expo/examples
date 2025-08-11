@@ -1,0 +1,10 @@
+{
+  "name": "with-graphql",
+  "slug": "with-graphql",
+  "plugins": [
+    "expo-router"
+  ],
+  "web": {
+    "output": "server"
+  }
+}

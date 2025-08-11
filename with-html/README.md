@@ -16,6 +16,15 @@
 - Install with `yarn` or `npm install`.
 - Run `yarn start` or `npm run start` to try it out.
 
+## Deploy
+
+Ensure you set the `EXPO_UNSTABLE_DEPLOY_SERVER=1` environment variable to enable [parallel deployments](https://docs.expo.dev/router/reference/api-routes/#native-deployment) to the server.
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## 📝 Notes
 
 <!-- Link to related Expo or library docs -->
