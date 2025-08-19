@@ -7,7 +7,7 @@ export default function App() {
     <Body contentContainerClassName="p-4">
       <Link href="/" asChild>
         <Link.Trigger>
-          <article className="rounded-xl p-8 md:p-0 border-[0.5px] bg-slate-100 border-slate-300 dark:bg-gray-800 dark:border-gray-700">
+          <article className="rounded-xl p-8 border-[0.5px] bg-slate-100 border-slate-300 dark:bg-gray-800 dark:border-gray-700">
             <Image
               className="w-24 h-24 aspect-1 rounded-full mx-auto"
               source={{ uri: "https://github.com/evanbacon.png" }}
