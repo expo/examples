@@ -5,9 +5,12 @@
   "scripts": {
     "start": "expo start",
     "postinstall": "npx patch-package",
-    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
+    "@bacons/apple-colors": "^0.0.8",
     "@expo/html-elements": "^0.12.5",
     "clsx": "^2.1.1",
     "expo": "^54.0.0-preview.3",

@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { IS_GLASS } from "@/lib/utils";
 import { LaunchButton } from "@/components/launch-button";
+import * as AC from "@bacons/apple-colors";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -15,6 +16,9 @@ const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
         headerLargeTitleShadowVisible: false,
         headerLargeStyle: {
           backgroundColor: "transparent",
+        },
+        headerTitleStyle: {
+          color: AC.label,
         },
         headerLargeTitle: true,
         headerBlurEffect: IS_GLASS ? "none" : "systemChromeMaterial",

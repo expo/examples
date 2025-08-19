@@ -11,5 +11,9 @@
   "plugins": [
     "expo-router",
     "expo-web-browser"
-  ]
+  ],
+  "ios": {
+    "bundleIdentifier": "com.bacon.with-html",
+    "appleTeamId": "QQ57RJ5UTD"
+  }
 }

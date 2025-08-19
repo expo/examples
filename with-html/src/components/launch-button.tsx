@@ -1,12 +1,16 @@
 import { TouchableOpacity } from "react-native";
 import { launchApp } from "@/lib/utils";
+import * as AC from "@bacons/apple-colors";
 
 export function LaunchButton() {
   return (
-    <TouchableOpacity onPress={() => launchApp()}>
+    <TouchableOpacity
+      onPress={() => launchApp()}
+      className="w-10 h-10 items-center justify-center"
+    >
       <svg
         role="img"
-        fill="#fff"
+        fill={AC.label}
         viewBox="0 0 24 24"
         width="22"
         height="24"
