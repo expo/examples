@@ -1,4 +1,5 @@
 import { Body } from "@/components/ui/body";
+import { launchApp } from "@/lib/utils";
 import { Link } from "expo-router";
 import { Image } from "react-native";
 
@@ -58,6 +59,11 @@ function Item({ src, children }: { src?: string; children?: React.ReactNode }) {
         </article>
       </Link.Trigger>
       <Link.Menu>
+        <Link.MenuAction
+          title="Launch"
+          icon="airplane.departure"
+          onPress={() => launchApp()}
+        />
         <Link.MenuAction
           title="Share"
           icon="square.and.arrow.up"

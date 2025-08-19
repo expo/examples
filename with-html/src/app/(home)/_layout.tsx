@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { IS_GLASS } from "@/lib/utils";
+import { LaunchButton } from "@/components/launch-button";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -27,6 +28,12 @@ export default function Layout() {
         name="index"
         options={{
           title: "ACME",
+
+          headerRight: () => (
+            <div className="web:px-4">
+              <LaunchButton />
+            </div>
+          ),
         }}
       />
     </Stack>

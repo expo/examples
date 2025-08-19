@@ -8,5 +8,8 @@
   "experiments": {
     "typedRoutes": true
   },
-  "plugins": ["expo-router"]
+  "plugins": [
+    "expo-router",
+    "expo-web-browser"
+  ]
 }
