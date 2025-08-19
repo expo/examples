@@ -1,0 +1,34 @@
+import { Stack } from "expo-router";
+import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { IS_GLASS } from "@/lib/utils";
+
+export { ErrorBoundary } from "expo-router";
+
+// These are the default stack options for iOS, they disable on other platforms.
+const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
+  process.env.EXPO_OS !== "ios"
+    ? {}
+    : {
+        headerTransparent: true,
+        headerShadowVisible: true,
+        headerLargeTitleShadowVisible: false,
+        headerLargeStyle: {
+          backgroundColor: "transparent",
+        },
+        headerLargeTitle: true,
+        headerBlurEffect: IS_GLASS ? "none" : "systemChromeMaterial",
+        headerBackButtonDisplayMode: IS_GLASS ? "minimal" : "default",
+      };
+
+export default function Layout() {
+  return (
+    <Stack screenOptions={DEFAULT_STACK_HEADER}>
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Expo Chat",
+        }}
+      />
+    </Stack>
+  );
+}
