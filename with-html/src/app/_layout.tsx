@@ -1,29 +1,19 @@
 import "@/global.css";
 
-import { Stack } from "expo-router";
-import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { Icon, Label, NativeTabs } from "expo-router/build/native-tabs";
+import ThemeProvider from "@/components/theme-provider";
 
 export { ErrorBoundary } from "expo-router";
 
-// These are the default stack options for iOS, they disable on other platforms.
-const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
-  process.env.EXPO_OS !== "ios"
-    ? {}
-    : {
-        headerTransparent: false,
-        headerShadowVisible: true,
-        headerLargeTitleShadowVisible: false,
-      };
-
 export default function Layout() {
   return (
-    <Stack screenOptions={DEFAULT_STACK_HEADER}>
-      <Stack.Screen
-        name="index"
-        options={{
-          title: "Expo Chat",
-        }}
-      />
-    </Stack>
+    <ThemeProvider>
+      <NativeTabs>
+        <NativeTabs.Trigger name="(home)">
+          <Icon sf="star" selectedSf="star.fill" drawable="ic_search" />
+          <Label>New</Label>
+        </NativeTabs.Trigger>
+      </NativeTabs>
+    </ThemeProvider>
   );
 }
