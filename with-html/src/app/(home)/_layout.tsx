@@ -26,7 +26,7 @@ export default function Layout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Expo Chat",
+          title: "ACME",
         }}
       />
     </Stack>
