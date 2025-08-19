@@ -2,18 +2,8 @@
   "scheme": "acme",
   "userInterfaceStyle": "automatic",
   "orientation": "default",
-  "web": {
-    "output": "server"
-  },
   "experiments": {
     "typedRoutes": true
   },
-  "plugins": [
-    "expo-router",
-    "expo-web-browser"
-  ],
-  "ios": {
-    "bundleIdentifier": "com.bacon.with-html",
-    "appleTeamId": "QQ57RJ5UTD"
-  }
+  "plugins": ["expo-router", "expo-web-browser"]
 }
