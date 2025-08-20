@@ -35,11 +35,7 @@ export default function NativeRootLayout() {
             headerBlurEffect: "systemChromeMaterial",
 
             headerLeft() {
-              return (
-                <View className="flex-1 items-start">
-                  <PageMenu />
-                </View>
-              );
+              return <PageMenu />;
             },
             headerRight() {
               return (
