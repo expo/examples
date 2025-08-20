@@ -23,7 +23,11 @@ export default function NativeRootLayout() {
             headerTitleAlign: "center",
             headerLargeTitle: true,
             headerLeft() {
-              return <PageMenu />;
+              return (
+                <View className="flex-1 items-start">
+                  <PageMenu />
+                </View>
+              );
             },
             headerRight() {
               return (
