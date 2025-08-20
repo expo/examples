@@ -11,6 +11,12 @@ Use native context menus to quickly manipulate state and data in your UI.
 - [Zeego](https://zeego.dev/) is used on iOS and Android for menus.
 - A custom version of [shadcn/ui • Dropdown](https://ui.shadcn.com/docs/components/dropdown-menu) is used on web for styled menus.
 
+## Launch your own
+
+<a href="https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus" target="_blank">
+  <img width="124" alt="expo-launch" src="https://github.com/user-attachments/assets/9501c0b9-4029-4907-b531-f53300999d3b" />
+</a>
+
 ## 🚀 How to use
 
 > This project does not support Expo Go. Use [development builds](https://docs.expo.dev/develop/development-builds/introduction/) for this example.
@@ -23,12 +29,10 @@ npx create-expo-app -e with-router-menus
 - Run `npx expo run:ios` or `npx expo run:android` to build the project.
 - Open in the browser with `npx expo --web`.
 
-## Deploy
-
-Deploy on all platforms with Expo Application Services (EAS).
+When you're ready to publish:
 
 - Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
-- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+- Deploy the mobile app: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
 
 ## Zeego installation
 
@@ -39,3 +43,4 @@ npx expo install zeego react-native-ios-context-menu react-native-ios-utilities 
 ```
 
 Then rebuild the development client with `npx expo run:ios` or `npx expo run:android` to build the project.
+
