@@ -1,5 +1,6 @@
 import { MoreMenu, PageMenu, SortMenu } from "@/components/menus";
 import { useProject } from "@/data/project";
+import * as AC from "@bacons/apple-colors";
 import {
   DarkTheme,
   DefaultTheme,
@@ -9,7 +10,6 @@ import { Stack } from "expo-router";
 import React from "react";
 import { useColorScheme, View } from "react-native";
 import { MaterialIcons } from "./icons";
-import * as AC from "@bacons/apple-colors";
 
 export default function NativeRootLayout() {
   const { project } = useProject();
