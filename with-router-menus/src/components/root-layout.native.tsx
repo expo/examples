@@ -9,6 +9,7 @@ import { Stack } from "expo-router";
 import React from "react";
 import { useColorScheme, View } from "react-native";
 import { MaterialIcons } from "./icons";
+import * as AC from "@bacons/apple-colors";
 
 export default function NativeRootLayout() {
   const { project } = useProject();
@@ -22,6 +23,17 @@ export default function NativeRootLayout() {
             title: project.title,
             headerTitleAlign: "center",
             headerLargeTitle: true,
+
+            headerShadowVisible: true,
+            headerLargeTitleShadowVisible: false,
+            headerLargeStyle: {
+              backgroundColor: "transparent",
+            },
+            headerTitleStyle: {
+              color: AC.label,
+            },
+            headerBlurEffect: "systemChromeMaterial",
+
             headerLeft() {
               return (
                 <View className="flex-1 items-start">
@@ -35,7 +47,7 @@ export default function NativeRootLayout() {
                   style={{
                     flexDirection: "row",
                     justifyContent: "flex-end",
-                    gap: 8,
+                    gap: 12,
                   }}
                 >
                   <SortMenu>
