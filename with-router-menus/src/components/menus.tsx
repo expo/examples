@@ -12,6 +12,7 @@ import {
   useColorScheme,
 } from "react-native";
 import { MaterialIcons, Ionicons } from "@/components/icons";
+import { launchApp } from "@/lib/utils";
 
 const COLORS: { hex: string; name: string }[] = [
   { hex: "#FF3B31", name: "Red" },
@@ -422,15 +423,13 @@ export function getShareOptions() {
   return (
     <>
       <Menu.Group>
-        <Menu.Item
-          key="upgrade"
-          onSelect={() => {
-            router.push("/modal");
-          }}
-        >
-          <Menu.ItemTitle>Upgrade Plan</Menu.ItemTitle>
+        <Menu.Item key="upgrade" onSelect={() => launchApp()}>
+          <Menu.ItemIcon ios={{ name: "iphone.and.arrow.forward" }}>
+            <MaterialIcons name="rocket" size={16} />
+          </Menu.ItemIcon>
+          <Menu.ItemTitle>Launch App</Menu.ItemTitle>
           <Menu.ItemSubtitle>
-            Get unlimited projects and App Clips
+            Submit your app to the App Store
           </Menu.ItemSubtitle>
         </Menu.Item>
       </Menu.Group>

@@ -1,5 +1,6 @@
 import { MoreMenu, PageMenu, SortMenu } from "@/components/menus";
 import { useProject } from "@/data/project";
+import * as AC from "@bacons/apple-colors";
 import {
   DarkTheme,
   DefaultTheme,
@@ -22,6 +23,17 @@ export default function NativeRootLayout() {
             title: project.title,
             headerTitleAlign: "center",
             headerLargeTitle: true,
+
+            headerShadowVisible: true,
+            headerLargeTitleShadowVisible: false,
+            headerLargeStyle: {
+              backgroundColor: "transparent",
+            },
+            headerTitleStyle: {
+              color: AC.label,
+            },
+            headerBlurEffect: "systemChromeMaterial",
+
             headerLeft() {
               return <PageMenu />;
             },
@@ -31,7 +43,7 @@ export default function NativeRootLayout() {
                   style={{
                     flexDirection: "row",
                     justifyContent: "flex-end",
-                    gap: 8,
+                    gap: 12,
                   }}
                 >
                   <SortMenu>
