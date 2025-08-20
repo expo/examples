@@ -13,9 +13,7 @@ Use native context menus to quickly manipulate state and data in your UI.
 
 ## Launch your own
 
-<a href="https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus" target="_blank">
-  <img width="124" alt="expo-launch" src="https://github.com/user-attachments/assets/9501c0b9-4029-4907-b531-f53300999d3b" />
-</a>
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus)
 
 ## 🚀 How to use
 
