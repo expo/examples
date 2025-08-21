@@ -83,7 +83,7 @@ const ClearTodos = () => {
 };
 
 // The main app.
-const App = observer(() => {
+const App = () => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -94,7 +94,7 @@ const App = observer(() => {
       </SafeAreaView>
     </SafeAreaProvider>
   );
-});
+};
 
 // Styles for the app.
 const styles = StyleSheet.create({
