@@ -14,7 +14,6 @@
     "three": "^0.145.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@expo/metro-runtime": "~5.0.4"
   }
 }

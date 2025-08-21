@@ -16,7 +16,6 @@
     "react-native-pdf": "^6.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@config-plugins/react-native-blob-util": "^0.0.0",
     "@config-plugins/react-native-pdf": "^0.0.0"
   }
