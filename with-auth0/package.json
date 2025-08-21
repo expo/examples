@@ -2,11 +2,11 @@
   "dependencies": {
     "expo": "^53.0.4",
     "expo-auth-session": "~6.1.5",
-    "expo-random": "~14.0.1",
-    "jwt-decode": "2.2.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.1",
+    "expo-crypto": "~14.1.4",
+    "jwt-decode": "^4.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.79.2",
     "react-native-web": "^0.20.0"
   },
   "devDependencies": {
