@@ -9,6 +9,10 @@
 
 Identify objects in real time using `@tensorflow/tfjs`, `expo-camera`, and `expo-gl` (for native acceleration).
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-tfjs-camera)
+
 ## 🚀 How to use
 
 > `npx create-expo my-app --example with-tfjs-camera`

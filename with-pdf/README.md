@@ -5,6 +5,10 @@
 
 Use `react-native-pdf` in a custom [Expo Dev Client](https://docs.expo.dev/clients/introduction/) (not available in Expo Go).
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-pdf)
+
 ## 🚀 How to use
 
 ```sh
