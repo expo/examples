@@ -2,6 +2,10 @@
 
 Use [Expo API Routes](https://docs.expo.dev/router/reference/api-routes/) to securely interact with the [OpenAI API](https://platform.openai.com/docs/introduction).
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-openai)
+
 ## Structure
 
 - `app/api/generate+api.ts`: [Expo API Route](https://docs.expo.dev/router/reference/api-routes/) that interacts with the [OpenAI API](https://platform.openai.com/docs/introduction).

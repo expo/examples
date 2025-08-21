@@ -11,3 +11,7 @@
 The Google Cloud Vision API enables developers to understand the content of an image by encapsulating powerful machine learning models in an easy to use REST API.
 
 This demo shows you how to take pictures and upload them to the cloud, from there Google analyzes them and returns text based info about the image.
+
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-google-vision)

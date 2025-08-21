@@ -16,9 +16,6 @@
     "react-native-webrtc": "^124.0.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@config-plugins/react-native-webrtc": "^12.0.0"
-  },
-  "name": "with-webrtc",
-  "version": "1.0.0"
+  }
 }

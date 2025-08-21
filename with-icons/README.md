@@ -11,9 +11,13 @@
 
 The package `@expo/vector-icons` enables you to use most popular icon sets in a universal app. For more information please refer to the docs: [Expo Icons](https://docs.expo.dev/versions/latest/guides/icons/).
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-icons)
+
 ## 🚀 How to use
 
-#### Creating a new project**
+#### Creating a new project\*\*
 
 - Create a project: `npx create-expo my-app --example with-icons`
 - `cd` into the project
@@ -21,10 +25,13 @@ The package `@expo/vector-icons` enables you to use most popular icon sets in a 
 ### Using Icons
 
 - Install the package:
- ```sh
- expo install @expo/vector-icons
- ```
+
+```sh
+expo install @expo/vector-icons
+```
+
 - Import the fonts you want to use
+
 ```js
 import {
   FontAwesome,
@@ -32,8 +39,8 @@ import {
   Entypo,
   EvilIcons,
   Feather,
-  FontAwesome
-} from '@expo/vector-icons';
+  FontAwesome,
+} from "@expo/vector-icons";
 ```
 
 ## 📝 Notes

@@ -9,6 +9,10 @@
 
 This example demonstrates how you can upload images (and other files) to Firebase Storage. Read App.js for more info, in particular the `uploadImageAsync` function.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-firebase-storage-upload)
+
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`

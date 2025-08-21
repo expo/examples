@@ -6,6 +6,10 @@ This template uses Postcss, autoprefixer, and tailwindcss to style the web versi
 
 New shadcn components can be added [according to the docs](https://ui.shadcn.com/docs/components/accordion), i.e. by running the CLI: `npx shadcn@latest add accordion`
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-shadcn)
+
 ## 🚀 How to use
 
 Start an Expo app with this template:
