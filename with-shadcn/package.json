@@ -37,7 +37,6 @@
     "vaul": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
     "@types/react": "~19.0.10",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",

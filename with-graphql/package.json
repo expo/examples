@@ -18,15 +18,11 @@
     "urql": "^4.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@graphql-codegen/cli": "^5.0.7",
     "@graphql-codegen/typescript": "^4.1.6",
     "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
   },
-  "name": "with-graphql",
-  "version": "1.0.0",
-  "private": true,
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

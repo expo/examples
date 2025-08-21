@@ -41,7 +41,6 @@
     "zustand": "^4.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
     "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
   }

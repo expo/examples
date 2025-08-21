@@ -8,8 +8,5 @@
     "react-native": "0.79.1",
     "react-native-reanimated": "~3.17.4",
     "react-native-web": "^0.20.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.19.3"
   }
 }
