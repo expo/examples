@@ -2,6 +2,10 @@
 
 Use [`expo-router`](https://docs.expo.dev/router/introduction/) with experimental React Server Components to create a simple app.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-rsc)
+
 ## 🚀 How to use
 
 ```sh

@@ -1,5 +1,9 @@
 # Firebase SAML Log In with Redirect Example
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-firebase-saml-login)
+
 ## Configuration
 
 As this example relies on Firebase authentication you must have a Firebase project and a SAML identity provider:

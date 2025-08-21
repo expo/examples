@@ -9,6 +9,10 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-tinybase)
+
 An example demonstrating the use of [TinyBase](https://tinybase.org/) with Expo.
 
 The app allows adding todo items, marking them as done, and deleting them all,

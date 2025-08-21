@@ -19,6 +19,10 @@ https://github.com/user-attachments/assets/1a008495-8bde-4327-8e4d-1923d5bd2ccb
 
 This example shows how to use Stripe in your app and website.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-stripe)
+
 ## 🚀 How to use
 
 ```

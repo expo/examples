@@ -2,6 +2,10 @@
 
 > Check out the [Auth with Facebook](https://docs.expo.dev/guides/authentication/#facebook) docs.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-facebook-auth)
+
 ## How to use
 
 ### Running the app

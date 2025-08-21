@@ -12,6 +12,10 @@
 React Router is a universal routing solution that you can use with Expo!
 This demo shows you how to setup your universal application to switch between web and native routers.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-react-router)
+
 ### ⚽️ Running in the browser
 
 - Create Expo project `expo init`
