@@ -18,6 +18,7 @@
       ]
     ],
     "android": {
+      "edgeToEdgeEnabled": true,
       "splash": {
         "image": "./assets/images/icon-1920x720.png"
       }

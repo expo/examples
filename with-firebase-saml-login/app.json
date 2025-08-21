@@ -1,5 +1,8 @@
 {
   "expo": {
-    "scheme": "samlfirebaseexample"
+    "scheme": "samlfirebaseexample",
+    "plugins": [
+      "expo-web-browser"
+    ]
   }
 }

@@ -6,17 +6,17 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@types/react": "~18.3.12",
-    "expo": "^52.0.16",
-    "expo-camera": "~16.0.9",
-    "expo-image": "~2.0.3",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "react-native": "0.76.3",
-    "react-native-web": "~0.19.6",
-    "typescript": "~5.3.3"
+    "expo": "^53.0.4",
+    "expo-camera": "~16.1.6",
+    "expo-image": "~2.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.1",
+    "react-native-web": "^0.20.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
   }
 }

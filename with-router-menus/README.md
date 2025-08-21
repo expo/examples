@@ -8,8 +8,12 @@ Use native context menus to quickly manipulate state and data in your UI.
 
 - [Expo Router](https://docs.expo.dev/router/introduction/) is used for file-based navigation.
 - [Nativewind](https://www.nativewind.dev/v4/overview/) styling is used for Tailwind/`className` support.
-- [Zeego](https://zeego.dev/) is used on iOS and Android for menus.
+- Zeego is used on iOS and Android for menus.
 - A custom version of [shadcn/ui • Dropdown](https://ui.shadcn.com/docs/components/dropdown-menu) is used on web for styled menus.
+
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus)
 
 ## 🚀 How to use
 
@@ -23,12 +27,7 @@ npx create-expo-app -e with-router-menus
 - Run `npx expo run:ios` or `npx expo run:android` to build the project.
 - Open in the browser with `npx expo --web`.
 
-## Zeego installation
+When you're ready to publish:
 
-Run the following to add Zeego to an existing project:
-
-```
-npx expo install zeego react-native-ios-context-menu react-native-ios-utilities @react-native-menu/menu
-```
-
-Then rebuild the development client with `npx expo run:ios` or `npx expo run:android` to build the project.
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy the mobile app: `npx eas-cli build` — [Learn more](https://expo.dev/eas)

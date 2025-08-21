@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "twitter-lite": "^0.9.4"
-  }
-}

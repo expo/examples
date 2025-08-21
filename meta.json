@@ -1,0 +1,65 @@
+{
+  "aliases": {
+    "with-tab-navigation": {
+      "destination": "with-react-navigation",
+      "message": "This example has been replaced with a more complete navigation example, which also includes tabs."
+    },
+    "navigation": {
+      "destination": "with-react-navigation"
+    },
+    "with-router-tailwind": {
+      "destination": "with-tailwindcss"
+    }
+  },
+  "deprecated": {
+    "with-descope": {
+      "source": "with-descope",
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-descope",
+      "message": "Refer to the descope documentation for the latest information about how to use it: https://docs.descope.com/getting-started/react-native"
+    },
+    "with-formik": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-formik",
+      "message": "Formik is a plain-JavaScript library that does not require any specific configuration related to React Native or Expo. Follow the Formik documentation: https://formik.org/"
+    },
+    "with-twitter-auth": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-twitter-auth"
+    },
+    "with-postpublish-hooks": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-postpublish-hooks",
+      "message": "This feature no longer exists. Refer to EAS Webhooks instead: https://docs.expo.dev/eas/webhooks/"
+    },
+    "with-native-base": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-native-base",
+      "message": "NativeBase is no longer maintained. The creators have replaced it with gluestack-ui: https://github.com/gluestack/gluestack-ui"
+    },
+    "with-gatsby": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-gatsby",
+      "message": "Gatbsy integration is no longer supported."
+    },
+    "with-dev-client": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-dev-client",
+      "message": "To use expo-dev-client, create a new project default with create-expo-app and run `npx expo install expo-dev-client`. Learn more: https://docs.expo.dev/develop/development-builds/introduction/"
+    },
+    "with-canary-new-arch": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-canary-new-arch",
+      "message": "New architecture is now enabled by default in all new projects. Create a new project with `npx create-expo-app@latest` to use it."
+    },
+    "with-new-arch": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-canary-new-arch",
+      "message": "New architecture is now enabled by default in all new projects. Create a new project with `npx create-expo-app@latest` to use it."
+    },
+    "with-preact": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-preact",
+      "message": "The preact example is no longer maintained. Refer to the documentation for the latest information about how to use it: https://preactjs.com/"
+    },
+    "with-react-native-elements": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-react-native-elements",
+      "message": "The React Native Elements example is no longer maintained. Refer to the documentation for the latest information about how to use it: https://reactnativeelements.com/"
+    },
+    "with-realm": {
+      "outdatedExampleHref": "https://github.com/expo/examples/tree/7a5145833837b9e3c72ebe381c06925b7fc5daf6/with-realm",
+      "message": "Realm is no longer maintained: https://www.mongodb.com/docs/atlas/device-sdks/deprecation/#std-label-device-sdks-deprecation"
+    }
+  }
+}
+

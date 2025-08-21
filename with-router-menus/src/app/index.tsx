@@ -6,7 +6,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function Home() {
   return (
-    <View className="flex flex-1 items-stretch">
+    <View style={{ flex: 1, alignItems: "stretch" }}>
       <ScrollView contentInsetAdjustmentBehavior="automatic"></ScrollView>
       <Footer />
     </View>
@@ -17,11 +17,14 @@ function Footer() {
   const { bottom } = useSafeAreaInsets();
   return (
     <View
-      className="flex flex-row items-stretch light:bg-white dark:bg-black"
       style={{
+        flexDirection: "row",
+        alignItems: "stretch",
+        justifyContent: "space-between",
         height: 48 + bottom,
         paddingBottom: bottom,
       }}
+      className="flex flex-row items-stretch light:bg-white dark:bg-black"
     >
       <StylesMenu>
         <MaterialIcons name="dots-grid" size={24} />

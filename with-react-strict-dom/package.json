@@ -1,0 +1,32 @@
+{
+  "name": "with-react-strict-dom",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "deploy": "expo export -p web && npx eas-cli@latest deploy"
+  },
+  "dependencies": {
+    "expo": "^53.0.4",
+    "expo-constants": "^17.0.8",
+    "expo-linking": "^7.0.5",
+    "expo-router": "~5.0.3",
+    "expo-splash-screen": "~0.30.7",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.1",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-safe-area-context": "5.3.0",
+    "react-native-screens": "~4.10.0",
+    "react-native-web": "^0.20.0",
+    "react-strict-dom": "^0.0.34"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "autoprefixer": "^10.4.21",
+    "postcss-react-strict-dom": "^0.0.6",
+    "typescript": "^5.3.3"
+  }
+}

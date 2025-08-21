@@ -4,16 +4,8 @@
     "userInterfaceStyle": "automatic",
     "orientation": "default",
     "web": {
-      "output": "static",
-      "bundler": "metro"
+      "output": "static"
     },
-    "plugins": [
-      [
-        "expo-router",
-        {
-          "origin": "https://n"
-        }
-      ]
-    ]
+    "plugins": ["expo-router"]
   }
 }

@@ -1,0 +1,15 @@
+{
+  "name": "with-libsql",
+  "slug": "with-libsql",
+  "splash": {
+    "image": "./assets/images/splash.png"
+  },
+  "plugins": [
+    [
+      "expo-sqlite",
+      {
+        "useLibSQL": true
+      }
+    ]
+  ]
+}

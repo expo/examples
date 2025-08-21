@@ -44,14 +44,30 @@
 Use this repo to create new React/React Native projects with [**create-expo**](https://github.com/expo/expo/tree/main/packages/create-expo#readme).
 
 ```sh
-npm create expo ./<path> --example <Example>
-npx create-expo ./<path> --example <Example>
+npx create-expo-app --example <Example>
+yarn create expo-app --example <Example>
+pnpm create expo-app --example <Example>
+bun create expo-app --example <Example>
 
 # Example - typescript
 
-npm create expo ./typescript-app --example with-typescript
-npx create-expo ./typescript-app --example with-typescript
+npx create-expo-app --example with-typescript
+yarn create expo-app --example with-typescript
+pnpm create expo-app --example with-typescript
+bun create expo-app --example with-typescript
 ```
+
+## Launch badge
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-menus)
+
+You can add the launch.expo.dev badge to your project's README to enable single-click deployment:
+
+```
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=<GH_REPO_URL>)
+```
+
+Replace `<GH_REPO_URL>` with the URL of your GitHub repository, e.g., `https://github.com/expo/examples/tree/master/with-router-menus`.
 
 ## Contributors ✨
 

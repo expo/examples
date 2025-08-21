@@ -1,0 +1,9 @@
+type Joke {
+  answer: String!
+  id: ID!
+  question: String!
+}
+
+type Query {
+  randomJoke: Joke!
+}

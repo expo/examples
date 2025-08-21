@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "experiments": {
+      "remoteBuildCache": {
+        "provider": {
+          "plugin": "./provider.plugin.js",
+          "options": {
+            "repo": "your-repo-name",
+            "owner": "your-github-username"
+          }
+        }
+      }
+    }
+  }
+}

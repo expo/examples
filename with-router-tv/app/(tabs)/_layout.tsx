@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Pressable } from 'react-native';
+import { Platform, Pressable } from 'react-native';
 import { BottomTabBarButtonProps } from '@react-navigation/bottom-tabs';
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
@@ -35,7 +35,8 @@ export default function TabLayout() {
         tabBarStyle: {
           height: textStyles.title.lineHeight * 2,
         },
-        tabBarPosition: 'top',
+        tabBarPosition:
+          Platform.isTV || Platform.OS === 'web' ? 'top' : 'bottom',
         tabBarIconStyle: {
           height: textStyles.title.lineHeight,
           width: 30 * scale,

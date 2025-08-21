@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "plugins": ["expo-router"],
+    "experiments": {
+      "reactServerFunctions": true
+    }
+  }
+}

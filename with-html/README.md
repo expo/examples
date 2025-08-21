@@ -16,10 +16,17 @@
 - Install with `yarn` or `npm install`.
 - Run `yarn start` or `npm run start` to try it out.
 
+## Launch
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
 ## 📝 Notes
 
-<!-- Link to related Expo or library docs -->
+Not all HTML elements are supported yet, notable `<button>`, `<form>`, `<label>`, `<img>`, and `<input>` are not supported. Use Expo-equivalents for these elements.
 
-This example combines the [`@expo/html-elements` Babel plugin](https://github.com/expo/expo/blob/d314efccb28d005d5df83df74883eb0365020ae2/packages/html-elements/babel.js#L3-L41) and [`nativewind`](https://www.nativewind.dev/) which enables CSS-like styling.
+This example combines the `@expo/html-elements` Babel plugin and [`nativewind`](https://www.nativewind.dev/) which enables CSS-like styling.
 
 You can write pure HTML elements which are converted to native views at build time.

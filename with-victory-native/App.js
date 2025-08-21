@@ -1,3 +1,4 @@
+import "@expo/metro-runtime";
 import { useFonts } from "expo-font";
 import { StyleSheet, View } from "react-native";
 import { VictoryBar, VictoryChart } from "victory-native";

@@ -1,5 +1,6 @@
 import { MoreMenu, PageMenu, SortMenu } from "@/components/menus";
 import { useProject } from "@/data/project";
+import * as AC from "@bacons/apple-colors";
 import {
   DarkTheme,
   DefaultTheme,
@@ -22,12 +23,29 @@ export default function NativeRootLayout() {
             title: project.title,
             headerTitleAlign: "center",
             headerLargeTitle: true,
+
+            headerShadowVisible: true,
+            headerLargeTitleShadowVisible: false,
+            headerLargeStyle: {
+              backgroundColor: "transparent",
+            },
+            headerTitleStyle: {
+              color: AC.label,
+            },
+            headerBlurEffect: "systemChromeMaterial",
+
             headerLeft() {
               return <PageMenu />;
             },
             headerRight() {
               return (
-                <View className="flex flex-row justify-end gap-4">
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "flex-end",
+                    gap: 12,
+                  }}
+                >
                   <SortMenu>
                     <MaterialIcons name="sort-ascending" size={24} />
                   </SortMenu>

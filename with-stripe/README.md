@@ -1,5 +1,7 @@
 # Stripe Example
 
+https://github.com/user-attachments/assets/1a008495-8bde-4327-8e4d-1923d5bd2ccb
+
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
@@ -19,14 +21,25 @@ This example shows how to use Stripe in your app and website.
 
 ## 🚀 How to use
 
+```
+npx create-expo -e with-stripe
+```
+
 - Set the app.json `merchantIdentifier` to a value starting with `merchant.`, then run `eas build -p ios` to register the merchant identifier with Apple.
-- Set the app.json `origin` to the production URL for your app to ensure API Routes work in production.
 - Set the `.env` values with your Stripe keys.
 - Follow the setup steps in the [Stripe docs](https://docs.stripe.com/payments/accept-a-payment?platform=react-native&ui=payment-sheet#react-native-customization) to ensure you have Apple configured correctly.
-- Install packages with `yarn` or `npm install`.
-  - If you have native iOS code run `npx pod-install`
-- Run `yarn start` or `npm run start` to start the bundler.
-- This example requires Expo API Routes to be deployed.
+- Start the app with: `npx expo`
+
+## Deploy
+
+Deploy on all platforms with Expo Application Services (EAS).
+
+- Deploy the API Routes and website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+
+This project has `EXPO_UNSTABLE_DEPLOY_SERVER=1` enabled in the `.env` file. This will publish the server during the build process and set the preview URL as the origin for the app. This will ensure the app always uses a version of the server that is in sync with the app.
+
+Alternatively, you can set the `origin` in the `app.json` and manually publish the server to have a more evergreen system where the native app always calls into the latest stable server deployment.
 
 ## 📝 Notes
 

@@ -21,6 +21,7 @@
       "expo-font"
     ],
     "android": {
+      "edgeToEdgeEnabled": true,
       "splash": {
         "image": "./assets/images/splash.png"
       }
@@ -29,6 +30,11 @@
       "splash": {
         "image": "./assets/images/splash.png"
       }
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/images/favicon.png",
+      "output": "static"
     },
     "experiments": {
       "typedRoutes": true
