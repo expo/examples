@@ -4,7 +4,7 @@
     "slug": "expo-template-tabs-react-navigation",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": ".src/assets/images/icon.png",
+    "icon": "src/assets/images/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "scheme": "helloworld",
@@ -13,12 +13,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": ".src/assets/images/adaptive-icon.png",
+        "foregroundImage": "src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": ".src/assets/images/favicon.png"
+      "favicon": "src/assets/images/favicon.png"
     },
     "plugins": [
       "expo-asset",
@@ -26,7 +26,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": ".src/assets/images/splash-icon.png"
+          "image": "src/assets/images/splash-icon.png"
         }
       ]
     ]
