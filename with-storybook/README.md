@@ -7,6 +7,10 @@
 
 You can use Storybook to test and share your component library quickly and easily! This example shows how to use Expo libraries with Storybook CLI and Webpack.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-storybook)
+
 ## Running with Storybook CLI
 
 > web only / Webpack

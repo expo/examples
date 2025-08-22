@@ -1,12 +1,10 @@
 {
-  "expo": {
-    "scheme": "acme",
-    "userInterfaceStyle": "automatic",
-    "orientation": "default",
-    "web": {
-      "output": "server",
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": ["expo-router"]
-  }
+  "scheme": "acme",
+  "userInterfaceStyle": "automatic",
+  "orientation": "default",
+  "web": {
+    "output": "server",
+    "favicon": "./assets/favicon.png"
+  },
+  "plugins": ["expo-router"]
 }

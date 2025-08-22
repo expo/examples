@@ -15,6 +15,10 @@ inserting items, querying and displaying results, using prepared statements.
 
 ![Simulator Example](https://i.imgur.com/CDrXKzV.png)
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-sqlite)
+
 ## 🚀 How to use
 
 - Run `yarn` or `npm install`

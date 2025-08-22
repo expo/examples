@@ -1,4 +1,3 @@
-import * as React from "react";
 import { View, Text } from "react-native";
 
 import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";

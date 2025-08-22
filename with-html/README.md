@@ -9,6 +9,10 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-html)
+
 ## 🚀 How to use
 
 <!-- Setup instructions -->
@@ -16,12 +20,10 @@
 - Install with `yarn` or `npm install`.
 - Run `yarn start` or `npm run start` to try it out.
 
-## Launch
+Launch on all platforms with Expo Application Services (EAS).
 
-Deploy on all platforms with Expo Application Services (EAS).
-
-- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
-- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
+- Launch the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
+- Launch on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
 
 ## 📝 Notes
 

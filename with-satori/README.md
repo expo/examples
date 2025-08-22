@@ -2,6 +2,10 @@
 
 Use [Expo API Routes](https://docs.expo.dev/router/reference/api-routes/) to generate images on the server with [Satori](https://github.com/vercel/satori).
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-satori)
+
 ## Structure
 
 - `app/api/icon/[icon]+api.ts`: [Expo API Route](https://docs.expo.dev/router/reference/api-routes/) that generates images with React components.

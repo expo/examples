@@ -1,4 +1,4 @@
-import { SafeAreaView, useWindowDimensions } from "react-native";
+import { ScrollView, useWindowDimensions } from "react-native";
 import Pdf from "react-native-pdf";
 
 const source = {
@@ -10,7 +10,7 @@ export default function App() {
   const { width, height } = useWindowDimensions();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <ScrollView style={{ flex: 1 }} contentInsetAdjustmentBehavior="automatic">
       <Pdf
         source={source}
         onLoadComplete={(numberOfPages, filePath) => {
@@ -27,6 +27,6 @@ export default function App() {
         }}
         style={{ flex: 1, width, height }}
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 }

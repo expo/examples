@@ -1,4 +1,4 @@
-# Styled Components Example
+# Sentry Example
 
 <p>
   <!-- iOS -->
@@ -9,15 +9,18 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-## Launch your own
-
-[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-styled-components)
+Sentry provides end-to-end distributed tracing, enabling developers to identify and debug performance issues and errors across their systems and services.
+This example implements Sentry's React Native SDK.
 
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
+- Create a React Native project in [Sentry](https://sentry.io)
+- Fill in your organization name and project name inside `app.json`
+- Create a `.env` from `.env.example` and populate it with your Sentry project's DSN
 - Run `yarn start` or `npm run start` to try it out.
 
 ## 📝 Notes
 
-- [Styled Components docs](https://styled-components.com/)
+- [Sentry docs](https://docs.sentry.io/platforms/react-native/)
+- [React Native SDK](https://github.com/getsentry/sentry-react-native)
