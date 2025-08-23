@@ -1,7 +1,7 @@
 type Joke {
-  answer: String!
   id: ID!
   question: String!
+  answer: String!
 }
 
 type Query {
