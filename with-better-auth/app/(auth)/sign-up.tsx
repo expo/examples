@@ -9,20 +9,12 @@ export default function SignUp() {
   const { data: session } = authClient.useSession();
 
   const handleSignUp = async () => {
-    try {
-      console.log("signing up");
-      await authClient.signUp.email({
-        email,
-        password,
-        name,
-      });
-      console.log("session", session);
-    } catch (error) {
-      console.log("error", error);
-    }
+    await authClient.signUp.email({
+      email,
+      password,
+      name,
+    });
   };
-
-  console.log("session", session);
 
   return (
     <ScrollView contentInsetAdjustmentBehavior="automatic">
