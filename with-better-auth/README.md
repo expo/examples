@@ -15,7 +15,7 @@
   </a>
 </p>
 
-This example integrates sign in with email using Better Auth. It uses prisma sqlite for development but we recommend using a deployed db. you can learn more about databases supported in Better Auth in the [Databases](https://www.better-auth.com/docs/concepts/database) doc.
+This example integrates sign-in with email using Better Auth. It uses Prisma SQLite for development, but we recommend using a deployed database. You can learn more about the databases supported by Better Auth in the [Databases](https://www.better-auth.com/docs/concepts/database) docs.
 
 ## Launch your own
 
@@ -23,10 +23,24 @@ This example integrates sign in with email using Better Auth. It uses prisma sql
 
 ## 🚀 How to use
 
-```
+Run the following command:
+
+```bash
 npx create-expo -e with-better-auth
 ```
 
-1. bun install
-2. run `npx @better-auth/cli generate` to generate your sqlite.db
-3. run `npx @better-auth/cli migrate` to generate tables
+Install dependencies and start the server.
+
+```bash
+npx expo install && npx expo start
+```
+
+That's it!
+
+## 🗃️ Migrations
+
+- Run `npx @better-auth/cli generate` to update the `schema.prisma` file with the tables needed by Better Auth.
+- Then run the Prisma CLI generate command: `npx prisma generate`
+- Finally, run the migration: `npx prisma migrate dev`
+
+After running the above, you'll have a local SQLite database and a `migrations` folder. You can learn more about the databases supported by Better Auth in the [Databases](https://www.better-auth.com/docs/concepts/database) docs.
