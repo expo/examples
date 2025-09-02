@@ -9,10 +9,6 @@
 
 Example demonstrating how to create a custom build cache provider for Expo CLI. Uses GitHub to store builds.
 
-## Launch your own
-
-[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-github-remote-build-cache-provider)
-
 ## 🚀 How to use
 
 1. **Create a GitHub Personal Access Token** with **repo** permissions:
