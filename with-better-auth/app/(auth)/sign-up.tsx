@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, TextInput, Button, ScrollView, Text } from "react-native";
+import { TextInput, Button, ScrollView, Text } from "react-native";
 import { authClient } from "@/lib/auth-client";
 
 export default function SignUp() {

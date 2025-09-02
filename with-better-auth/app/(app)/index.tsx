@@ -1,31 +1,40 @@
-import { StyleSheet } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { authClient } from "@/lib/auth-client";
 
 export default function TabOneScreen() {
+  const { data: session } = authClient.useSession();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      contentContainerStyle={{ padding: 16, gap: 16 }}
+    >
+      <Text style={styles.title}> Expo 🤝 Better Auth</Text>
+      <Text style={styles.title}>Welcome {session?.user?.name}</Text>
+
+      <View>
+        <Text>User:</Text>
+        <Text
+          selectable
+          style={{
+            backgroundColor: "black",
+            padding: 16,
+            color: "orange",
+            borderRadius: 16,
+          }}
+        >
+          {JSON.stringify(session?.user, null, 2)}
+        </Text>
+      </View>
+
+      <Button title="Sign out" onPress={() => authClient.signOut()} />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    fontWeight: "bold",
   },
 });
