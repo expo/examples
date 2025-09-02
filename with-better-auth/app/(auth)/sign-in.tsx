@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, Button, ScrollView, Text } from "react-native";
+import { TextInput, Button, ScrollView, Text, StyleSheet } from "react-native";
 import { authClient } from "@/lib/auth-client";
 import { Link } from "expo-router";
 
@@ -23,29 +23,28 @@ export default function SignIn() {
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          padding: 10,
-          margin: 10,
-        }}
+        style={styles.input}
       />
       <TextInput
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
-        style={{
-          borderWidth: 1,
-          borderColor: "black",
-          padding: 10,
-          margin: 10,
-        }}
+        style={styles.input}
         secureTextEntry
       />
-      <Button title="Login" onPress={handleLogin} />
+      <Button title="Sign in" onPress={handleLogin} />
       <Link href="/(auth)/sign-up" asChild>
         <Button title="Sign up" />
       </Link>
     </ScrollView>
   );
 }
+const styles = StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 10,
+    padding: 10,
+    margin: 10,
+  },
+});
