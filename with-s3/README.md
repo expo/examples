@@ -4,6 +4,10 @@ An example of uploading images from iOS, Android or web to an [AWS S3 bucket](ht
 
 To upload content to S3 securely, we create an [API route](https://docs.expo.dev/router/reference/api-routes/) which will generate a signed URL that allows the client to upload a file to a specific bucket for a fixed duration. This API route is a **server-side function** which will be deployed to EAS Hosting, meaning it is safe to use sensitive environment variables such as your S3 bucket credentials.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-s3)
+
 https://github.com/user-attachments/assets/cca6e654-2862-48b0-9d29-92b5847d4ee9
 
 Create a new project with this example:
@@ -24,16 +28,16 @@ Open your bucket and under the "Permissions" tab, under "Bucket policy", edit it
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+    }
+  ]
 }
 ```
 
@@ -47,21 +51,12 @@ To support web uploads and to be able to view the uploaded image, you also need 
 
 ```json
 [
- {
-     "AllowedHeaders": [
-         "*"
-     ],
-     "AllowedMethods": [
-         "GET",
-         "PUT",
-         "POST",
-         "DELETE"
-     ],
-     "AllowedOrigins": [
-         "*"
-     ],
-     "ExposeHeaders": []
- }
+  {
+    "AllowedHeaders": ["*"],
+    "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
+    "AllowedOrigins": ["*"],
+    "ExposeHeaders": []
+  }
 ]
 ```
 

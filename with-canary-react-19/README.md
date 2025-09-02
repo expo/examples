@@ -2,6 +2,10 @@
 
 Use an experimental preview release of React 19 on native and web platforms. This is experimental and should not be used in production yet!
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-canary-react-19)
+
 ## 📦 Features
 
 - Read about the upcoming React 19 features in the [React 19 blog post](https://react.dev/blog/2024/04/25/react-19).

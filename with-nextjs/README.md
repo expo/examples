@@ -7,6 +7,10 @@
 
 This demo shows you how to setup your Next.js website to use packages from the Expo SDK like Camera, Gestures, Permissions, etc... Refer to the [Next adapter docs](https://github.com/expo/expo-cli/tree/main/packages/next-adapter) to learn how to add more React Native packages to your Next.js project.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-nextjs)
+
 ### 🏁 New Commands
 
 When targeting web, you'll need to use the Next.js CLI instead of Expo CLI:

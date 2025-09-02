@@ -1,39 +1,34 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "expo-template-tabs",
+    "name": "expo-template-tabs-react-navigation",
+    "slug": "expo-template-tabs-react-navigation",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "src/assets/images/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "newArchEnabled": true,
+    "scheme": "helloworld",
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "src/assets/images/favicon.png"
     },
     "plugins": [
-      "expo-font",
       "expo-asset",
-      "expo-web-browser"
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "src/assets/images/splash-icon.png"
+        }
+      ]
     ]
   }
 }

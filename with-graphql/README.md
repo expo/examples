@@ -6,10 +6,14 @@ This is an example of setting up a graphQL server in an Expo Router [API route](
 
 <img width="1099" height="416" alt="Screenshot 2025-07-24 at 12 00 05" src="https://github.com/user-attachments/assets/fe2a8d94-30db-45f4-bb22-9a7457c1dbf9" />
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-graphql)
+
 ## Tools used
+
 - [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) - graphQL server
 - [URQL](https://github.com/urql-graphql/urql) - graphQL client ([Apollo Client](https://www.apollographql.com/docs/react) can also be used if preferred)
-- [GraphQL Codegen](https://the-guild.dev/graphql/codegen) - for introspection
 - [gql.tada](https://gql-tada.0no.co/) - for type generation
 - [Expo Router API Route](https://docs.expo.dev/router/reference/api-routes/) - for server-side code
 - [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/) - for API & web deployments
@@ -82,6 +86,6 @@ npx expo export --platform web
 npx eas-cli deploy --prod
 ```
 
-| iOS      | Android |
-| ----------- | ----------- |
-| <img width="353" height="823" alt="Screenshot 2025-07-24 at 13 42 28" src="https://github.com/user-attachments/assets/e3ab0506-6335-45bb-93f5-6a2695578a0e" />      | <img width="425" height="772" alt="Screenshot 2025-07-24 at 13 42 48" src="https://github.com/user-attachments/assets/2eb29087-635a-44a3-9cdd-667e641757df" />       |
+| iOS                                                                                                                                                            | Android                                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="353" height="823" alt="Screenshot 2025-07-24 at 13 42 28" src="https://github.com/user-attachments/assets/e3ab0506-6335-45bb-93f5-6a2695578a0e" /> | <img width="425" height="772" alt="Screenshot 2025-07-24 at 13 42 48" src="https://github.com/user-attachments/assets/2eb29087-635a-44a3-9cdd-667e641757df" /> |

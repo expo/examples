@@ -5,7 +5,6 @@ import path from "path";
 import { pipeline } from "stream/promises";
 import { extract } from "tar";
 import { v4 as uuidv4 } from "uuid";
-import fetch from "node-fetch";
 import { getTmpDirectory } from "./helpers";
 
 async function downloadFileAsync(
