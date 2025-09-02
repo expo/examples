@@ -7,7 +7,7 @@ export const authClient = createAuthClient({
   disableDefaultFetchPlugins: true,
   plugins: [
     expoClient({
-      scheme: "withbetterauth",
+      scheme: "exp",
       storagePrefix: "withbetterauth",
       storage: SecureStore,
     }),

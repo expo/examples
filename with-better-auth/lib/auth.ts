@@ -1,20 +1,24 @@
+import { prismaAdapter } from "better-auth/adapters/prisma";
 import { betterAuth } from "better-auth";
 import { expo } from "@better-auth/expo";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 export const auth = betterAuth({
+  database: prismaAdapter(prisma, {
+    provider: "sqlite",
+  }),
   emailAndPassword: {
     enabled: true,
   },
   plugins: [expo()],
-  socialProviders: {
-    github: {
-      clientId: process.env.GITHUB_CLIENT_ID!,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    },
-    google: {
-      clientId: process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+  socialProviders: {},
+  trustedOrigins: ["exp://", "withbetterauth://"],
+  logger: {
+    log: (level, message, ...args) => {
+      console.log(`${level}: ${message}`);
+      console.log(JSON.stringify(args, null, 2));
     },
   },
-  trustedOrigins: ["exp://", "withbetterauth://"],
 });
