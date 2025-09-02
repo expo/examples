@@ -14,7 +14,6 @@ This is an example of setting up a graphQL server in an Expo Router [API route](
 
 - [GraphQL Yoga](https://the-guild.dev/graphql/yoga-server) - graphQL server
 - [URQL](https://github.com/urql-graphql/urql) - graphQL client ([Apollo Client](https://www.apollographql.com/docs/react) can also be used if preferred)
-- [GraphQL Codegen](https://the-guild.dev/graphql/codegen) - for introspection
 - [gql.tada](https://gql-tada.0no.co/) - for type generation
 - [Expo Router API Route](https://docs.expo.dev/router/reference/api-routes/) - for server-side code
 - [EAS Hosting](https://docs.expo.dev/eas/hosting/introduction/) - for API & web deployments
