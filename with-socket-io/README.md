@@ -17,6 +17,10 @@
 
 This example shows how to connect and interact with socket-io backends.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-socket-io)
+
 ## 🚀 How to use
 
 ### Running the app

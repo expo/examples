@@ -6,6 +6,10 @@ Create **interactive flowcharts and diagrams** using the powerful combination of
 
 This example demonstrates how to build engaging visual workflows in your Expo project with a fully styled and routed application setup.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-react-flow)
+
 ## **🌟 Features**
 
 - **Interactive Flowcharts**: Leverage React Flow's versatile library to design and manage node-based workflows.

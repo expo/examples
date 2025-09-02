@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import * as SQLite from 'expo-sqlite';
+import { useState } from "react";
+import * as SQLite from "expo-sqlite";
 import {
   FlatList,
-  Platform,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-} from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { createStore } from 'tinybase';
-import { createLocalPersister } from 'tinybase/persisters/persister-browser';
-import { createExpoSqlitePersister } from 'tinybase/persisters/persister-expo-sqlite';
+} from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { createStore } from "tinybase";
+import { createLocalPersister } from "tinybase/persisters/persister-browser";
+import { createExpoSqlitePersister } from "tinybase/persisters/persister-expo-sqlite";
 import {
   Provider,
   useAddRowCallback,
@@ -22,24 +21,24 @@ import {
   useRow,
   useSetCellCallback,
   useSortedRowIds,
-} from 'tinybase/ui-react';
+} from "tinybase/ui-react";
 
 // The TinyBase table contains the todos, with 'text' and 'done' cells.
-const TODO_TABLE = 'todo';
-const TEXT_CELL = 'text';
-const DONE_CELL = 'done';
+const TODO_TABLE = "todo";
+const TEXT_CELL = "text";
+const DONE_CELL = "done";
 
 // Emojis to decorate each todo.
-const NOT_DONE_ICON = String.fromCodePoint('0x1F7E0');
-const DONE_ICON = String.fromCodePoint('0x2705');
+const NOT_DONE_ICON = String.fromCodePoint("0x1F7E0");
+const DONE_ICON = String.fromCodePoint("0x2705");
 
 // The text input component to add a new todo.
 const NewTodo = () => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const handleSubmitEditing = useAddRowCallback(
     TODO_TABLE,
     ({ nativeEvent: { text } }) => {
-      setText('');
+      setText("");
       return { [TEXT_CELL]: text, [DONE_CELL]: false };
     }
   );
@@ -48,7 +47,7 @@ const NewTodo = () => {
       value={text}
       onChangeText={(text) => setText(text)}
       onSubmitEditing={handleSubmitEditing}
-      placeholder='What do you want to do today?'
+      placeholder="What do you want to do today?"
       style={styles.input}
     />
   );
@@ -125,9 +124,9 @@ const useAndStartPersister = (store) =>
   useCreatePersister(
     store,
     (store) =>
-      Platform.OS === 'web'
-        ? createLocalPersister(store, 'todos')
-        : createExpoSqlitePersister(store, SQLite.openDatabaseSync('todos.db')),
+      process.env.EXPO_OS === "web"
+        ? createLocalPersister(store, "todos")
+        : createExpoSqlitePersister(store, SQLite.openDatabaseSync("todos.db")),
     [],
     (persister) => persister.load().then(persister.startAutoSave)
   );
@@ -135,17 +134,17 @@ const useAndStartPersister = (store) =>
 // Styles for the app.
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     flex: 1,
     margin: 16,
   },
   heading: {
     fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
   },
   input: {
-    borderColor: '#999',
+    borderColor: "#999",
     borderRadius: 8,
     borderWidth: 2,
     flex: 0,
@@ -162,10 +161,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 16,
     padding: 16,
-    backgroundColor: '#ffd',
+    backgroundColor: "#ffd",
   },
   done: {
-    backgroundColor: '#dfd',
+    backgroundColor: "#dfd",
   },
   todoText: {
     fontSize: 20,
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
   clearTodos: {
     margin: 16,
     flex: 0,
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 16,
   },
 });

@@ -6,8 +6,5 @@
     "react-native": "0.79.1",
     "react-native-web": "^0.20.0",
     "zustand": "^3.6.7"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.19.3"
   }
 }

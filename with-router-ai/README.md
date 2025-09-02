@@ -2,6 +2,10 @@
 
 Use [Expo Router](https://docs.expo.dev/router/introduction/) with [AI SDK](https://ai-sdk.dev/docs/getting-started/expo) and [Nativewind](https://www.nativewind.dev/v4/overview/) styling.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-router-ai)
+
 ## 🚀 How to use
 
 Bootstrap the project:
@@ -18,9 +22,7 @@ OPENAI_API_KEY=sk-proj-...
 
 Finally you can start the app with `npx expo`.
 
-## Deploy
-
-Ensure you set the `EXPO_UNSTABLE_DEPLOY_SERVER=1` environment variable to enable [parallel deployments](https://docs.expo.dev/router/reference/api-routes/#native-deployment) to the server.
+To launch, ensure you set the `EXPO_UNSTABLE_DEPLOY_SERVER=1` environment variable to enable [parallel deployments](https://docs.expo.dev/router/reference/api-routes/#native-deployment) to the server.
 
 Deploy on all platforms with Expo Application Services (EAS).
 

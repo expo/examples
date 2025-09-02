@@ -5,6 +5,7 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
 ## Rules
 
 - It's important to keep examples **concise**.
+
   - Start with the [blank example](./blank).
   - We use a unified [`.gitignore`](./.gitignore)
   - No `package.json` or `app.config.js` values that aren't completely necessary
@@ -17,11 +18,13 @@ Thanks for contributing! 😁 Here are some rules that will make your example la
   - Don't use the `"sdkVersion"` field in your `app.config.js`, this should be inferred from the installed version of `expo` in the `package.json`.
   - If your example `README.md` requires assets like images, place them in a hidden `.gh-assets` folder, ex: `with-your-example/.gh-assets`.
   - Limit package versions to patches only in the `package.json`:
+
   ```diff
   + "expo-three": "~1.0.0"
 
   - "expo-three": "^1.0.0"
   ```
+
 - Each example can be used as example in `create-expo` so try to consider what a fresh template should look like:
   - No **TODO**, **NOTE()**, or otherwise.
   - No personal references to your name or other contextual info in comments.
@@ -44,19 +47,22 @@ Every example needs a `README.md` that explains how to setup, the motivation beh
 
 description
 
-## 🚀 How to use
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=<GH_URL>)
+
+## How to use
 
 <!-- Setup instructions -->
 
 ## 📝 Notes
 
 <!-- Link to related Expo or library docs -->
-
 ```
 
 Add a **File Structure** section (between "How to use" and "Notes") if the example reflects a custom workflow:
 
-```
+````
 
 ### 📁 File Structure
 
@@ -74,6 +80,4 @@ Expo Gatsby
 └── babel.config.js ➡️ Babel config (should be using `babel-preset-expo`)
 \```
 
-```
-
-If you have doubts about any of these steps, please feel free the reach out to me personally @baconbrix on Twitter 😁
+````

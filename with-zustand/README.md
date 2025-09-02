@@ -12,6 +12,10 @@
 Zustand is a fast state manager with a user-friendly API.
 This example implements a basic store and list using the `zustand` library.
 
+## Launch your own
+
+[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-zustand)
+
 ## 🚀 How to use
 
 - Install with `yarn` or `npm install`.
