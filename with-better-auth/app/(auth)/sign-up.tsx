@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { TextInput, Button, ScrollView, Text, StyleSheet } from "react-native";
+import {
+  TextInput,
+  Button,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Alert,
+} from "react-native";
 import { authClient } from "@/lib/auth-client";
 
 export default function SignUp() {
@@ -8,11 +15,15 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
-    await authClient.signUp.email({
+    const signUpResponse = await authClient.signUp.email({
       email,
       password,
       name,
     });
+    if (signUpResponse.error) {
+      Alert.alert("Error", signUpResponse.error.message);
+      return;
+    }
   };
 
   return (
@@ -30,6 +41,8 @@ export default function SignUp() {
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        inputMode="email"
+        autoCapitalize="none"
         style={styles.input}
       />
       <TextInput

@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { TextInput, Button, ScrollView, Text, StyleSheet } from "react-native";
+import {
+  TextInput,
+  Button,
+  ScrollView,
+  Text,
+  StyleSheet,
+  Alert,
+} from "react-native";
 import { authClient } from "@/lib/auth-client";
 import { Link } from "expo-router";
 
@@ -8,10 +15,14 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    await authClient.signIn.email({
+    const signInResponse = await authClient.signIn.email({
       email,
       password,
     });
+    if (signInResponse.error) {
+      Alert.alert("Error", signInResponse.error.message);
+      return;
+    }
   };
 
   return (
@@ -23,6 +34,8 @@ export default function SignIn() {
         placeholder="Email"
         value={email}
         onChangeText={setEmail}
+        inputMode="email"
+        autoCapitalize="none"
         style={styles.input}
       />
       <TextInput
