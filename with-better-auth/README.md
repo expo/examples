@@ -29,10 +29,16 @@ Run the following command:
 npx create-expo -e with-better-auth
 ```
 
-Install dependencies and start the server.
+Run prisma generate
 
 ```bash
-npx expo install && npx expo start
+npx prisma generate
+```
+
+Start the server
+
+```bash
+npx expo start
 ```
 
 That's it!
