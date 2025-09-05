@@ -4,9 +4,10 @@ import {
   CameraView,
   useCameraPermissions,
 } from "expo-camera";
-import { useRef, useState } from "react";
+import { useRef, useState,useCallback } from "react";
 import { Button, Pressable, StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
+import { useFocusEffect } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
@@ -18,6 +19,14 @@ export default function App() {
   const [mode, setMode] = useState<CameraMode>("picture");
   const [facing, setFacing] = useState<CameraType>("back");
   const [recording, setRecording] = useState(false);
+  const [cameraKey, setCameraKey] = useState(0);
+  //Used to force CameraView re-mount on screen focus change
+	useFocusEffect(
+		useCallback(() => {
+			// Regenerate key when screen is focused
+			setCameraKey((prev) => prev + 1);
+		}, [])
+	);
 
   if (!permission) {
     return null;
@@ -73,48 +82,59 @@ export default function App() {
 
   const renderCamera = () => {
     return (
-      <CameraView
-        style={styles.camera}
-        ref={ref}
-        mode={mode}
-        facing={facing}
-        mute={false}
-        responsiveOrientationWhenOrientationLocked
-      >
-        <View style={styles.shutterContainer}>
-          <Pressable onPress={toggleMode}>
-            {mode === "picture" ? (
-              <AntDesign name="picture" size={32} color="white" />
-            ) : (
-              <Feather name="video" size={32} color="white" />
-            )}
-          </Pressable>
-          <Pressable onPress={mode === "picture" ? takePicture : recordVideo}>
-            {({ pressed }) => (
-              <View
-                style={[
-                  styles.shutterBtn,
-                  {
-                    opacity: pressed ? 0.5 : 1,
-                  },
-                ]}
-              >
-                <View
-                  style={[
-                    styles.shutterBtnInner,
-                    {
-                      backgroundColor: mode === "picture" ? "white" : "red",
-                    },
-                  ]}
-                />
-              </View>
-            )}
-          </Pressable>
-          <Pressable onPress={toggleFacing}>
-            <FontAwesome6 name="rotate-left" size={32} color="white" />
-          </Pressable>
-        </View>
-      </CameraView>
+      <>
+				<CameraView
+					key={cameraKey}
+					style={styles.camera}
+					ref={ref}
+					mode={mode}
+					facing={facing}
+					mute={false}
+					responsiveOrientationWhenOrientationLocked
+				/>
+				<View style={styles.shutterContainer}>
+					<Pressable onPress={toggleMode}>
+						{mode === "picture" ? (
+							<AntDesign name="picture" size={32} color="white" />
+						) : (
+							<Feather name="video" size={32} color="white" />
+						)}
+					</Pressable>
+					<Pressable
+						onPress={mode === "picture" ? takePicture : recordVideo}
+					>
+						{({ pressed }) => (
+							<View
+								style={[
+									styles.shutterBtn,
+									{
+										opacity: pressed ? 0.5 : 1,
+									},
+								]}
+							>
+								<View
+									style={[
+										styles.shutterBtnInner,
+										{
+											backgroundColor:
+												mode === "picture"
+													? "white"
+													: "red",
+										},
+									]}
+								/>
+							</View>
+						)}
+					</Pressable>
+					<Pressable onPress={toggleFacing}>
+						<FontAwesome6
+							name="rotate-left"
+							size={32}
+							color="white"
+						/>
+					</Pressable>
+				</View>
+			</>
     );
   };
 
