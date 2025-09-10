@@ -18,7 +18,9 @@
         }
       ],
       "expo-router",
-      "expo-font"
+      "expo-font",
+      "expo-build-properties",
+      "expo-web-browser"
     ],
     "android": {
       "edgeToEdgeEnabled": true,

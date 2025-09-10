@@ -14,11 +14,22 @@ This project uses
 
 - `cd` into the project
 
+- For TV development:
+
 ```sh
 yarn
-yarn prebuild # Executes Expo prebuild with TV modifications
+yarn prebuild:tv # Executes clean Expo prebuild with TV modifications
 yarn ios # Build and run for Apple TV
 yarn android # Build for Android TV
+yarn web # Run the project on web from localhost
+```
+- For mobile development:
+
+```sh
+yarn
+yarn prebuild # Executes Expo prebuild with no TV modifications
+yarn ios # Build and run for iOS
+yarn android # Build for Android mobile
 yarn web # Run the project on web from localhost
 ```
 
@@ -41,7 +52,7 @@ Deploy on all platforms with Expo Application Services (EAS).
 
 ## TV specific file extensions
 
-This project includes an [example Metro configuration](./metro.config.js) that allows Metro to resolve application source files with TV-specific code, indicated by specific file extensions (`*.ios.tv.tsx`, `*.android.tv.tsx`, `*.tv.tsx`). The [ExternalLink](./components/ExternalLink.tsx) component makes use of this by having a [separate TV source file](./components/ExternalLink.tv.tsx) that avoids importing packages that don't exist on Apple TV.
+This project includes an [example Metro configuration](./metro.config.js) that allows Metro to resolve application source files with TV-specific code, indicated by specific file extensions (`*.ios.tv.tsx`, `*.android.tv.tsx`, `*.tv.tsx`).
 
 ## Get a fresh project
 
