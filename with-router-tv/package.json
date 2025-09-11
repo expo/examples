@@ -35,7 +35,6 @@
     "react-native-worklets": "~0.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
     "@react-native-tvos/config-tv": "^0.1.4",
     "@types/react": "~19.1.10",
     "typescript": "~5.9.2"

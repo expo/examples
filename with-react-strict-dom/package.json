@@ -23,7 +23,6 @@
     "react-strict-dom": "^0.0.34"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
     "@types/react": "~19.1.10",
     "autoprefixer": "^10.4.21",
     "postcss-react-strict-dom": "^0.0.6",

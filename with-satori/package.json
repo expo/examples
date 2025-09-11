@@ -23,7 +23,6 @@
     "satori": "0.10.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
     "@types/react": "~19.1.10",
     "typescript": "~5.9.2"
   }

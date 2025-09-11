@@ -19,7 +19,6 @@
     "typescript": "~5.9.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
     "@types/react": "~19.1.10",
     "@types/react-dom": "~19.1.7"
   },
