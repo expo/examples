@@ -1,16 +1,16 @@
 {
   "dependencies": {
-    "expo": "^53.0.4",
-    "react": "19.0.0",
-    "react-native": "0.79.1"
+    "expo": "^54.0.1",
+    "react": "19.1.0",
+    "react-native": "0.81.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
-    "@types/react": "~19.0.10",
+    "@types/react": "~19.1.10",
     "babel-plugin-react-compiler": "0.0.0-experimental-334f00b-20240725",
     "eslint": "^8.57.0",
-    "eslint-config-expo": "~9.2.0",
+    "eslint-config-expo": "~10.0.0",
     "eslint-plugin-react-compiler": "0.0.0-experimental-9ed098e-20240725",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
   }
 }
