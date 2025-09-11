@@ -10,7 +10,6 @@
     "victory-native": "^35.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@expo/metro-runtime": "~6.1.1"
   }
 }

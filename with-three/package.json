@@ -11,8 +11,5 @@
     "react-native": "0.81.4",
     "react-native-web": "^0.21.0",
     "three": "^0.145.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.19.3"
   }
 }

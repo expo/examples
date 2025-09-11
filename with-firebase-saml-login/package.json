@@ -12,7 +12,6 @@
     "react-native": "0.81.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "serve": "^13.0.2"
   }
 }

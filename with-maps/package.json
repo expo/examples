@@ -6,8 +6,5 @@
     "react-native": "0.81.4",
     "react-native-maps": "1.20.1",
     "react-native-web": "^0.21.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.19.3"
   }
 }

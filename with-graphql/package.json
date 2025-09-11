@@ -18,7 +18,6 @@
     "urql": "^4.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
     "@types/react": "~19.1.10",
     "typescript": "~5.9.2"
   },
