@@ -4,5 +4,8 @@
   "scheme": "withs3",
   "web": {
     "output": "server"
-  }
+  },
+  "plugins": [
+    "expo-router"
+  ]
 }
