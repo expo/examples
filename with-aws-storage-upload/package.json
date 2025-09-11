@@ -3,17 +3,17 @@
     "@aws-amplify/auth": "^4.3.11",
     "@aws-amplify/core": "^4.3.3",
     "@aws-amplify/storage": "^4.4.4",
-    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/netinfo": "11.4.1",
     "aws-amplify": "^4.3.3",
-    "expo": "^53.0.4",
-    "expo-clipboard": "~7.1.4",
-    "expo-constants": "~17.1.4",
-    "expo-image-picker": "~16.1.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.1",
-    "react-native-web": "^0.20.0"
+    "expo": "^54.0.1",
+    "expo-clipboard": "~8.0.6",
+    "expo-constants": "~18.0.8",
+    "expo-image-picker": "~17.0.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-web": "^0.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3"
