@@ -29,7 +29,7 @@ export default function App() {
 
 function Item({ src, children }: { src?: string; children?: React.ReactNode }) {
   return (
-    <Link href="/" asChild style={{ borderRadius: 12 }}>
+    <Link href="/modal" asChild style={{ borderRadius: 12 }}>
       <Link.Trigger>
         <article className="flex-1 rounded-xl overflow-hidden items-stretch md:flex-row border-[0.5px] bg-slate-100 border-slate-300 dark:bg-black dark:border-gray-700">
           <div className="flex-1 min-h-[240px]">

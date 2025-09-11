@@ -5,13 +5,23 @@ import ThemeProvider from "@/components/theme-provider";
 
 export { ErrorBoundary } from "expo-router";
 
+import * as AC from "@bacons/apple-colors";
+
 export default function Layout() {
   return (
     <ThemeProvider>
-      <NativeTabs>
+      <NativeTabs tintColor={AC.systemCyan}>
         <NativeTabs.Trigger name="(home)">
-          <Icon sf="star" selectedSf="star.fill" drawable="ic_search" />
+          <Icon
+            sf={{ default: "star", selected: "star.fill" }}
+            drawable="ic_search"
+          />
           <Label>New</Label>
+        </NativeTabs.Trigger>
+
+        <NativeTabs.Trigger name="(search)" role="search">
+          <Icon sf="magnifyingglass" drawable="ic_search" />
+          <Label>Search</Label>
         </NativeTabs.Trigger>
       </NativeTabs>
     </ThemeProvider>

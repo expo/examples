@@ -8,7 +8,6 @@ export function Body(props: React.ComponentProps<typeof ScrollView>) {
     <ScrollView
       automaticallyAdjustsScrollIndicatorInsets={true}
       contentInsetAdjustmentBehavior="automatic"
-      scrollToOverflowEnabled
       {...props}
     />
   );
