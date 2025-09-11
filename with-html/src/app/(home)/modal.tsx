@@ -1,34 +1,43 @@
 import { Body } from "@/components/ui/body";
 import { ExternalLink } from "@/components/ui/external-link";
 import * as AC from "@bacons/apple-colors";
+import Animated, { FadeIn } from "react-native-reanimated";
 
 export default function App() {
   return (
     <Body contentContainerClassName="px-5 pb-5 gap-2">
-      <ToolCard icon={<Sparkle />}>
-        Starting sandbox on <code>localhost:8081</code> with{" "}
-        <code>bunx expo</code>
-      </ToolCard>
-      <ToolCard icon={<MultiTool />}>
-        Starting AI agent with <code>15 tools</code>
-      </ToolCard>
+      <Animated.View entering={FadeIn.delay(100)}>
+        <ToolCard icon={<Sparkle />}>
+          Starting sandbox on <code>localhost:8081</code> with{" "}
+          <code>bunx expo</code>
+        </ToolCard>
+      </Animated.View>
+      <Animated.View entering={FadeIn.delay(200)}>
+        <ToolCard icon={<MultiTool />}>
+          Starting AI agent with <code>15 tools</code>
+        </ToolCard>
+      </Animated.View>
 
-      <ToolCard icon={<Rocket />}>
-        Build completed successfully with{" "}
-        <ExternalLink
-          href="https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-html"
-          target="_blank"
-        >
-          <code>launch.expo.dev</code>
-        </ExternalLink>
-      </ToolCard>
+      <Animated.View entering={FadeIn.delay(300)}>
+        <ToolCard icon={<Rocket />}>
+          Build completed successfully with{" "}
+          <ExternalLink
+            href="https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-html"
+            target="_blank"
+          >
+            <code>launch.expo.dev</code>
+          </ExternalLink>
+        </ToolCard>
+      </Animated.View>
 
-      <ToolCard icon={<Globe />}>
-        Deployed website to{" "}
-        <ExternalLink href="https://expo.dev" target="_blank">
-          <code>https://example.expo.app</code>
-        </ExternalLink>
-      </ToolCard>
+      <Animated.View entering={FadeIn.delay(400)}>
+        <ToolCard icon={<Globe />}>
+          Deployed website to{" "}
+          <ExternalLink href="https://expo.dev" target="_blank">
+            <code>example.expo.app</code>
+          </ExternalLink>
+        </ToolCard>
+      </Animated.View>
     </Body>
   );
 }
@@ -41,9 +50,14 @@ function ToolCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="flex items-start flex-row gap-2 border-[0.5px] border-gray-600 dark:border-gray-300 p-4 rounded-2xl">
+    <div
+      className="flex items-center flex-row gap-2 border border-gray-600 dark:border-gray-300 p-4 rounded-2xl"
+      style={{
+        borderCurve: "continuous",
+      }}
+    >
       {icon}
-      <p className="text-gray-600 flex-1 dark:text-gray-300 text-base my-0 py-0 pr-2">
+      <p className="text-gray-600 flex-1 dark:text-gray-300 text-lg my-0 py-0 pr-2">
         {children}
       </p>
     </div>
@@ -58,7 +72,7 @@ function Globe() {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={AC.secondaryLabel}
+      stroke={AC.label}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -78,7 +92,7 @@ function Rocket() {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={AC.secondaryLabel}
+      stroke={AC.label}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -99,7 +113,7 @@ function Sparkle() {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={AC.secondaryLabel}
+      stroke={AC.label}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -120,7 +134,7 @@ function MultiTool() {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke={AC.secondaryLabel}
+      stroke={AC.label}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
