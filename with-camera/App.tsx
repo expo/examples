@@ -36,7 +36,7 @@ export default function App() {
 
   const takePicture = async () => {
     const photo = await ref.current?.takePictureAsync();
-    setUri(photo?.uri);
+    if (photo?.uri) setUri(photo.uri);
   };
 
   const recordVideo = async () => {
@@ -58,7 +58,7 @@ export default function App() {
     setFacing((prev) => (prev === "back" ? "front" : "back"));
   };
 
-  const renderPicture = () => {
+  const renderPicture = (uri: string) => {
     return (
       <View>
         <Image
@@ -120,7 +120,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {uri ? renderPicture() : renderCamera()}
+      {uri ? renderPicture(uri) : renderCamera()}
     </View>
   );
 }
