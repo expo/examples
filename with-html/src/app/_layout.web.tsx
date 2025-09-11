@@ -37,6 +37,15 @@ export default function Layout() {
             tabBarIcon: (props: any) => <Material {...props} name={"star"} />,
           }}
         />
+        <Tabs.Screen
+          name="(search)"
+          options={{
+            title: "Search",
+            tabBarIcon: (props: any) => (
+              <Material {...props} name={"magnify"} />
+            ),
+          }}
+        />
       </Tabs>
     </ThemeProvider>
   );
