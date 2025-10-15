@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Bolillero Bingo App",
+    "slug": "bolillero-bingo'app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2f2f2f"
+    },
+    "backgroundColor": "#2f2f2f",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#2f2f2f"
+    },
+    "platforms": ["android", "ios"],
+    "android": {
+      "package": "com.tunombre.bolilleromagico"
+    }
+  }
+}
