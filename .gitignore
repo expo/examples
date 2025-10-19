@@ -44,3 +44,5 @@ report.html
 /with-router-menus/android
 /with-canary-react-19/ios
 /with-canary-react-19/android
+
+/with-skia/public/canvaskit.wasm
