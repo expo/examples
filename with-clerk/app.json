@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "with-clerk",
+    "slug": "with-clerk",
+    "scheme": "with-clerk",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "server"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "unstable_useServerMiddleware": true
+        }
+      ]
+    ]
+  }
+}
