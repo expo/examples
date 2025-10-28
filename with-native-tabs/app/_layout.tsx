@@ -19,14 +19,30 @@ export default function RootLayout() {
   const scheme = useColorScheme();
   const [isMinimizeOnScrollEnabled, setIsMinimizeOnScrollEnabled] =
     useState(true);
+  const [isIndicatorEnabled, setIsIndicatorEnabled] = useState(true);
+  const [
+    isTransparentOnScrollEdgeEnabled,
+    setIsTransparentOnScrollEdgeEnabled,
+  ] = useState(true);
 
   return (
     <TabConfigurationContext
-      value={{ isMinimizeOnScrollEnabled, setIsMinimizeOnScrollEnabled }}
+      value={{
+        isMinimizeOnScrollEnabled,
+        setIsMinimizeOnScrollEnabled,
+        isIndicatorEnabled,
+        setIsIndicatorEnabled,
+        isTransparentOnScrollEdgeEnabled,
+        setIsTransparentOnScrollEdgeEnabled,
+      }}
     >
       <ThemeProvider value={scheme === "dark" ? DarkTheme : DefaultTheme}>
         <NativeTabs
-          minimizeBehavior={isMinimizeOnScrollEnabled ? "onScrollDown" : "never"}
+          minimizeBehavior={
+            isMinimizeOnScrollEnabled ? "onScrollDown" : "never"
+          }
+          disableIndicator={!isIndicatorEnabled}
+          disableTransparentOnScrollEdge={!isTransparentOnScrollEdgeEnabled}
           tintColor={Platform.select({
             android: scheme === "dark" ? "white" : "blue",
             // Fallback to default iOS and web tint color

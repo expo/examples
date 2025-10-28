@@ -13,22 +13,41 @@ import {
   StyleSheet,
   ScrollView,
   Switch,
-  TextInput,
+  Platform,
 } from "react-native";
+import {
+  SafeAreaInsetsContext,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 export default function Index() {
   const { colors } = useTheme();
+  const safeInsets = useSafeAreaInsets();
   const [isBadgeEnabled, setIsBadgeEnabled] = useState(true);
   const [isLabelVisible, setIsLabelVisible] = useState(true);
   const [isScrollToTopEnabled, setIsScrollToTopEnabled] = useState(true);
-  const { isMinimizeOnScrollEnabled, setIsMinimizeOnScrollEnabled } = use(
-    TabConfigurationContext
-  );
+  const {
+    isMinimizeOnScrollEnabled,
+    setIsMinimizeOnScrollEnabled,
+    isIndicatorEnabled,
+    setIsIndicatorEnabled,
+    isTransparentOnScrollEdgeEnabled,
+    setIsTransparentOnScrollEdgeEnabled,
+  } = use(TabConfigurationContext);
   return (
     <>
       <ScrollView
         style={[styles.container, { backgroundColor: colors.background }]}
-        contentContainerStyle={styles.contentContainer}
+        contentInsetAdjustmentBehavior="automatic"
+        contentContainerStyle={[
+          styles.contentContainer,
+          {
+            paddingTop: Platform.select({
+              android: safeInsets.top,
+              default: undefined,
+            }),
+          },
+        ]}
       >
         <SwitchWithLabel
           label="Badge"
@@ -41,14 +60,24 @@ export default function Index() {
           onValueChange={setIsLabelVisible}
         />
         <SwitchWithLabel
-          label="Minimize on scroll"
+          label="Minimize on scroll (iOS)"
           value={isMinimizeOnScrollEnabled}
           onValueChange={setIsMinimizeOnScrollEnabled}
         />
         <SwitchWithLabel
-          label="Scroll to top"
+          label="Scroll to top (iOS)"
           value={isScrollToTopEnabled}
           onValueChange={setIsScrollToTopEnabled}
+        />
+        <SwitchWithLabel
+          label="Transparent on scroll edge (iOS 18)"
+          value={isTransparentOnScrollEdgeEnabled}
+          onValueChange={setIsTransparentOnScrollEdgeEnabled}
+        />
+        <SwitchWithLabel
+          label="Active indicator (Android)"
+          value={isIndicatorEnabled}
+          onValueChange={setIsIndicatorEnabled}
         />
         <View style={styles.largeContent}>
           <Text style={[styles.largeText, { color: colors.text }]}>Scroll</Text>
