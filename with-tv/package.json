@@ -6,21 +6,23 @@
     "android": "EXPO_TV=1 expo run:android",
     "ios": "EXPO_TV=1 expo run:ios",
     "web": "expo start --web",
-    "prebuild": "EXPO_TV=1 expo prebuild --clean"
+    "prebuild:tv": "EXPO_TV=1 expo prebuild --clean",
+    "prebuild": "expo prebuild --clean"
   },
   "dependencies": {
-    "expo": "^53.0.16",
-    "expo-splash-screen": "~0.30.6",
-    "expo-status-bar": "~2.2.2",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "npm:react-native-tvos@0.79.5-0"
+    "@expo/metro-runtime": "~6.1.1",
+    "expo": "^54.0.20",
+    "expo-splash-screen": "~31.0.10",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "npm:react-native-tvos@0.81-stable",
+    "react-native-web": "^0.21.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@react-native-tvos/config-tv": "^0.1.1",
-    "@types/react": "~19.0.10",
-    "typescript": "~5.8.3"
+    "@react-native-tvos/config-tv": "^0.1.4",
+    "@types/react": "~19.1.10",
+    "typescript": "~5.9.2"
   },
   "expo": {
     "install": {

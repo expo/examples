@@ -2,6 +2,7 @@ import { Body } from "@/components/ui/body";
 import { launchApp } from "@/lib/utils";
 import { Link } from "expo-router";
 import { Image } from "expo-image";
+import { Pressable } from "react-native";
 
 export default function App() {
   return (
@@ -29,28 +30,32 @@ export default function App() {
 
 function Item({ src, children }: { src?: string; children?: React.ReactNode }) {
   return (
-    <Link href="/" asChild style={{ borderRadius: 12 }}>
+    <Link href="/modal" asChild style={{ borderRadius: 12 }}>
       <Link.Trigger>
-        <article className="flex-1 rounded-xl overflow-hidden items-stretch md:flex-row border-[0.5px] bg-slate-100 border-slate-300 dark:bg-black dark:border-gray-700">
-          <div className="flex-1 min-h-[240px]">
-            <Image style={{ flex: 1 }} source={src} />
-            <div className="absolute top-2 right-2">
-              <Icon />
+        <Pressable>
+          <article className="flex-1 rounded-xl overflow-hidden items-stretch md:flex-row border-[0.5px] bg-slate-100 border-slate-300 dark:bg-black dark:border-gray-700">
+            <div className="flex-1 min-h-[240px]">
+              <Image style={{ flex: 1 }} source={src} />
+              <div className="absolute top-2 right-2">
+                <Icon />
+              </div>
             </div>
-          </div>
 
-          <main className="flex-1 md:p-8 p-8 text-center md:text-left space-y-4">
-            <p className="text-lg font-medium dark:text-slate-300">
-              {children}
-            </p>
-            <article className="font-medium">
-              <p className="text-sky-500 dark:text-sky-400 my-0">Evan Bacon</p>
-              <p className="text-slate-700 dark:text-slate-500 my-1">
-                Engineer, Expo
+            <main className="flex-1 md:p-8 p-8 text-center md:text-left space-y-4">
+              <p className="text-lg font-medium dark:text-slate-300">
+                {children}
               </p>
-            </article>
-          </main>
-        </article>
+              <article className="font-medium">
+                <p className="text-sky-500 dark:text-sky-400 my-0">
+                  Evan Bacon
+                </p>
+                <p className="text-slate-700 dark:text-slate-500 my-1">
+                  Engineer, Expo
+                </p>
+              </article>
+            </main>
+          </article>
+        </Pressable>
       </Link.Trigger>
       <Link.Menu>
         <Link.MenuAction

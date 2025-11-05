@@ -137,8 +137,8 @@ export default class App extends React.Component {
     try {
       this.setState({ uploading: true });
 
-      if (!pickerResult.cancelled) {
-        uploadResponse = await uploadImageAsync(pickerResult.uri);
+      if (!pickerResult.cancelled && pickerResult.assets?.length >= 1) {
+        uploadResponse = await uploadImageAsync(pickerResult.assets[0].uri);
         uploadResult = await uploadResponse.json();
         console.log({ uploadResult });
         this.setState({ image: uploadResult.files.photo });

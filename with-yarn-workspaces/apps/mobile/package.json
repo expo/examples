@@ -11,15 +11,12 @@
     "build": "echo 'Nothing to build'"
   },
   "dependencies": {
-    "expo": "^51.0.0",
+    "expo": "^54.0.1",
     "expo-custom": "*",
-    "expo-status-bar": "~1.12.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-native": "0.74.5",
-    "react-native-web": "~0.19.6"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.24.0"
+    "expo-status-bar": "~3.0.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
+    "react-native-web": "^0.21.0"
   }
 }

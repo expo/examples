@@ -1,14 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start-app": "yarn workspace mobile start",
-    "watch-packages": "yarn workspaces run build"
+    "start": "yarn workspace mobile start"
   },
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "expo": "^53.0.4"
-  }
+  ]
 }

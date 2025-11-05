@@ -1,22 +1,21 @@
 {
   "dependencies": {
-    "@expo/metro-runtime": "~5.0.4",
+    "@expo/metro-runtime": "~6.1.1",
     "@legendapp/state": "^3.0.0-beta.3",
-    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@supabase/supabase-js": "^2.45.1",
-    "expo": "^53.0.4",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-native": "0.79.1",
+    "expo": "^54.0.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-native": "0.81.4",
     "react-native-get-random-values": "~1.11.0",
-    "react-native-safe-area-context": "5.3.0",
-    "react-native-web": "^0.20.0",
-    "react-native-reanimated": "~3.6.2"
+    "react-native-reanimated": "~4.1.0",
+    "react-native-safe-area-context": "~5.6.0",
+    "react-native-web": "^0.21.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
-    "@types/react": "~19.0.10",
+    "@types/react": "~19.1.10",
     "@types/uuid": "^10.0.0",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.2"
   }
 }
