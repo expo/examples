@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "with-router-uniwind",
+    "slug": "with-router-uniwind",
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "static"
+    }
+  }
+}
