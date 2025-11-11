@@ -3,9 +3,6 @@ import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 
 export { ErrorBoundary } from "expo-router";
 
-// NOTE: This is a hack for web due to how react-native-webgpu is transpiled.
-global.React = require("react");
-
 // These are the default stack options for iOS, they disable on other platforms.
 const DEFAULT_STACK_HEADER: NativeStackNavigationOptions =
   process.env.EXPO_OS !== "ios"
