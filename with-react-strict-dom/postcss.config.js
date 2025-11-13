@@ -1,8 +1,7 @@
 module.exports = {
   plugins: {
-    "postcss-react-strict-dom": {
+    "react-strict-dom/postcss-plugin": {
       include: ["src/**/*.{js,jsx,mjs,ts,tsx}"],
     },
-    autoprefixer: {},
   },
 };
