@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.10",
-    "postcss-react-strict-dom": "~0.0.54",
     "typescript": "^5.3.3"
   }
 }
