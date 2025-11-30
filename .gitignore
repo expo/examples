@@ -42,7 +42,7 @@ report.html
 
 /with-router-menus/ios
 /with-router-menus/android
-/with-canary-react-19/ios
-/with-canary-react-19/android
+/with-webgpu/ios
+/with-webgpu/android
 
 /with-skia/public/canvaskit.wasm
