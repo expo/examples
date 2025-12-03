@@ -1,0 +1,9 @@
+{"product": "Cookie", "price": 1.99, "quantity": 2, "emoji": "🍪", "category": "snack"}
+{"product": "Candy", "price": 0.99, "quantity": 10, "emoji": "🍬", "category": "snack"}
+{"product": "Chips", "price": 1.49, "quantity": 5, "emoji": "🍟", "category": "snack"}
+{"product": "Soda", "price": 1.99, "quantity": 6, "emoji": "🥤", "category": "drink"}
+{"product": "Water", "price": 0.99, "quantity": 12, "emoji": "💧", "category": "drink"}
+{"product": "Juice", "price": 2.49, "quantity": 4, "emoji": "🍹", "category": "drink"}
+{"product": "Pizza", "price": 8.99, "quantity": 3, "emoji": "🍕", "category": "food"}
+{"product": "Burger", "price": 5.49, "quantity": 4, "emoji": "🍔", "category": "food"}
+{"product": "Salad", "price": 4.99, "quantity": 2, "emoji": "🥗", "category": "food"}
