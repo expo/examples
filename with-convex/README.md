@@ -40,7 +40,7 @@ It includes the following a simple list of products that update in real-time. It
 - Add sample products to your database
 
   ```sh
-  npx convex import --table tasks sampleData.jsonl
+  npx convex import --table products sampleData.jsonl
   ```
 
 - Add convex queries
