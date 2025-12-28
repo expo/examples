@@ -19,7 +19,7 @@
     "ai": "^4.0.0",
     "expo": "~54.0.0",
     "expo-blur": "~14.1.0",
-    "expo-glass-effect": "~0.2.0",
+    "expo-glass-effect": "~0.1.8",
     "expo-haptics": "~15.0.0",
     "expo-router": "~6.0.0",
     "expo-sensors": "~15.0.0",
