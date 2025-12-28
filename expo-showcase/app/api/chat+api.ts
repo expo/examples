@@ -1,15 +1,15 @@
 import { streamText } from 'ai';
-import { createOpenAI } from '@ai-sdk/openai';
+import { createAnthropic } from '@ai-sdk/anthropic';
 
-const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '',
+const anthropic = createAnthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY || '',
 });
 
 export async function POST(request: Request) {
   const { messages } = await request.json();
 
   const result = streamText({
-    model: openai('gpt-4o-mini'),
+    model: anthropic('claude-sonnet-4-20250514'),
     system: `You are a helpful AI assistant in the Expo Showcase app.
 Keep responses concise and friendly.
 When asked about the app, explain that it demonstrates Expo SDK 54 features including:
