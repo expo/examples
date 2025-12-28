@@ -38,7 +38,8 @@
         {
           "backgroundColor": "#000000"
         }
-      ]
+      ],
+      "./plugins/withDisableSwiftExplicitModules"
     ],
     "experiments": {
       "typedRoutes": true
