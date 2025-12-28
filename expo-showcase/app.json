@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "Expo Showcase",
+    "slug": "expo-showcase",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "https://github.com/expo/expo/blob/main/templates/expo-template-blank/assets/icon.png?raw=true",
+    "scheme": "expo-showcase",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.expo.showcase",
+      "infoPlist": {
+        "NSMotionUsageDescription": "This app uses motion sensors to demonstrate device capabilities"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "https://github.com/expo/expo/blob/main/templates/expo-template-blank/assets/adaptive-icon.png?raw=true",
+        "backgroundColor": "#000000"
+      },
+      "package": "com.expo.showcase",
+      "permissions": [
+        "android.permission.VIBRATE",
+        "android.permission.HIGH_SAMPLING_RATE_SENSORS"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "server",
+      "favicon": "https://github.com/expo/expo/blob/main/templates/expo-template-blank/assets/favicon.png?raw=true"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
