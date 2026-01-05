@@ -1,4 +1,4 @@
-# Expo Router and Tailwind CSS
+# Expo Router and Uniwind 
 
 Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Uniwind](https://docs.uniwind.dev/) styling.
 
