@@ -1,5 +1,4 @@
 import * as mobilenet from '@tensorflow-models/mobilenet';
-import { Camera } from 'expo-camera';
 import React from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 
@@ -11,9 +10,14 @@ import { useTensorFlowModel } from './useTensorFlow';
 export function ModelView() {
   const model = useTensorFlowModel(mobilenet);
   const [predictions, setPredictions] = React.useState([]);
+  const [facing, setFacing] = React.useState("front")
 
   if (!model) {
     return <LoadingView message="Loading TensorFlow model" />;
+  }
+
+  const toggleCameraFacing = () => {
+    setFacing((prev) => prev === "front" ? "back" : "front")
   }
 
   return (
@@ -22,7 +26,7 @@ export function ModelView() {
     >
       <PredictionList predictions={predictions} />
       <View style={{ borderRadius: 20, overflow: "hidden" }}>
-        <ModelCamera model={model} setPredictions={setPredictions} />
+        <ModelCamera model={model} setPredictions={setPredictions} facing={facing} />
       </View>
     </View>
   );
@@ -50,13 +54,12 @@ function ModelCamera({ model, setPredictions }) {
     },
     [setPredictions]
   );
-
   return React.useMemo(
     () => (
       <CustomTensorCamera
         width={size.width}
         style={styles.camera}
-        type={Camera.Constants.Type.back}
+        facing="front"
         onReady={onReady}
         autorender
       />
