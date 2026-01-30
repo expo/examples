@@ -25,7 +25,8 @@ export default function Index() {
   const [pickedEmoji, setPickedEmoji] = useState<
     ImageSourcePropType | undefined
   >(undefined);
-  const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
+  const [permissionResponse, requestPermission] =
+    ImagePicker.useMediaLibraryPermissions();
 
   const imageRef = useRef<View>(null);
 
@@ -38,7 +39,6 @@ export default function Index() {
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
-      allowsEditing: true,
       quality: 1,
     });
 
