@@ -23,6 +23,7 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/home.png')}
+          renderingMode="template"
         />
       </NativeTabs.Trigger>
 
@@ -30,6 +31,7 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/explore.png')}
+          renderingMode="template"
         />
       </NativeTabs.Trigger>
 
@@ -37,6 +39,7 @@ export default function AppTabs() {
         <NativeTabs.Trigger.Label>Events</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           src={require('@/assets/images/tabIcons/tv.png')}
+          renderingMode="template"
         />
       </NativeTabs.Trigger>
     </NativeTabs>
