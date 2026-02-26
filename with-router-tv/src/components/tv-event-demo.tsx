@@ -100,6 +100,7 @@ const PressableButton = (props: {
   log: (entry: string) => void;
 }) => {
   const styles = useDemoStyles();
+  const theme = useTheme();
 
   return (
     <Pressable
@@ -115,7 +116,7 @@ const PressableButton = (props: {
       {({ focused, hovered, pressed }) => {
         return (
           <LinearGradient
-            colors={['#3c9ffe', '#0274df']}
+            colors={[theme.gradientStart, theme.gradientEnd]}
             style={[
               styles.pressable,
               (focused || hovered || pressed) && styles.pressableFocused,

@@ -7,8 +7,8 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#aaa';
+const tintColorLight = '#0274df';
+const tintColorDark = '#3c9ffe';
 
 export const Colors = {
   light: {
@@ -18,6 +18,8 @@ export const Colors = {
     backgroundElement: '#F0F0F3',
     backgroundSelected: '#E0E1E6',
     textSecondary: '#60646C',
+    gradientStart: tintColorLight,
+    gradientEnd: tintColorDark,
   },
   dark: {
     text: '#ffffff',
@@ -26,6 +28,8 @@ export const Colors = {
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
+    gradientStart: tintColorLight,
+    gradientEnd: tintColorDark,
   },
 } as const;
 
