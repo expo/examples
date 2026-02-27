@@ -22,6 +22,7 @@ import { ThemedView } from './themed-view';
 
 import { Colors, MaxContentWidth } from '@/constants/theme';
 import { useScreenDimensions } from '@/hooks/use-screen-dimensions';
+import { useTheme } from '@/hooks/use-theme';
 
 export default function AppTabs() {
   return (
@@ -36,7 +37,7 @@ export default function AppTabs() {
             <TabButton>Explore</TabButton>
           </TabTrigger>
           <TabTrigger name="tv_focus" href="/tv_focus" asChild>
-            <TabButton>TV Demo</TabButton>
+            <TabButton>Events</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -53,17 +54,17 @@ export function TabButton({
   return (
     <Pressable
       {...props}
-      style={({ pressed, focused, hovered }) =>
-        (pressed || focused || hovered) && styles.pressed
-      }
+      disabled={isFocused}
+      style={({ pressed, focused, hovered }) => [
+        styles.tabButtonView,
+        (focused || hovered) && !isFocused && styles.focused,
+        pressed && styles.pressed,
+      ]}
     >
-      <ThemedView
-        type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
-        style={styles.tabButtonView}
-      >
+      <ThemedView type="backgroundElement">
         <ThemedText
           type="small"
-          themeColor={isFocused ? 'text' : 'textSecondary'}
+          themeColor={isFocused ? 'tint' : 'textSecondary'}
         >
           {children}
         </ThemedText>
@@ -105,6 +106,7 @@ export function CustomTabList(props: TabListProps) {
 
 const useTabStyles = () => {
   const { spacing } = useScreenDimensions();
+  const theme = useTheme();
   return StyleSheet.create({
     tabListContainer: {
       position: 'absolute',
@@ -130,10 +132,15 @@ const useTabStyles = () => {
     pressed: {
       opacity: 0.7,
     },
+    focused: {
+      borderColor: theme.tint,
+    },
     tabButtonView: {
       paddingVertical: spacing.one,
       paddingHorizontal: spacing.three,
       borderRadius: spacing.three,
+      borderWidth: 1,
+      borderColor: theme.backgroundElement,
     },
     externalPressable: {
       flexDirection: 'row',
