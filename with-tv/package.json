@@ -2,26 +2,27 @@
   "name": "with-tv",
   "version": "1.0.0",
   "scripts": {
-    "start": "EXPO_TV=1 expo start",
-    "android": "EXPO_TV=1 expo run:android",
-    "ios": "EXPO_TV=1 expo run:ios",
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "prebuild:tv": "EXPO_TV=1 expo prebuild --clean",
-    "prebuild": "expo prebuild --clean"
+    "prebuild": "expo prebuild --clean",
+    "lint": "expo lint"
   },
   "dependencies": {
-    "@expo/metro-runtime": "~6.1.1",
-    "expo": "^54.0.20",
-    "expo-splash-screen": "~31.0.10",
-    "expo-status-bar": "~3.0.8",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "npm:react-native-tvos@0.81-stable",
-    "react-native-web": "^0.21.0"
+    "@expo/vector-icons": "^15.0.2",
+    "expo": "^55.0.2",
+    "expo-splash-screen": "~55.0.9",
+    "expo-status-bar": "~55.0.4",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-native": "npm:react-native-tvos@0.83-stable",
+    "react-native-web": "~0.21.0"
   },
   "devDependencies": {
-    "@react-native-tvos/config-tv": "^0.1.4",
-    "@types/react": "~19.1.10",
+    "@react-native-tvos/config-tv": "^0.1.5",
+    "@types/react": "~19.2.2",
     "typescript": "~5.9.2"
   },
   "expo": {

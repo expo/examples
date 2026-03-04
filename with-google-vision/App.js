@@ -34,6 +34,11 @@ async function callGoogleVisionAsync(image) {
 
   console.log("Result:", parsed);
 
+  if (parsed.error) {
+    console.log("Google Vision API Error:", parsed.error);
+    throw new Error(parsed.error.message);
+  }
+
   return parsed.responses[0].labelAnnotations[0].description;
 }
 
@@ -42,10 +47,11 @@ function VisionScreen() {
   const [status, setStatus] = useState(null);
 
   const takePictureAsync = async () => {
-    const { cancelled, uri, base64 } = await ImagePicker.launchCameraAsync({
+    const result = await ImagePicker.launchCameraAsync({
       base64: true,
     });
-    if (!cancelled) {
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const { uri, base64 } = result.assets[0];
       setImage(uri);
       setStatus("Loading...");
       try {

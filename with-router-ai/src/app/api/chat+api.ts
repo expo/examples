@@ -1,5 +1,5 @@
 import { openai } from "@ai-sdk/openai";
-import { streamText, tool } from "ai";
+import { convertToModelMessages, stepCountIs, streamText, tool } from "ai";
 import { z } from "zod";
 
 export async function POST(req: Request) {
@@ -9,12 +9,14 @@ export async function POST(req: Request) {
 
   const result = streamText({
     model: openai("gpt-4o"),
-    messages,
+    messages: await convertToModelMessages(messages),
+    // https://ai-sdk.dev/docs/getting-started/expo#enabling-multi-step-tool-calls
+    stopWhen: stepCountIs(5),
     tools: {
       // https://ai-sdk.dev/docs/getting-started/expo#enhance-your-chatbot-with-tools
       weather: tool({
         description: "Get the weather in a location (fahrenheit)",
-        parameters: z.object({
+        inputSchema: z.object({
           location: z.string().describe("The location to get the weather for"),
         }),
         async execute({ location }) {
@@ -28,7 +30,7 @@ export async function POST(req: Request) {
 
       convertFahrenheitToCelsius: tool({
         description: "Convert a temperature in fahrenheit to celsius",
-        parameters: z.object({
+        inputSchema: z.object({
           temperature: z
             .number()
             .describe("The temperature in fahrenheit to convert"),
@@ -44,8 +46,8 @@ export async function POST(req: Request) {
     },
   });
 
-  return result.toDataStreamResponse({
-    getErrorMessage: __DEV__ ? errorHandler : undefined,
+  return result.toUIMessageStreamResponse({
+    onError: __DEV__ ? errorHandler : undefined,
     headers: {
       // Issue with iOS NSURLSession that requires Content-Type set in order to enable streaming.
       // https://github.com/expo/expo/issues/32950#issuecomment-2508297646
