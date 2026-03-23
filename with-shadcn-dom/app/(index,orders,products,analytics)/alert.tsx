@@ -1,14 +1,6 @@
-// This component is platform-specific.
-
-import Dashboard from "@/components/shad/dashboard";
-import { ProfileButton } from "@/components/screen-header";
-import { Stack } from "expo-router";
-import * as Notifications from "expo-notifications";
-import React from "react";
-import * as Haptics from "expo-haptics";
-import * as SplashScreen from "expo-splash-screen";
-import { Text, View } from "react-native";
-import { GlassView } from "expo-glass-effect";
+import { GlassView } from 'expo-glass-effect';
+import { Stack } from 'expo-router';
+import { Text, View } from 'react-native';
 
 export default function AlertRoute() {
   return (

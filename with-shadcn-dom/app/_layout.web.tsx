@@ -1,7 +1,13 @@
-// Web-only layout route, the layout is added in each route.
+// Web-only layout route with shadcn sidebar added to the root layout.
+// This is a more desktop/web-friendly tab bar.
 
+import { ShadLayoutFull } from "@/components/shad/shad-layout";
 import { Slot } from "expo-router";
 
 export default function RootLayout() {
-  return <Slot />;
+  return (
+    <ShadLayoutFull>
+      <Slot />
+    </ShadLayoutFull>
+  );
 }

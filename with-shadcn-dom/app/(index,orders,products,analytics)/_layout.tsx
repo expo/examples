@@ -1,14 +1,30 @@
 import { Slot, Stack } from "expo-router";
-import { ShadLayoutFull } from "@/components/shad/shad-layout";
 import { label } from "@bacons/apple-colors";
+
+export const unstable_settings = {
+  anchor: "index",
+  orders: {
+    anchor: "orders",
+  },
+  products: {
+    anchor: "products",
+  },
+  analytics: {
+    anchor: "analytics",
+  },
+};
+
+const titles = {
+  index: "Dashboard",
+  orders: "Orders",
+  products: "Products",
+  analytics: "Analytics",
+};
 
 export default function RootLayout({ segment }: { segment: string }) {
   if (process.env.EXPO_OS === "web") {
-    return (
-      <ShadLayoutFull>
-        <Slot />
-      </ShadLayoutFull>
-    );
+    // Web doesn't need page stacking.
+    return <Slot />;
   }
 
   const name = getRouteName(segment);
@@ -31,7 +47,6 @@ export default function RootLayout({ segment }: { segment: string }) {
           title: titles[name],
           headerLargeTitle: true,
           headerSearchBarOptions: {},
-
           ...(name !== "index"
             ? {
                 headerLargeTitle: undefined,
@@ -51,26 +66,6 @@ export default function RootLayout({ segment }: { segment: string }) {
     </Stack>
   );
 }
-
-export const unstable_settings = {
-  anchor: "index",
-  orders: {
-    anchor: "orders",
-  },
-  products: {
-    anchor: "products",
-  },
-  analytics: {
-    anchor: "analytics",
-  },
-};
-
-const titles = {
-  index: "Dashboard",
-  orders: "Orders",
-  products: "Products",
-  analytics: "Analytics",
-};
 
 function getRouteName(segment: string) {
   return segment.replace(/\((.+)\)/, "$1") as keyof typeof titles;

@@ -4,9 +4,8 @@ import Dashboard from "@/components/shad/dashboard";
 import { ProfileButton } from "@/components/screen-header";
 import { Stack } from "expo-router";
 import * as Notifications from "expo-notifications";
-import React from "react";
 import * as Haptics from "expo-haptics";
-import * as SplashScreen from "expo-splash-screen";
+// import * as SplashScreen from "expo-splash-screen";
 
 export default function IndexRoute() {
   return (
@@ -43,14 +42,14 @@ export default function IndexRoute() {
             );
           }
         }}
-        dom={{
-          onLoadEnd(event) {
-            // Keep the splash screen open until the DOM content has loaded.
-            setTimeout(() => {
-              SplashScreen.hideAsync();
-            }, 1);
-          },
-        }}
+        // dom={{
+        //   onLoadEnd(event) {
+        //     // Keep the splash screen open until the DOM content has loaded.
+        //     setTimeout(() => {
+        //       SplashScreen.hideAsync();
+        //     }, 1);
+        //   },
+        // }}
       />
     </>
   );
