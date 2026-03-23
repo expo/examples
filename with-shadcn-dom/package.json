@@ -1,9 +1,7 @@
 {
-  "name": "mdex",
-  "main": "./index",
-  "version": "1.0.0",
+  "main": "expo-router/entry",
   "scripts": {
-    "start": "EXPO_UNSTABLE_ATLAS=1 expo start -d",
+    "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "lint": "expo lint",
@@ -44,7 +42,7 @@
     "expo-web-browser": "~55.0.8",
     "lucide-react": "^1.0.1",
     "lucide-react-native": "^0.436.0",
-"radix-ui": "^1.4.3",
+    "radix-ui": "^1.4.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.2",
@@ -66,9 +64,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.8",
     "@types/react": "~19.2.10",
-    "expo-atlas": "0.3.21",
     "typescript": "~5.9.2"
   },
   "overrides": {

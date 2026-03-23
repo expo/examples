@@ -3,7 +3,7 @@
 import Dashboard from "@/components/shad/dashboard";
 import { ProfileButton } from "@/components/screen-header";
 import { Stack } from "expo-router";
-import * as Notifications from "expo-notifications";
+
 import * as Haptics from "expo-haptics";
 // import * as SplashScreen from "expo-splash-screen";
 
@@ -30,7 +30,9 @@ export default function IndexRoute() {
         </Stack.Toolbar.View>
       </Stack.Toolbar>
       <Dashboard
-        notify={notify}
+        notify={() => {
+          alert("New Order (from a DOM component 🚀)");
+        }}
         onButtonClick={async (size: number) => {
           if (process.env.EXPO_OS !== "web") {
             Haptics.impactAsync(
@@ -53,23 +55,4 @@ export default function IndexRoute() {
       />
     </>
   );
-}
-
-// native notify function
-async function notify() {
-  if (process.env.EXPO_OS === "web") {
-    alert("New Order (from a DOM component 🚀)");
-    return;
-  }
-
-  await Notifications.requestPermissionsAsync();
-
-  await Notifications.scheduleNotificationAsync({
-    identifier: "hello",
-    content: {
-      title: "New Order",
-      body: "(from a DOM component 🚀)",
-    },
-    trigger: null,
-  });
 }
