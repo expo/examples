@@ -49,9 +49,9 @@ export default function OrdersRoute({
 
   return (
     <ShadLayout>
-      <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-        <Tabs defaultValue="all">
-          <div className="flex items-center">
+      <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 max-w-full overflow-hidden">
+        <Tabs defaultValue="all" className="min-w-0">
+          <div className="flex items-center min-w-0">
             <TabsList>
               <TabsTrigger value="all">All</TabsTrigger>
               <TabsTrigger value="active">Active</TabsTrigger>
@@ -118,7 +118,7 @@ function TabsContentAll() {
           Manage your products and view their sales performance.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
