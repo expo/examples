@@ -6,9 +6,7 @@ export function ProfileButton() {
   return (
     <Pressable onPress={() => router.push("./alert")}>
       <Image
-        source={{
-          uri: "https://github.com/evanbacon.png",
-        }}
+        source={require('@/assets/evanbacon.avif')}
         style={{ width: 36, height: 36, borderRadius: 18 }}
       />
     </Pressable>
