@@ -22,7 +22,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import {
   Home,
   Package,
@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import React from "react";
 
-import { Link, useSegments } from "expo-router";
+import { Href, Link, useSegments } from "expo-router";
 
 export function SideBarTab({
   href,
@@ -42,7 +42,7 @@ export function SideBarTab({
   selected,
   icon,
 }: {
-  href: import("expo-router").LinkProps<any>["href"];
+  href: Href;
   title: string;
   selected?: boolean;
   icon: React.ReactNode;
@@ -73,7 +73,7 @@ export function SheetTab({
   selected,
   icon,
 }: {
-  href: import("expo-router").LinkProps<any>["href"];
+  href: Href;
   title: string;
   selected?: boolean;
   icon: React.ReactNode;
@@ -126,7 +126,6 @@ export function SideNavigationBar() {
           icon={<Package className="h-5 w-5" />}
           selected={segment === "products"}
         />
-       
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
         <Tooltip>

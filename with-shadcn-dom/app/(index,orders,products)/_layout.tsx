@@ -30,12 +30,12 @@ export default function RootLayout({ segment }: { segment: string }) {
 
   return (
     <>
-    <Stack
-      screenOptions={{
-        headerShadowVisible: false,
-        headerBackButtonDisplayMode: "minimal",
-        ...Platform.select({
-          ios: {
+      <Stack
+        screenOptions={{
+          headerShadowVisible: false,
+          headerBackButtonDisplayMode: "minimal",
+          ...Platform.select({
+            ios: {
               headerTransparent: true,
               headerLargeTitleShadowVisible: false,
               headerLargeStyle: { backgroundColor: "transparent" },
@@ -46,32 +46,32 @@ export default function RootLayout({ segment }: { segment: string }) {
               headerStyle: { backgroundColor: "#FFFFFF" },
               statusBarTranslucent: true,
               statusBarStyle: "auto",
-            }
-        }),
-      }}
-    >
-      <Stack.Screen
-        name={name}
-        options={{
-          title: titles[name],
-          ...(isIOS && name === "index"
-            ? {
-                headerLargeTitle: true,
-                headerSearchBarOptions: {},
-              }
-            : {}),
+            },
+          }),
         }}
-      />
-      <Stack.Screen
-        name="alert"
-        options={{
-          presentation: "formSheet",
-          sheetAllowedDetents: [0.25],
-          sheetGrabberVisible: true,
-        }}
-      />
-    </Stack>
-    <StatusBar translucent={false} barStyle={"dark-content"}/>
+      >
+        <Stack.Screen
+          name={name}
+          options={{
+            title: titles[name],
+            ...(isIOS && name === "index"
+              ? {
+                  headerLargeTitle: true,
+                  headerSearchBarOptions: {},
+                }
+              : {}),
+          }}
+        />
+        <Stack.Screen
+          name="alert"
+          options={{
+            presentation: "formSheet",
+            sheetAllowedDetents: [0.25],
+            sheetGrabberVisible: true,
+          }}
+        />
+      </Stack>
+      <StatusBar translucent={false} barStyle={"dark-content"} />
     </>
   );
 }

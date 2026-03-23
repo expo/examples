@@ -1,6 +1,6 @@
-import { GlassView } from 'expo-glass-effect';
-import { Stack } from 'expo-router';
-import { Text, View } from 'react-native';
+import { GlassView } from "expo-glass-effect";
+import { Stack } from "expo-router";
+import { Text, View } from "react-native";
 
 export default function AlertRoute() {
   return (
@@ -27,7 +27,7 @@ export default function AlertRoute() {
           fontSize: 36,
           color: "#333",
           fontWeight: "bold",
-          fontFamily: process.env.EXPO_OS === 'ios' ? "ui-rounded" : undefined,
+          fontFamily: process.env.EXPO_OS === "ios" ? "ui-rounded" : undefined,
         }}
       >
         Alert
@@ -36,7 +36,7 @@ export default function AlertRoute() {
         style={{
           fontSize: 20,
           color: "#333",
-          fontFamily: process.env.EXPO_OS === 'ios' ? "ui-rounded" : undefined,
+          fontFamily: process.env.EXPO_OS === "ios" ? "ui-rounded" : undefined,
         }}
       >
         This is additional information in the prompt.

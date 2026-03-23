@@ -48,7 +48,7 @@ export default function ShadLayout({
   return (
     // Add a subtle fade-in animation as DOM components don't load immediately which can look jarring on mobile.
     <div className="animate-fade-in max-w-screen overflow-hidden">
-      <ShadLayoutFull select={select} children={children} />
+      <ShadLayoutFull select={select}>{children}</ShadLayoutFull>
     </div>
   );
 }
