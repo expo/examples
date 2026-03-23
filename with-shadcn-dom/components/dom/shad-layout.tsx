@@ -1,6 +1,6 @@
 import "@/global.css";
 
-import { Header, SideNavigationBar } from "@/components/shad/shad-nav";
+import { Header, SideNavigationBar } from "@/components/dom/shad-nav";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import React from "react";
 

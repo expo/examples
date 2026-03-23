@@ -1,5 +1,4 @@
 import { Slot, Stack } from "expo-router";
-import { label } from "@bacons/apple-colors";
 import { Platform, StatusBar } from "react-native";
 
 export const unstable_settings = {
@@ -39,7 +38,7 @@ export default function RootLayout({ segment }: { segment: string }) {
               headerTransparent: true,
               headerLargeTitleShadowVisible: false,
               headerLargeStyle: { backgroundColor: "transparent" },
-              headerTitleStyle: { color: label },
+              headerTitleStyle: { color: '#000000' },
               headerBlurEffect: "none",
             },
             default: {

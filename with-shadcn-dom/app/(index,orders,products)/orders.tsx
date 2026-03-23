@@ -1,4 +1,4 @@
-import Orders from "@/components/shad/orders";
+import Orders from "@/components/dom/orders";
 import { ProfileButton } from "@/components/screen-header";
 import { Stack } from "expo-router";
 import * as Haptics from "expo-haptics";

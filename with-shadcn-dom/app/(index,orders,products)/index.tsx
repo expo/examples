@@ -1,6 +1,6 @@
 // This component is platform-specific.
 
-import Dashboard from "@/components/shad/dashboard";
+import Dashboard from "@/components/dom/dashboard";
 import { ProfileButton } from "@/components/screen-header";
 import { Stack } from "expo-router";
 
