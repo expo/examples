@@ -2,8 +2,6 @@
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
     "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "dependencies": {
@@ -53,6 +51,5 @@
   "devDependencies": {
     "@types/react": "~19.2.10",
     "typescript": "~5.9.2"
-  },
-  "private": true
+  }
 }
