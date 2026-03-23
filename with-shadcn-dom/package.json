@@ -12,9 +12,15 @@
   },
   "dependencies": {
     "@bacons/apple-colors": "^0.0.8",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@expo/dom-webview": "~55.0.3",
     "@expo/vector-icons": "^15.0.2",
+    "@tabler/icons-react": "^3.40.0",
     "@tailwindcss/postcss": "^4.2.1",
+    "@tanstack/react-table": "^8.21.3",
     "babel-plugin-react-compiler": "^19.1.0-rc.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -38,7 +44,7 @@
     "expo-web-browser": "~55.0.8",
     "lucide-react": "^1.0.1",
     "lucide-react-native": "^0.436.0",
-    "radix-ui": "^1.4.3",
+"radix-ui": "^1.4.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.2",
@@ -52,9 +58,12 @@
     "react-native-webview": "13.16.0",
     "react-native-worklets": "0.7.2",
     "recharts": "3.8.0",
+    "sonner": "^2.0.7",
     "tailwind-merge": "^2.4.0",
     "tailwindcss": "^4",
-    "tw-animate-css": "^1.2.0"
+    "tw-animate-css": "^1.2.0",
+    "vaul": "^1.1.2",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/bun": "^1.1.8",

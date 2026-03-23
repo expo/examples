@@ -1,5 +1,10 @@
-@import "tailwindcss";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
 @import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 /* shadcn/ui theme colors - use 'inline' to extend default theme */
 @theme inline {
