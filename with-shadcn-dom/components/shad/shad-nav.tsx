@@ -25,7 +25,6 @@ import {
 import clsx from "clsx";
 import {
   Home,
-  LineChart as LineChartIcon,
   Package,
   Package2,
   PanelLeft,
@@ -36,9 +35,6 @@ import {
 import React from "react";
 
 import { Link, useSegments } from "expo-router";
-import { IS_DOM } from "expo/dom";
-
-const baseUrl = IS_DOM ? process.env.EXPO_DOM_BASE_URL : "";
 
 export function SideBarTab({
   href,
@@ -240,7 +236,7 @@ export function Header() {
             className="overflow-hidden rounded-full"
           >
             <img
-              src={baseUrl + "/evanbacon.avif"}
+              src={require("@/public/evanbacon.avif")}
               width={36}
               height={36}
               alt="Avatar"
