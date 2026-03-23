@@ -12,9 +12,6 @@
   },
   "dependencies": {
     "@bacons/apple-colors": "^0.0.8",
-    "@bacons/mdx": "^1.0.2",
-    "@emoji-mart/data": "^1.2.1",
-    "@emoji-mart/react": "^1.1.1",
     "@expo/dom-webview": "~55.0.3",
     "@expo/vector-icons": "^15.0.2",
     "@radix-ui/react-avatar": "^1.1.0",
