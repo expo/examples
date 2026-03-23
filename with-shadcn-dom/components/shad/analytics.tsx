@@ -82,7 +82,7 @@ function Charts() {
             </CardDescription>
           </CardFooter>
         </Card>
-        <Card className="flex flex-col lg:max-w-md" x-chunk="charts-01-chunk-1">
+        <Card className="flex flex-col lg:max-w-md">
           <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2 [&>div]:flex-1">
             <div>
               <CardDescription>Resting HR</CardDescription>
@@ -203,7 +203,7 @@ function Charts() {
         </Card>
       </div>
       <div className="grid w-full flex-1 gap-6 lg:max-w-[20rem]">
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-2">
+        <Card className="md:max-w-xs">
           <CardHeader>
             <CardTitle>Progress</CardTitle>
             <CardDescription>
@@ -315,7 +315,7 @@ function Charts() {
             </div>
           </CardContent>
         </Card>
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-3">
+        <Card className="md:max-w-xs">
           <CardHeader className="p-4 pb-0">
             <CardTitle>Walking Distance</CardTitle>
             <CardDescription>
@@ -397,7 +397,7 @@ function Charts() {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-4">
+        <Card className="md:max-w-xs">
           <CardContent className="flex gap-4 p-4 pb-2">
             <ChartContainer
               config={{
@@ -504,7 +504,7 @@ function Charts() {
         </Card>
       </div>
       <div className="grid w-full flex-1 gap-6">
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-5">
+        <Card className="md:max-w-xs">
           <CardContent className="flex gap-4 p-4">
             <div className="grid items-center gap-2">
               <div className="grid flex-1 auto-rows-min gap-0.5">
@@ -592,7 +592,7 @@ function Charts() {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-6">
+        <Card className="md:max-w-xs">
           <CardHeader className="p-4 pb-0">
             <CardTitle>Active Energy</CardTitle>
             <CardDescription>
@@ -673,7 +673,7 @@ function Charts() {
             </ChartContainer>
           </CardContent>
         </Card>
-        <Card className="md:max-w-xs" x-chunk="charts-01-chunk-7">
+        <Card className="md:max-w-xs">
           <CardHeader className="space-y-0 pb-0">
             <CardDescription>Time in Bed</CardDescription>
             <CardTitle className="flex items-baseline gap-1 text-4xl tabular-nums">
