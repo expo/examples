@@ -291,7 +291,7 @@ function ProductContents() {
                   alt="Product image"
                   className="aspect-square w-full rounded-md object-cover"
                   height="300"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="300"
                 />
                 <div className="grid grid-cols-3 gap-2">
@@ -300,7 +300,7 @@ function ProductContents() {
                       alt="Product image"
                       className="aspect-square w-full rounded-md object-cover"
                       height="84"
-                      src={require('@/public/placeholder.svg')}
+                      src={require('@/assets/placeholder.svg')}
                       width="84"
                     />
                   </button>
@@ -309,7 +309,7 @@ function ProductContents() {
                       alt="Product image"
                       className="aspect-square w-full rounded-md object-cover"
                       height="84"
-                      src={require('@/public/placeholder.svg')}
+                      src={require('@/assets/placeholder.svg')}
                       width="84"
                     />
                   </button>

@@ -141,7 +141,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -178,7 +178,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -215,7 +215,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -250,7 +250,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -287,7 +287,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -324,7 +324,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={require('@/public/placeholder.svg')}
+                  src={require('@/assets/placeholder.svg')}
                   width="64"
                 />
               </TableCell>

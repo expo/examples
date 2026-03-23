@@ -236,7 +236,7 @@ export function Header() {
             className="overflow-hidden rounded-full"
           >
             <img
-              src={require("@/public/evanbacon.avif")}
+              src={require("@/assets/evanbacon.avif")}
               width={36}
               height={36}
               alt="Avatar"
