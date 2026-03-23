@@ -1,4 +1,5 @@
 import { NativeTabs } from "expo-router/unstable-native-tabs";
+import { Platform } from "react-native";
 
 // import * as SplashScreen from "expo-splash-screen";
 // SplashScreen.preventAutoHideAsync();
@@ -11,9 +12,17 @@ export default function RootLayout() {
         default: "#999999",
         selected: "#000000",
       }}
-      backgroundColor="#FFFFFF"
-      indicatorColor="#E5E5E5"
-      rippleColor="#00000020"
+      {...Platform.select({
+        android: {
+          tintColor: "#000000",
+          labelStyle: {
+            color: "#999999",
+          },
+          backgroundColor: "#FFFFFF",
+          indicatorColor: "#E5E5E5",
+          rippleColor: "#00000020",
+        },
+      })}
     >
       <NativeTabs.Trigger name="(index)">
         <NativeTabs.Trigger.Icon

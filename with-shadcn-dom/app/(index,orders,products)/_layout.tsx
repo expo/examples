@@ -1,5 +1,6 @@
 import { Slot, Stack } from "expo-router";
 import { label } from "@bacons/apple-colors";
+import { Platform } from "react-native";
 
 export const unstable_settings = {
   anchor: "index",
@@ -17,6 +18,8 @@ const titles = {
   products: "Products",
 };
 
+const isIOS = Platform.OS === "ios";
+
 export default function RootLayout({ segment }: { segment: string }) {
   if (process.env.EXPO_OS === "web") {
     // Web doesn't need page stacking.
@@ -28,25 +31,32 @@ export default function RootLayout({ segment }: { segment: string }) {
   return (
     <Stack
       screenOptions={{
-        headerTransparent: true,
         headerShadowVisible: false,
-        headerLargeTitleShadowVisible: false,
-        headerLargeStyle: { backgroundColor: "transparent" },
-        headerTitleStyle: { color: label },
-        headerBlurEffect: "none",
         headerBackButtonDisplayMode: "minimal",
+        ...Platform.select({
+          ios: {
+              headerTransparent: true,
+              headerLargeTitleShadowVisible: false,
+              headerLargeStyle: { backgroundColor: "transparent" },
+              headerTitleStyle: { color: label },
+              headerBlurEffect: "none",
+            },
+            default: {
+              headerStyle: { backgroundColor: "#FFFFFF" },
+              statusBarTranslucent: true,
+              statusBarStyle: "auto",
+            }
+        }),
       }}
     >
       <Stack.Screen
         name={name}
         options={{
           title: titles[name],
-          headerLargeTitle: true,
-          headerSearchBarOptions: {},
-          ...(name !== "index"
+          ...(isIOS && name === "index"
             ? {
-                headerLargeTitle: undefined,
-                headerSearchBarOptions: undefined,
+                headerLargeTitle: true,
+                headerSearchBarOptions: {},
               }
             : {}),
         }}
