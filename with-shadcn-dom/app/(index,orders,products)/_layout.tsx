@@ -1,6 +1,6 @@
 import { Slot, Stack } from "expo-router";
 import { label } from "@bacons/apple-colors";
-import { Platform } from "react-native";
+import { Platform, StatusBar } from "react-native";
 
 export const unstable_settings = {
   anchor: "index",
@@ -29,6 +29,7 @@ export default function RootLayout({ segment }: { segment: string }) {
   const name = getRouteName(segment);
 
   return (
+    <>
     <Stack
       screenOptions={{
         headerShadowVisible: false,
@@ -70,6 +71,8 @@ export default function RootLayout({ segment }: { segment: string }) {
         }}
       />
     </Stack>
+    <StatusBar translucent={false} barStyle={"dark-content"}/>
+    </>
   );
 }
 

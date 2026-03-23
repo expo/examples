@@ -11,8 +11,7 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-    },   
-
+    },
     "android": {
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
