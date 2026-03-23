@@ -1,4 +1,3 @@
-import { Color, Icon, Label } from "expo-router";
 import { NativeTabs } from "expo-router/unstable-native-tabs";
 
 // import * as SplashScreen from "expo-splash-screen";
@@ -9,23 +8,33 @@ export default function RootLayout() {
     <NativeTabs
       minimizeBehavior="onScrollDown"
       iconColor={{
-        default: Color.android.material.onSurfaceVariant,
-        selected: Color.android.material.onSurface,
+        default: "#999999",
+        selected: "#000000",
       }}
-      indicatorColor={Color.android.material.secondaryContainer}
-      rippleColor={Color.android.material.onSurface}
+      backgroundColor="#FFFFFF"
+      indicatorColor="#E5E5E5"
+      rippleColor="#00000020"
     >
       <NativeTabs.Trigger name="(index)">
-        <Icon sf={{ default: "house", selected: "house.fill" }} md="home" />
-        <Label>Dashboard</Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: "house", selected: "house.fill" }}
+          md="home"
+        />
+        <NativeTabs.Trigger.Label>Dashboard</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="(orders)">
-        <Icon sf={{ default: "cart", selected: "cart.fill" }} md="shopping_cart" />
-        <Label>Orders</Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: "cart", selected: "cart.fill" }}
+          md="shopping_cart"
+        />
+        <NativeTabs.Trigger.Label>Orders</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="(products)" role="search">
-        <Icon sf={{ default: "shippingbox", selected: "shippingbox.fill" }} md="inventory_2" />
-        <Label>Products</Label>
+        <NativeTabs.Trigger.Icon
+          sf={{ default: "shippingbox", selected: "shippingbox.fill" }}
+          md="inventory_2"
+        />
+        <NativeTabs.Trigger.Label>Products</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );
