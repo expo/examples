@@ -4,9 +4,7 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "lint": "expo lint",
-    "predeploy:web": "expo export -p web",
-    "deploy:web": "eas deploy"
+    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
