@@ -34,7 +34,6 @@ import ShadLayout from "./shad-layout";
 import { IS_DOM } from "expo/dom";
 import { useGlobalButtonHaptics } from "../global-button-haptics";
 
-const baseUrl = IS_DOM ? process.env.EXPO_DOM_BASE_URL : "";
 
 export default function OrdersRoute({
   onButtonClick,
@@ -144,7 +143,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src="/placeholder.svg"
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -181,7 +180,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -218,7 +217,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -253,7 +252,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -290,7 +289,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>
@@ -327,7 +326,7 @@ function TabsContentAll() {
                   alt="Product image"
                   className="aspect-square rounded-md object-cover"
                   height="64"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="64"
                 />
               </TableCell>

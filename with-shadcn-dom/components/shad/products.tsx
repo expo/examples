@@ -33,10 +33,8 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import ShadLayout from "./shad-layout";
-import { IS_DOM } from "expo/dom";
 import { useGlobalButtonHaptics } from "../global-button-haptics";
 
-const baseUrl = IS_DOM ? process.env.EXPO_DOM_BASE_URL : "";
 
 export default function ProductsRoute({
   onButtonClick,
@@ -293,7 +291,7 @@ function ProductContents() {
                   alt="Product image"
                   className="aspect-square w-full rounded-md object-cover"
                   height="300"
-                  src={baseUrl + "/placeholder.svg"}
+                  src={require('@/public/placeholder.svg')}
                   width="300"
                 />
                 <div className="grid grid-cols-3 gap-2">
@@ -302,7 +300,7 @@ function ProductContents() {
                       alt="Product image"
                       className="aspect-square w-full rounded-md object-cover"
                       height="84"
-                      src={baseUrl + "/placeholder.svg"}
+                      src={require('@/public/placeholder.svg')}
                       width="84"
                     />
                   </button>
@@ -311,7 +309,7 @@ function ProductContents() {
                       alt="Product image"
                       className="aspect-square w-full rounded-md object-cover"
                       height="84"
-                      src={baseUrl + "/placeholder.svg"}
+                      src={require('@/public/placeholder.svg')}
                       width="84"
                     />
                   </button>
