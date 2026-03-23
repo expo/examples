@@ -1,0 +1,39 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "version": "1.0",
+    "copyright": "2024 Evan Bacon",
+    "release": {
+      "automaticRelease": true
+    },
+    "info": {
+      "en-US": {
+        "description": "domcom is a new way to experience content.",
+        "marketingUrl": "https://github.com/EvanBacon/expo-dom-components-canary-example",
+        "supportUrl": "https://github.com/EvanBacon/expo-dom-components-canary-example/issues",
+        "title": "domcom",
+        "subtitle": "Worlds collide",
+        "privacyPolicyUrl": "https://github.com/EvanBacon/expo-dom-components-canary-example/",
+        "privacyChoicesUrl": "https://github.com/EvanBacon/expo-dom-components-canary-example/"
+      }
+    },
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "unrestrictedWebAccess": false,
+      "kidsAgeBand": null,
+      "seventeenPlus": false
+    }
+  }
+}

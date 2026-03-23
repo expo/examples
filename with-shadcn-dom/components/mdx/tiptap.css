@@ -1,0 +1,57 @@
+/* Basic editor styles */
+.ProseMirror {
+  margin-top: 4px;
+  padding: 48px 8px 8px;
+
+  border: 2px solid #c7cdd4;
+  border-radius: 4px;
+}
+
+.editor-mini .ProseMirror {
+  padding-top: 8px;
+}
+
+.ProseMirror-focused {
+  border-color: #242e39;
+  outline: none;
+}
+
+.ProseMirror > * + * {
+  margin-top: 16px;
+}
+
+.tiptap-editor {
+  color: #242e39;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tiptap-editor a {
+  color: #ee415f;
+}
+
+.tiptap-editor p {
+  margin: 0;
+}
+
+.tiptap-editor p + p {
+  margin-top: 16px;
+}
+
+.tiptap-editor kbd,
+.tiptap-editor code {
+  padding: 4px;
+
+  border-radius: 4px;
+  background-color: #f7f9fb;
+  color: #3b424b;
+
+  box-decoration-break: clone;
+
+  font-size: 14px;
+}
