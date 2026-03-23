@@ -111,7 +111,7 @@ export default function OrdersRoute({
 
 function TabsContentAll() {
   return (
-    <Card x-chunk="dashboard-06-chunk-0">
+    <Card>
       <CardHeader>
         <CardTitle>Products</CardTitle>
         <CardDescription>

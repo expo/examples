@@ -17,17 +17,13 @@ function getSizeScale(button: HTMLButtonElement) {
   }
 }
 
-export function useGlobalButtonHaptics(haptics?: (size: number) => void) {
-  if (!IS_DOM) {
-    return null;
-  }
-
+export const useGlobalButtonHaptics = !IS_DOM ? () => null : (haptics?: (size: number) => void) => {
   useEffect(() => {
     if (!haptics) return;
 
     const listener = (event: TouchEvent) => {
       // Check if the clicked element is a button
-      if (event.target?.tagName === "BUTTON") {
+      if ((event.target as HTMLElement)?.tagName === "BUTTON") {
         haptics(getSizeScale(event.target as HTMLButtonElement));
       }
     };
