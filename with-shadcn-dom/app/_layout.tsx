@@ -15,18 +15,11 @@ export default function RootLayout() {
         <Icon sf={{ default: "cart", selected: "cart.fill" }} />
         <Label>Orders</Label>
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="(products)">
-        <Icon sf={{ default: "shippingbox", selected: "shippingbox.fill" }} />
+   
+      <NativeTabs.Trigger name="(products)" role="search">
+               <Icon sf={{ default: "shippingbox", selected: "shippingbox.fill" }} />
+
         <Label>Products</Label>
-      </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="(analytics)" role="search">
-        <Icon
-          sf={{
-            default: "chart.line.uptrend.xyaxis",
-            selected: "chart.line.uptrend.xyaxis",
-          }}
-        />
-        <Label>Analytics</Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );

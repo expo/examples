@@ -1,12 +1,13 @@
-import ShadAnalytics from "@/components/shad/analytics";
+import Products from "@/components/shad/products";
 import { ProfileButton } from "@/components/screen-header";
 import { Stack } from "expo-router";
 import * as Haptics from "expo-haptics";
 
-export default function AnalyticsRoute() {
+export default function ProductsRoute() {
   return (
     <>
-      <Stack.Screen.Title>Analytics</Stack.Screen.Title>
+      <Stack.Screen.Title>Products</Stack.Screen.Title>
+      <Stack.Screen.Title>Products</Stack.Screen.Title>
       <Stack.Toolbar placement="right">
         <Stack.Toolbar.Menu icon="calendar">
           <Stack.Toolbar.Menu inline title="Time Period">
@@ -34,7 +35,7 @@ export default function AnalyticsRoute() {
           <ProfileButton />
         </Stack.Toolbar.View>
       </Stack.Toolbar>
-      <ShadAnalytics
+      <Products
         onButtonClick={async (size: number) => {
           if (process.env.EXPO_OS !== "web") {
             Haptics.impactAsync(

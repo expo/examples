@@ -9,16 +9,12 @@ export const unstable_settings = {
   products: {
     anchor: "products",
   },
-  analytics: {
-    anchor: "analytics",
-  },
 };
 
 const titles = {
   index: "Dashboard",
   orders: "Orders",
   products: "Products",
-  analytics: "Analytics",
 };
 
 export default function RootLayout({ segment }: { segment: string }) {

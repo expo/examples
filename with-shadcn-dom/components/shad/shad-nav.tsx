@@ -130,12 +130,7 @@ export function SideNavigationBar() {
           icon={<Package className="h-5 w-5" />}
           selected={segment === "products"}
         />
-        <SideBarTab
-          href="/analytics"
-          title="Analytics"
-          icon={<LineChartIcon className="h-5 w-5" />}
-          selected={segment === "analytics"}
-        />
+       
       </nav>
       <nav className="mt-auto flex flex-col items-center gap-4 px-2 py-4">
         <Tooltip>
@@ -187,12 +182,6 @@ function DrawerSheet() {
             title="Orders"
             icon={<ShoppingCart className="h-5 w-5" />}
             selected={segment === "orders"}
-          />
-          <SheetTab
-            href="/analytics"
-            title="Analytics"
-            icon={<LineChartIcon className="h-5 w-5" />}
-            selected={segment === "analytics"}
           />
           <SheetTab
             href="/products"
