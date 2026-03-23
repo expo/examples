@@ -1,10 +1,10 @@
-// import { ScrollViewStyleReset } from "expo-router/html";
+import { type PropsWithChildren } from "react";
 
 // This file is web-only and used to configure the root HTML for every
 // web page during static rendering.
 // The contents of this function only run in Node.js environments and
 // do not have access to the DOM or browser APIs.
-export default function Root({ children }: { children: React.ReactNode }) {
+export default function Root({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <head>
@@ -15,8 +15,23 @@ export default function Root({ children }: { children: React.ReactNode }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        {/* Removing the React Native Web style reset to allow for full body scrolling */}
-        {/* <ScrollViewStyleReset /> */}
+        <style
+          id="expo-reset"
+          dangerouslySetInnerHTML={{
+            __html: `
+/* These styles make the body full-height */
+html,
+body {
+  min-height: 100%;
+}
+
+/* These styles make the root element full-height */
+#root {
+  display: flex;
+  flex: 1;
+}`,
+          }}
+        />
 
         {/* Add any additional <head> elements that you want globally available on web... */}
       </head>

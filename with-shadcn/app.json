@@ -1,10 +1,19 @@
 {
-  "scheme": "acme",
-  "userInterfaceStyle": "automatic",
-  "orientation": "default",
-  "web": {
-    "output": "server",
-    "favicon": "./assets/favicon.png"
-  },
-  "plugins": ["expo-router"]
+  "expo": {
+    "orientation": "default",
+    "scheme": "acme",
+    "userInterfaceStyle": "light",
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "server"
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
 }
