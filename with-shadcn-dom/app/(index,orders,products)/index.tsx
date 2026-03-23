@@ -10,25 +10,29 @@ import * as Haptics from "expo-haptics";
 export default function IndexRoute() {
   return (
     <>
-      <Stack.Screen.Title large>Dashboard</Stack.Screen.Title>
-      <Stack.SearchBar placeholder="Search" />
-      <Stack.Toolbar placement="right">
-        <Stack.Toolbar.Menu icon="bell" separateBackground>
-          <Stack.Toolbar.MenuAction icon="bell.badge">
-            New notifications
-          </Stack.Toolbar.MenuAction>
-          <Stack.Toolbar.MenuAction icon="checkmark.circle">
-            Mark all as read
-          </Stack.Toolbar.MenuAction>
-          <Stack.Toolbar.MenuAction icon="gear">
-            Notification settings
-          </Stack.Toolbar.MenuAction>
-        </Stack.Toolbar.Menu>
+      {process.env.EXPO_OS !== "web" && (
+        <>
+          <Stack.Screen.Title large>Dashboard</Stack.Screen.Title>
+          <Stack.SearchBar placeholder="Search" />
+          <Stack.Toolbar placement="right">
+            <Stack.Toolbar.Menu icon="bell" separateBackground>
+              <Stack.Toolbar.MenuAction icon="bell.badge">
+                New notifications
+              </Stack.Toolbar.MenuAction>
+              <Stack.Toolbar.MenuAction icon="checkmark.circle">
+                Mark all as read
+              </Stack.Toolbar.MenuAction>
+              <Stack.Toolbar.MenuAction icon="gear">
+                Notification settings
+              </Stack.Toolbar.MenuAction>
+            </Stack.Toolbar.Menu>
 
-        <Stack.Toolbar.View separateBackground>
-          <ProfileButton />
-        </Stack.Toolbar.View>
-      </Stack.Toolbar>
+            <Stack.Toolbar.View separateBackground>
+              <ProfileButton />
+            </Stack.Toolbar.View>
+          </Stack.Toolbar>
+        </>
+      )}
       <Dashboard
         notify={() => {
           alert("New Order (from a DOM component 🚀)");

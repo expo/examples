@@ -31,9 +31,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { File, ListFilter, MoreHorizontal, PlusCircle } from "lucide-react";
 
 import ShadLayout from "./shad-layout";
-import { IS_DOM } from "expo/dom";
 import { useGlobalButtonHaptics } from "../global-button-haptics";
-
 
 export default function OrdersRoute({
   onButtonClick,
