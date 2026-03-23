@@ -141,7 +141,7 @@ export function SideNavigationBar() {
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
-              href="/settings"
+              href="/alert"
               className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
             >
               <Settings className="h-5 w-5" />
@@ -201,10 +201,10 @@ function DrawerSheet() {
             selected={segment === "products"}
           />
           <SheetTab
-            href="/settings"
+            href="/alert"
             title="Settings"
             icon={<Settings className="h-5 w-5" />}
-            selected={segment === "settings"}
+            selected={segment === "alert"}
           />
         </nav>
       </SheetContent>

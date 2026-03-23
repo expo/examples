@@ -4,7 +4,7 @@ import { Pressable } from "react-native";
 
 export function ProfileButton() {
   return (
-    <Pressable onPress={() => router.push("./settings")}>
+    <Pressable onPress={() => router.push("./alert")}>
       <Image
         source={{
           uri: "https://github.com/evanbacon.png",

@@ -48,15 +48,6 @@ export default function RootLayout({ segment }: { segment: string }) {
           sheetGrabberVisible: true,
         }}
       />
-      <Stack.Screen
-        name="settings"
-        options={{
-          title: "Settings",
-          presentation: "formSheet",
-          sheetGrabberVisible: true,
-          contentStyle: { backgroundColor: "transparent" },
-        }}
-      />
     </Stack>
   );
 }
