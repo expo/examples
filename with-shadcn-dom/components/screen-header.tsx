@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { router, Stack, useRouter } from "expo-router";
+import { router } from "expo-router";
 import { Pressable } from "react-native";
 
 export function ProfileButton() {
