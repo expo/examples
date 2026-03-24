@@ -38,7 +38,7 @@ export default function RootLayout({ segment }: { segment: string }) {
               headerTransparent: true,
               headerLargeTitleShadowVisible: false,
               headerLargeStyle: { backgroundColor: "transparent" },
-              headerTitleStyle: { color: '#000000' },
+              headerTitleStyle: { color: "#000000" },
               headerBlurEffect: "none",
             },
             default: {
@@ -64,6 +64,7 @@ export default function RootLayout({ segment }: { segment: string }) {
         <Stack.Screen
           name="alert"
           options={{
+            contentStyle: { backgroundColor: "white" },
             presentation: "formSheet",
             sheetAllowedDetents: [0.25],
             sheetGrabberVisible: true,

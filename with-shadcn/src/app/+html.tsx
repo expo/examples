@@ -23,6 +23,7 @@ export default function Root({ children }: PropsWithChildren) {
 html,
 body {
   min-height: 100%;
+  background: var(--color-background);
 }
 
 /* These styles make the root element full-height */

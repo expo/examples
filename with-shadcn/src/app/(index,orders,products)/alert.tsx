@@ -19,7 +19,6 @@ export default function AlertRoute() {
             Notification settings
           </Stack.Toolbar.MenuAction>
         </Stack.Toolbar.Menu>
-        <Stack.Toolbar.Spacer />
       </Stack.Toolbar>
 
       <Text
