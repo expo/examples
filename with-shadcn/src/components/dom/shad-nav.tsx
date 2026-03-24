@@ -16,7 +16,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Tooltip,
   TooltipContent,
@@ -156,7 +161,12 @@ function DrawerSheet() {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="sm:max-w-xs">
+      <SheetContent
+        side="left"
+        className="sm:max-w-xs"
+        aria-describedby={undefined}
+      >
+        <SheetTitle className="sr-only">Navigation</SheetTitle>
         <nav className="grid gap-6 text-lg font-medium p-6">
           <Link
             href="/"
