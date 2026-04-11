@@ -18,7 +18,6 @@
       ]
     ],
     "android": {
-      "edgeToEdgeEnabled": true,
       "splash": {
         "image": "./assets/images/icon-1920x720.png"
       }
@@ -27,7 +26,6 @@
       "splash": {
         "image": "./assets/images/icon-1920x720.png"
       }
-    },
-    "newArchEnabled": true
+    }
   }
 }
