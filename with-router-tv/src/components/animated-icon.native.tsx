@@ -1,7 +1,7 @@
 import { useAnimatedIconStyles } from '../hooks/use-animated-styles';
 import { Image } from 'expo-image';
 import { useState } from 'react';
-import { Dimensions, View } from 'react-native';
+import { Dimensions, Platform, View } from 'react-native';
 import Animated, { Easing, Keyframe } from 'react-native-reanimated';
 import { scheduleOnRN } from 'react-native-worklets';
 
@@ -105,7 +105,11 @@ export function AnimatedIcon() {
       >
         <Image
           style={styles.image}
-          source={require('@/assets/images/expo-logo.png')}
+          source={
+            Platform.OS === 'web' || Platform.isTV
+              ? require('@/assets/images/expotv-logo.png')
+              : require('@/assets/images/expo-logo.png')
+          }
         />
       </Animated.View>
     </View>

@@ -22,7 +22,6 @@ import { ThemedView } from './themed-view';
 
 import { Colors, MaxContentWidth } from '@/constants/theme';
 import { useScreenDimensions } from '@/hooks/use-screen-dimensions';
-import { useTheme } from '@/hooks/use-theme';
 
 export default function AppTabs() {
   return (
@@ -54,17 +53,17 @@ export function TabButton({
   return (
     <Pressable
       {...props}
-      disabled={isFocused}
-      style={({ pressed, focused, hovered }) => [
-        styles.tabButtonView,
-        (focused || hovered) && !isFocused && styles.focused,
-        pressed && styles.pressed,
-      ]}
+      style={({ pressed, focused, hovered }) =>
+        (pressed || focused || hovered) && styles.pressed
+      }
     >
-      <ThemedView type="backgroundElement">
+      <ThemedView
+        type={isFocused ? 'backgroundSelected' : 'backgroundElement'}
+        style={styles.tabButtonView}
+      >
         <ThemedText
           type="small"
-          themeColor={isFocused ? 'tint' : 'textSecondary'}
+          themeColor={isFocused ? 'text' : 'textSecondary'}
         >
           {children}
         </ThemedText>
@@ -106,7 +105,6 @@ export function CustomTabList(props: TabListProps) {
 
 const useTabStyles = () => {
   const { spacing } = useScreenDimensions();
-  const theme = useTheme();
   return StyleSheet.create({
     tabListContainer: {
       position: 'absolute',
@@ -132,15 +130,10 @@ const useTabStyles = () => {
     pressed: {
       opacity: 0.7,
     },
-    focused: {
-      borderColor: theme.tint,
-    },
     tabButtonView: {
       paddingVertical: spacing.one,
       paddingHorizontal: spacing.three,
       borderRadius: spacing.three,
-      borderWidth: 1,
-      borderColor: theme.backgroundElement,
     },
     externalPressable: {
       flexDirection: 'row',

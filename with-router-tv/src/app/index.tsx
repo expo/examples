@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -17,7 +17,9 @@ export default function HomeScreen() {
           <AnimatedIcon />
           <ThemedView style={styles.titleContainer}>
             <ThemedText type="title" style={styles.title}>
-              Welcome to&nbsp;Expo
+              {`Welcome to Expo ${
+                Platform.isTV ? 'TV' : Platform.OS === 'web' ? 'web' : 'mobile'
+              }`}
             </ThemedText>
           </ThemedView>
         </ThemedView>
