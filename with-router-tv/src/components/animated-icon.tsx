@@ -82,7 +82,7 @@ export function AnimatedIcon() {
       >
         <Image
           style={styles.image}
-          source={require('@/assets/images/expo-logo.png')}
+          source={require('@/assets/images/expotv-logo.png')}
         />
       </Animated.View>
     </View>

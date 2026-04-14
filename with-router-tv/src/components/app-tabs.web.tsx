@@ -36,7 +36,7 @@ export default function AppTabs() {
             <TabButton>Explore</TabButton>
           </TabTrigger>
           <TabTrigger name="tv_focus" href="/tv_focus" asChild>
-            <TabButton>TV Demo</TabButton>
+            <TabButton>Events</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>

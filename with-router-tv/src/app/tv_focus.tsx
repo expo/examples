@@ -27,11 +27,11 @@ export default function FocusDemoScreen() {
     >
       <TVFocusGuideView autoFocus style={styles.innerContainer}>
         <ThemedView style={styles.titleContainer}>
-          <ThemedText type="subtitle">TV event handling demo</ThemedText>
+          <ThemedText type="subtitle">Event handling demo</ThemedText>
         </ThemedView>
         <ThemedText>
-          Demo of focus handling and TV remote event handling in{' '}
-          <ThemedText type="code">Pressable</ThemedText> and{' '}
+          Demo of events on different platforms (focus events on TV, hover
+          events on web) in <ThemedText type="code">Pressable</ThemedText> and{' '}
           <ThemedText type="code">Touchable</ThemedText> components.
         </ThemedText>
         <Collapsible title="How it works" style={{ width: '100%' }}>
