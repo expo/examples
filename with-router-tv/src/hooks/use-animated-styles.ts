@@ -3,6 +3,7 @@ import { Platform, StyleSheet } from 'react-native';
 
 export const useAnimatedIconStyles = () => {
   const { height } = useScreenDimensions();
+  const scale = height / 800;
   return StyleSheet.create({
     imageContainer: {
       justifyContent: 'center',
@@ -16,23 +17,20 @@ export const useAnimatedIconStyles = () => {
     iconContainer: {
       justifyContent: 'center',
       alignItems: 'center',
-      width:
-        Platform.OS === 'web' || Platform.isTV ? height * 0.25 : height * 0.15,
-      height: height * 0.15,
+      width: Platform.OS === 'web' || Platform.isTV ? 196 * scale : 128 * scale,
+      height: 128 * scale,
       zIndex: 100,
     },
     image: {
       position: 'absolute',
-      width:
-        Platform.OS === 'web' || Platform.isTV ? height * 0.15 : height * 0.1,
-      height: height * 0.1,
+      width: Platform.OS === 'web' || Platform.isTV ? 160 * scale : 76 * scale,
+      height: Platform.OS === 'web' || Platform.isTV ? 130 * scale : 71 * scale,
     },
     background: {
       borderRadius: height * 0.04,
       experimental_backgroundImage: `linear-gradient(180deg, #3C9FFE, #0274DF)`,
-      width:
-        Platform.OS === 'web' || Platform.isTV ? height * 0.25 : height * 0.15,
-      height: height * 0.15,
+      width: Platform.OS === 'web' || Platform.isTV ? 196 * scale : 128 * scale,
+      height: 128 * scale,
       position: 'absolute',
     },
     backgroundSolidColor: {
