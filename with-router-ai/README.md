@@ -1,6 +1,6 @@
 # Expo Router AI Chatbot
 
-Use [Expo Router](https://docs.expo.dev/router/introduction/) with [AI SDK](https://ai-sdk.dev/docs/getting-started/expo) and [Nativewind](https://www.nativewind.dev/v4/overview/) styling.
+Use [Expo Router](https://docs.expo.dev/router/introduction/) with [AI SDK](https://ai-sdk.dev/docs/getting-started/expo) and [Nativewind](https://www.nativewind.dev/docs) styling.
 
 ## Launch your own
 

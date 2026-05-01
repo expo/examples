@@ -24,4 +24,4 @@ This example shows you how to create an animated splash screen for your app. It 
 ## 📝 Notes
 
 - [Expo Assets guide](https://docs.expo.dev/versions/latest/guides/assets/)
-- [Expo Splash Screen guide](https://docs.expo.dev/versions/latest/guides/splash-screens/)
+- [Expo Splash Screen guide](https://docs.expo.dev/develop/user-interface/splash-screen-and-app-icon/)

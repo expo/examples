@@ -7,7 +7,7 @@ Use native context menus to quickly manipulate state and data in your UI.
 ## 📦 Features
 
 - [Expo Router](https://docs.expo.dev/router/introduction/) is used for file-based navigation.
-- [Nativewind](https://www.nativewind.dev/v4/overview/) styling is used for Tailwind/`className` support.
+- [Nativewind](https://www.nativewind.dev/docs) styling is used for Tailwind/`className` support.
 - Zeego is used on iOS and Android for menus.
 - A custom version of [shadcn/ui • Dropdown](https://ui.shadcn.com/docs/components/dropdown-menu) is used on web for styled menus.
 

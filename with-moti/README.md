@@ -55,5 +55,5 @@ You can generate native iOS and Android projects from your Expo config file (**a
 
 - [Expo Reanimated docs](https://docs.expo.dev/versions/latest/sdk/reanimated)
 - [Moti docs](https://moti.fyi/)
-- [Reanimated docs](https://docs.swmansion.com/react-native-reanimated/docs/2.0.0-alpha.8/)
+- [Reanimated docs](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started)
 - Keep up with the creator of Moti [Fernando Rojo](https://twitter.com/FernandoTheRojo) for updates.
