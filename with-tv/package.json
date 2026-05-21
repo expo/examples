@@ -12,25 +12,18 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
-    "expo": "^55.0.14",
-    "expo-splash-screen": "~55.0.17",
-    "expo-status-bar": "~55.0.5",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "react-native": "npm:react-native-tvos@0.83-stable",
+    "expo": "~56.0.3",
+    "expo-splash-screen": "~56.0.9",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "npm:react-native-tvos@0.85-stable",
     "react-native-web": "~0.21.0"
   },
   "devDependencies": {
     "@react-native-tvos/config-tv": "^0.1.6",
     "@types/react": "~19.2.2",
-    "typescript": "~5.9.2"
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "react-native"
-      ]
-    }
+    "typescript": "~6.0.3"
   },
   "private": true
 }
