@@ -1,8 +1,9 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-// import { setContext } from '@apollo/link-context';
+// import { ApolloProvider, ApolloLink } from '@apollo/client';
+
 
 // see: https://github.com/graphql/swapi-graphql
-const GRAPHQL_API_URL = 'https://swapi-graphql.netlify.app/.netlify/functions/index';
+const GRAPHQL_API_URL = 'https://swapi-gql-wrapper.vercel.app/api/graphql';
 
 /*
 uncomment the code below in case you are using a GraphQL API that requires some form of
@@ -11,12 +12,15 @@ you provide while making the request.
 
 
 const TOKEN = '';
-const asyncAuthLink = setContext(async () => {
-  return {
+
+const authLink = new ApolloLink((operation, forward) => {
+  operation.setContext(({ headers = {} }) => ({
     headers: {
-      Authorization: TOKEN,
+      ...headers,
+      Authorization: TOKEN ? `Bearer ${TOKEN}` : '',
     },
-  };
+  }));
+  return forward(operation);
 });
 
 */
@@ -28,5 +32,5 @@ const httpLink = new HttpLink({
 export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: httpLink,
-  // link: asyncAuthLink.concat(httpLink),
+  // link: authLink.concat(httpLink),
 });
