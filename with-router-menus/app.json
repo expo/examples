@@ -8,6 +8,9 @@
   "plugins": [
     "expo-router",
     "@bacons/apple-colors",
-    "expo-web-browser"
+    "expo-web-browser",
+    "expo-image",
+    "expo-splash-screen",
+    "expo-status-bar"
   ]
 }

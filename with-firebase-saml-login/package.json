@@ -4,12 +4,12 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
-    "expo": "^54.0.1",
-    "expo-linking": "~8.0.7",
-    "expo-web-browser": "~15.0.6",
+    "expo": "^56.0.4",
+    "expo-linking": "~56.0.11",
+    "expo-web-browser": "~56.0.5",
     "firebase": "^9.6.9",
-    "react": "19.1.0",
-    "react-native": "0.81.4"
+    "react": "19.2.3",
+    "react-native": "0.85.3"
   },
   "devDependencies": {
     "serve": "^13.0.2"

@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
-    "expo": "~54.0.22",
-    "expo-router": "~6.0.14",
-    "expo-status-bar": "~3.0.8",
-    "react": "~19.1.0",
-    "react-native": "0.81.5",
+    "expo": "^56.0.4",
+    "expo-router": "~56.2.6",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
     "tailwindcss": "~4.1.16",
     "uniwind": "~1.0.0"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
+    "@types/react": "~19.2.14",
+    "typescript": "~6.0.3"
   }
 }

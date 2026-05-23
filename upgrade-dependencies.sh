@@ -26,6 +26,11 @@ if [ "$1" == "--upgrade-expo" ]; then
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
 
+    if [ "$DIRNAME" == "with-tv" ] || [ "$DIRNAME" == "with-router-tv" ]; then
+      echo "$DIRNAME requires manual attention"
+      continue
+    fi
+
     if [ -z ${CI} ]; then
       echo "• Run $manager install";
       (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE")

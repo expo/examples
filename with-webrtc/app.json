@@ -1,7 +1,9 @@
 {
   "expo": {
     "plugins": [
-      "@config-plugins/react-native-webrtc"
+      "@config-plugins/react-native-webrtc",
+      "expo-splash-screen",
+      "expo-status-bar"
     ]
   }
 }

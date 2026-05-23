@@ -4,11 +4,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "expo": "^54.0.1",
-    "expo-linear-gradient": "~15.0.6",
-    "expo-status-bar": "~3.0.7",
-    "react": "19.1.0",
-    "react-native": "0.81.4",
+    "expo": "^56.0.4",
+    "expo-linear-gradient": "~56.0.4",
+    "expo-status-bar": "~56.0.4",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@storybook/testing-library": "^0.2.2",
     "expo-pwa": "^0.0.127",
     "prop-types": "^15.8.1",
-    "react-dom": "19.1.0",
+    "react-dom": "19.2.3",
     "storybook": "^7.4.6"
   },
   "private": true

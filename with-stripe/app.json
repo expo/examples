@@ -18,7 +18,9 @@
           "merchantIdentifier": "merchant.REPLACE_ME",
           "publishableKey": "pk_test_qblFNYngBkEdjEZ16jxxoWSM"
         }
-      ]
+      ],
+      "expo-splash-screen",
+      "expo-status-bar"
     ]
   }
 }

@@ -2,7 +2,8 @@
   "name": "with-graphql",
   "slug": "with-graphql",
   "plugins": [
-    "expo-router"
+    "expo-router",
+    "expo-status-bar"
   ],
   "web": {
     "output": "server"

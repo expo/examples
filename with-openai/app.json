@@ -11,7 +11,9 @@
         {
           "origin": "https://n"
         }
-      ]
+      ],
+      "expo-splash-screen",
+      "expo-status-bar"
     ]
   }
 }

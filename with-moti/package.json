@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "expo": "^54.0.1",
+    "expo": "^56.0.4",
     "moti": "~0.22.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.4",
-    "react-native-reanimated": "~4.1.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-reanimated": "4.3.1",
     "react-native-web": "^0.21.0"
   }
 }

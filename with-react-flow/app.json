@@ -13,7 +13,9 @@
         {
           "origin": ""
         }
-      ]
+      ],
+      "expo-splash-screen",
+      "expo-status-bar"
     ]
   }
 }

@@ -5,5 +5,11 @@
   "experiments": {
     "typedRoutes": true
   },
-  "plugins": ["expo-router", "expo-web-browser"]
+  "plugins": [
+    "expo-router",
+    "expo-web-browser",
+    "expo-image",
+    "expo-splash-screen",
+    "expo-status-bar"
+  ]
 }

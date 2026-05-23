@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "expo": "^54.0.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.4",
-    "react-native-svg": "15.12.1",
+    "expo": "^56.0.4",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-svg": "15.15.4",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {
-    "@expo/metro-runtime": "~6.1.1"
+    "@expo/metro-runtime": "~56.0.12"
   }
 }
