@@ -6,6 +6,7 @@
     "backgroundColor": "#ffffff"
   },
   "plugins": [
-    "expo-asset"
+    "expo-asset",
+    "expo-splash-screen"
   ]
 }

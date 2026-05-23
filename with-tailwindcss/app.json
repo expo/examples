@@ -6,6 +6,11 @@
     "web": {
       "output": "static"
     },
-    "plugins": ["expo-router"]
+    "plugins": [
+      "expo-router",
+      "expo-image",
+      "expo-splash-screen",
+      "expo-status-bar"
+    ]
   }
 }

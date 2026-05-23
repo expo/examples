@@ -4,12 +4,12 @@
     "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^3.10.0",
     "@tensorflow/tfjs-react-native": "^0.7.0",
-    "expo": "^54.0.1",
-    "expo-camera": "~17.0.7",
-    "expo-gl": "~16.0.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.4",
+    "expo": "^56.0.4",
+    "expo-camera": "~56.0.7",
+    "expo-gl": "~56.0.5",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
     "react-native-fs": "^2.16.6",
     "react-native-web": "^0.21.0"
   }

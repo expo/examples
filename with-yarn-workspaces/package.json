@@ -6,5 +6,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "expo": "^56.0.4"
+  }
 }

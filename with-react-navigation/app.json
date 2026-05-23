@@ -28,7 +28,11 @@
           "backgroundColor": "#ffffff",
           "image": "src/assets/images/splash-icon.png"
         }
-      ]
+      ],
+      "expo-font",
+      "expo-image",
+      "expo-status-bar",
+      "expo-web-browser"
     ]
   }
 }

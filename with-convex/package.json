@@ -16,26 +16,26 @@
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
     "convex": "^1.30.0",
-    "expo": "~54.0.25",
-    "expo-constants": "~18.0.10",
-    "expo-linking": "~8.0.9",
-    "expo-router": "~6.0.15",
-    "expo-system-ui": "~6.0.8",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.5",
-    "react-native-gesture-handler": "~2.28.0",
-    "react-native-reanimated": "~4.1.1",
-    "react-native-safe-area-context": "~5.6.0",
-    "react-native-screens": "~4.16.0",
+    "expo": "^56.0.4",
+    "expo-constants": "~56.0.15",
+    "expo-linking": "~56.0.11",
+    "expo-router": "~56.2.6",
+    "expo-system-ui": "~56.0.5",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-gesture-handler": "~2.31.1",
+    "react-native-reanimated": "4.3.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "4.25.2",
     "react-native-web": "~0.21.0",
-    "react-native-worklets": "0.5.1"
+    "react-native-worklets": "0.8.3"
   },
   "devDependencies": {
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2",
+    "@types/react": "~19.2.14",
     "eslint": "^9.25.0",
-    "eslint-config-expo": "~10.0.0"
+    "eslint-config-expo": "~56.0.4",
+    "typescript": "~6.0.3"
   },
   "private": true
 }

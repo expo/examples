@@ -11,6 +11,8 @@
         "project": "YOUR_PROJECT_NAME",
         "organization": "YOUR_ORGANIZATION_NAME"
       }
-    ]
+    ],
+    "@sentry/react-native",
+    "expo-router"
   ]
 }

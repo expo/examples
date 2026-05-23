@@ -14,7 +14,10 @@
         {
           "unstable_useServerMiddleware": true
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-splash-screen",
+      "expo-status-bar"
     ]
   }
 }

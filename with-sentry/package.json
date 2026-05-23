@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "@sentry/react-native": "~7.6.0",
-    "expo": "~54.0.24",
-    "expo-router": "~6.0.13",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-native": "0.81.5",
+    "@sentry/react-native": "~7.11.0",
+    "expo": "^56.0.4",
+    "expo-router": "~56.2.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.85.3",
     "react-native-web": "^0.21.0"
   }
 }
