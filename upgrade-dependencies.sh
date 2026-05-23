@@ -26,6 +26,11 @@ if [ "$1" == "--upgrade-expo" ]; then
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
 
+    if [ "$DIRNAME" == "with-tv" ] || [ "$DIRNAME" == "with-router-tv" ]; then
+      echo "$DIRNAME requires manual attention"
+      continue
+    fi
+
     if [ -z ${CI} ]; then
       echo "• Run $manager install";
       (cd $DIRNAME && $manager install --ignore-scripts &> ../.sdk-upgrade-logs/$DIRNAME-install.txt || echo "FAILURE")
@@ -35,8 +40,8 @@ if [ "$1" == "--upgrade-expo" ]; then
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then
-        echo -e "\033[0;31mFAILURE\033[0m";
-        continue;
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
       fi
     fi
 
@@ -49,8 +54,8 @@ if [ "$1" == "--upgrade-expo" ]; then
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then
-        echo -e "\033[0;31mFAILURE\033[0m";
-        continue;
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
       fi
     fi
   done
@@ -68,8 +73,8 @@ if [ "$1" == "--upgrade-expo" ]; then
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then
-        echo -e "\033[0;31mFAILURE\033[0m";
-        continue;
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
       fi
     fi
 
@@ -82,8 +87,8 @@ if [ "$1" == "--upgrade-expo" ]; then
       exitCode=$?
       echo "::endgroup::"
       if [ $exitCode -ne 0 ]; then
-        echo -e "\033[0;31mFAILURE\033[0m";
-        continue;
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
       fi
     fi
   done
