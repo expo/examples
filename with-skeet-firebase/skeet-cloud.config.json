@@ -1,0 +1,40 @@
+{
+  "app": {
+    "name": "skeet-app",
+    "projectId": "skeet-app",
+    "region": "europe-west6",
+    "appDomain": "",
+    "functionsDomain": "",
+    "secretKeys": []
+  },
+  "cloudArmor": [
+    {
+      "securityPolicyName": "skeet-skeet-app-armor",
+      "rules": [
+        {
+          "priority": "10",
+          "description": "Allow Your Home IP addresses",
+          "options": {
+            "src-ip-ranges": "x.x.x.x",
+            "action": "allow"
+          }
+        },
+        {
+          "priority": "300",
+          "description": "Defense from NodeJS attack",
+          "options": {
+            "action": "deny-403",
+            "expression": "evaluatePreconfiguredExpr('nodejs-v33-stable')"
+          }
+        },
+        {
+          "priority": "2147483647",
+          "description": "Deny All IP addresses",
+          "options": {
+            "action": "deny-403"
+          }
+        }
+      ]
+    }
+  ]
+}
