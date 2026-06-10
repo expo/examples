@@ -39,7 +39,10 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && $manager install --ignore-scripts)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
+      if [ $exitCode -ne 0 ]; then
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
+      fi
     fi
 
     if [ -z ${CI} ]; then
@@ -50,7 +53,10 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && $manager add expo@$expoVersion && $manager expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
+      if [ $exitCode -ne 0 ]; then
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
+      fi
     fi
   done
 
@@ -66,7 +72,10 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && yarn install)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
+      if [ $exitCode -ne 0 ]; then
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
+      fi
     fi
 
     if [ -z ${CI} ]; then
@@ -77,7 +86,10 @@ if [ "$1" == "--upgrade-expo" ]; then
       (cd $DIRNAME && yarn add expo@$expoVersion && yarn expo install --fix)
       exitCode=$?
       echo "::endgroup::"
-      if [ $exitCode -ne 0 ]; then echo -e "\033[0;31mFAILURE\033[0m"; fi
+      if [ $exitCode -ne 0 ]; then
+        echo -e "\033[0;31mFAILURE\033[0m"
+        continue
+      fi
     fi
   done
 
