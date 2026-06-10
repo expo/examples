@@ -19,7 +19,7 @@
 - Follow the steps [described in the Facebook for Developers documentation](https://developers.facebook.com/docs/apps/register).
 - Add the "Facebook Login" product and configure it ([screenshot](https://i.imgur.com/i1UAkIh.png)).
 - Under **Client OAuth settings**, enable **Embedded Browser OAuth Login**.
-- Under **Valid OAuth Redirect URIs**, add `https://auth.expo.io/@your-username/your-app-slug`. Replace `your-username` with your Expo account's username and `your-project-slug` with your project's slug. You can find the project's slug in the Expo config file on the [`slug`](/versions/latest/config/app/#slug) field. Click **Save changes**.
+- Under **Valid OAuth Redirect URIs**, add `https://auth.expo.io/@your-username/your-app-slug`. Replace `your-username` with your Expo account's username and `your-project-slug` with your project's slug. You can find the project's slug in the Expo config file on the [`slug`](https://docs.expo.dev/versions/latest/config/app/#slug) field. Click **Save changes**.
 - Make the app public ([screenshot](https://i.imgur.com/7m7iqcg.png))
 - Swap out the `FB_APP_ID` in `App.js` with your Facebook app's ID.
 

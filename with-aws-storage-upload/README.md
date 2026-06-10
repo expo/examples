@@ -4,8 +4,6 @@ This example demonstrates how to use the AWS Amplify to provision and use the AP
 
 > Check out the [AWS Amplify](https://docs.amplify.aws/) docs.
 
-Try it at https://exp.host/@ykbryan/aws-storage-upload
-
 ## Launch your own
 
 [![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-aws-storage-upload)
