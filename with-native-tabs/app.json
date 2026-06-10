@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "with-native-tabs",
+    "slug": "with-native-tabs",
+    "orientation": "default",
+    "scheme": "withnativetabs",
+    "userInterfaceStyle": "automatic",
+    "plugins": ["expo-router"]
+  }
+}
