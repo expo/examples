@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "plugins": [
+      [
+        "expo-widgets",
+        {
+          "widgets": [
+            {
+              "name": "MyWidget",
+              "contentMarginsDisabled": true,
+              "displayName": "My Widget",
+              "description": "A sample home screen widget",
+              "supportedFamilies": [
+                "systemSmall",
+                "systemMedium"
+              ]
+            }
+          ]
+        }
+      ],
+      "expo-asset"
+    ]
+  }
+}
