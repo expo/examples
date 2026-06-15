@@ -21,10 +21,14 @@ type MyWidgetProps = {
 
 const MyWidget = (props: MyWidgetProps, environment: WidgetEnvironment) => {
   'widget';
+  // Only show the full-color background in fullColor mode (or if undefined).
+  const isFullColor =
+    environment.widgetRenderingMode == null || environment.widgetRenderingMode === 'fullColor';
   return (
     <ZStack
       alignment="leading"
       modifiers={[containerBackground('#000000', 'widget'), clipShape('containerRelativeShape')]}>
+
 
       <ZStack
         alignment="bottomTrailing"
@@ -33,17 +37,19 @@ const MyWidget = (props: MyWidgetProps, environment: WidgetEnvironment) => {
           clipShape('containerRelativeShape'),
           zIndex(0),
         ]}>
-        <Rectangle
-          modifiers={[
-            foregroundStyle({
-              type: 'linearGradient',
-              colors: ['#58BEF6', '#366DF2'],
-              startPoint: { x: 0.5, y: 0 },
-              endPoint: { x: 0.5, y: 1 },
-            }),
-            frame({ maxWidth: Infinity, maxHeight: Infinity }),
-          ]}
-        />
+        {isFullColor && (
+          <Rectangle
+            modifiers={[
+              foregroundStyle({
+                type: 'linearGradient',
+                colors: ['#58BEF6', '#366DF2'],
+                startPoint: { x: 0.5, y: 0 },
+                endPoint: { x: 0.5, y: 1 },
+              }),
+              frame({ maxWidth: Infinity, maxHeight: Infinity }),
+            ]}
+          />
+        )}
 
         {props.gridUri && (
           <Image
