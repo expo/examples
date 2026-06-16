@@ -13,13 +13,13 @@ import {
 } from '@expo/ui/swift-ui/modifiers';
 import { createWidget, type WidgetEnvironment } from 'expo-widgets';
 
-type MyWidgetProps = {
+type CounterWidgetProps = {
   count: number;
   logoUri?: string;
   gridUri?: string;
 };
 
-const MyWidget = (props: MyWidgetProps, environment: WidgetEnvironment) => {
+const CounterWidget = (props: CounterWidgetProps, environment: WidgetEnvironment) => {
   'widget';
   // Only show the full-color background in fullColor mode (or if undefined).
   const isFullColor =
@@ -99,4 +99,4 @@ const MyWidget = (props: MyWidgetProps, environment: WidgetEnvironment) => {
   );
 };
 
-export default createWidget('MyWidget', MyWidget);
+export default createWidget('CounterWidget', CounterWidget);

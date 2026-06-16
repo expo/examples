@@ -6,10 +6,10 @@
         {
           "widgets": [
             {
-              "name": "MyWidget",
+              "name": "CounterWidget",
               "contentMarginsDisabled": true,
-              "displayName": "My Widget",
-              "description": "A sample home screen widget",
+              "displayName": "Counter Widget",
+              "description": "A sample counter home screen widget",
               "supportedFamilies": [
                 "systemSmall",
                 "systemMedium"
