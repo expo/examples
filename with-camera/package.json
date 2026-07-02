@@ -6,12 +6,12 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^56.0.4",
-    "expo-camera": "~56.0.7",
-    "expo-image": "~56.0.9",
+    "expo": "^57.0.1",
+    "expo-camera": "~57.0.0",
+    "expo-image": "~57.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-native": "0.85.3",
+    "react-native": "0.86.0",
     "react-native-web": "^0.21.0"
   },
   "devDependencies": {

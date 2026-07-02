@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "expo": "^56.0.4",
-    "expo-constants": "~56.0.15",
-    "expo-image-picker": "~56.0.13",
+    "expo": "^57.0.1",
+    "expo-constants": "~57.0.2",
+    "expo-image-picker": "~57.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-native": "0.85.3",
+    "react-native": "0.86.0",
     "react-native-web": "^0.21.0"
   }
 }

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
-    "expo": "^56.0.4",
-    "expo-router": "~56.2.6",
-    "expo-status-bar": "~56.0.4",
+    "expo": "^57.0.1",
+    "expo-router": "~57.0.2",
+    "expo-status-bar": "~57.0.0",
     "react": "19.2.3",
-    "react-native": "0.85.3",
+    "react-native": "0.86.0",
     "tailwindcss": "~4.1.16",
     "uniwind": "~1.0.0"
   },

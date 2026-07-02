@@ -6,9 +6,9 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "^56.0.4",
+    "expo": "^57.0.1",
     "react": "19.2.3",
-    "react-native": "0.85.3"
+    "react-native": "0.86.0"
   },
   "devDependencies": {
     "@octokit/rest": "^21.1.1",

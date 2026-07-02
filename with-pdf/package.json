@@ -5,13 +5,13 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "expo": "^56.0.4",
-    "expo-dev-client": "~56.0.15",
-    "expo-splash-screen": "~56.0.10",
-    "expo-status-bar": "~56.0.4",
+    "expo": "^57.0.1",
+    "expo-dev-client": "~57.0.4",
+    "expo-splash-screen": "~57.0.1",
+    "expo-status-bar": "~57.0.0",
     "fbjs": "^3.0.2",
     "react": "19.2.3",
-    "react-native": "0.85.3",
+    "react-native": "0.86.0",
     "react-native-blob-util": "^0.13.18",
     "react-native-pdf": "^6.6.2"
   },
