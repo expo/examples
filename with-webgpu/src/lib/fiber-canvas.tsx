@@ -1,18 +1,21 @@
 // https://github.com/wcandillon/react-native-webgpu/blob/578ad989b4326724702b14245d5c82622849ee23/apps/example/src/ThreeJS/components/FiberCanvas.tsx#L1
-import * as THREE from "three/webgpu";
-import React, { useEffect, useRef } from "react";
 import type { ReconcilerRoot, RootState } from "@react-three/fiber";
 import {
-  extend,
   createRoot,
-  unmountComponentAtNode,
   events,
+  extend,
+  unmountComponentAtNode,
 } from "@react-three/fiber";
+import React, { useEffect, useRef } from "react";
 import type { ViewProps } from "react-native";
 import { PixelRatio } from "react-native";
-import { Canvas, type CanvasRef } from "react-native-wgpu";
+import { Canvas, type CanvasRef } from "react-native-webgpu";
+import * as THREE from "three/webgpu";
 
-import { makeWebGPURenderer, ReactNativeCanvas } from "@/lib/make-webgpu-renderer";
+import {
+  makeWebGPURenderer,
+  ReactNativeCanvas,
+} from "@/lib/make-webgpu-renderer";
 
 interface FiberCanvasProps {
   children: React.ReactNode;

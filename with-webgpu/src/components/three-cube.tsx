@@ -1,10 +1,10 @@
 // https://github.com/wcandillon/react-native-webgpu/blob/578ad989b4326724702b14245d5c82622849ee23/apps/example/src/Cube/Cube.tsx#L1
 
-import * as THREE from "three/webgpu";
-import type { CanvasRef } from "react-native-wgpu";
-import { Canvas } from "react-native-wgpu";
-import { View } from "react-native";
 import { useEffect, useRef } from "react";
+import { View } from "react-native";
+import type { CanvasRef } from "react-native-webgpu";
+import { Canvas } from "react-native-webgpu";
+import * as THREE from "three/webgpu";
 
 import { makeWebGPURenderer } from "@/lib/make-webgpu-renderer";
 
