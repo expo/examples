@@ -26,7 +26,7 @@ if [ "$1" == "--upgrade-expo" ]; then
     DIRNAME=${d%/}
     echo "Upgrading $DIRNAME..."
 
-    if [ "$DIRNAME" == "with-tv" ] || [ "$DIRNAME" == "with-router-tv" ]; then
+    if [ "$DIRNAME" == "with-tv" ] || [ "$DIRNAME" == "with-router-tv" ] || [ "$DIRNAME" == "stickersmash" ]; then
       echo "$DIRNAME requires manual attention"
       continue
     fi
