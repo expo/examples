@@ -1,17 +1,17 @@
 {
   "dependencies": {
-    "@react-three/fiber": "^8.3.1",
+    "@react-three/fiber": "^9.6.1",
     "expo": "^56.0.4",
     "expo-asset": "~56.0.14",
     "expo-file-system": "~56.0.7",
     "expo-gl": "~56.0.5",
     "expo-modules-core": "~56.0.12",
-    "expo-three": "^6.2.0",
+    "expo-three": "^8.0.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.85.3",
     "react-native-web": "^0.21.0",
-    "three": "^0.145.0"
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@expo/metro-runtime": "~56.0.12"
