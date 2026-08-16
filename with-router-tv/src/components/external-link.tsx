@@ -48,5 +48,9 @@ function ExternalLinkTV({ href, ...rest }: Props) {
 }
 
 export function ExternalLink(props: Props) {
-  return Platform.isTV ? ExternalLinkTV(props) : ExternalLinkMobile(props);
+  return Platform.isTV ? (
+    <ExternalLinkTV {...props} />
+  ) : (
+    <ExternalLinkMobile {...props} />
+  );
 }

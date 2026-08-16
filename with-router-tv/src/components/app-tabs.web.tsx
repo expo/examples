@@ -8,20 +8,15 @@ import {
 } from 'expo-router/ui';
 import { SymbolView } from 'expo-symbols';
 import React from 'react';
-import {
-  Platform,
-  Pressable,
-  StyleSheet,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { Platform, Pressable, StyleSheet, View } from 'react-native';
 
 import { ExternalLink } from './external-link';
 import { ThemedText } from './themed-text';
 import { ThemedView } from './themed-view';
 
-import { Colors, MaxContentWidth } from '@/constants/theme';
+import { MaxContentWidth } from '@/constants/theme';
 import { useScreenDimensions } from '@/hooks/use-screen-dimensions';
+import { useTheme } from '@/hooks/use-theme';
 
 export default function AppTabs() {
   return (
@@ -73,8 +68,7 @@ export function TabButton({
 }
 
 export function CustomTabList(props: TabListProps) {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
+  const theme = useTheme();
   const styles = useTabStyles();
 
   return (
@@ -91,7 +85,7 @@ export function CustomTabList(props: TabListProps) {
             <Pressable style={styles.externalPressable}>
               <ThemedText type="link">Doc</ThemedText>
               <SymbolView
-                tintColor={colors.text}
+                tintColor={theme.text}
                 name={{ ios: 'arrow.up.right.square', web: 'link' }}
                 size={12}
               />

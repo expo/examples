@@ -1,10 +1,15 @@
-import { ThemedView } from '@/components/themed-view';
 import {
-  TVFocusGuideView as NativeTVFocusGuideView,
   Platform,
+  TVFocusGuideView as NativeTVFocusGuideView,
+  type FocusGuideProps,
 } from 'react-native';
 
-export const TVFocusGuideView = (props: any) => {
+import { ThemedView } from '@/components/themed-view';
+
+/**
+ * `TVFocusGuideView` does not exist in react-native-web, so web falls back to a plain view.
+ */
+export const TVFocusGuideView = (props: FocusGuideProps) => {
   if (Platform.OS === 'web') {
     return <ThemedView {...props} />;
   }

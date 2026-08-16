@@ -6,11 +6,9 @@ import { EventHandlingDemo } from '@/components/tv-event-demo';
 import { TVFocusGuideView } from '@/components/tv-focus-guide';
 import { Collapsible } from '@/components/ui/collapsible';
 import { useScreenDimensions } from '@/hooks/use-screen-dimensions';
-import { useTheme } from '@/hooks/use-theme';
 
 export default function FocusDemoScreen() {
   const styles = useFocusDemoScreenStyles();
-  const theme = useTheme();
   const { spacing } = useScreenDimensions();
   const contentPlatformStyle = {
     paddingTop: spacing.six + spacing.four,
@@ -18,13 +16,7 @@ export default function FocusDemoScreen() {
   };
 
   return (
-    <ThemedView
-      style={[
-        styles.contentContainer,
-        contentPlatformStyle,
-        { backgroundColor: theme.background },
-      ]}
-    >
+    <ThemedView style={[styles.contentContainer, contentPlatformStyle]}>
       <TVFocusGuideView autoFocus style={styles.innerContainer}>
         <ThemedView style={styles.titleContainer}>
           <ThemedText type="subtitle">Event handling demo</ThemedText>
@@ -72,15 +64,12 @@ export default function FocusDemoScreen() {
 
 const useFocusDemoScreenStyles = function () {
   const { width, spacing } = useScreenDimensions();
-  const theme = useTheme();
   return StyleSheet.create({
     contentContainer: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: theme.background,
       paddingHorizontal: spacing.four,
-      paddingTop: spacing.three,
       width,
     },
     innerContainer: {
@@ -96,6 +85,5 @@ const useFocusDemoScreenStyles = function () {
       justifyContent: 'center',
       marginBottom: spacing.three,
     },
-    sectionsWrapper: {},
   });
 };

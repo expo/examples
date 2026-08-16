@@ -172,8 +172,8 @@ const TouchableHighlightButton = (props: {
     <TouchableHighlight
       style={styles.touchableHighlight}
       underlayColor={underlayColor}
-      onFocus={(event) => props.log(`${props.title} onFocus`)}
-      onBlur={(event) => props.log(`${props.title} onBlur`)}
+      onFocus={() => props.log(`${props.title} onFocus`)}
+      onBlur={() => props.log(`${props.title} onBlur`)}
       onPressIn={() => props.log(`${props.title} onPressIn`)}
       onPressOut={() => props.log(`${props.title} onPressOut`)}
       onLongPress={() => props.log(`${props.title} onLongPress`)}
@@ -211,8 +211,6 @@ const TouchableNativeFeedbackButton = (props: {
 
 const useDemoStyles = function () {
   const { height, width, spacing } = useScreenDimensions();
-  const theme = useTheme();
-  const backgroundColor = theme.background;
   return StyleSheet.create({
     container: {
       flex: 1,
