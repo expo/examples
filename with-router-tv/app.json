@@ -47,7 +47,11 @@
           }
         }
       ],
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-build-properties",
+      "expo-font",
+      "expo-image",
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true,
