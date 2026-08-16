@@ -12,12 +12,12 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
-    "expo": "~56.0.3",
-    "expo-splash-screen": "~56.0.9",
-    "expo-status-bar": "~56.0.4",
+    "expo": "~57.0.13",
+    "expo-splash-screen": "~57.0.6",
+    "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-native": "npm:react-native-tvos@0.85-stable",
+    "react-native": "npm:react-native-tvos@0.86-stable",
     "react-native-web": "~0.21.0"
   },
   "devDependencies": {
