@@ -30,7 +30,10 @@ export default function ThreeCube() {
 
       renderer = makeWebGPURenderer(context);
       await renderer.init();
-      if (cancelled) return;
+      if (cancelled) {
+        renderer.dispose();
+        return;
+      }
 
       renderer.setAnimationLoop((time) => {
         mesh.rotation.x = time / 2_000;

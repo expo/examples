@@ -30,6 +30,10 @@ export default function WebGPUTriangle() {
       const adapter = await navigator.gpu.requestAdapter();
       if (!adapter || cancelled) return;
       device = await adapter.requestDevice();
+      if (cancelled) {
+        device.destroy();
+        return;
+      }
 
       const context = ref.current?.getContext("webgpu");
       if (!context || cancelled) return;
