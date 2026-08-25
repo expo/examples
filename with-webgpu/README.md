@@ -1,6 +1,6 @@
 # Expo with React Three Fiber and WebGPU
 
-Use [Expo Router](https://docs.expo.dev/router/introduction/), [React Three Fiber](https://r3f.docs.pmnd.rs/), and [react-native-wgpu](https://github.com/wcandillon/react-native-webgpu) to render a Three.js WebGPU scene on iOS, Android, and web.
+Use [Expo Router](https://docs.expo.dev/router/introduction/), [React Three Fiber](https://r3f.docs.pmnd.rs/), and [react-native-webgpu](https://github.com/wcandillon/react-native-webgpu) to render a Three.js WebGPU scene on iOS, Android, and web.
 
 ## Launch your own
 

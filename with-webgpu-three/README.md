@@ -6,7 +6,7 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-Use Three.js's `three/webgpu` entry point with [react-native-wgpu](https://github.com/wcandillon/react-native-webgpu) on iOS, Android, and web. This template uses Expo's default Metro configuration.
+Use Three.js's `three/webgpu` entry point with [react-native-webgpu](https://github.com/wcandillon/react-native-webgpu) on iOS, Android, and web. This template uses Expo's default Metro configuration.
 
 ## Launch your own
 

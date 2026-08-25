@@ -38,7 +38,7 @@ class ReactNativeCanvas {
 export const makeWebGPURenderer = (context: GPUCanvasContext) =>
   new THREE.WebGPURenderer({
     antialias: true,
-    // Three.js expects a DOM canvas; react-native-wgpu exposes the same size surface.
+    // Three.js expects a DOM canvas; react-native-webgpu exposes the same size surface.
     canvas: new ReactNativeCanvas(
       context.canvas as unknown as NativeCanvas,
     ) as unknown as HTMLCanvasElement,
