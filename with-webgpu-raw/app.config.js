@@ -1,5 +1,5 @@
 module.exports = {
   expo: {
-    plugins: ["expo-router"],
+    plugins: ["expo-router", "react-native-webgpu"],
   },
 };
