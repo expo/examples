@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "single"
+    },
+    "plugins": ["expo-router"]
+  }
+}
