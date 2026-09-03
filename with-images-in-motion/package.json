@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "expo": "^57.0.1",
+    "images-in-motion": "~1.0.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.0",
+    "react-native-web": "^0.21.0",
+    "react-native-webview": "~13.16.1"
+  }
+}
