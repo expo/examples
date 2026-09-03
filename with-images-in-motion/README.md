@@ -9,35 +9,21 @@
   <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
 </p>
 
-Open-source JS library for displaying independent columns, opposite directions: a continuous animated image pattern for the web. This example hosts that CSS renderer in a native WebView on iOS and Android, and in an iframe on web.
+This example runs [images-in-motion](https://iim.smartsquad.io/) in Expo: independent columns, opposite directions.
+
+![Open-source JS library for displaying independent columns, opposite directions: a continuous animated image pattern for the web.](./.gh-assets/og.jpg)
 
 ## Launch your own
 
-[![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-images-in-motion)
+[![Launch with Expo](./.gh-assets/launch.svg)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-images-in-motion)
 
 ## 🚀 How to use
 
-- Install packages with `yarn` or `npm install`.
-- Run `npx expo start` to start the bundler.
-- Open the project in a React runtime to try it:
-  - iOS: [Expo Go](https://itunes.apple.com/app/apple-store/id982107779)
-  - Android: [Expo Go](https://play.google.com/store/apps/details?id=host.exp.exponent)
-  - Web: Any web browser (`npx expo start --web`)
-
-`react-native-webview` does not run on web. `App.js` is the native WebView. `App.web.js` is the same HTML in an iframe.
-
-### 📁 File Structure
-
-```
-with-images-in-motion
-├── App.js ➡️ Native WebView host
-├── App.web.js ➡️ iframe host for Expo web
-├── package.json
-└── README.md
-```
+- Install with `yarn` or `npm install`.
+- Run `npx expo start`.
+- Open the project in [Expo Go](https://expo.dev/go), or press `w` for web.
 
 ## 📝 Notes
 
 - [images-in-motion](https://iim.smartsquad.io/)
-- [Expo WebView](https://docs.expo.dev/versions/latest/sdk/webview/)
-- [images-in-motion Expo guide](https://iim.smartsquad.io/frameworks/expo.html)
+- [Expo Go](https://docs.expo.dev/get-started/expo-go/)
