@@ -16,7 +16,7 @@ setInterval(() => {
 }, 1000);
 
 // Show the index.html by default
-app.get('/', (req, res) => res.sendFile('index.html'));
+app.get('/', (req, res) => res.sendFile('index.html', { root: '.' }));
 
 // Start the express server
 http.listen(3000, function(){
