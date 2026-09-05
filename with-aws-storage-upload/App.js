@@ -33,7 +33,7 @@ export default function App() {
 
   const takePhoto = async () => {
     let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: "Images",
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       aspect: [4, 3],
     });
 
