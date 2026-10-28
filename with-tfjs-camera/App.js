@@ -1,4 +1,4 @@
-import { Camera } from "expo-camera";
+import { useCameraPermissions } from "expo-camera";
 import React from "react";
 import { Button } from 'react-native';
 
@@ -8,7 +8,7 @@ import { useTensorFlowLoaded } from "./src/useTensorFlow";
 
 export default function App() {
   const isLoaded = useTensorFlowLoaded();
-  const [permission, requestPermission] = Camera.useCameraPermissions();
+  const [permission, requestPermission] = useCameraPermissions();
 
   if (!permission?.granted) {
     return (
@@ -17,7 +17,7 @@ export default function App() {
       </LoadingView>
     );
   }
-  
+
   if (!isLoaded) {
     return <LoadingView message="Loading TensorFlow" />;
   }

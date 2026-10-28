@@ -1,5 +1,5 @@
 import { cameraWithTensors } from '@tensorflow/tfjs-react-native';
-import { Camera } from 'expo-camera';
+import { CameraView } from 'expo-camera';
 import React from 'react';
 
 const TEXTURE_SIZE = { width: 1080, height: 1920 };
@@ -13,7 +13,7 @@ const TENSOR_SIZE = {
   height: TENSOR_WIDTH * CAMERA_RATIO,
 };
 
-const TensorCamera = cameraWithTensors(Camera);
+const TensorCamera = cameraWithTensors(CameraView);
 
 export function CustomTensorCamera({ style, width, ...props }) {
   const sizeStyle = React.useMemo(() => {
