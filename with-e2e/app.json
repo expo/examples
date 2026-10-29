@@ -23,7 +23,7 @@
       "package": "dev.expo.examples.withe2e"
     },
     "web": {
-      "output": "server",
+      "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [

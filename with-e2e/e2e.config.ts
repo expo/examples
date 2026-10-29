@@ -55,9 +55,15 @@ export default {
     {
       name: 'web',
       engine: web(),
+      // Port 0: the runner picks a free port and starts Expo for the web on it.
       app: {
-        url: 'http://localhost:8081',
-        command: { executable: 'npm', args: ['run', 'web'], reuseExisting: true },
+        url: 'http://127.0.0.1:0',
+        command: {
+          executable: 'npx',
+          args: ['expo', 'start', '--web', '--port', '{port}'],
+          env: { CI: '1' },
+          startupTimeout: 120_000,
+        },
       },
     },
   ],

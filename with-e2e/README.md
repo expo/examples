@@ -17,6 +17,12 @@ The app is one screen. Type a name, tap Greet, and it greets you. The form is bu
 
 [![Launch with Expo](https://github.com/expo/examples/blob/master/.gh-assets/launch.svg?raw=true)](https://launch.expo.dev/?github=https://github.com/expo/examples/tree/master/with-e2e)
 
+<p>
+  <img alt="The greeting form on iOS in light mode" src="./.gh-assets/ios-light.png" width="280" />
+  <img alt="The greeting form on iOS in dark mode" src="./.gh-assets/ios-dark.png" width="280" />
+  <img alt="The greeting form on Android" src="./.gh-assets/android.png" width="280" />
+</p>
+
 ## 🚀 Quick start
 
 ```bash
@@ -95,7 +101,7 @@ See [`e2e.config.ts`](e2e.config.ts) for the three targets. For your own app, fo
 npx skills add expo/skills
 ```
 
-Last checked on 2026-10-28 on an iPhone 17 simulator (iOS 26.5) with Expo SDK 58, e2e 0.21.3, @e2e-dev/mobile 0.12.4, and @e2e-dev/eas 0.3.2. The three locator tests passed; the agent tests skipped without a key.
+Last checked on 2026-10-29 with Expo SDK 58, e2e 0.21.3, @e2e-dev/mobile 0.12.4, @e2e-dev/web 0.15.3, and @e2e-dev/eas 0.3.2, from a fresh install of this folder. The three locator tests pass on an iPhone 17 simulator (iOS 26.5), a Pixel 9 emulator (Android 16), and the web. The agent tests skip without a key.
 
 ## 📝 Notes
 

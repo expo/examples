@@ -76,6 +76,7 @@ export function GreetingForm() {
             label="Greet"
             variant="filled"
             onPress={greet}
+            style={buttonStyle}
             modifiers={glassButtonModifiers}
           />
         </Column>
@@ -94,14 +95,18 @@ export function GreetingForm() {
   );
 }
 
+// Android: a Compose clickable under 48dp reports as two nodes and a test tap on it fails.
+// Material's default button is 40dp, so the button gets Android's minimum touch target.
+const buttonStyle: UniversalStyle | undefined = Platform.OS === 'android' ? { height: 48 } : undefined;
+
 // @expo/ui styles are a subset of View styles, so this one is typed on its own.
 const fieldStyle: UniversalStyle = {
   width: '100%',
   paddingHorizontal: Spacing.three,
   paddingVertical: Spacing.two + Spacing.one,
   borderRadius: Spacing.three,
-  borderWidth: StyleSheet.hairlineWidth,
-  borderColor: '#8A8F98',
+  borderWidth: 1,
+  borderColor: '#B0B4BA',
 };
 
 const styles = StyleSheet.create({

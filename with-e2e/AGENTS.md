@@ -64,6 +64,8 @@ Run lint, typecheck, and the e2e suite before you declare a task done.
 - `tests/deterministic.e2e.ts` holds three locator tests. `tests/agentic.e2e.ts` holds two agent tests. They skip without `AI_GATEWAY_API_KEY`.
 - Tests find elements by `testID`. Keep `name`, `greet`, `error`, and `greeting` on the form. Change the tests and the screen together.
 - On iOS, `@expo/ui` TextInput and Button expose `testID` as the accessibility identifier. `@expo/ui` Text does not. Put text the tests assert on in React Native `Text`, outside the `Host`.
+- Keep `web.output` as `single` in `app.json`. With server rendering, the page exists before React hydrates, and a test that fills or taps in that window loses its input.
+- On Android, keep the Greet button at least 48dp tall. A smaller Compose clickable reports as two nodes, and a test tap on it fails with "no parent-owned touch point".
 - Give the `@expo/ui` Button its text through `label`. A string child becomes a raw text node under a native view, and the app crashes at launch in a release build.
 - Pair every `agent.act` with a locator assertion that does not depend on the model.
 - `e2e.config.ts` has three targets: `ios`, `android`, and `web`. With `E2E_IOS_BUILD_ID` or `E2E_ANDROID_BUILD_ID` set, the mobile targets run on Expo Simulators. Without them, they drive the simulator or emulator on this machine.
