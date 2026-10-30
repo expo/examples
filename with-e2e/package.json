@@ -1,0 +1,46 @@
+{
+  "name": "with-e2e",
+  "version": "1.0.0",
+  "main": "expo-router/entry",
+  "dependencies": {
+    "@expo/ui": "~58.0.25",
+    "expo": "~58.0.21",
+    "expo-constants": "~58.0.14",
+    "expo-glass-effect": "~58.0.5",
+    "expo-linking": "~58.0.15",
+    "expo-router": "~58.0.28",
+    "expo-splash-screen": "~58.0.12",
+    "expo-status-bar": "~58.0.4",
+    "expo-system-ui": "~58.0.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-gesture-handler": "~3.3.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-web": "~0.21.4"
+  },
+  "devDependencies": {
+    "@e2e-dev/eas": "~0.3.2",
+    "@e2e-dev/mobile": "~0.12.4",
+    "@e2e-dev/web": "~0.15.3",
+    "@types/node": "~26.6.6",
+    "@types/react": "~19.3.0",
+    "ai": "~7.0.156",
+    "e2e": "~0.21.3",
+    "playwright": "~1.64.1",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "ios:release": "expo run:ios --configuration Release --no-bundler",
+    "android:release": "expo run:android --variant release --no-bundler",
+    "test:e2e:ios": "e2e run --target ios",
+    "test:e2e:android": "e2e run --target android",
+    "test:e2e:web": "e2e run --target web"
+  },
+  "private": true
+}

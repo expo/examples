@@ -1,0 +1,92 @@
+# Builds the app for both platforms, then runs the e2e suite on Expo Simulators.
+#
+# The test jobs run on Linux. @e2e-dev/eas leases a hosted iOS simulator or Android
+# emulator, EAS installs the build on it, and the tests drive it over agent-device.
+#
+# One-time setup, in the EAS dashboard for the `preview` environment:
+#   EXPO_TOKEN          a robot token with access to this project (secret). The
+#                       EAS Simulators provider authenticates with it.
+#   AI_GATEWAY_API_KEY  optional (secret). Without it the two agent tests skip.
+#
+# Run by hand:  npx eas-cli@latest workflow:run .eas/workflows/e2e.yml
+
+name: e2e
+
+on:
+  pull_request:
+    branches: ['*']
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+defaults:
+  tools:
+    node: '24'
+
+jobs:
+  build_ios:
+    name: Build iOS simulator app
+    type: build
+    params:
+      platform: ios
+      profile: e2e
+
+  build_android:
+    name: Build Android APK
+    type: build
+    params:
+      platform: android
+      profile: e2e
+
+  e2e_ios:
+    name: e2e on Expo Simulators (iOS)
+    needs: [build_ios]
+    runs_on: linux-medium
+    environment: preview
+    env:
+      CI: '1'
+      # Not EAS_BUILD_ID: EAS sets that one for this job itself.
+      E2E_IOS_BUILD_ID: ${{ needs.build_ios.outputs.build_id }}
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Check EAS credentials
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "EXPO_TOKEN is not set. Add it as a secret to the EAS 'preview' environment."
+            exit 1
+          fi
+      - name: Run e2e
+        run: npx e2e run --target ios --reporter list,junit
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: e2e-ios
+          path: .e2e
+
+  e2e_android:
+    name: e2e on Expo Simulators (Android)
+    needs: [build_android]
+    runs_on: linux-medium
+    environment: preview
+    env:
+      CI: '1'
+      E2E_ANDROID_BUILD_ID: ${{ needs.build_android.outputs.build_id }}
+    steps:
+      - uses: eas/checkout
+      - uses: eas/install_node_modules
+      - name: Check EAS credentials
+        run: |
+          if [ -z "$EXPO_TOKEN" ]; then
+            echo "EXPO_TOKEN is not set. Add it as a secret to the EAS 'preview' environment."
+            exit 1
+          fi
+      - name: Run e2e
+        run: npx e2e run --target android --reporter list,junit
+      - uses: eas/upload_artifact
+        if: ${{ always() }}
+        with:
+          type: other
+          name: e2e-android
+          path: .e2e
