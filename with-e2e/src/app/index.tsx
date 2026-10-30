@@ -1,78 +1,87 @@
-import { Image } from 'expo-image';
-import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { Image, KeyboardAvoidingView, Platform, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AnimatedIcon } from '@/components/animated-icon';
 import { GreetingForm } from '@/components/greeting-form';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { Spacing, useTheme } from '@/constants/theme';
 
 export default function GreetScreen() {
+  const theme = useTheme();
+
   return (
-    <ThemedView style={styles.container}>
-      {/* The hero shrinks when the keyboard opens, so the card stays above it. */}
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-        <SafeAreaView style={styles.safeArea}>
-          <View style={styles.hero}>
-            <AnimatedIcon />
-            <ThemedText type="title" style={styles.title} accessibilityRole="header">
-              Say hello
-            </ThemedText>
-            <ThemedText themeColor="textSecondary" style={styles.lede}>
-              Type a name and the app greets you. Five e2e tests check this screen.
-            </ThemedText>
+    <KeyboardAvoidingView
+      style={[styles.container, { backgroundColor: theme.background }]}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.hero}>
+          <View style={styles.logo}>
+            <Image style={styles.logoMark} source={require('@/assets/images/expo-logo.png')} />
           </View>
+          <Text style={[styles.title, { color: theme.text }]} accessibilityRole="header">
+            Say hello
+          </Text>
+          <Text style={[styles.lede, { color: theme.textSecondary }]}>
+            Type a name and the app greets you.
+          </Text>
+        </View>
 
-          <View style={styles.formArea}>
-            {/* The glow sits behind the card so the Liquid Glass has something to refract. */}
-            <Image
-              style={styles.glow}
-              source={require('@/assets/images/logo-glow.png')}
-              accessible={false}
-            />
-            <GreetingForm />
-          </View>
-
-          {Platform.OS === 'web' && <WebBadge />}
-        </SafeAreaView>
-      </KeyboardAvoidingView>
-    </ThemedView>
+        <View style={styles.formArea}>
+          {/* The glow sits behind the card so the Liquid Glass has something to refract. */}
+          <Image
+            style={styles.glow}
+            source={require('@/assets/images/logo-glow.png')}
+            accessible={false}
+          />
+          <GreetingForm />
+        </View>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
   },
   safeArea: {
     flex: 1,
+    width: '100%',
+    maxWidth: 600,
+    alignSelf: 'center',
     paddingHorizontal: Spacing.four,
-    alignItems: 'center',
+    paddingBottom: Spacing.four,
     gap: Spacing.four,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
   },
   hero: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
     gap: Spacing.three,
   },
+  logo: {
+    width: 112,
+    height: 112,
+    borderRadius: 34,
+    alignItems: 'center',
+    justifyContent: 'center',
+    experimental_backgroundImage: 'linear-gradient(180deg, #3C9FFE, #0274DF)',
+  },
+  logoMark: {
+    width: 66,
+    height: 62,
+  },
   title: {
+    fontSize: 48,
+    lineHeight: 52,
+    fontWeight: '600',
     textAlign: 'center',
   },
   lede: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '500',
     textAlign: 'center',
-    maxWidth: 320,
   },
   formArea: {
-    alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
   },

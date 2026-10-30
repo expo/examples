@@ -7,21 +7,16 @@ import {
   type TextInputRef,
   type UniversalStyle,
 } from '@expo/ui';
-import { GlassView } from 'expo-glass-effect';
+import { GlassView, isLiquidGlassAvailable } from 'expo-glass-effect';
 import { useRef, useState } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, Text as RNText, StyleSheet } from 'react-native';
 
 import { glassButtonModifiers } from '@/components/glass-button-modifiers';
-import { ThemedText } from '@/components/themed-text';
-import { Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { Spacing, useTheme } from '@/constants/theme';
 
-// The form is built from @expo/ui universal components: SwiftUI on iOS, Jetpack Compose on
-// Android, and React DOM on the web. Every tree lives inside one Host.
-//
-// testID is what the tests find with getByTestId: the accessibility identifier on iOS, the
-// resource id on Android, and data-testid on the web. The @expo/ui TextInput and Button expose
-// it. The result messages are React Native Text, which exposes it too.
+// The form is @expo/ui universal components: SwiftUI on iOS, Jetpack Compose on Android, and
+// React DOM on the web. The tests find elements by testID: the accessibility identifier on iOS,
+// the resource id on Android, and data-testid on the web.
 export function GreetingForm() {
   const theme = useTheme();
   const input = useRef<TextInputRef>(null);
@@ -43,19 +38,27 @@ export function GreetingForm() {
     input.current?.blur();
   }
 
+  const fieldStyle: UniversalStyle = {
+    width: '100%',
+    paddingHorizontal: Spacing.three,
+    paddingVertical: Spacing.two + Spacing.one,
+    borderRadius: Spacing.three,
+    backgroundColor: theme.field,
+  };
+
   return (
-    // GlassView is Liquid Glass on iOS 26 and later. Elsewhere it renders as a plain View, so
-    // the card gets a solid background color on Android, the web, and older iOS.
+    // GlassView is Liquid Glass on iOS 26 and later and a plain View everywhere else, so the
+    // card gets a solid color when Liquid Glass is not available.
+    // colorScheme is passed down so the glass and the SwiftUI views follow a live light or dark
+    // switch, which they otherwise miss until the next launch.
     <GlassView
       glassEffectStyle="regular"
-      style={[
-        styles.card,
-        Platform.OS !== 'ios' && { backgroundColor: theme.backgroundElement },
-      ]}>
-      {/* Size the host to its content's height only, so the field can fill the card's width. */}
-      <Host matchContents={{ vertical: true }} style={styles.host}>
+      colorScheme={theme.scheme}
+      style={[styles.card, !isLiquidGlassAvailable() && { backgroundColor: theme.card }]}>
+      {/* Size the host to its content's height only, so the field fills the card's width. */}
+      <Host matchContents={{ vertical: true }} colorScheme={theme.scheme} style={styles.host}>
         <Column spacing={Spacing.three} alignment="start">
-          <Text testID="name-label" textStyle={{ fontSize: 14, fontWeight: '500', color: theme.textSecondary }}>
+          <Text textStyle={{ fontSize: 14, fontWeight: '500', color: theme.textSecondary }}>
             Name
           </Text>
           <TextInput
@@ -70,7 +73,6 @@ export function GreetingForm() {
             style={fieldStyle}
             textStyle={{ fontSize: 17, color: theme.text }}
           />
-          {/* label, not a string child: a raw text node under a native view cannot mount. */}
           <Button
             testID="greet"
             label="Greet"
@@ -81,15 +83,16 @@ export function GreetingForm() {
           />
         </Column>
       </Host>
+      {/* React Native Text: @expo/ui Text does not expose testID on iOS. */}
       {error ? (
-        <ThemedText testID="error" accessibilityRole="alert" style={styles.error}>
+        <RNText testID="error" accessibilityRole="alert" style={[styles.message, { color: theme.error }]}>
           Enter a name first.
-        </ThemedText>
+        </RNText>
       ) : null}
       {greeted !== null ? (
-        <ThemedText testID="greeting" type="default" style={styles.greeting}>
+        <RNText testID="greeting" style={[styles.message, styles.greeting, { color: theme.text }]}>
           Hello, {greeted}!
-        </ThemedText>
+        </RNText>
       ) : null}
     </GlassView>
   );
@@ -99,16 +102,6 @@ export function GreetingForm() {
 // Material's default button is 40dp, so the button gets Android's minimum touch target.
 const buttonStyle: UniversalStyle | undefined = Platform.OS === 'android' ? { height: 48 } : undefined;
 
-// @expo/ui styles are a subset of View styles, so this one is typed on its own.
-const fieldStyle: UniversalStyle = {
-  width: '100%',
-  paddingHorizontal: Spacing.three,
-  paddingVertical: Spacing.two + Spacing.one,
-  borderRadius: Spacing.three,
-  borderWidth: 1,
-  borderColor: '#B0B4BA',
-};
-
 const styles = StyleSheet.create({
   card: {
     alignSelf: 'stretch',
@@ -117,13 +110,14 @@ const styles = StyleSheet.create({
     gap: Spacing.three,
     overflow: 'hidden',
   },
-  error: {
-    color: '#D93025',
+  host: {
+    alignSelf: 'stretch',
+  },
+  message: {
+    fontSize: 16,
+    lineHeight: 24,
   },
   greeting: {
     fontWeight: '600',
-  },
-  host: {
-    alignSelf: 'stretch',
   },
 });
