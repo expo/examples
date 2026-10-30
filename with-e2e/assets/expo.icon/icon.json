@@ -7,7 +7,7 @@
       "layers" : [
         {
           "image-name" : "expo-symbol.svg",
-          "name" : "expo-symbol 2",
+          "name" : "expo-symbol",
           "position" : {
             "scale" : 1,
             "translation-in-points" : [
