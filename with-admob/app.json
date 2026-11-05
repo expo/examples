@@ -1,0 +1,24 @@
+{
+  "name": "admob",
+  "slug": "admob",
+  "plugins": [
+    [
+      "react-native-google-mobile-ads",
+      {
+        "iosAppId": "ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx",
+        "androidAppId": "ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx"
+      }
+    ]
+  ],
+  "ios": {
+    "bundleIdentifier": "com.reinaldolejr.withadmob",
+    "infoPlist": {
+      "ITSAppUsesNonExemptEncryption": false,
+      "UIBackgroundModes": ["fetch", "remote-notification"]
+    },
+    "entitlements": {
+      "aps-environment": "development"
+    },
+    "jsEngine": "jsc"
+  }
+}
