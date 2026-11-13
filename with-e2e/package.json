@@ -21,13 +21,13 @@
     "react-native-web": "~0.21.4"
   },
   "devDependencies": {
-    "@e2e-dev/eas": "~0.3.2",
-    "@e2e-dev/mobile": "~0.12.4",
-    "@e2e-dev/web": "~0.15.3",
+    "@e2e-dev/eas": "~0.3.3",
+    "@e2e-dev/mobile": "~0.12.6",
+    "@e2e-dev/web": "~0.15.5",
     "@types/node": "~26.6.6",
     "@types/react": "~19.3.0",
     "ai": "~7.0.156",
-    "e2e": "~0.21.3",
+    "e2e": "~0.23.0",
     "playwright": "~1.64.1",
     "typescript": "~6.0.3"
   },
