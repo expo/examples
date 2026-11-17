@@ -43,6 +43,30 @@ npx expo start
 
 That's it!
 
+## 🔑 Sign in with GitHub
+
+In development, **Sign in with GitHub** uses [Mockatoo](https://mockatoo.globalunderdog.com), a free hosted mock of GitHub's OAuth, so it works without a GitHub OAuth app. It is set in `lib/auth.ts`:
+
+```ts
+plugins: [expo(), ...(isProduction ? [] : [mockGitHub(github)])],
+socialProviders: isProduction ? { github } : {},
+```
+
+In production, it uses GitHub. [Create a GitHub OAuth app](https://github.com/settings/developers) with the callback URL `<BETTER_AUTH_URL>/api/auth/callback/github` and set `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`.
+
+On iOS and Android, the Better Auth Expo plugin opens the sign-in page in the browser and returns to the app through a deep link.
+
+## 🧪 Tests
+
+The web sign-in tests use Playwright:
+
+```bash
+npx playwright install chromium
+npx playwright test
+```
+
+The first test checks that **Sign in with GitHub** opens the Mockatoo sign-in page. The full sign-in test is skipped unless `MOCKATOO_TEST_EMAIL` and `MOCKATOO_TEST_PASSWORD` are set. To run it, create a free test account at [app.mockatoo.globalunderdog.com](https://app.mockatoo.globalunderdog.com) and set both variables from its dashboard.
+
 ## 🗃️ Migrations
 
 - Run `npx @better-auth/cli generate` to update the `schema.prisma` file with the tables needed by Better Auth.

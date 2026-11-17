@@ -6,6 +6,7 @@ import {
   Text,
   StyleSheet,
   Alert,
+  Platform,
 } from "react-native";
 import { authClient } from "@/lib/auth-client";
 import { Link } from "expo-router";
@@ -22,6 +23,21 @@ export default function SignIn() {
     if (signInResponse.error) {
       Alert.alert("Error", signInResponse.error.message);
       return;
+    }
+  };
+
+  const handleGitHubLogin = async () => {
+    const signInResponse = await authClient.signIn.social({
+      provider: "github",
+      callbackURL: "/",
+    });
+    if (signInResponse.error) {
+      Alert.alert("Error", signInResponse.error.message);
+      return;
+    }
+    // On iOS and Android, the Expo plugin opens the browser itself.
+    if (Platform.OS === "web" && signInResponse.data?.url) {
+      window.location.href = signInResponse.data.url;
     }
   };
 
@@ -46,6 +62,7 @@ export default function SignIn() {
         secureTextEntry
       />
       <Button title="Sign in" onPress={handleLogin} />
+      <Button title="Sign in with GitHub" onPress={handleGitHubLogin} />
       <Link href="/(auth)/sign-up" asChild>
         <Button title="Sign up" />
       </Link>
